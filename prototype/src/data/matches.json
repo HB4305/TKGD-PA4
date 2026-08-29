@@ -1,0 +1,96 @@
+[
+  {
+    "id": 1,
+    "eventId": "freestyle-chess-demo-series",
+    "player1Id": "magnus-carlsen",
+    "player2Id": "fabiano-caruana",
+    "player1Elo": 2832,
+    "player2Elo": 2727,
+    "variant": "Chess960",
+    "startDate": "2026-08-29",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15616892",
+        "round": "02-01",
+        "whitePlayerId": "magnus-carlsen",
+        "blackPlayerId": "fabiano-caruana",
+        "result": "1/2-1/2",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-01/Carlsen_Magnus-Caruana_Fabiano"
+      },
+      {
+        "id": 2,
+        "embedId": "15619686",
+        "round": "02-02",
+        "whitePlayerId": "fabiano-caruana",
+        "blackPlayerId": "magnus-carlsen",
+        "result": "1/2-1/2",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-02/Caruana_Fabiano-Carlsen_Magnus"
+      },
+      {
+        "id": 3,
+        "embedId": "15619690",
+        "round": "02-03",
+        "whitePlayerId": "fabiano-caruana",
+        "blackPlayerId": "magnus-carlsen",
+
+        "result": "1-0",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-03/Caruana_Fabiano-Carlsen_Magnus"
+      },
+      {
+        "id": 4,
+        "embedId": "15619728",
+        "round": "02-04",
+        "whitePlayerId": "magnus-carlsen",
+        "blackPlayerId": "fabiano-caruana",
+        "result": "1/2-1/2",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-04/Carlsen_Magnus-Caruana_Fabiano"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "eventId": "freestyle-chess-demo-series",
+    "player1Id": "le-quang-liem",
+    "player2Id": "hikaru-nakamura",
+    "player1Elo": 2740,
+    "player2Elo": 2810,
+    "variant": "Chess960",
+    "startDate": "2026-08-29",
+    "status": "live",
+    "games": [
+      {
+        "id": 1,
+        "embedId": null,
+        "round": "03-01",
+        "whitePlayerId": "le-quang-liem",
+        "blackPlayerId": "hikaru-nakamura",
+        "result": "*",
+        "timeControl": "900+10",
+        "site": "Chess.com",
+        "sourceLink": null
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "magnus-carlsen",
+    "player2Id": "le-quang-liem",
+    "player1Elo": 2832,
+    "player2Elo": 2740,
+    "variant": "Chess960",
+    "startDate": "2026-08-30",
+    "status": "upcoming",
+    "games": []
+  }
+]

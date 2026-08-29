@@ -1,0 +1,38 @@
+[
+  {
+    "id": "magnus-carlsen",
+    "displayName": "Magnus Carlsen",
+    "sourceName": "Carlsen, Magnus",
+    "title": "GM",
+    "countryCode": "no",
+    "countryName": "Norway",
+    "photo": "https://images.chesscomfiles.com/uploads/v1/master_player/3b0ddf4e-bd82-11e8-9421-af517c2ebfed.f2dc9e34.80x80o.28b97e848ff6@2x.png"
+  },
+  {
+    "id": "fabiano-caruana",
+    "displayName": "Fabiano Caruana",
+    "sourceName": "Caruana, Fabiano",
+    "title": "GM",
+    "countryCode": "us",
+    "countryName": "United States",
+    "photo": "https://images.chesscomfiles.com/uploads/v1/master_player/c66cb17a-c005-11e8-886b-692f3468f8e7.b4d2d0e5.80x80o.1764d07c0008@2x.jpg"
+  },
+  {
+    "id": "le-quang-liem",
+    "displayName": "Le Quang Liem",
+    "sourceName": "Le, Quang Liem",
+    "title": "GM",
+    "countryCode": "vn",
+    "countryName": "Vietnam",
+    "photo": "https://images.chesscomfiles.com/uploads/v1/master_player/d46d920c-d6a9-11e8-b7a5-21bd8913c430.e41d0c84.80x80o.82676422c323@2x.png"
+  },
+  {
+    "id": "hikaru-nakamura",
+    "displayName": "Hikaru Nakamura",
+    "sourceName": "Nakamura, Hikaru",
+    "title": "GM",
+    "countryCode": "us",
+    "countryName": "United States",
+    "photo": "https://images.chesscomfiles.com/uploads/v1/master_player/5c8147c2-bd7f-11e8-863f-15ded6970bf6.e234e103.80x80o.f21d7c7c8cca@2x.jpg"
+  }
+]

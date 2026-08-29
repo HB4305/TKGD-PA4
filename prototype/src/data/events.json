@@ -1,0 +1,14 @@
+[
+  {
+    "id": "fide-freestyle-chess-world-championship",
+    "name": "FIDE Freestyle Chess World Championship",
+    "location": { "venue": "Weissenhaus Private Nature Luxury Resort", "city": "Weissenhaus", "country": "Germany" },
+    "format": "Chess960"
+  },
+  {
+    "id": "freestyle-chess-demo-series",
+    "name": "Freestyle Chess Demo Series",
+    "location": { "venue": null, "city": "Ho Chi Minh City", "country": "Vietnam" },
+    "format": "Chess960"
+  }
+]

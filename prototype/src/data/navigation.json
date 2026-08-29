@@ -1,0 +1,17 @@
+{
+  "primaryItems": [
+    { "id": "schedule", "label": "Schedule", "route": "/schedule", "icon": "calendarDays" },
+    { "id": "videos", "label": "Videos", "route": "/videos", "icon": "circlePlay", "url": "https://www.freestyle-chess.com/videos-streams/", "cropTopPx": 96 },
+    { "id": "home", "label": "Home", "route": "/", "icon": "house", "url": "https://www.freestyle-chess.com/", "cropTopPx": 96 },
+    { "id": "news", "label": "News", "route": "/news", "icon": "newspaper", "url": "https://www.freestyle-chess.com/news", "cropTopPx": 96 },
+    { "id": "more", "label": "More", "route": "", "icon": "ellipsis" }
+  ],
+  "moreItems": [
+    { "id": "rating", "label": "Rating", "route": "/rating", "icon": "rankingStar", "url": "https://www.freestyle-chess.com/freestyle-elo-table/", "cropTopPx": 96 },
+    { "id": "press-inquiries", "label": "Press Inquiries", "route": "/press-inquiries", "icon": "bullhorn", "url": "https://www.freestyle-chess.com/press-media/press-inquiries/", "cropTopPx": 96 },
+    { "id": "galleries", "label": "Galleries", "route": "/galleries", "icon": "images", "url": "https://www.freestyle-chess.com/press-media/galleries/", "cropTopPx": 96 },
+    { "id": "rules-club", "label": "Rules & Club", "route": "/rules-club", "icon": "bookOpen", "url": "https://www.freestyle-chess.com/fc-players-club-rules/", "cropTopPx": 96 },
+    { "id": "merch", "label": "Merch", "route": "/merch", "icon": "bagShopping", "url": "https://www.freestyle-chess.com/freestyle-chess-grand-slam-tour-2025-coffeetable-book/", "cropTopPx": 96 },
+    { "id": "masterclass", "label": "Masterclass", "route": "/masterclass", "icon": "graduationCap", "url": "https://www.freestyle-chess.com/master-freestyle-chess/", "cropTopPx": 96 }
+  ]
+}
