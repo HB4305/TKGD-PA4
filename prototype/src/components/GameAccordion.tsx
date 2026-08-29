@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown, faChevronUp, faClock, faLink, faSquare } from '@fortawesome/free-solid-svg-icons'
+import {
+    faSquare as faSquareRegular
+} from "@fortawesome/free-regular-svg-icons";
 import type { Game, Player } from '../types'
 import { displayTimeControl } from '../lib/schedule'
 import { ChessEmbed } from './ChessEmbed'
@@ -23,10 +26,10 @@ export function GameAccordion({ game, white, black, initiallyOpen }: GameAccordi
       </button>
       <div className="game-accordion__content" hidden={!isOpen} aria-hidden={!isOpen}>
         <dl>
-          <div><dt><FontAwesomeIcon icon={faSquare} /> White</dt><dd>{white.displayName}</dd></div>
+          <div><dt><FontAwesomeIcon icon={faSquareRegular} /> White</dt><dd>{white.displayName}</dd></div>
           <div><dt><FontAwesomeIcon icon={faSquare} /> Black</dt><dd>{black.displayName}</dd></div>
           <div><dt><FontAwesomeIcon icon={faClock} /> Time control</dt><dd>{displayTimeControl(game.timeControl)}</dd></div>
-          <div><dt><FontAwesomeIcon icon={faLink} /> Source</dt><dd>{game.sourceLink ? <a href={game.sourceLink} target="_blank" rel="noreferrer">{game.site ?? 'Chess.com'}</a> : (game.site ?? 'Chess.com')}</dd></div>
+          <div><dt><FontAwesomeIcon icon={faLink} /> Source</dt><dd>{game.sourceLink ? <a href={game.sourceLink} target="_blank" rel="noreferrer">{game.site ?? 'Chess.com'}</a> : (game.site ?? 'N/A')}</dd></div>
         </dl>
         {game.embedId && <ChessEmbed embedId={game.embedId} />}
       </div>

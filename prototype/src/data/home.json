@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "eyebrow": "THE NEXT MOVE IS YOURS",
+    "title": "Chess, reimagined from move one.",
+    "description": "Follow the world stage of Freestyle Chess, where elite players face fresh positions and every game begins with possibility."
+  },
+  "events": [
+    {
+      "id": "women-world-championship-2027",
+      "name": "Women FIDE Freestyle Chess World Championship 2027",
+      "dateLabel": "February 5–7, 2027",
+      "location": "Weissenhaus, Germany"
+    },
+    {
+      "id": "open-world-championship-2027",
+      "name": "FIDE Freestyle Chess World Championship 2027",
+      "dateLabel": "February 12–14, 2027",
+      "location": "Weissenhaus, Germany"
+    }
+  ],
+  "featuredNewsIds": [
+    "road-to-weissenhaus-2027",
+    "pranav-muzychuk-qualify-2027",
+    "vincent-keymer-wins-title"
+  ],
+  "featuredVideoIds": [
+    "irl-guess-the-elo",
+    "grenke-round-9",
+    "world-championship-day-3"
+  ]
+}

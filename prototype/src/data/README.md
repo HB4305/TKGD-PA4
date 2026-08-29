@@ -4,10 +4,15 @@ Only edit the JSON files in this folder when adding prototype content. IDs are s
 
 ## Files
 
-- `navigation.json`: navigation labels, route, Font Awesome icon key, official URL, and the number of pixels to crop from an embedded official page.
+- `navigation.json`: navigation labels, routes, Font Awesome icon keys, and reference URLs. The current Home, Videos, and News routes render local React pages; More routes render local placeholders.
 - `players.json`: player identity and presentation data. `title`, country fields, and `photo` must be filled manually when the PGN importer creates a new player.
 - `events.json`: event name and optional physical metadata. The importer creates an event with null location/format fields when it cannot find one.
 - `matches.json`: schedule and match-detail content. Match IDs are positive integers and the Schedule view sorts them ascending.
+- `home.json`: Home hero copy, upcoming events, and IDs that select featured news/videos.
+- `news.json`: article title, publication date, author, and official Freestyle Chess URL.
+- `videos.json`: video title, category, YouTube ID, URL, and thumbnail URL.
+
+Home references news and videos by stable ID. Every ID in `featuredNewsIds` and `featuredVideoIds` should exist in the corresponding JSON file. The News and Videos pages preserve the array order in their data files.
 
 ## Match shape
 

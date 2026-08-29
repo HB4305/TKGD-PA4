@@ -2,10 +2,13 @@
 
 Prototype giao diện Freestyle Chess được xây dựng bằng React, TypeScript và Vite. Giao diện được thiết kế mobile-first nhưng vẫn hoạt động như một trang web thông thường, có chiều rộng tối đa `1000px` và được căn giữa trên màn hình lớn.
 
-Prototype tập trung vào hai thiết kế chính:
+Prototype tập trung vào hai thiết kế chính và ba trang nội dung:
 
 - `Nav-1`: thanh điều hướng cố định ở đáy màn hình.
 - `Sch-2`: date strip, danh sách trận theo ngày và trang chi tiết trận đấu.
+- Home: tổng quan sự kiện, video và tin tức nổi bật.
+- Videos: video/stream có bộ lọc theo loại nội dung.
+- News: danh sách bài viết dẫn tới bài gốc của Freestyle Chess.
 
 ## Công nghệ đang sử dụng
 
@@ -127,11 +130,15 @@ prototype/
 │   │   ├── BrandHeader.tsx
 │   │   ├── ChessEmbed.tsx
 │   │   ├── DateStrip.tsx
-│   │   ├── ExternalPage.tsx
 │   │   ├── GameAccordion.tsx
 │   │   ├── MatchCard.tsx
+│   │   ├── NewsCard.tsx
 │   │   └── PlayerCard.tsx
+│   │   └── VideoCard.tsx
 │   ├── data/
+│   │   ├── home.json
+│   │   ├── news.json
+│   │   ├── videos.json
 │   │   ├── navigation.json
 │   │   ├── players.json
 │   │   ├── events.json
@@ -153,7 +160,10 @@ prototype/
 
 - `#/schedule`: danh sách trận đấu theo ngày.
 - `#/schedule/:matchId`: chi tiết một trận đấu.
-- Các route còn lại hiện được xử lý bởi `ExternalPage`.
+- `#/`: trang Home.
+- `#/videos`: thư viện video và stream.
+- `#/news`: danh sách tin tức.
+- Các route trong More hiện hiển thị placeholder “Coming soon”.
 
 [`src/components/BottomNavigation.tsx`](./src/components/BottomNavigation.tsx) tạo năm mục Schedule, Videos, Home, News và More. Danh sách route, URL và icon được đọc từ [`src/data/navigation.json`](./src/data/navigation.json).
 
@@ -185,6 +195,9 @@ Dữ liệu nằm trong [`src/data`](./src/data/):
 - `players.json`: tên, title, quốc gia và ảnh kỳ thủ.
 - `events.json`: tên giải, địa điểm và format.
 - `matches.json`: ngày bắt đầu, trạng thái, Elo cấp trận và danh sách game.
+- `home.json`: hero, sự kiện sắp tới và ID nội dung nổi bật.
+- `videos.json`: tên, loại, YouTube ID, thumbnail và link video.
+- `news.json`: tên bài viết, ngày, tác giả và link bài gốc.
 
 Schema chi tiết và những trường cần điền thủ công được mô tả trong [`src/data/README.md`](./src/data/README.md).
 
@@ -211,7 +224,8 @@ Importer validate toàn bộ dữ liệu trước khi cập nhật JSON, kiểm 
 
 ## Giới hạn hiện tại
 
-- Các trang từ `freestyle-chess.com` từ chối chạy trong iframe bằng CSP `frame-ancestors` và `X-Frame-Options`. Vì vậy các route dùng `ExternalPage` có thể hiển thị trang trắng hoặc thông báo bị chặn. Hướng thay thế dự kiến là xây dựng các trang React nội bộ thay cho iframe.
+- Các mục trong menu More mới là placeholder và chưa có nội dung hoàn chỉnh.
+- Nội dung Home, Videos và News là snapshot trong JSON; cần cập nhật thủ công khi trang chính thức có nội dung mới.
 - Chess.com board embed hiện hoạt động bình thường nhưng phụ thuộc vào dịch vụ bên ngoài và kết nối Internet.
 - Prototype là static frontend, không có backend hoặc hệ thống đăng nhập.
 

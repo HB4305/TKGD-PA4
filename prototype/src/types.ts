@@ -56,3 +56,40 @@ export interface NavigationData {
   primaryItems: NavigationItem[]
   moreItems: NavigationItem[]
 }
+
+export interface NewsArticle {
+  id: string
+  title: string
+  date: string
+  author: string
+  url: string
+}
+
+export type VideoCategory = 'stream' | 'original' | 'championship'
+
+export interface VideoItem {
+  id: string
+  title: string
+  category: VideoCategory
+  youtubeId: string
+  url: string
+  thumbnail: string
+}
+
+export interface HomeEvent {
+  id: string
+  name: string
+  dateLabel: string
+  location: string
+}
+
+export interface HomeData {
+  hero: {
+    eyebrow: string
+    title: string
+    description: string
+  }
+  events: HomeEvent[]
+  featuredNewsIds: string[]
+  featuredVideoIds: string[]
+}
