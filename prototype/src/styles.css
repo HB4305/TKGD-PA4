@@ -29,7 +29,7 @@ a { color: inherit; }
 .bottom-navigation__item--home.is-active svg { box-shadow: 0 0 0 3px rgba(228,189,132,.26), 0 4px 12px rgba(0,0,0,.28); }
 .bottom-navigation__item--home span { margin-top: -1px; }
 .more-backdrop { position: fixed; inset: -100dvh 0 0; z-index: -1; border: 0; background: rgba(0,0,0,.22); }
-.more-menu { position: absolute; right: 11px; left: 11px; bottom: 80px; overflow: hidden; border-radius: 16px; border: 1px solid #dfcfb9; background: #fffaf2; color: #171513; box-shadow: 0 13px 35px rgba(0,0,0,.32); }
+.more-menu { position: absolute; right: 10px; left: 10px; bottom: 80px; overflow: hidden; border-radius: 16px; border: 1px solid #dfcfb9; background: #fffaf2; color: #171513; box-shadow: 0 13px 35px rgba(0,0,0,.32); }
 .more-menu button { width: 100%; min-height: 48px; border: 0; border-bottom: 1px solid #eee2d4; background: transparent; display: flex; align-items: center; justify-content: center; gap: 12px; padding: 0 16px; text-align: center; font-weight: 700; }
 .more-menu button:last-child { border-bottom: 0; }
 .more-menu button:hover { background: #f2e6d5; }
@@ -52,12 +52,22 @@ h1, h2, p { margin-top: 0; }
 .date-picker-button__chevron { color: #806548; font-size: 11px; }
 .popover-content { z-index: 50; border: 1px solid #ddcbb4; border-radius: 14px; background: #fffdf9; box-shadow: 0 18px 45px rgba(48,35,23,.22); animation: popover-in .15s ease-out; }
 .date-picker-popover { padding: 10px; }
+.date-picker-today-button { width: 100%; min-height: 40px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; margin-top: 8px; border: 1px solid #cfb99c; border-radius: 9px; background: #fffaf3; color: #604831; font-size: 12px; font-weight: 850; }
+.date-picker-today-button:hover { border-color: #a87d4d; background: #f2e4d2; }
+.date-picker-today-button:focus-visible { outline: 3px solid rgba(178,139,93,.42); outline-offset: 2px; }
 @keyframes popover-in { from { opacity: 0; transform: translateY(-4px) scale(.98); } }
-.calendar__root { --rdp-accent-color: #171513; margin: 0; }
+.calendar__root { --rdp-accent-color: #171513; --rdp-animation_duration: 220ms; --rdp-animation_timing: cubic-bezier(.22, 1, .36, 1); margin: 0; }
 .calendar__months { position: relative; }
 .calendar__month { width: 280px; }
 .calendar__caption { height: 42px; display: flex; align-items: center; justify-content: center; }
 .calendar__caption-label { font-family: Georgia, serif; font-size: 17px; font-weight: 700; }
+.calendar__dropdowns { max-width: 190px; min-width: 0; gap: 6px; }
+.calendar__dropdown-root { min-width: 0; height: 36px; color: #3c3025; cursor: pointer; }
+.calendar__dropdown { cursor: pointer; }
+.calendar__dropdown-root .calendar__caption-label { min-width: 0; height: 100%; gap: 5px; padding: 0 8px 0 10px; overflow: hidden; font-family: inherit; font-size: 17px; font-weight: 800; text-overflow: ellipsis; }
+.calendar__months-dropdown + .calendar__caption-label { width: 120px; }
+.calendar__years-dropdown + .calendar__caption-label { width: 68px; }
+.calendar__chevron { flex: 0 0 auto; width: 13px; height: 13px; fill: #806548; }
 .calendar__nav { position: absolute; inset: 0 0 auto; display: flex; justify-content: space-between; pointer-events: none; }
 .calendar__nav-button { width: 40px; height: 40px; border: 0; border-radius: 9px; display: grid; place-items: center; background: transparent; color: #5d4b39; pointer-events: auto; }
 .calendar__nav-button:hover { background: #f0e4d4; }
@@ -70,6 +80,7 @@ h1, h2, p { margin-top: 0; }
 .calendar__day.is-today:not(.is-selected) .calendar__day-button { border: 2px solid #c99b62; color: #8a5c28; font-weight: 900; }
 .calendar__day.is-outside { opacity: .38; }
 .calendar__day.is-disabled { opacity: .25; }
+@media (prefers-reduced-motion: reduce) { .calendar__root { --rdp-animation_duration: 0.01ms; } }
 .date-strip__scroll { display: flex; gap: 6px; margin: 10px 0 12px; padding: 8px 16px 6px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; touch-action: pan-x pan-y; }
 .date-strip__scroll::-webkit-scrollbar { display: none; }
 .date-chip { flex: 0 0 calc((100% - 24px) / 5); width: auto; min-width: 0; min-height: 66px; padding: 6px 2px; border: 1px solid #ddcfbd; border-radius: 10px; background: #fffdf9; color: #25211d; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
