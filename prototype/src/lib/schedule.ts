@@ -37,12 +37,12 @@ export function formatScore(score: number) {
 
 export function displayTimeControl(value: string | null) {
   if (!value) return 'Time control unavailable'
-  const match = value.match(/^(\d+)\+(\d+)$/)
+  const match = value.match(/^(\d+)(?:\+(\d+))?$/)
   if (!match) return value
   const seconds = Number(match[1])
-  const increment = Number(match[2])
+  const increment = match[2] === undefined ? null : Number(match[2])
   const base = seconds % 60 === 0 ? `${seconds / 60} min` : `${seconds} sec`
-  return `${base} + ${increment} sec`
+  return increment === null ? base : `${base} + ${increment} sec`
 }
 
 export function normalisedIncludes(value: string, query: string) {

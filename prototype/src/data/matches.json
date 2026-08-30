@@ -1,63 +1,5 @@
 [
   {
-    "id": 1,
-    "eventId": "freestyle-chess-demo-series",
-    "player1Id": "magnus-carlsen",
-    "player2Id": "fabiano-caruana",
-    "player1Elo": 2832,
-    "player2Elo": 2727,
-    "variant": "Chess960",
-    "startDate": "2026-08-29",
-    "status": "completed",
-    "games": [
-      {
-        "id": 1,
-        "embedId": "15616892",
-        "round": "02-01",
-        "whitePlayerId": "magnus-carlsen",
-        "blackPlayerId": "fabiano-caruana",
-        "result": "1/2-1/2",
-        "timeControl": "1500+10",
-        "site": "Chess.com",
-        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-01/Carlsen_Magnus-Caruana_Fabiano"
-      },
-      {
-        "id": 2,
-        "embedId": "15619686",
-        "round": "02-02",
-        "whitePlayerId": "fabiano-caruana",
-        "blackPlayerId": "magnus-carlsen",
-        "result": "1/2-1/2",
-        "timeControl": "1500+10",
-        "site": "Chess.com",
-        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-02/Caruana_Fabiano-Carlsen_Magnus"
-      },
-      {
-        "id": 3,
-        "embedId": "15619690",
-        "round": "02-03",
-        "whitePlayerId": "fabiano-caruana",
-        "blackPlayerId": "magnus-carlsen",
-
-        "result": "0-1",
-        "timeControl": "1500+10",
-        "site": "Chess.com",
-        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-03/Caruana_Fabiano-Carlsen_Magnus"
-      },
-      {
-        "id": 4,
-        "embedId": "15619728",
-        "round": "02-04",
-        "whitePlayerId": "magnus-carlsen",
-        "blackPlayerId": "fabiano-caruana",
-        "result": "1/2-1/2",
-        "timeControl": "1500+10",
-        "site": "Chess.com",
-        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-04/Carlsen_Magnus-Caruana_Fabiano"
-      }
-    ]
-  },
-  {
     "id": 2,
     "eventId": "freestyle-chess-demo-series",
     "player1Id": "le-quang-liem",
@@ -92,5 +34,1100 @@
     "startDate": "2026-08-30",
     "status": "upcoming",
     "games": []
+  },
+  {
+    "id": 4,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "erigaisi-arjun",
+    "player2Id": "vincent-keymer",
+    "player1Elo": 2741,
+    "player2Elo": 2627,
+    "variant": "Chess960",
+    "startDate": "2026-08-18",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623224",
+        "round": "01",
+        "whitePlayerId": "erigaisi-arjun",
+        "blackPlayerId": "vincent-keymer",
+        "result": "1-0",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/01/Erigaisi_Arjun-Keymer_Vincent"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "nodirbek-abdusattorov",
+    "player2Id": "fabiano-caruana",
+    "player1Elo": 2703,
+    "player2Elo": 2727,
+    "variant": "Chess960",
+    "startDate": "2026-08-18",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623232",
+        "round": "01",
+        "whitePlayerId": "nodirbek-abdusattorov",
+        "blackPlayerId": "fabiano-caruana",
+        "result": "0-1",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/01/Abdusattorov_Nodirbek-Caruana_Fabiano"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "hans-moke-niemann",
+    "player2Id": "magnus-carlsen",
+    "player1Elo": 2646,
+    "player2Elo": 2832,
+    "variant": "Chess960",
+    "startDate": "2026-08-18",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623236",
+        "round": "01",
+        "whitePlayerId": "hans-moke-niemann",
+        "blackPlayerId": "magnus-carlsen",
+        "result": "1/2-1/2",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/01/Niemann_Hans_Moke-Carlsen_Magnus"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "javokhir-sindarov",
+    "player2Id": "levon-aronian",
+    "player1Elo": 2727,
+    "player2Elo": 2731,
+    "variant": "Chess960",
+    "startDate": "2026-08-18",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623258",
+        "round": "01",
+        "whitePlayerId": "javokhir-sindarov",
+        "blackPlayerId": "levon-aronian",
+        "result": "1-0",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/01/Sindarov_Javokhir-Aronian_Levon"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "vincent-keymer",
+    "player2Id": "levon-aronian",
+    "player1Elo": 2627,
+    "player2Elo": 2731,
+    "variant": "Chess960",
+    "startDate": "2026-08-19",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623306",
+        "round": "02",
+        "whitePlayerId": "vincent-keymer",
+        "blackPlayerId": "levon-aronian",
+        "result": "1-0",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/02/Keymer_Vincent-Aronian_Levon"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "magnus-carlsen",
+    "player2Id": "javokhir-sindarov",
+    "player1Elo": 2832,
+    "player2Elo": 2727,
+    "variant": "Chess960",
+    "startDate": "2026-08-19",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623346",
+        "round": "02",
+        "whitePlayerId": "magnus-carlsen",
+        "blackPlayerId": "javokhir-sindarov",
+        "result": "1-0",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/02/Carlsen_Magnus-Sindarov_Javokhir"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "fabiano-caruana",
+    "player2Id": "hans-moke-niemann",
+    "player1Elo": 2727,
+    "player2Elo": 2646,
+    "variant": "Chess960",
+    "startDate": "2026-08-19",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623348",
+        "round": "02",
+        "whitePlayerId": "fabiano-caruana",
+        "blackPlayerId": "hans-moke-niemann",
+        "result": "1-0",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/02/Caruana_Fabiano-Niemann_Hans_Moke"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "erigaisi-arjun",
+    "player2Id": "nodirbek-abdusattorov",
+    "player1Elo": 2741,
+    "player2Elo": 2703,
+    "variant": "Chess960",
+    "startDate": "2026-08-19",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623352",
+        "round": "02",
+        "whitePlayerId": "erigaisi-arjun",
+        "blackPlayerId": "nodirbek-abdusattorov",
+        "result": "0-1",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/02/Erigaisi_Arjun-Abdusattorov_Nodirbek"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "nodirbek-abdusattorov",
+    "player2Id": "vincent-keymer",
+    "player1Elo": 2703,
+    "player2Elo": 2627,
+    "variant": "Chess960",
+    "startDate": "2026-08-20",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623356",
+        "round": "03",
+        "whitePlayerId": "nodirbek-abdusattorov",
+        "blackPlayerId": "vincent-keymer",
+        "result": "1/2-1/2",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/03/Abdusattorov_Nodirbek-Keymer_Vincent"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "hans-moke-niemann",
+    "player2Id": "erigaisi-arjun",
+    "player1Elo": 2646,
+    "player2Elo": 2741,
+    "variant": "Chess960",
+    "startDate": "2026-08-20",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623360",
+        "round": "03",
+        "whitePlayerId": "hans-moke-niemann",
+        "blackPlayerId": "erigaisi-arjun",
+        "result": "1-0",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/03/Niemann_Hans_Moke-Erigaisi_Arjun"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "javokhir-sindarov",
+    "player2Id": "fabiano-caruana",
+    "player1Elo": 2727,
+    "player2Elo": 2727,
+    "variant": "Chess960",
+    "startDate": "2026-08-20",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623368",
+        "round": "03",
+        "whitePlayerId": "javokhir-sindarov",
+        "blackPlayerId": "fabiano-caruana",
+        "result": "1/2-1/2",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/03/Sindarov_Javokhir-Caruana_Fabiano"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "levon-aronian",
+    "player2Id": "magnus-carlsen",
+    "player1Elo": 2731,
+    "player2Elo": 2832,
+    "variant": "Chess960",
+    "startDate": "2026-08-20",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623376",
+        "round": "03",
+        "whitePlayerId": "levon-aronian",
+        "blackPlayerId": "magnus-carlsen",
+        "result": "0-1",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/03/Aronian_Levon-Carlsen_Magnus"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "vincent-keymer",
+    "player2Id": "magnus-carlsen",
+    "player1Elo": 2627,
+    "player2Elo": 2832,
+    "variant": "Chess960",
+    "startDate": "2026-08-21",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623378",
+        "round": "04",
+        "whitePlayerId": "vincent-keymer",
+        "blackPlayerId": "magnus-carlsen",
+        "result": "1/2-1/2",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/04/Keymer_Vincent-Carlsen_Magnus"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "fabiano-caruana",
+    "player2Id": "levon-aronian",
+    "player1Elo": 2727,
+    "player2Elo": 2731,
+    "variant": "Chess960",
+    "startDate": "2026-08-21",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623380",
+        "round": "04",
+        "whitePlayerId": "fabiano-caruana",
+        "blackPlayerId": "levon-aronian",
+        "result": "1/2-1/2",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/04/Caruana_Fabiano-Aronian_Levon"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "erigaisi-arjun",
+    "player2Id": "javokhir-sindarov",
+    "player1Elo": 2741,
+    "player2Elo": 2727,
+    "variant": "Chess960",
+    "startDate": "2026-08-21",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623382",
+        "round": "04",
+        "whitePlayerId": "erigaisi-arjun",
+        "blackPlayerId": "javokhir-sindarov",
+        "result": "1-0",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/04/Erigaisi_Arjun-Sindarov_Javokhir"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "nodirbek-abdusattorov",
+    "player2Id": "hans-moke-niemann",
+    "player1Elo": 2703,
+    "player2Elo": 2646,
+    "variant": "Chess960",
+    "startDate": "2026-08-21",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623384",
+        "round": "04",
+        "whitePlayerId": "nodirbek-abdusattorov",
+        "blackPlayerId": "hans-moke-niemann",
+        "result": "0-1",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/04/Abdusattorov_Nodirbek-Niemann_Hans_Moke"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "hans-moke-niemann",
+    "player2Id": "vincent-keymer",
+    "player1Elo": 2646,
+    "player2Elo": 2627,
+    "variant": "Chess960",
+    "startDate": "2026-08-23",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623394",
+        "round": "05",
+        "whitePlayerId": "hans-moke-niemann",
+        "blackPlayerId": "vincent-keymer",
+        "result": "0-1",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/05/Niemann_Hans_Moke-Keymer_Vincent"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "javokhir-sindarov",
+    "player2Id": "nodirbek-abdusattorov",
+    "player1Elo": 2727,
+    "player2Elo": 2703,
+    "variant": "Chess960",
+    "startDate": "2026-08-23",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623396",
+        "round": "05",
+        "whitePlayerId": "javokhir-sindarov",
+        "blackPlayerId": "nodirbek-abdusattorov",
+        "result": "0-1",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/05/Sindarov_Javokhir-Abdusattorov_Nodirbek"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "levon-aronian",
+    "player2Id": "erigaisi-arjun",
+    "player1Elo": 2731,
+    "player2Elo": 2741,
+    "variant": "Chess960",
+    "startDate": "2026-08-23",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623398",
+        "round": "05",
+        "whitePlayerId": "levon-aronian",
+        "blackPlayerId": "erigaisi-arjun",
+        "result": "1-0",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/05/Aronian_Levon-Erigaisi_Arjun"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "magnus-carlsen",
+    "player2Id": "fabiano-caruana",
+    "player1Elo": 2832,
+    "player2Elo": 2727,
+    "variant": "Chess960",
+    "startDate": "2026-08-23",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623400",
+        "round": "05",
+        "whitePlayerId": "magnus-carlsen",
+        "blackPlayerId": "fabiano-caruana",
+        "result": "1-0",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/05/Carlsen_Magnus-Caruana_Fabiano"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "vincent-keymer",
+    "player2Id": "fabiano-caruana",
+    "player1Elo": 2627,
+    "player2Elo": 2727,
+    "variant": "Chess960",
+    "startDate": "2026-08-24",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623404",
+        "round": "06",
+        "whitePlayerId": "vincent-keymer",
+        "blackPlayerId": "fabiano-caruana",
+        "result": "1-0",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/06/Keymer_Vincent-Caruana_Fabiano"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "erigaisi-arjun",
+    "player2Id": "magnus-carlsen",
+    "player1Elo": 2741,
+    "player2Elo": 2832,
+    "variant": "Chess960",
+    "startDate": "2026-08-24",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623410",
+        "round": "06",
+        "whitePlayerId": "erigaisi-arjun",
+        "blackPlayerId": "magnus-carlsen",
+        "result": "1-0",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/06/Erigaisi_Arjun-Carlsen_Magnus"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "nodirbek-abdusattorov",
+    "player2Id": "levon-aronian",
+    "player1Elo": 2703,
+    "player2Elo": 2731,
+    "variant": "Chess960",
+    "startDate": "2026-08-24",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623412",
+        "round": "06",
+        "whitePlayerId": "nodirbek-abdusattorov",
+        "blackPlayerId": "levon-aronian",
+        "result": "1-0",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/06/Abdusattorov_Nodirbek-Aronian_Levon"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "hans-moke-niemann",
+    "player2Id": "javokhir-sindarov",
+    "player1Elo": 2646,
+    "player2Elo": 2727,
+    "variant": "Chess960",
+    "startDate": "2026-08-24",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623414",
+        "round": "06",
+        "whitePlayerId": "hans-moke-niemann",
+        "blackPlayerId": "javokhir-sindarov",
+        "result": "1/2-1/2",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/06/Niemann_Hans_Moke-Sindarov_Javokhir"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "javokhir-sindarov",
+    "player2Id": "vincent-keymer",
+    "player1Elo": 2727,
+    "player2Elo": 2627,
+    "variant": "Chess960",
+    "startDate": "2026-08-25",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623418",
+        "round": "07",
+        "whitePlayerId": "javokhir-sindarov",
+        "blackPlayerId": "vincent-keymer",
+        "result": "1-0",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/07/Sindarov_Javokhir-Keymer_Vincent"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "levon-aronian",
+    "player2Id": "hans-moke-niemann",
+    "player1Elo": 2731,
+    "player2Elo": 2646,
+    "variant": "Chess960",
+    "startDate": "2026-08-25",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623422",
+        "round": "07",
+        "whitePlayerId": "levon-aronian",
+        "blackPlayerId": "hans-moke-niemann",
+        "result": "1/2-1/2",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/07/Aronian_Levon-Niemann_Hans_Moke"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "magnus-carlsen",
+    "player2Id": "nodirbek-abdusattorov",
+    "player1Elo": 2832,
+    "player2Elo": 2703,
+    "variant": "Chess960",
+    "startDate": "2026-08-25",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623424",
+        "round": "07",
+        "whitePlayerId": "magnus-carlsen",
+        "blackPlayerId": "nodirbek-abdusattorov",
+        "result": "1/2-1/2",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/07/Carlsen_Magnus-Abdusattorov_Nodirbek"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "fabiano-caruana",
+    "player2Id": "erigaisi-arjun",
+    "player1Elo": 2727,
+    "player2Elo": 2741,
+    "variant": "Chess960",
+    "startDate": "2026-08-25",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623430",
+        "round": "07",
+        "whitePlayerId": "fabiano-caruana",
+        "blackPlayerId": "erigaisi-arjun",
+        "result": "1-0",
+        "timeControl": "600+5",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-round-robin/07/Caruana_Fabiano-Erigaisi_Arjun"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "hans-moke-niemann",
+    "player2Id": "levon-aronian",
+    "player1Elo": 2646,
+    "player2Elo": 2731,
+    "variant": "Chess960",
+    "startDate": "2026-08-27",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623756",
+        "round": "01-01",
+        "whitePlayerId": "hans-moke-niemann",
+        "blackPlayerId": "levon-aronian",
+        "result": "1-0",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-5th-8th-place/01-01/Niemann_Hans_Moke-Aronian_Levon"
+      },
+      {
+        "id": 2,
+        "embedId": "15623758",
+        "round": "01-02",
+        "whitePlayerId": "levon-aronian",
+        "blackPlayerId": "hans-moke-niemann",
+        "result": "1-0",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-5th-8th-place/01-02/Aronian_Levon-Niemann_Hans_Moke"
+      },
+      {
+        "id": 3,
+        "embedId": "15623760",
+        "round": "01-03",
+        "whitePlayerId": "levon-aronian",
+        "blackPlayerId": "hans-moke-niemann",
+        "result": "0-1",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-5th-8th-place/01-03/Aronian_Levon-Niemann_Hans_Moke"
+      },
+      {
+        "id": 4,
+        "embedId": "15623762",
+        "round": "01-04",
+        "whitePlayerId": "hans-moke-niemann",
+        "blackPlayerId": "levon-aronian",
+        "result": "1/2-1/2",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-5th-8th-place/01-04/Niemann_Hans_Moke-Aronian_Levon"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "erigaisi-arjun",
+    "player2Id": "javokhir-sindarov",
+    "player1Elo": 2741,
+    "player2Elo": 2727,
+    "variant": "Chess960",
+    "startDate": "2026-08-27",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623764",
+        "round": "01-01",
+        "whitePlayerId": "erigaisi-arjun",
+        "blackPlayerId": "javokhir-sindarov",
+        "result": "1/2-1/2",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-5th-8th-place/01-01/Erigaisi_Arjun-Sindarov_Javokhir"
+      },
+      {
+        "id": 2,
+        "embedId": "15623770",
+        "round": "01-02",
+        "whitePlayerId": "javokhir-sindarov",
+        "blackPlayerId": "erigaisi-arjun",
+        "result": "1/2-1/2",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-5th-8th-place/01-02/Sindarov_Javokhir-Erigaisi_Arjun"
+      },
+      {
+        "id": 3,
+        "embedId": "15623772",
+        "round": "01-03",
+        "whitePlayerId": "javokhir-sindarov",
+        "blackPlayerId": "erigaisi-arjun",
+        "result": "0-1",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-5th-8th-place/01-03/Sindarov_Javokhir-Erigaisi_Arjun"
+      },
+      {
+        "id": 4,
+        "embedId": "15623776",
+        "round": "01-04",
+        "whitePlayerId": "erigaisi-arjun",
+        "blackPlayerId": "javokhir-sindarov",
+        "result": "1-0",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-5th-8th-place/01-04/Erigaisi_Arjun-Sindarov_Javokhir"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "javokhir-sindarov",
+    "player2Id": "levon-aronian",
+    "player1Elo": 2662,
+    "player2Elo": 2749,
+    "variant": "Chess960",
+    "startDate": "2026-08-28",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623804",
+        "round": "02-01",
+        "whitePlayerId": "javokhir-sindarov",
+        "blackPlayerId": "levon-aronian",
+        "result": "0-1",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-5th-8th-place/02-01/Sindarov_Javokhir-Aronian_Levon"
+      },
+      {
+        "id": 2,
+        "embedId": "15623810",
+        "round": "02-02",
+        "whitePlayerId": "levon-aronian",
+        "blackPlayerId": "javokhir-sindarov",
+        "result": "0-1",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-5th-8th-place/02-02/Aronian_Levon-Sindarov_Javokhir"
+      },
+      {
+        "id": 3,
+        "embedId": "15623814",
+        "round": "02-03",
+        "whitePlayerId": "levon-aronian",
+        "blackPlayerId": "javokhir-sindarov",
+        "result": "1-0",
+        "timeControl": "600",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-5th-8th-place/02-03/Aronian_Levon-Sindarov_Javokhir"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "erigaisi-arjun",
+    "player2Id": "hans-moke-niemann",
+    "player1Elo": 2741,
+    "player2Elo": 2646,
+    "variant": "Chess960",
+    "startDate": "2026-08-28",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623818",
+        "round": "02-01",
+        "whitePlayerId": "erigaisi-arjun",
+        "blackPlayerId": "hans-moke-niemann",
+        "result": "0-1",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-5th-8th-place/02-01/Erigaisi_Arjun-Niemann_Hans_Moke"
+      },
+      {
+        "id": 2,
+        "embedId": "15623820",
+        "round": "02-02",
+        "whitePlayerId": "hans-moke-niemann",
+        "blackPlayerId": "erigaisi-arjun",
+        "result": "1-0",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-5th-8th-place/02-02/Niemann_Hans_Moke-Erigaisi_Arjun"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "vincent-keymer",
+    "player2Id": "fabiano-caruana",
+    "player1Elo": 2627,
+    "player2Elo": 2727,
+    "variant": "Chess960",
+    "startDate": "2026-08-27",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623830",
+        "round": "01-01",
+        "whitePlayerId": "vincent-keymer",
+        "blackPlayerId": "fabiano-caruana",
+        "result": "0-1",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/01-01/Keymer_Vincent-Caruana_Fabiano"
+      },
+      {
+        "id": 2,
+        "embedId": "15623834",
+        "round": "01-02",
+        "whitePlayerId": "fabiano-caruana",
+        "blackPlayerId": "vincent-keymer",
+        "result": "1/2-1/2",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/01-02/Caruana_Fabiano-Keymer_Vincent"
+      },
+      {
+        "id": 3,
+        "embedId": "15623836",
+        "round": "01-03",
+        "whitePlayerId": "fabiano-caruana",
+        "blackPlayerId": "vincent-keymer",
+        "result": "0-1",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/01-03/Caruana_Fabiano-Keymer_Vincent"
+      },
+      {
+        "id": 4,
+        "embedId": "15623838",
+        "round": "01-04",
+        "whitePlayerId": "vincent-keymer",
+        "blackPlayerId": "fabiano-caruana",
+        "result": "0-1",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/01-04/Keymer_Vincent-Caruana_Fabiano"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "nodirbek-abdusattorov",
+    "player2Id": "magnus-carlsen",
+    "player1Elo": 2703,
+    "player2Elo": 2832,
+    "variant": "Chess960",
+    "startDate": "2026-08-27",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623848",
+        "round": "01-01",
+        "whitePlayerId": "nodirbek-abdusattorov",
+        "blackPlayerId": "magnus-carlsen",
+        "result": "1/2-1/2",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/01-01/Abdusattorov_Nodirbek-Carlsen_Magnus"
+      },
+      {
+        "id": 2,
+        "embedId": "15623852",
+        "round": "01-02",
+        "whitePlayerId": "magnus-carlsen",
+        "blackPlayerId": "nodirbek-abdusattorov",
+        "result": "1/2-1/2",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/01-02/Carlsen_Magnus-Abdusattorov_Nodirbek"
+      },
+      {
+        "id": 3,
+        "embedId": "15623854",
+        "round": "01-03",
+        "whitePlayerId": "magnus-carlsen",
+        "blackPlayerId": "nodirbek-abdusattorov",
+        "result": "1-0",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/01-03/Carlsen_Magnus-Abdusattorov_Nodirbek"
+      },
+      {
+        "id": 4,
+        "embedId": "15623856",
+        "round": "01-04",
+        "whitePlayerId": "nodirbek-abdusattorov",
+        "blackPlayerId": "magnus-carlsen",
+        "result": "0-1",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/01-04/Abdusattorov_Nodirbek-Carlsen_Magnus"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "nodirbek-abdusattorov",
+    "player2Id": "vincent-keymer",
+    "player1Elo": 2703,
+    "player2Elo": 2627,
+    "variant": "Chess960",
+    "startDate": "2026-08-28",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623860",
+        "round": "02-01",
+        "whitePlayerId": "nodirbek-abdusattorov",
+        "blackPlayerId": "vincent-keymer",
+        "result": "1/2-1/2",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-01/Abdusattorov_Nodirbek-Keymer_Vincent"
+      },
+      {
+        "id": 2,
+        "embedId": "15623864",
+        "round": "02-02",
+        "whitePlayerId": "vincent-keymer",
+        "blackPlayerId": "nodirbek-abdusattorov",
+        "result": "0-1",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-02/Keymer_Vincent-Abdusattorov_Nodirbek"
+      },
+      {
+        "id": 3,
+        "embedId": "15623870",
+        "round": "02-03",
+        "whitePlayerId": "vincent-keymer",
+        "blackPlayerId": "nodirbek-abdusattorov",
+        "result": "1/2-1/2",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-03/Keymer_Vincent-Abdusattorov_Nodirbek"
+      },
+      {
+        "id": 4,
+        "embedId": "15623878",
+        "round": "02-04",
+        "whitePlayerId": "nodirbek-abdusattorov",
+        "blackPlayerId": "vincent-keymer",
+        "result": "1/2-1/2",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-04/Abdusattorov_Nodirbek-Keymer_Vincent"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "eventId": "fide-freestyle-chess-world-championship",
+    "player1Id": "magnus-carlsen",
+    "player2Id": "fabiano-caruana",
+    "player1Elo": 2832,
+    "player2Elo": 2727,
+    "variant": "Chess960",
+    "startDate": "2026-08-28",
+    "status": "completed",
+    "games": [
+      {
+        "id": 1,
+        "embedId": "15623880",
+        "round": "02-01",
+        "whitePlayerId": "magnus-carlsen",
+        "blackPlayerId": "fabiano-caruana",
+        "result": "1/2-1/2",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-01/Carlsen_Magnus-Caruana_Fabiano"
+      },
+      {
+        "id": 2,
+        "embedId": "15623882",
+        "round": "02-02",
+        "whitePlayerId": "fabiano-caruana",
+        "blackPlayerId": "magnus-carlsen",
+        "result": "1/2-1/2",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-02/Caruana_Fabiano-Carlsen_Magnus"
+      },
+      {
+        "id": 3,
+        "embedId": "15623886",
+        "round": "02-03",
+        "whitePlayerId": "fabiano-caruana",
+        "blackPlayerId": "magnus-carlsen",
+        "result": "0-1",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-03/Caruana_Fabiano-Carlsen_Magnus"
+      },
+      {
+        "id": 4,
+        "embedId": "15623888",
+        "round": "02-04",
+        "whitePlayerId": "magnus-carlsen",
+        "blackPlayerId": "fabiano-caruana",
+        "result": "1/2-1/2",
+        "timeControl": "1500+10",
+        "site": "Chess.com",
+        "sourceLink": "https://www.chess.com/events/2026-fide-freestyle-chess-world-championship-finals/02-04/Carlsen_Magnus-Caruana_Fabiano"
+      }
+    ]
   }
 ]

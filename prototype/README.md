@@ -213,12 +213,10 @@ pnpm data:import-match
 
 Mỗi lần chạy tạo đúng một match mới. Quy trình nhập:
 
-1. Nhập Chess.com embed ID.
-2. Paste PGN tag block của game.
-3. Nhập một dòng trống để kết thúc block.
-4. Chọn có nhập thêm game thuộc cùng match hay không.
-5. Kiểm tra preview.
-6. Xác nhận để ghi dữ liệu.
+1. Nhập Chess.com embed ID; có thể paste trực tiếp `[gid=15623306]` thay cho số ID.
+2. Paste toàn bộ PGN export của game, gồm cả movetext nếu có. Importer chỉ lấy các tag cần thiết và bỏ qua FEN, SetUp cùng nước đi.
+3. Khi movetext kết thúc bằng `1-0`, `0-1`, `1/2-1/2` hoặc `*`, game tự kết thúc. Với PGN chỉ có tags, nhập `END` trên một dòng riêng.
+4. Chọn có nhập thêm game thuộc cùng match hay không, kiểm tra preview và xác nhận ghi dữ liệu.
 
 Importer validate toàn bộ dữ liệu trước khi cập nhật JSON, kiểm tra embed ID trùng, sắp xếp game theo Round và ghi file thông qua file tạm để tránh cập nhật dở dang.
 

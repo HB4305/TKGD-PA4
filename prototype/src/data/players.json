@@ -34,5 +34,59 @@
     "countryCode": "us",
     "countryName": "United States",
     "photo": "https://images.chesscomfiles.com/uploads/v1/master_player/5c8147c2-bd7f-11e8-863f-15ded6970bf6.e234e103.80x80o.f21d7c7c8cca@2x.jpg"
+  },
+  {
+    "id": "erigaisi-arjun",
+    "displayName": "Erigaisi Arjun",
+    "sourceName": "Erigaisi Arjun",
+    "title": "GM",
+    "countryCode": "in",
+    "countryName": "India",
+    "photo": "https://images.chesscomfiles.com/uploads/v1/master_player/2c5ae412-93e8-11eb-b363-812424cd84fb.21f56747.80x80o.3aceddb5f7f5@2x.jpg"
+  },
+  {
+    "id": "vincent-keymer",
+    "displayName": "Vincent Keymer",
+    "sourceName": "Keymer, Vincent",
+    "title": "GM",
+    "countryCode": "de",
+    "countryName": "Germany",
+    "photo": "https://images.chesscomfiles.com/uploads/v1/master_player/c63f0376-98cd-11eb-9680-8b9564782d71.dac7492c.80x80o.e3e047be76ac@2x.jpg"
+  },
+  {
+    "id": "nodirbek-abdusattorov",
+    "displayName": "Nodirbek Abdusattorov",
+    "sourceName": "Abdusattorov, Nodirbek",
+    "title": "GM",
+    "countryCode": "uz",
+    "countryName": "Uzbekistan",
+    "photo": "https://images.chesscomfiles.com/uploads/v1/master_player/31312204-98ce-11eb-a526-bf8e17d64341.9d09bea2.80x80o.e72a9770f580@2x.jpg"
+  },
+  {
+    "id": "hans-moke-niemann",
+    "displayName": "Hans Moke Niemann",
+    "sourceName": "Niemann, Hans Moke",
+    "title": "GM",
+    "countryCode": "us",
+    "countryName": "United States",
+    "photo": "https://images.chesscomfiles.com/uploads/v1/master_player/b34c1146-a755-11eb-94fe-5d245201b0d3.2e263f3b.80x80o.f73a40dd9883@2x.jpg"
+  },
+  {
+    "id": "javokhir-sindarov",
+    "displayName": "Javokhir Sindarov",
+    "sourceName": "Sindarov, Javokhir",
+    "title": "GM",
+    "countryCode": "uz",
+    "countryName": "Uzbekistan",
+    "photo": "https://images.chesscomfiles.com/uploads/v1/master_player/35f7187a-a756-11eb-8022-7f37ffc71412.7d6088cb.80x80o.24d92ad40a6a@2x.jpeg"
+  },
+  {
+    "id": "levon-aronian",
+    "displayName": "Levon Aronian",
+    "sourceName": "Aronian, Levon",
+    "title": "GM",
+    "countryCode": "us",
+    "countryName": "United States",
+    "photo": "https://images.chesscomfiles.com/uploads/v1/master_player/4118050c-c004-11e8-bb10-a1a4e591dae7.1cb2c9a8.80x80o.fa4341035a6c@2x.jpeg"
   }
 ]

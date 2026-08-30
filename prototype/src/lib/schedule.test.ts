@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatScore, matchScore, normalisedIncludes } from './schedule'
+import { displayTimeControl, formatScore, matchScore, normalisedIncludes } from './schedule'
 import type { Match } from '../types'
 
 const match: Match = {
@@ -26,5 +26,11 @@ describe('schedule helpers', () => {
 
   it('matches search text without accents or case', () => {
     expect(normalisedIncludes('Lê Quang Liêm', 'le quang')).toBe(true)
+  })
+
+  it('formats fixed and incremental time controls', () => {
+    expect(displayTimeControl('600')).toBe('10 min')
+    expect(displayTimeControl('600+5')).toBe('10 min + 5 sec')
+    expect(displayTimeControl('90')).toBe('90 sec')
   })
 })

@@ -33,6 +33,12 @@ export function parsePgnHeaders(block) {
   return tags
 }
 
+export function normaliseEmbedId(value) {
+  const trimmed = String(value ?? '').trim()
+  const gid = trimmed.match(/^\[gid\s*=\s*([^\]\s]+)\s*\]$/i)
+  return gid ? gid[1] : trimmed
+}
+
 export function parseDate(value) {
   if (!/^\d{4}\.\d{2}\.\d{2}$/.test(value ?? '')) throw new Error(`Invalid PGN Date: ${value ?? '(missing)'}`)
   return value.replaceAll('.', '-')
@@ -63,7 +69,7 @@ function parseElo(tags, key) {
 export function makeGameInput(tags, embedId, inputIndex) {
   const result = required(tags, 'Result')
   if (!allowedResults.has(result)) throw new Error(`Unsupported Result: ${result}`)
-  const numericEmbedId = String(embedId).trim()
+  const numericEmbedId = normaliseEmbedId(embedId)
   if (!numericEmbedId) throw new Error('Embed ID is required')
 
   return {
@@ -209,21 +215,37 @@ async function main() {
     if (done) throw new Error('Input ended before the import was complete')
     return value
   }
-  async function readBlock() {
+  async function readPgnExport() {
     const lines = []
+    let result = null
+    let hasMovetext = false
     while (true) {
       const line = await ask('')
-      if (line.trim() === '') return lines.join('\n')
+      if (line.trim() === 'END') return lines.join('\n')
       lines.push(line)
+
+      const tag = line.trim().match(/^\[([^\s]+)\s+"((?:\\"|[^"])*)"\]$/)
+      if (tag?.[1] === 'Result') result = tag[2].replace(/\\"/g, '"')
+
+      const isMovetext = line.trim() && !tag
+      if (isMovetext) {
+        hasMovetext = true
+        if (result && line.trim().endsWith(result)) return lines.join('\n')
+      }
+
+      if (!hasMovetext && line.trim() === '') {
+        output.write('Continue pasting movetext, or type END on its own line for a tags-only PGN.\n')
+      }
     }
   }
 
   try {
     let addAnother = true
     while (addAnother) {
-      const embedId = await ask('Chess.com embed ID: ')
-      output.write('Paste PGN tags, then submit one blank line to finish this game.\n')
-      const block = await readBlock()
+      const embedId = await ask('Chess.com embed ID (or [gid=...]): ')
+      output.write('Paste the complete PGN export. The game ends automatically at the final PGN result.\n')
+      output.write('For a tags-only PGN, type END on a new line after the tags.\n')
+      const block = await readPgnExport()
       entries.push(makeGameInput(parsePgnHeaders(block), embedId, entries.length))
       const response = await ask('Add another game to this match? [y/N] ')
       addAnother = /^y(es)?$/i.test(response.trim())
