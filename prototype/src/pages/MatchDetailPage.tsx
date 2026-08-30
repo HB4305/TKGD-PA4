@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarDay, faChessBoard, faTrophy } from '@fortawesome/free-solid-svg-icons'
+import { faCalendarDay, faChessBoard, faClock, faTrophy } from '@fortawesome/free-solid-svg-icons'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { BrandHeader } from '../components/BrandHeader'
 import { GameAccordion } from '../components/GameAccordion'
@@ -45,6 +45,14 @@ export function MatchDetailPage() {
           )}
           <PlayerCard player={player2} elo={match.player2Elo} side="right" />
         </div>
+        {match.games.length === 0 && (
+          <p className="match-detail__pending-results">
+            <FontAwesomeIcon icon={faClock} />
+            {match.status === 'upcoming'
+              ? 'Match results will be updated here after play begins.'
+              : 'Game results and archive will be updated here soon.'}
+          </p>
+        )}
         {showGames && (
           <section className="games-section">
             <div className="section-heading"><h2>Games</h2></div>
