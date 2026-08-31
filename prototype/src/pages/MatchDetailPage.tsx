@@ -24,7 +24,7 @@ export function MatchDetailPage() {
   const player2 = getPlayer(match.player2Id)
   const score = matchScore(match)
   const returnSearch = location.state?.returnSearch ?? `?date=${match.startDate}&open=${match.id}`
-  const showGames = match.status !== 'upcoming' && match.games.length > 0
+  const showGames = match.games.length > 0
 
   return (
     <section className="match-detail-page">
@@ -34,14 +34,21 @@ export function MatchDetailPage() {
         <div className="match-detail__info">
           <span><FontAwesomeIcon icon={faCalendarDay} /> {formatDate(match.startDate, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</span>
           <span><FontAwesomeIcon icon={faChessBoard} /> {match.variant}</span>
-          <span className={`status-pill status-pill--${match.status}`}>{match.status}</span>
         </div>
         <div className="players-grid">
           <PlayerCard player={player1} elo={match.player1Elo} side="left" />
           {match.status === 'upcoming' ? (
-            <div className="match-detail__score match-detail__score--versus"><strong>VS</strong></div>
+            <div className="match-detail__score match-detail__score--versus">
+              <strong>VS</strong>
+              <span className={`status-pill status-pill--${match.status}`}>{match.status}</span>
+            </div>
           ) : (
-            <div className="match-detail__score"><strong>{formatScore(score.first)}</strong><span>—</span><strong>{formatScore(score.second)}</strong><small>match score</small></div>
+            <div className="match-detail__score">
+              <strong>{formatScore(score.first)}</strong>
+              <span>—</span>
+              <strong>{formatScore(score.second)}</strong>
+              <span className={`status-pill status-pill--${match.status}`}>{match.status}</span>
+            </div>
           )}
           <PlayerCard player={player2} elo={match.player2Elo} side="right" />
         </div>
@@ -55,8 +62,8 @@ export function MatchDetailPage() {
         )}
         {showGames && (
           <section className="games-section">
-            <div className="section-heading"><h2>Games</h2></div>
-            {match.games.map((game, index) => <GameAccordion key={game.id} game={game} white={getPlayer(game.whitePlayerId)} black={getPlayer(game.blackPlayerId)} initiallyOpen={index === 0} />)}
+            <div className="section-heading"><h2>{match.status === 'upcoming' ? 'Scheduled games' : 'Games'}</h2></div>
+            {match.games.map((game, index) => <GameAccordion key={game.id} game={game} white={game.whitePlayerId ? getPlayer(game.whitePlayerId) : null} black={game.blackPlayerId ? getPlayer(game.blackPlayerId) : null} initiallyOpen={index === 0} />)}
           </section>
         )}
       </main>

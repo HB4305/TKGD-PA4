@@ -65,10 +65,23 @@ describe('PGN importer', () => {
     const plan = createImportPlan(entries, datasets)
     expect(plan.match.id).toBe(1)
     expect(plan.match.startDate).toBe('2026-02-14')
+    expect(plan.match.endDate).toBe('2026-02-14')
     expect(plan.match.games.map((game) => game.round)).toEqual(['02-01', '02-02'])
+    expect(plan.match.games.map((game) => game.date)).toEqual(['2026-02-14', '2026-02-14'])
     expect(plan.match.player1Elo).toBe(2833)
     expect(plan.match.player2Elo).toBe(2728)
     expect(plan.match.games[0]).not.toHaveProperty('whiteElo')
+  })
+
+  it('derives the match end date from games played on later days', () => {
+    const laterBlock = secondBlock.replace('[Date "2026.02.14"]', '[Date "2026.02.15"]')
+    const plan = createImportPlan([
+      makeGameInput(parsePgnHeaders(firstBlock), '15616892', 0),
+      makeGameInput(parsePgnHeaders(laterBlock), '15616893', 1),
+    ], datasets)
+    expect(plan.match.startDate).toBe('2026-02-14')
+    expect(plan.match.endDate).toBe('2026-02-15')
+    expect(plan.match.games.map((game) => game.date)).toEqual(['2026-02-14', '2026-02-15'])
   })
 
   it('rejects a duplicate embed id before creating a plan', () => {

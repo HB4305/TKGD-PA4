@@ -21,9 +21,10 @@ export interface EventInfo {
 export interface Game {
   id: number
   embedId: string | null
+  date: string
   round: string
-  whitePlayerId: string
-  blackPlayerId: string
+  whitePlayerId: string | null
+  blackPlayerId: string | null
   result: GameResult
   timeControl: string | null
   site: string | null
@@ -39,6 +40,7 @@ export interface Match {
   player2Elo: number | null
   variant: string
   startDate: string
+  endDate: string
   status: MatchStatus
   games: Game[]
 }

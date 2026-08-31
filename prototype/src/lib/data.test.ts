@@ -15,9 +15,11 @@ describe('sample data integrity', () => {
       expect(eventIds.has(match.eventId)).toBe(true)
       expect(playerIds.has(match.player1Id)).toBe(true)
       expect(playerIds.has(match.player2Id)).toBe(true)
+      expect(match.endDate >= match.startDate).toBe(true)
       for (const game of match.games) {
-        expect(playerIds.has(game.whitePlayerId)).toBe(true)
-        expect(playerIds.has(game.blackPlayerId)).toBe(true)
+        expect(game.date >= match.startDate && game.date <= match.endDate).toBe(true)
+        expect(game.whitePlayerId === null || playerIds.has(game.whitePlayerId)).toBe(true)
+        expect(game.blackPlayerId === null || playerIds.has(game.blackPlayerId)).toBe(true)
       }
     }
   })

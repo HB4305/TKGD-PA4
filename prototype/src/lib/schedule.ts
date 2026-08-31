@@ -20,12 +20,14 @@ export function matchScore(match: Match) {
   let second = 0
   for (const game of match.games) {
     if (game.result === '1/2-1/2') {
-      first += 0.5
-      second += 0.5
+      if (game.whitePlayerId === match.player1Id || game.blackPlayerId === match.player1Id) first += 0.5
+      if (game.whitePlayerId === match.player2Id || game.blackPlayerId === match.player2Id) second += 0.5
     } else if (game.result === '1-0') {
-      game.whitePlayerId === match.player1Id ? first += 1 : second += 1
+      if (game.whitePlayerId === match.player1Id) first += 1
+      else if (game.whitePlayerId === match.player2Id) second += 1
     } else if (game.result === '0-1') {
-      game.blackPlayerId === match.player1Id ? first += 1 : second += 1
+      if (game.blackPlayerId === match.player1Id) first += 1
+      else if (game.blackPlayerId === match.player2Id) second += 1
     }
   }
   return { first, second }
@@ -33,6 +35,11 @@ export function matchScore(match: Match) {
 
 export function formatScore(score: number) {
   return Number.isInteger(score) ? String(score) : String(score).replace('.5', '½')
+}
+
+export function matchOccursOnDate(match: Match, date: string) {
+  if (match.games.length > 0) return match.games.some((game) => game.date === date)
+  return date >= match.startDate && date <= match.endDate
 }
 
 export function displayTimeControl(value: string | null) {
@@ -45,6 +52,15 @@ export function displayTimeControl(value: string | null) {
   return increment === null ? base : `${base} + ${increment} sec`
 }
 
+export function gameResultSummary(game: Game, white: Player | null, black: Player | null) {
+  if (game.result === '*') return null
+  if (game.result === '1/2-1/2') return 'Draw'
+
+  const winner = game.result === '1-0' ? white : black
+  const shortName = winner?.displayName.trim().split(/\s+/).at(-1)
+  return `${shortName ?? (game.result === '1-0' ? 'White' : 'Black')} won`
+}
+
 export function normalisedIncludes(value: string, query: string) {
   return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().includes(
     query.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(),
@@ -52,5 +68,8 @@ export function normalisedIncludes(value: string, query: string) {
 }
 
 export function gamePlayers(game: Game, getPlayer: (id: string) => Player) {
-  return { white: getPlayer(game.whitePlayerId), black: getPlayer(game.blackPlayerId) }
+  return {
+    white: game.whitePlayerId ? getPlayer(game.whitePlayerId) : null,
+    black: game.blackPlayerId ? getPlayer(game.blackPlayerId) : null,
+  }
 }

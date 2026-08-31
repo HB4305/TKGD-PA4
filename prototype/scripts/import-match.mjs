@@ -139,6 +139,7 @@ export function createImportPlan(entries, datasets) {
   const matchId = datasets.matches.reduce((highest, match) => Math.max(highest, Number(match.id) || 0), 0) + 1
   const eventId = slugify(eventName)
   const earliestDate = orderedEntries.reduce((earliest, entry) => (entry.date < earliest ? entry.date : earliest), orderedEntries[0].date)
+  const latestDate = orderedEntries.reduce((latest, entry) => (entry.date > latest ? entry.date : latest), orderedEntries[0].date)
 
   const knownPlayers = new Set(datasets.players.map((player) => player.id))
   const playersToAdd = []
@@ -167,6 +168,7 @@ export function createImportPlan(entries, datasets) {
   const games = orderedEntries.map((entry, index) => ({
     id: index + 1,
     embedId: entry.embedId,
+    date: entry.date,
     round: entry.round,
     whitePlayerId: playerIdFromSourceName(entry.white.sourceName),
     blackPlayerId: playerIdFromSourceName(entry.black.sourceName),
@@ -185,6 +187,7 @@ export function createImportPlan(entries, datasets) {
     player2Elo: finalElo.get(player2Id) ?? null,
     variant,
     startDate: earliestDate,
+    endDate: latestDate,
     status: inferStatus(games, earliestDate),
     games,
   }

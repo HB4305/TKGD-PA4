@@ -194,7 +194,7 @@ Dữ liệu nằm trong [`src/data`](./src/data/):
 - `navigation.json`: cấu hình bottom navigation và các route ngoài Schedule.
 - `players.json`: tên, title, quốc gia và ảnh kỳ thủ.
 - `events.json`: tên giải, địa điểm và format.
-- `matches.json`: ngày bắt đầu, trạng thái, Elo cấp trận và danh sách game.
+- `matches.json`: ngày bắt đầu/kết thúc, trạng thái, Elo cấp trận và danh sách game kèm ngày thi đấu.
 - `home.json`: hero, sự kiện sắp tới và ID nội dung nổi bật.
 - `videos.json`: tên, loại, YouTube ID, thumbnail và link video.
 - `news.json`: tên bài viết, ngày, tác giả và link bài gốc.

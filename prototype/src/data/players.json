@@ -88,5 +88,23 @@
     "countryCode": "us",
     "countryName": "United States",
     "photo": "https://images.chesscomfiles.com/uploads/v1/master_player/4118050c-c004-11e8-bb10-a1a4e591dae7.1cb2c9a8.80x80o.fa4341035a6c@2x.jpeg"
+  },
+  {
+    "id": "garry-kasparov",
+    "displayName": "Garry Kasparov",
+    "sourceName": "Kasparov, Garry",
+    "title": "GM",
+    "countryCode": "ru",
+    "countryName": "Russia",
+    "photo": "https://images.chesscomfiles.com/uploads/v1/master_player/4fe1281a-a9df-11e8-8450-4ff4fd58ed06.bb91bfe2.80x80o.3c5874d718d7@2x.jpeg"
+  },
+  {
+    "id": "veselin-topalov",
+    "displayName": "Veselin Topalov",
+    "sourceName": "Topalov, Veselin",
+    "title": "GM",
+    "countryCode": "bg",
+    "countryName": "Bulgaria",
+    "photo": "https://images.chesscomfiles.com/uploads/v1/master_player/e9640f50-c002-11e8-b93d-e56e1835faa8.4a751865.250x250o.869983ecac67.png"
   }
 ]

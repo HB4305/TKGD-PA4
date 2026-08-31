@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDays, faChevronDown, faRotateLeft } from '@fortawesome/free-solid-svg-icons'
 import { addDays, format, parseISO } from 'date-fns'
@@ -15,8 +15,7 @@ interface DateStripProps {
 
 export function DateStrip({ selectedDate, today, eventCounts, onChange }: DateStripProps) {
   const stripRef = useRef<HTMLDivElement>(null)
-  const pendingRangeAnchor = useRef<string | null>(null)
-  const scrollAnimationFrame = useRef<number | null>(null)
+  const isInitiallyPositioned = useRef(false)
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
   const [rangeAnchor, setRangeAnchor] = useState(selectedDate)
   const selected = parseISO(selectedDate)
@@ -25,10 +24,6 @@ export function DateStrip({ selectedDate, today, eventCounts, onChange }: DateSt
     () => Array.from({ length: 61 }, (_, index) => localIsoDate(addDays(parseISO(rangeAnchor), index - 30))),
     [rangeAnchor],
   )
-
-  useEffect(() => {
-    if (selectedDate !== rangeAnchor && pendingRangeAnchor.current !== selectedDate) setRangeAnchor(selectedDate)
-  }, [rangeAnchor, selectedDate])
 
   function scrollToDate(date: string, behavior: ScrollBehavior = 'auto') {
     const strip = stripRef.current
@@ -40,63 +35,22 @@ export function DateStrip({ selectedDate, today, eventCounts, onChange }: DateSt
     })
   }
 
-  useLayoutEffect(() => {
-    scrollToDate(rangeAnchor)
-  }, [rangeAnchor])
-
-  useEffect(() => () => {
-    if (scrollAnimationFrame.current) cancelAnimationFrame(scrollAnimationFrame.current)
-  }, [])
-
-  function animateToDate(date: string, onComplete?: () => void) {
-    const strip = stripRef.current
-    const anchor = strip?.querySelector<HTMLElement>(`[data-date="${date}"]`)
-    if (!strip || !anchor) return false
-
-    if (scrollAnimationFrame.current) cancelAnimationFrame(scrollAnimationFrame.current)
-    const from = strip.scrollLeft
-    const to = anchor.offsetLeft - (strip.clientWidth - anchor.clientWidth) / 2
-    const distance = Math.abs(to - from)
-    if (distance < 1) {
-      onComplete?.()
-      return true
-    }
-
-    const duration = Math.min(700, Math.max(320, distance * 0.18))
-    const startedAt = performance.now()
-    const tick = (now: number) => {
-      const progress = Math.min(1, (now - startedAt) / duration)
-      const eased = 1 - Math.pow(1 - progress, 4)
-      strip.scrollLeft = from + (to - from) * eased
-      if (progress < 1) {
-        scrollAnimationFrame.current = requestAnimationFrame(tick)
-      } else {
-        scrollAnimationFrame.current = null
-        onComplete?.()
-      }
-    }
-    scrollAnimationFrame.current = requestAnimationFrame(tick)
-    return true
-  }
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      scrollToDate(selectedDate, isInitiallyPositioned.current ? 'smooth' : 'auto')
+      isInitiallyPositioned.current = true
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [rangeAnchor, selectedDate])
 
   function selectAndCenter(date: Date | string) {
     const isoDate = typeof date === 'string' ? date : localIsoDate(date)
-    if (isoDate === rangeAnchor) {
-      onChange(isoDate)
-      animateToDate(isoDate)
+    if (isoDate === selectedDate) {
+      scrollToDate(isoDate, 'smooth')
       return
     }
-
-    pendingRangeAnchor.current = isoDate
+    if (isoDate !== rangeAnchor) setRangeAnchor(isoDate)
     onChange(isoDate)
-    const completed = animateToDate(isoDate, () => {
-      pendingRangeAnchor.current = null
-      setRangeAnchor(isoDate)
-    })
-    if (!completed) {
-      pendingRangeAnchor.current = null
-      setRangeAnchor(isoDate)
-    }
   }
 
   function selectTodayFromPicker() {

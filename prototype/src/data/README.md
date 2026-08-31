@@ -19,18 +19,20 @@ Home references news and videos by stable ID. Every ID in `featuredNewsIds` and 
 ```json
 {
   "id": 12,
-  "eventId": "fide-freestyle-chess-world-championship",
+  "eventId": "2026-fide-freestyle-chess-world-championship",
   "player1Id": "magnus-carlsen",
   "player2Id": "fabiano-caruana",
   "player1Elo": 2832,
   "player2Elo": 2727,
   "variant": "Chess960",
   "startDate": "2026-02-14",
+  "endDate": "2026-02-14",
   "status": "completed",
   "games": [
     {
       "id": 1,
       "embedId": "15616892",
+      "date": "2026-02-14",
       "round": "02-01",
       "whitePlayerId": "magnus-carlsen",
       "blackPlayerId": "fabiano-caruana",
@@ -43,6 +45,6 @@ Home references news and videos by stable ID. Every ID in `featuredNewsIds` and 
 }
 ```
 
-`player1Elo` and `player2Elo` are taken from the last game after sorting by `round`. Games intentionally do not store their own Elo, date, FEN, or SetUp fields. Set `embedId` to `null` when a Chess.com board is unavailable; the prototype will then omit the embedded board.
+`startDate` and `endDate` are the earliest and latest game dates in a match. Each game stores its own `date`, allowing Schedule to show a multi-day match on every date where it has a game. `player1Elo` and `player2Elo` are taken from the last game after sorting by `round`. Games intentionally do not store their own Elo, FEN or SetUp fields. Set `embedId` to `null` when a Chess.com board is unavailable; the prototype will then omit the embedded board. `whitePlayerId` and `blackPlayerId` may also be `null` when a pairing has not been confirmed: the archive shows `TBD` and that game is excluded from the aggregate score until its players are known.
 
 Run `pnpm data:import-match` to paste one or more PGN header blocks and create a new match. The importer preserves player/event fields you fill by hand, validates duplicate embed IDs, and updates the three relevant JSON files only after confirmation.

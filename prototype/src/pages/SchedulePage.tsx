@@ -6,7 +6,7 @@ import { DateStrip } from '../components/DateStrip'
 import { MatchCard } from '../components/MatchCard'
 import { BrandHeader } from '../components/BrandHeader'
 import { eventById, getPlayer, matches } from '../lib/data'
-import { localIsoDate, normalisedIncludes } from '../lib/schedule'
+import { localIsoDate, matchOccursOnDate, normalisedIncludes } from '../lib/schedule'
 import type { MatchStatus } from '../types'
 
 const statuses: Array<'all' | MatchStatus> = ['all', 'live', 'upcoming', 'completed']
@@ -20,7 +20,14 @@ export function SchedulePage() {
   const query = params.get('q') ?? ''
   const status = (params.get('status') ?? 'all') as 'all' | MatchStatus
   const openMatchId = Number(params.get('open')) || null
-  const eventCounts = useMemo(() => new Map(matches.map((match) => [match.startDate, matches.filter((candidate) => candidate.startDate === match.startDate).length])), [])
+  const eventCounts = useMemo(() => {
+    const counts = new Map<string, number>()
+    for (const match of matches) {
+      const dates = match.games.length > 0 ? new Set(match.games.map((game) => game.date)) : new Set([match.startDate])
+      for (const date of dates) counts.set(date, (counts.get(date) ?? 0) + 1)
+    }
+    return counts
+  }, [])
 
   function updateParams(next: Record<string, string | null>) {
     const nextParams = new URLSearchParams(params)
@@ -29,7 +36,7 @@ export function SchedulePage() {
   }
 
   const filteredMatches = useMemo(() => matches
-    .filter((match) => match.startDate === selectedDate)
+    .filter((match) => matchOccursOnDate(match, selectedDate))
     .filter((match) => status === 'all' || match.status === status)
     .filter((match) => {
       if (!query.trim()) return true
