@@ -1,0 +1,14 @@
+[
+  { "playerId": "magnus-carlsen", "elo": 2832 },
+  { "playerId": "hikaru-nakamura", "elo": 2810 },
+  { "playerId": "garry-kasparov", "elo": 2812 },
+  { "playerId": "levon-aronian", "elo": 2749 },
+  { "playerId": "erigaisi-arjun", "elo": 2741 },
+  { "playerId": "le-quang-liem", "elo": 2740 },
+  { "playerId": "fabiano-caruana", "elo": 2727 },
+  { "playerId": "javokhir-sindarov", "elo": 2662 },
+  { "playerId": "hans-moke-niemann", "elo": 2646 },
+  { "playerId": "vincent-keymer", "elo": 2627 },
+  { "playerId": "nodirbek-abdusattorov", "elo": 2703 },
+  { "playerId": "veselin-topalov", "elo": 2695 }
+]

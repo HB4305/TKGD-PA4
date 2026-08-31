@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { events, home, matches, news, players, videos } from './data'
+import { events, home, matches, news, players, ratings, videos } from './data'
 
 describe('sample data integrity', () => {
   it('uses unique numeric match IDs and embed IDs', () => {
@@ -31,5 +31,11 @@ describe('sample data integrity', () => {
     expect(videoIds.size).toBe(videos.length)
     expect(home.featuredNewsIds.every((id) => newsIds.has(id))).toBe(true)
     expect(home.featuredVideoIds.every((id) => videoIds.has(id))).toBe(true)
+  })
+
+  it('uses a unique player rating for each referenced player', () => {
+    const playerIds = new Set(players.map((player) => player.id))
+    expect(new Set(ratings.map((rating) => rating.playerId)).size).toBe(ratings.length)
+    expect(ratings.every((rating) => playerIds.has(rating.playerId) && Number.isFinite(rating.elo))).toBe(true)
   })
 })

@@ -4,10 +4,12 @@ import matchesData from '../data/matches.json'
 import navigationData from '../data/navigation.json'
 import newsData from '../data/news.json'
 import playersData from '../data/players.json'
+import ratingsData from '../data/ratings.json'
 import videosData from '../data/videos.json'
-import type { EventInfo, HomeData, Match, NavigationData, NewsArticle, Player, VideoItem } from '../types'
+import type { EventInfo, HomeData, Match, NavigationData, NewsArticle, Player, PlayerRating, VideoItem } from '../types'
 
 export const players = playersData as Player[]
+export const ratings = ratingsData as PlayerRating[]
 export const events = eventsData as EventInfo[]
 export const matches = matchesData as Match[]
 export const navigation = navigationData as NavigationData

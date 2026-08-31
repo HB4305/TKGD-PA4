@@ -11,6 +11,11 @@ export interface Player {
   photo: string | null
 }
 
+export interface PlayerRating {
+  playerId: string
+  elo: number
+}
+
 export interface EventInfo {
   id: string
   name: string

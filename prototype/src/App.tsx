@@ -4,6 +4,7 @@ import { HomePage } from './pages/HomePage'
 import { MatchDetailPage } from './pages/MatchDetailPage'
 import { NewsPage } from './pages/NewsPage'
 import { PlaceholderPage } from './pages/PlaceholderPage'
+import { RatingPage } from './pages/RatingPage'
 import { SchedulePage } from './pages/SchedulePage'
 import { VideosPage } from './pages/VideosPage'
 
@@ -16,6 +17,7 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/videos" element={<VideosPage />} />
             <Route path="/news" element={<NewsPage />} />
+            <Route path="/rating" element={<RatingPage />} />
             <Route path="/schedule" element={<SchedulePage />} />
             <Route path="/schedule/:matchId" element={<MatchDetailPage />} />
             <Route path="*" element={<PlaceholderPage />} />
