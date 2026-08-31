@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f2f2f2">
+<title>Freestyle Chess — PA4 Presentation</title>
+<style>
+:root{--ink:#171513;--paper:#f7f1e8;--cream:#fffaf3;--gold:#d7aa72;--blue:#4669ff;--green:#35b86b;--muted:#756c63;--u:min(1vw,1.7778vh);font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#0d0c0b}*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden}body{display:grid;place-items:center}button,input{font:inherit}button{cursor:pointer}h1,h2,h3,p{margin-top:0}strong{font-weight:850}code,.mono{font-family:ui-monospace,monospace}.deck{position:relative;width:calc(100*var(--u));height:calc(56.25*var(--u));overflow:hidden;background:var(--paper);box-shadow:0 1.5rem 5rem #0008}.slide{position:absolute;inset:0;display:none;overflow:hidden;padding:calc(3.8*var(--u)) calc(5.2*var(--u)) calc(4*var(--u));background:var(--paper)}.slide.active{display:block;animation:in .24s ease-out}@keyframes in{from{opacity:.3;transform:translateX(1%)}}.kicker{margin:0 0 calc(1.05*var(--u));font:850 calc(.92*var(--u))/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#9a7145}h1{margin-bottom:calc(1.4*var(--u));font:500 calc(6.4*var(--u))/.95 Georgia,serif;letter-spacing:-.06em;max-width:82%}h2{margin-bottom:calc(2.1*var(--u));font:500 calc(3.15*var(--u))/1.02 Georgia,serif;letter-spacing:-.045em;max-width:88%}h3{margin-bottom:calc(.55*var(--u));font-size:calc(1.38*var(--u));line-height:1.12}p,li{font-size:calc(1.05*var(--u));line-height:1.42}.lead{font-size:calc(1.55*var(--u));line-height:1.3;max-width:72%}.muted{color:var(--muted)}.tag{display:inline-block;padding:calc(.42*var(--u)) calc(.7*var(--u));border:calc(.12*var(--u)) solid;border-radius:99px;font-size:calc(.74*var(--u));font-weight:850;text-transform:uppercase;letter-spacing:.06em}.meta{position:absolute;left:calc(5.2*var(--u));right:calc(5.2*var(--u));bottom:calc(1.35*var(--u));display:flex;justify-content:space-between;font:750 calc(.7*var(--u))/1 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase}.meta.light{color:#fff9}.mark{position:absolute;right:calc(3*var(--u));top:calc(1.4*var(--u));font:950 calc(13*var(--u))/1 ui-monospace,monospace;color:#1715130c;letter-spacing:-.09em}
+.title-slide{background:radial-gradient(circle at 86% 18%,#765535 0 13%,transparent 13.2%),linear-gradient(145deg,#171513,#29231e 68%,#745437 160%);color:var(--cream)}.title-slide h1{margin-top:calc(5.5*var(--u));max-width:76%;font-size:calc(7.1*var(--u))}.title-slide .lead{color:#d8cec1}.title-slide:after{content:"";position:absolute;left:0;bottom:calc(6*var(--u));width:68%;height:calc(.9*var(--u));background:var(--gold)}.chess{position:absolute;right:calc(8*var(--u));bottom:calc(8*var(--u));font:calc(13*var(--u))/1 Georgia,serif;color:var(--gold);transform:rotate(-8deg)}
+.story{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(1.5*var(--u));margin-top:calc(4*var(--u))}.story article{min-height:calc(20*var(--u));border-top:calc(.42*var(--u)) solid var(--gold);padding-top:calc(1.2*var(--u))}.story article:nth-child(2){border-color:var(--blue)}.story article:nth-child(3){border-color:var(--green)}.big-n{font:950 calc(4.3*var(--u))/1 ui-monospace,monospace;letter-spacing:-.08em;color:#17151320}.pa3{display:grid;grid-template-columns:.85fr 1.15fr;gap:calc(4.2*var(--u));align-items:center}.problems{margin:0;padding:0;list-style:none}.problems li{border-top:calc(.13*var(--u)) solid;padding:calc(1.2*var(--u)) 0}.problems strong{display:block;font-size:calc(1.35*var(--u))}.experiment{display:grid;grid-template-columns:repeat(3,1fr);border:calc(.16*var(--u)) solid}.experiment div{min-height:calc(13*var(--u));display:flex;flex-direction:column;justify-content:space-between;padding:calc(1.25*var(--u));border-right:calc(.16*var(--u)) solid}.experiment div:last-child{border:0}.experiment b{font:950 calc(4*var(--u))/1 ui-monospace,monospace;color:var(--blue)}.experiment span{font-size:calc(.92*var(--u));font-weight:750}
+.solution{display:grid;grid-template-columns:42% 58%;gap:calc(4*var(--u));align-items:center}.winner{margin-top:calc(.8*var(--u));font:950 calc(4.7*var(--u))/.94 ui-monospace,monospace;color:#ad7c45;letter-spacing:-.08em}.reason{margin-top:calc(1.4*var(--u));display:grid;gap:calc(.5*var(--u))}.reason p{margin:0}.reason p:before{content:"✓";display:inline-block;width:calc(1.7*var(--u));color:var(--green);font-weight:900}blockquote{margin:calc(1.5*var(--u)) 0 0;padding-left:calc(1.1*var(--u));border-left:calc(.3*var(--u)) solid var(--gold);font:calc(1.2*var(--u))/1.35 Georgia,serif}
+.media-slot{position:relative;overflow:hidden;border:calc(.18*var(--u)) dashed #b8966e;background:repeating-linear-gradient(135deg,#fffaf3,#fffaf3 calc(1.2*var(--u)),#f0e3d3 calc(1.2*var(--u)),#f0e3d3 calc(2.4*var(--u)));display:grid;place-items:center;text-align:center;cursor:pointer;isolation:isolate}.media-slot:hover{border-color:var(--blue)}.media-slot.dragging{outline:calc(.35*var(--u)) solid var(--blue);outline-offset:calc(-.35*var(--u))}.media-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;display:none;z-index:1}.media-slot.has-image img{display:block}.slot-copy{max-width:76%;padding:calc(1*var(--u));color:#6f5f50}.slot-icon{display:block;font-size:calc(2.7*var(--u));line-height:1}.slot-copy strong{display:block;font-size:calc(1.05*var(--u))}.slot-copy small{font-size:calc(.7*var(--u))}.remove{position:absolute;z-index:3;right:calc(.6*var(--u));top:calc(.6*var(--u));display:none;border:0;border-radius:99px;background:#171513dc;color:white;padding:calc(.4*var(--u)) calc(.65*var(--u));font-size:calc(.65*var(--u))}.has-image:hover .remove{display:block}.sketch{height:calc(38*var(--u))}.phone{height:calc(42*var(--u));max-width:calc(24*var(--u));margin:auto;border:calc(.62*var(--u)) solid var(--ink);border-radius:calc(2*var(--u));box-shadow:calc(.6*var(--u)) calc(.7*var(--u)) 0 #d4b890}.wide{height:calc(23*var(--u))}
+.commit{display:grid;grid-template-columns:repeat(2,1fr);gap:calc(1.3*var(--u)) calc(2*var(--u));margin-top:calc(2*var(--u))}.commit article{display:grid;grid-template-columns:calc(4.2*var(--u)) 1fr;gap:calc(1*var(--u));border-top:calc(.17*var(--u)) solid;padding-top:calc(1*var(--u))}.commit .n{font:950 calc(3*var(--u))/1 ui-monospace,monospace;color:#ad7c45}.commit p{margin:0;font-size:calc(.93*var(--u))}.mapping{display:grid;grid-template-columns:1fr calc(4*var(--u)) 1fr;row-gap:calc(.7*var(--u));align-items:stretch}.mapping .cell{padding:calc(.8*var(--u)) calc(1.1*var(--u));border-top:calc(.13*var(--u)) solid}.mapping .arrow{display:grid;place-items:center;font-size:calc(1.6*var(--u));color:var(--blue)}.mapping strong{display:block}.mapping span{font-size:calc(.82*var(--u));color:var(--muted)}
+.screens{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(2.2*var(--u));align-items:end}.mini .media-slot{height:calc(26*var(--u));max-width:calc(15*var(--u));margin:auto;border:calc(.45*var(--u)) solid;border-radius:calc(1.4*var(--u))}.mini h3,.mini p{text-align:center}.mini p{margin:0;font-size:calc(.82*var(--u));color:var(--muted)}.demo{display:grid;grid-template-columns:42% 58%;gap:calc(3*var(--u));align-items:center}.demo ul{padding-left:calc(1.2*var(--u))}.demo li{margin:calc(.5*var(--u)) 0}.route{padding:calc(.7*var(--u)) calc(.9*var(--u));background:var(--ink);color:white;font-size:calc(.8*var(--u))}
+.study{display:grid;grid-template-columns:repeat(4,1fr);margin-top:calc(3.5*var(--u));border-block:calc(.2*var(--u)) solid}.study article{min-height:calc(18*var(--u));padding:calc(1.3*var(--u));border-right:calc(.13*var(--u)) solid}.study article:last-child{border:0}.value{font:950 calc(3.2*var(--u))/1 ui-monospace,monospace;color:var(--blue)}.study p{font-size:calc(.88*var(--u))}.tasks{display:grid;grid-template-columns:1fr 1fr;gap:calc(1.6*var(--u))}.task{min-height:calc(16*var(--u));padding:calc(1.4*var(--u));border:calc(.16*var(--u)) solid}.task h3{font:500 calc(1.55*var(--u))/1.15 Georgia,serif}.task p{font-size:calc(.9*var(--u))}.procedure{display:flex;align-items:center;gap:calc(.35*var(--u));margin-top:calc(1.4*var(--u))}.procedure span{flex:1;min-height:calc(4*var(--u));display:grid;place-items:center;text-align:center;padding:calc(.4*var(--u));background:#e9dece;font-size:calc(.68*var(--u));font-weight:800}.procedure i{font-style:normal;color:var(--blue)}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(.9*var(--u));margin-bottom:calc(1*var(--u))}.metric{padding:calc(1*var(--u));background:var(--cream);border-top:calc(.32*var(--u)) solid var(--gold)}.editable{display:block;min-height:calc(3.4*var(--u));font:950 calc(3*var(--u))/1 ui-monospace,monospace;color:var(--blue);outline:none}.metric p{margin:0;font-size:calc(.7*var(--u));text-transform:uppercase;font-weight:850}.results{display:grid;grid-template-columns:1.15fr .85fr;gap:calc(2*var(--u))}.result-note{padding:calc(1.2*var(--u));background:var(--ink);color:white}.result-note h3{color:var(--gold);outline:none}.result-note p{font-size:calc(.9*var(--u));outline:none}.hint{font-size:calc(.68*var(--u));color:var(--muted)}.findings{display:grid;grid-template-columns:45% 55%;gap:calc(2.2*var(--u))}.findings .media-slot{height:calc(31*var(--u))}.quotes{display:grid;gap:calc(.8*var(--u))}.quote{padding:calc(1*var(--u));border-left:calc(.3*var(--u)) solid var(--gold);background:var(--cream)}.quote blockquote{margin:0 0 calc(.5*var(--u));padding:0;border:0;outline:none}.quote p,.quote h3{margin:0;outline:none}.quote p{font-size:calc(.75*var(--u));color:var(--muted)}
+.conclusion{background:var(--ink);color:var(--cream)}.conclusion h2{font-size:calc(4.6*var(--u));max-width:84%}.takeaways{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(1.5*var(--u));margin-top:calc(3*var(--u))}.takeaways article{border-top:calc(.28*var(--u)) solid var(--gold);padding-top:calc(1*var(--u))}.takeaways article:nth-child(2){border-color:var(--blue)}.takeaways article:nth-child(3){border-color:var(--green)}.takeaways p{font-size:calc(.9*var(--u));color:#d4cabf}
+.controls{position:fixed;z-index:50;left:50%;bottom:1rem;transform:translateX(-50%);display:flex;align-items:center;gap:.35rem;padding:.38rem;background:#111d;color:white;border-radius:999px;backdrop-filter:blur(10px);opacity:.2;transition:.2s}.controls:hover,.controls:focus-within{opacity:1}.controls button{border:0;border-radius:99px;background:transparent;color:white;padding:.42rem .65rem}.controls button:hover{background:#fff2}.counter{min-width:4.4rem;text-align:center;font:700 .76rem/1 ui-monospace,monospace}.progress{position:fixed;z-index:60;left:0;bottom:0;height:4px;background:var(--gold)}.notes-panel{position:fixed;z-index:70;right:1rem;top:1rem;bottom:1rem;width:min(31rem,38vw);overflow:auto;padding:1.2rem;background:#171513f7;color:var(--cream);display:none}.notes-panel.open{display:block}.notes-panel h3{color:var(--gold)}.notes-panel p{font-size:1rem;line-height:1.55;white-space:pre-line}.file-input{display:none}@media(max-aspect-ratio:16/9){:root{--u:1vw}}@media(min-aspect-ratio:16/9){:root{--u:1.7778vh}}@media print{html,body{overflow:visible;background:#fff;display:block}.deck{width:13.333in;height:auto;box-shadow:none;overflow:visible}.slide{position:relative;display:block!important;width:13.333in;height:7.5in;page-break-after:always;--u:.13333in}.controls,.progress,.notes-panel{display:none!important}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+/* ===========================================
+   COBALT GRID THEME — LIGHT TWO-COLOR SYSTEM
+   Edit these variables to adjust the deck globally.
+   =========================================== */
+:root {
+  --stage-bg: #171d78;
+  --slide-bg: #F0EBDE;
+  --paper: #F0EBDE;
+  --paper-2: #E6E0CE;
+  --ink: #1F2BE0;
+  --ink-soft: #5560E5;
+  --grid: rgba(31,43,224,.10);
+  --ink-faint: rgba(31,43,224,.18);
+  --font-display: "Newsreader", Georgia, serif;
+  --font-body: "Hanken Grotesk", sans-serif;
+  --font-mono: "DM Mono", monospace;
+  --ease-editorial: cubic-bezier(.16,1,.3,1);
+}
+
+/* ===========================================
+   FIXED 16:9 STAGE: MANDATORY BASE STYLES
+   Included in full from viewport-base.css.
+   =========================================== */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+.deck-viewport {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+.deck-stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    transform-origin: 0 0;
+    background: var(--slide-bg, #fff);
+}
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    background: var(--slide-bg, #fff);
+}
+.slide.active,
+.slide.visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+.deck-controls {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+@media print {
+    html,
+    body {
+        width: 1920px;
+        height: auto;
+        overflow: visible;
+        background: #fff;
+    }
+    .deck-viewport {
+        position: static;
+        overflow: visible;
+        background: #fff;
+    }
+    .deck-stage {
+        position: static;
+        width: auto;
+        height: auto;
+        transform: none !important;
+        background: none;
+    }
+    .slide {
+        position: relative;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        width: 1920px;
+        height: 1080px;
+        break-after: page;
+        page-break-after: always;
+    }
+    .slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
+    }
+    .deck-controls {
+        display: none !important;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+}
+
+/* ===========================================
+   GLOBAL SLIDE CANVAS AND TYPOGRAPHY
+   Every slide carries the grid and hairline frame.
+   =========================================== */
+* { box-sizing: border-box; }
+body { display: block; color: var(--ink); font-family: var(--font-body); }
+.deck { box-shadow: none; }
+.slide {
+  padding: 84px 96px 132px;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--ink),var(--ink)),
+    linear-gradient(var(--ink),var(--ink)),
+    linear-gradient(to right,var(--grid) 1px,transparent 1px),
+    linear-gradient(to bottom,var(--grid) 1px,transparent 1px);
+  background-size: 1728px 2px,1728px 2px,40px 40px,40px 40px;
+  background-position: 96px 28px,96px 1048px,0 0,0 0;
+  background-repeat: no-repeat,no-repeat,repeat,repeat;
+  transition: opacity .28s ease;
+}
+.slide > * { position: relative; z-index: 2; }
+.kicker {
+  margin: 0 0 22px;
+  color: var(--ink);
+  font: 600 18px/1 var(--font-body);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+h1,h2,h3,p { color: var(--ink); }
+h1 {
+  margin: 0 0 28px;
+  max-width: 1500px;
+  color: var(--ink);
+  font: 400 160px/.91 var(--font-display);
+  letter-spacing: -.008em;
+}
+h2 {
+  margin: 0 0 42px;
+  max-width: 1580px;
+  color: var(--ink);
+  font: 400 86px/.96 var(--font-display);
+  letter-spacing: -.005em;
+}
+h3 { margin: 0 0 12px; font: 400 38px/1.05 var(--font-display); }
+p,li { color: var(--ink); font: 400 25px/1.45 var(--font-body); }
+.lead { max-width: 980px; font-size: 32px; line-height: 1.42; }
+.muted { color: var(--ink); opacity: .66; }
+.mono,.route { font-family: var(--font-mono); letter-spacing: .05em; }
+.tag {
+  display: inline-block;
+  padding: 10px 14px;
+  border: 1.5px solid var(--ink);
+  border-radius: 0;
+  color: var(--ink);
+  font: 600 16px/1 var(--font-body);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.meta {
+  position: absolute;
+  left: 96px;
+  right: 96px;
+  bottom: 52px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--ink);
+  font: 400 14px/1 var(--font-mono);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.meta.light { color: var(--ink); }
+.mark {
+  position: absolute;
+  right: 86px;
+  top: 76px;
+  color: var(--ink-faint);
+  font: 400 230px/.8 var(--font-display);
+  letter-spacing: -.015em;
+}
+
+/* ===========================================
+   EDITORIAL REVEAL MOTION
+   Active slides stagger their authored content.
+   =========================================== */
+.reveal {
+  opacity: 1;
+  transform: translateY(28px);
+  transition: transform .3s var(--ease-editorial);
+}
+.slide.visible .reveal { opacity: 1; transform: translateY(0); }
+
+/* ===========================================
+   COVER AND CHAPTER COMPOSITIONS
+   Pixel scanlines replace the former dark artwork.
+   =========================================== */
+.title-slide,.conclusion {
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--ink),var(--ink)),
+    linear-gradient(var(--ink),var(--ink)),
+    linear-gradient(to right,var(--grid) 1px,transparent 1px),
+    linear-gradient(to bottom,var(--grid) 1px,transparent 1px);
+  background-size: 1728px 2px,1728px 2px,40px 40px,40px 40px;
+  background-position: 96px 28px,96px 1048px,0 0,0 0;
+  background-repeat: no-repeat,no-repeat,repeat,repeat;
+}
+.title-slide::after,.conclusion::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  right: 64px;
+  left: auto;
+  top: 90px;
+  width: 310px;
+  height: 800px;
+  background: repeating-linear-gradient(90deg,var(--ink) 0 9px,transparent 9px 17px);
+  clip-path: polygon(56% 0,100% 0,100% 20%,82% 20%,82% 40%,62% 40%,62% 60%,42% 60%,42% 80%,21% 80%,21% 100%,0 100%,0 82%,12% 82%,12% 61%,29% 61%,29% 41%,44% 41%,44% 20%,56% 20%);
+}
+.title-slide h1 { margin-top: 210px; max-width: 1420px; font-size: 170px; }
+.title-slide .lead { max-width: 860px; }
+.title-slide .chess {
+  position: absolute;
+  right: 120px;
+  bottom: 110px;
+  color: var(--ink);
+  font: 400 210px/1 var(--font-display);
+  transform: none;
+}
+.conclusion h2 { max-width: 1450px; font-size: 128px; }
+.conclusion .takeaways { max-width: 1460px; }
+.conclusion::after { width: 230px; right: 34px; }
+
+/* ===========================================
+   STORY, PA3, AND DECISION LAYOUTS
+   Flat rules and ledger rows replace cards.
+   =========================================== */
+.story { display: grid; grid-template-columns: repeat(3,1fr); gap: 42px; margin-top: 92px; }
+.story article { min-height: 380px; padding-top: 24px; border-top: 2px solid var(--ink); }
+.story article:nth-child(n) { border-color: var(--ink); }
+.story article p { max-width: 90%; }
+.big-n { color: var(--ink-faint); font: 400 108px/.9 var(--font-display); letter-spacing: -.015em; }
+.pa3 { display: grid; grid-template-columns: .9fr 1.1fr; gap: 88px; align-items: center; }
+.problems { margin: 0; padding: 0; list-style: none; }
+.problems li { padding: 26px 0; border-top: 1px solid var(--ink); }
+.problems strong { display: block; margin-bottom: 6px; font: 400 34px/1.1 var(--font-display); }
+.experiment { display: grid; grid-template-columns: repeat(3,1fr); border-block: 2px solid var(--ink); }
+.experiment div { min-height: 250px; padding: 28px; border-right: 1px solid var(--ink); }
+.experiment div:last-child { border: 0; }
+.experiment b { display: block; margin-bottom: 70px; color: var(--ink); font: 400 106px/.8 var(--font-display); }
+.experiment span { font: 600 18px/1.3 var(--font-body); letter-spacing: .12em; text-transform: uppercase; }
+.solution { display: grid; grid-template-columns: 690px 1fr; gap: 78px; align-items: center; }
+.winner { margin-top: 18px; color: var(--ink); font: 400 90px/.88 var(--font-display); letter-spacing: -.005em; }
+.reason { display: grid; gap: 0; margin-top: 26px; }
+.reason p { margin: 0; padding: 11px 0; border-top: 1px solid var(--ink-faint); }
+.reason p::before { content: "→"; display: inline-block; width: 42px; color: var(--ink); font-family: var(--font-mono); }
+blockquote { margin: 28px 0 0; padding: 18px 0 0; border: 0; border-top: 1px solid var(--ink); color: var(--ink); font: italic 400 29px/1.3 var(--font-display); }
+.commit { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px 52px; margin-top: 44px; }
+.commit article { display: grid; grid-template-columns: 96px 1fr; gap: 22px; padding-top: 22px; border-top: 1.5px solid var(--ink); }
+.commit .n { color: var(--ink); font: 400 56px/.9 var(--font-display); }
+.commit p { margin: 0; font-size: 22px; }
+.mapping { display: grid; grid-template-columns: 1fr 70px 1fr; row-gap: 0; }
+.mapping .cell { min-height: 128px; padding: 20px 24px; border-top: 1px solid var(--ink-faint); }
+.mapping .arrow { display: grid; place-items: center; color: var(--ink); font: 400 28px/1 var(--font-mono); }
+.mapping strong { display: block; margin-bottom: 7px; font: 400 29px/1.08 var(--font-display); }
+.mapping span { color: var(--ink); opacity: .68; font-size: 19px; }
+
+/* ===========================================
+   REPLACEABLE SCREENSHOT FRAMES
+   Click or drop images; frames remain strict rectangles.
+   =========================================== */
+.media-slot {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  border: 2px dashed var(--ink);
+  border-radius: 0;
+  background-color: var(--paper);
+  background-image: linear-gradient(45deg,var(--grid) 25%,transparent 25%,transparent 75%,var(--grid) 75%),linear-gradient(45deg,var(--grid) 25%,transparent 25%,transparent 75%,var(--grid) 75%);
+  background-position: 0 0,20px 20px;
+  background-size: 40px 40px;
+  box-shadow: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+.media-slot.dragging { outline: 8px solid var(--ink); outline-offset: -8px; }
+.media-slot img { position: absolute; inset: 0; z-index: 1; display: none; width: 100%; height: 100%; object-fit: contain; background: var(--paper); }
+.media-slot.has-image img { display: block; }
+.slot-copy { max-width: 74%; padding: 20px; color: var(--ink); text-align: center; }
+.slot-icon { display: block; font: 400 62px/1 var(--font-display); }
+.slot-copy strong { display: block; margin: 8px 0; font: 400 26px/1.1 var(--font-display); }
+.slot-copy small { font: 400 14px/1 var(--font-mono); letter-spacing: .05em; }
+.remove { position: absolute; z-index: 3; right: 10px; top: 10px; display: none; padding: 8px 10px; border: 1px solid var(--ink); border-radius: 0; background: var(--paper); color: var(--ink); font: 400 12px/1 var(--font-mono); }
+.has-image:hover .remove { display: block; }
+.sketch { width: 850px; height: 700px; }
+.phone { width: 420px; height: 760px; margin: auto; border: 10px solid var(--ink); border-radius: 0; box-shadow: none; }
+.wide { height: 420px; }
+.screens { display: grid; grid-template-columns: repeat(3,1fr); gap: 58px; align-items: end; }
+.mini .media-slot { width: 300px; height: 530px; margin: auto; border: 7px solid var(--ink); border-radius: 0; }
+.mini h3,.mini p { text-align: center; }
+.mini h3 { margin-top: 16px; }
+.mini p { margin: 0; font-size: 18px; opacity: .7; }
+.demo { display: grid; grid-template-columns: 1fr 650px; gap: 70px; align-items: center; }
+.demo h2 { max-width: 1050px; }
+.demo ul { max-width: 880px; margin: 24px 0 30px; padding-left: 28px; }
+.demo li { margin: 12px 0; }
+.route { display: inline-block; padding: 13px 16px; border: 1.5px solid var(--ink); background: var(--paper); color: var(--ink); font-size: 16px; }
+
+/* ===========================================
+   USER STUDY AND RESULTS LAYOUTS
+   Structured as research ledgers, not UI cards.
+   =========================================== */
+.study { display: grid; grid-template-columns: repeat(4,1fr); margin-top: 76px; border-block: 2px solid var(--ink); }
+.study article { min-height: 330px; padding: 28px; border-right: 1px solid var(--ink); }
+.study article:last-child { border: 0; }
+.value { color: var(--ink); font: 400 82px/.9 var(--font-display); }
+.study h3 { margin-top: 46px; }
+.study p { font-size: 20px; }
+.tasks { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+.task { min-height: 300px; padding: 32px 0; border: 0; border-block: 2px solid var(--ink); }
+.task .mono { font-size: 16px; }
+.task h3 { margin-top: 54px; font-size: 44px; }
+.task p { font-size: 21px; }
+.procedure { display: flex; align-items: stretch; gap: 0; margin-top: 36px; border-block: 1.5px solid var(--ink); }
+.procedure span { flex: 1; min-height: 88px; display: grid; place-items: center; padding: 12px; border-right: 1px solid var(--ink-faint); background: transparent; color: var(--ink); font: 600 14px/1.35 var(--font-body); letter-spacing: .08em; text-transform: uppercase; }
+.procedure i { display: none; }
+.hint { color: var(--ink); opacity: .55; font: 400 13px/1.4 var(--font-mono); }
+.metrics { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin-bottom: 30px; border-block: 2px solid var(--ink); }
+.metric { padding: 20px 26px; border: 0; border-right: 1px solid var(--ink); background: transparent; }
+.metric:last-child { border: 0; }
+.editable { display: block; min-height: 74px; color: var(--ink); font: 400 70px/.95 var(--font-display); outline: none; }
+.metric p { margin: 10px 0 0; font: 600 14px/1 var(--font-body); letter-spacing: .16em; text-transform: uppercase; }
+.results { display: grid; grid-template-columns: 1.15fr .85fr; gap: 46px; }
+.result-note { padding: 28px 0; border-block: 2px solid var(--ink); background: transparent; color: var(--ink); }
+.result-note h3,.result-note p { color: var(--ink); outline: none; }
+.result-note p { font-size: 21px; }
+.findings { display: grid; grid-template-columns: 44% 56%; gap: 52px; }
+.findings .media-slot { height: 590px; }
+.quotes { display: grid; gap: 0; border-top: 2px solid var(--ink); }
+.quote { padding: 24px 0; border: 0; border-bottom: 1px solid var(--ink-faint); background: transparent; }
+.quote blockquote { margin: 0 0 12px; padding: 0; border: 0; font-size: 30px; outline: none; }
+.quote p,.quote h3 { margin: 0; color: var(--ink); outline: none; }
+.quote p { font: 400 13px/1 var(--font-mono); }
+.takeaways { display: grid; grid-template-columns: repeat(3,1fr); gap: 48px; margin-top: 90px; }
+.takeaways article { padding-top: 22px; border-top: 2px solid var(--ink); }
+.takeaways article:nth-child(n) { border-color: var(--ink); }
+.takeaways p { color: var(--ink); font-size: 21px; }
+
+/* ===========================================
+   PRESENTATION CONTROLS AND INLINE EDITING
+   Chrome lives outside the 1920×1080 stage.
+   =========================================== */
+.controls { opacity: 0; }
+.controls:hover,.controls:focus-within { opacity: 1; }
+.progress { background: var(--ink); }
+.notes-panel { background: #111967; color: var(--paper); }
+.notes-panel h3,.notes-panel p { color: var(--paper); }
+.edit-hotzone { position: fixed; top: 0; left: 0; width: 80px; height: 80px; z-index: 10000; cursor: pointer; }
+.edit-toggle { position: fixed; top: 18px; left: 18px; z-index: 10001; opacity: 0; pointer-events: none; padding: 10px 12px; border: 1px solid var(--paper); background: var(--ink); color: var(--paper); transition: opacity .3s ease; }
+.edit-toggle.show,.edit-toggle.active { opacity: 1; pointer-events: auto; }
+.edit-mode [contenteditable="true"] { outline: 2px dashed var(--ink); outline-offset: 3px; cursor: text; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;800;900&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   PA3 VISUAL CONTINUITY — SWISS MODERN
+   This final layer intentionally mirrors docs/PA3_presentation.html.
+   =========================================== */
+:root {
+  --stage-bg: #e5e5e5;
+  --slide-bg: #ffffff;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7f7f8;
+  --text-primary: #0a0a0a;
+  --text-secondary: #444444;
+  --text-muted: #666666;
+  --accent: #e02e00;
+  --accent-light: rgba(224,46,0,.08);
+  --accent-medium: rgba(224,46,0,.16);
+  --grid-color: rgba(0,0,0,.04);
+  --border-color: rgba(0,0,0,.12);
+  --font-display: "Archivo", sans-serif;
+  --font-body: "Nunito", sans-serif;
+  --font-mono: "Archivo", sans-serif;
+}
+
+/* === BASE CANVAS AND PA3 GRID === */
+body { color: var(--text-primary); font-family: var(--font-body); }
+.slide {
+  padding: 80px 80px 112px;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  transition: opacity .5s ease;
+}
+.slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: linear-gradient(var(--grid-color) 1px,transparent 1px),linear-gradient(90deg,var(--grid-color) 1px,transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+.slide::after,.title-slide::after,.conclusion::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  right: auto;
+  width: 100%;
+  height: 6px;
+  background: var(--accent);
+  clip-path: none;
+}
+.slide > * { position: relative; z-index: 2; }
+.mark { display: none; }
+
+/* === TYPOGRAPHY: ARCHIVO + NUNITO === */
+.kicker {
+  display: inline-block;
+  width: fit-content;
+  margin: 0 0 24px;
+  padding: 8px 20px;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font: 700 18px/1 var(--font-display);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+h1,h2,h3 { color: var(--text-primary); font-family: var(--font-display); font-weight: 800; letter-spacing: -.02em; }
+h1 { margin: 0 0 24px; max-width: 1450px; font-size: 96px; line-height: 1.06; }
+h2 { margin: 0 0 42px; max-width: 1540px; font-size: 72px; line-height: 1.08; }
+h3 { margin: 0 0 12px; font-size: 32px; line-height: 1.15; }
+p,li { color: var(--text-primary); font: 400 25px/1.5 var(--font-body); }
+.lead { max-width: 980px; color: var(--text-secondary); font-size: 30px; line-height: 1.55; }
+.muted { color: var(--text-secondary); opacity: 1; }
+.mono,.route { font-family: var(--font-display); font-weight: 700; letter-spacing: .08em; }
+.tag { padding: 8px 20px; border: 2px solid var(--accent); border-radius: 0; color: var(--accent); font: 700 18px/1 var(--font-display); letter-spacing: .18em; }
+.meta {
+  position: absolute;
+  left: 80px;
+  right: 40px;
+  bottom: 30px;
+  color: var(--text-muted);
+  font: 700 18px/1 var(--font-display);
+  letter-spacing: .1em;
+}
+.meta.light { color: var(--text-muted); }
+
+/* === PA3-MATCHED COVER === */
+.title-slide,.conclusion { background: var(--bg-primary); color: var(--text-primary); }
+.title-slide h1 { margin-top: 215px; max-width: 1120px; color: var(--text-primary); font-size: 88px; font-weight: 900; line-height: 1.08; }
+.title-slide h1::first-line { color: var(--text-primary); }
+.title-slide .lead { max-width: 920px; color: var(--text-secondary); font-size: 30px; font-weight: 500; }
+.title-slide .chess {
+  position: absolute;
+  right: 120px;
+  top: 260px;
+  bottom: auto;
+  width: 420px;
+  height: 420px;
+  display: grid;
+  place-items: center;
+  border: 4px solid #1c1712;
+  border-radius: 28px;
+  background: #fffaf0;
+  box-shadow: 14px 18px 0 rgba(28,23,18,.16);
+  color: var(--accent);
+  font: 400 230px/1 Georgia,serif;
+  transform: none;
+}
+.conclusion h2 { max-width: 1420px; color: var(--text-primary); font-size: 94px; font-weight: 900; }
+.conclusion .takeaways { max-width: none; }
+
+/* === REVEAL MOTION: SAME CLEAN PA3 FEEL === */
+.reveal { opacity: 1; transform: translateY(24px); transition: transform .45s cubic-bezier(.16,1,.3,1); }
+.slide.visible .reveal { opacity: 1; transform: translateY(0); }
+
+/* === AGENDA, PROBLEMS, AND PA3 SELECTION === */
+.story { grid-template-columns: repeat(3,1fr); gap: 40px; margin-top: 84px; }
+.story article { min-height: 390px; padding: 34px; border: 2px solid var(--border-color); background: #fff; }
+.story article:nth-child(n) { border-color: var(--border-color); }
+.story article::before { content: ""; position: absolute; left: 0; top: 0; width: 6px; height: 100%; background: var(--accent); }
+.big-n { color: var(--accent); font: 900 74px/.9 var(--font-display); }
+.pa3 { grid-template-columns: .95fr 1.05fr; gap: 70px; }
+.problems li { padding: 25px 0; border-top: 1px solid var(--border-color); }
+.problems strong { color: var(--text-primary); font: 800 34px/1.15 var(--font-display); }
+.experiment { border: 2px solid var(--border-color); background: #fff; }
+.experiment div { min-height: 270px; padding: 34px; border-right: 1px solid var(--border-color); }
+.experiment b { color: var(--accent); font: 900 96px/.9 var(--font-display); }
+.experiment span { color: var(--text-secondary); font: 700 18px/1.35 var(--font-display); letter-spacing: .1em; }
+.solution { grid-template-columns: 700px 1fr; gap: 72px; }
+.winner { color: var(--text-primary); font: 900 78px/.92 var(--font-display); letter-spacing: -.03em; }
+.reason p { padding: 12px 0; border-top: 1px solid var(--border-color); color: var(--text-secondary); }
+.reason p::before { content: "→"; color: var(--accent); font-family: var(--font-display); font-weight: 900; }
+blockquote { padding: 20px 0 0; border-top: 2px solid var(--accent); color: var(--text-primary); font: italic 600 27px/1.45 var(--font-body); }
+.commit article { grid-template-columns: 92px 1fr; padding: 26px 28px; border: 2px solid var(--border-color); background: #fff; }
+.commit article::before { content: ""; position: absolute; left: 0; top: 0; width: 5px; height: 100%; background: var(--accent); }
+.commit .n { color: var(--accent); font: 900 48px/.9 var(--font-display); }
+.mapping .cell { padding: 20px 24px; border-top: 1px solid var(--border-color); }
+.mapping .arrow { color: var(--accent); font-family: var(--font-display); font-weight: 900; }
+.mapping strong { color: var(--text-primary); font: 800 27px/1.1 var(--font-display); }
+.mapping span { color: var(--text-secondary); opacity: 1; font-size: 19px; }
+
+/* === SCREENSHOT AND PHONE FRAMES === */
+.media-slot {
+  border: 3px dashed var(--border-color);
+  border-radius: 14px;
+  background: var(--bg-secondary);
+  background-image: none;
+  box-shadow: none;
+  color: var(--text-muted);
+}
+.media-slot:hover { border-color: var(--accent); }
+.media-slot.dragging { outline-color: var(--accent); }
+.media-slot img { background: #fff; }
+.slot-copy { color: var(--text-muted); }
+.slot-icon { color: var(--accent); font: 900 58px/1 var(--font-display); }
+.slot-copy strong { color: var(--text-primary); font: 800 24px/1.15 var(--font-display); }
+.slot-copy small { color: var(--text-muted); font-family: var(--font-body); }
+.remove { border: 2px solid var(--text-primary); border-radius: 6px; background: #fff; color: var(--text-primary); font-family: var(--font-display); font-weight: 700; }
+.sketch { width: 850px; height: 700px; }
+.phone { width: 410px; height: 750px; border: 8px solid #1c1712; border-radius: 34px; background: #fff; box-shadow: 12px 16px 0 rgba(28,23,18,.14); }
+.mini .media-slot { width: 300px; height: 530px; border: 5px solid #1c1712; border-radius: 22px; box-shadow: 7px 9px 0 rgba(28,23,18,.12); }
+.mini h3 { font-size: 28px; }
+.mini p { color: var(--text-secondary); }
+.demo { grid-template-columns: 1fr 620px; gap: 70px; }
+.demo li { margin: 13px 0; color: var(--text-secondary); }
+.route { padding: 12px 18px; border: 2px solid var(--text-primary); background: #fff; color: var(--text-primary); font-size: 16px; }
+
+/* === USER STUDY, TASKS, AND EDITABLE RESULTS === */
+.study { border-block: 3px solid var(--text-primary); }
+.study article { border-right: 1px solid var(--border-color); }
+.value { color: var(--accent); font: 900 78px/.9 var(--font-display); }
+.study h3 { font-weight: 800; }
+.study p { color: var(--text-secondary); }
+.task { padding: 32px; border: 2px solid var(--border-color); background: #fff; }
+.task h3 { color: var(--text-primary); font: 800 42px/1.15 var(--font-display); }
+.task p { color: var(--text-secondary); }
+.procedure { border-block: 2px solid var(--text-primary); }
+.procedure span { border-right: 1px solid var(--border-color); color: var(--text-primary); font-family: var(--font-display); font-weight: 700; }
+.procedure + .hint { margin: 12px 0 0; color: var(--accent); opacity: 1; font: 700 17px/1.25 var(--font-display); letter-spacing: .02em; }
+.metrics { border-block: 3px solid var(--text-primary); }
+.metric { border-right: 1px solid var(--border-color); }
+.editable { color: var(--accent); font: 900 68px/.95 var(--font-display); }
+.metric p { color: var(--text-secondary); font-family: var(--font-display); font-weight: 700; }
+.result-note { padding: 30px; border: 2px solid var(--border-color); background: var(--accent-light); }
+.result-note h3 { color: var(--text-primary); font-weight: 800; }
+.result-note p { color: var(--text-secondary); }
+.findings .media-slot { height: 590px; }
+.quotes { border-top: 3px solid var(--text-primary); }
+.quote { border-bottom: 1px solid var(--border-color); }
+.quote blockquote { color: var(--text-primary); font-style: italic; }
+.quote p { color: var(--text-muted); font-family: var(--font-body); }
+.quote h3 { color: var(--accent); }
+.takeaways article { padding: 30px; border: 2px solid var(--border-color); background: #fff; }
+.takeaways article:nth-child(n) { border-color: var(--border-color); }
+.takeaways article::before { content: ""; position: absolute; left: 0; top: 0; width: 6px; height: 100%; background: var(--accent); }
+.takeaways p { color: var(--text-secondary); }
+
+/* === PA3-MATCHED NAVIGATION DOTS === */
+.nav-dots { position: fixed; right: 20px; top: 50%; z-index: 1000; display: flex; flex-direction: column; gap: 8px; transform: translateY(-50%); }
+.nav-dot { width: 10px; height: 10px; padding: 0; border: 0; border-radius: 50%; background: rgba(0,0,0,.15); transition: .3s ease; }
+.nav-dot.active { background: var(--accent); transform: scale(1.6); }
+.progress { display: none; }
+.controls { opacity: 0; }
+.controls:hover,.controls:focus-within { opacity: 1; }
+.notes-panel { background: rgba(10,10,10,.96); color: #fff; }
+.notes-panel h3,.notes-panel p { color: #fff; }
+.edit-toggle { background: var(--accent); color: #fff; border-color: #fff; }
+.edit-mode [contenteditable="true"] { outline-color: var(--accent); }
+</style></head>
+<body><div class="deck-viewport"><main class="deck deck-stage" id="deckStage" aria-label="Freestyle Chess PA4 presentation">
+<section class="slide title-slide active" data-note="Chào thầy và các bạn. Nhóm 06 redesign Freestyle Chess cho trình duyệt di động. PA4 tiếp tục trực tiếp từ bằng chứng formative testing ở PA3. Bài trình bày đi qua hai solution được chọn, cách chuyển thành prototype hi-fi, và cách đánh giá bằng summative user study."><p class="kicker">Group 06 · CSC13112 UI/UX Design</p><h1>Freestyle Chess,<br>designed for the next move.</h1><p class="lead">From PA3 evidence to a high-fidelity mobile experience.</p><div class="chess">♞</div><div class="meta light"><span>PA4 · Hi-fi prototype &amp; user study</span><span>2026</span></div></section>
+<section class="slide" data-note="Câu chuyện gồm ba phần: quay lại PA3 để giải thích hai solution thắng; trình bày hi-fi prototype và luồng demo; cuối cùng là summative user study, kết quả và kết luận. Evidence dẫn đến design, design tạo trải nghiệm để test, và test cho biết thiết kế có thực sự tốt hơn hay không."><span class="mark">00</span><p class="kicker">Presentation map</p><h2>Evidence shaped the design. Testing validates the result.</h2><div class="story"><article><div class="big-n">01</div><h3>PA3 selection</h3><p>Two usability problems, six alternatives and two winning solutions.</p></article><article><div class="big-n">02</div><h3>Hi-fi prototype</h3><p>The selected concepts become a realistic coded experience.</p></article><article><div class="big-n">03</div><h3>Summative study</h3><p>The prototype is compared with the current mobile website.</p></article></div><div class="meta"><span>PA3 → PA4 → evidence</span><span>02 / 16</span></div></section>
+<section class="slide" data-note="Ở PA3, nhóm tập trung vào P-01 điều hướng một tay và P-05 tìm lịch đấu rồi mở thông tin trận. Chúng tôi tạo sáu paper prototype: ba navigation và ba schedule. Ba người tham gia được phân theo between-subjects, mỗi người test một variant của mỗi task."><span class="mark">01</span><p class="kicker">PA3 · Formative testing</p><h2>Two usability problems were explored through six alternatives.</h2><div class="pa3"><ul class="problems"><li><strong>P-01 · One-handed navigation</strong><span class="muted">Reach News and Schedule with the thumb while walking.</span></li><li><strong>P-05 · Schedule lookup</strong><span class="muted">Find a date, inspect players and open match analysis.</span></li></ul><div class="experiment"><div><b>6</b><span>paper variants</span></div><div><b>3</b><span>participants</span></div><div><b>2</b><span>task scenarios</span></div></div></div><div class="meta"><span>Between-subjects · non-intervention</span><span>03 / 16</span></div></section>
+<section class="slide" data-note="Solution thứ nhất là Nav-1, fixed bottom navigation bar. Người tham gia nhận ra Schedule ngay, chỉ cần một chạm và không đổi cách cầm. So với FAB, Nav-1 không giấu cấu trúc; so với hamburger toàn màn hình, nó giữ được ngữ cảnh. Chèn ảnh paper prototype Nav-1 vào khung bên phải."><p class="kicker">Selected solution 1 · P-01</p><div class="solution"><div><span class="tag">Winner · Nav-1</span><div class="winner">FIXED<br>BOTTOM NAV</div><div class="reason"><p>Direct one-tap access</p><p>Persistent labels</p><p>Natural thumb reach</p></div><blockquote>“Bottom Nav is effortless; my thumb rests right there naturally.”</blockquote></div><figure class="media-slot sketch" data-slot="pa3-nav1"><img alt="PA3 Nav-1 sketch"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Insert PA3 Nav-1 sketch</strong><small>Click or drop PNG/JPG</small></figcaption></figure></div><div class="meta"><span>Navigation winner</span><span>04 / 16</span></div></section>
+<section class="slide" data-note="Solution thứ hai là Sch-2: date strip kết hợp match detail. Date strip giúp lọc ngày nhanh hơn timeline dài. Matchup card tạo cấu trúc rõ và dẫn đến màn hình bàn cờ 8×8. Phương án tránh scrolling fatigue và tránh làm trang quá dài. Chèn ảnh paper prototype Sch-2 vào khung."><p class="kicker">Selected solution 2 · P-05</p><div class="solution"><div><span class="tag">Winner · Sch-2</span><div class="winner">DATE STRIP<br>+ DETAIL</div><div class="reason"><p>Rapid date filtering</p><p>Clear hierarchy</p><p>Dedicated 8×8 analysis</p></div><blockquote>“The date strip is intuitive; the analysis screen feels professional.”</blockquote></div><figure class="media-slot sketch" data-slot="pa3-sch2"><img alt="PA3 Sch-2 sketch"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Insert PA3 Sch-2 sketch</strong><small>Click or drop PNG/JPG</small></figcaption></figure></div><div class="meta"><span>Schedule winner</span><span>05 / 16</span></div></section>
+<section class="slide" data-note="Formative testing và peer review tạo ra bốn commitment cho PA4: touch target tối thiểu 48×48 pixel; back button rõ; search và filter chip; micro-interaction và active state dưới 250 mili giây. Đây là cầu nối trực tiếp từ PA3 sang hi-fi."><span class="mark">02</span><p class="kicker">PA3 → PA4</p><h2>Four observed breakdowns became four design commitments.</h2><div class="commit"><article><div class="n">01</div><div><h3>48×48 px targets</h3><p>Safe navigation, toggles and detail actions.</p></div></article><article><div class="n">02</div><div><h3>Explicit back controls</h3><p>Keep users in control on nested screens.</p></div></article><article><div class="n">03</div><div><h3>Search + filter chips</h3><p>Find players and match states without long scrolling.</p></div></article><article><div class="n">04</div><div><h3>Visible feedback</h3><p>Active states and transitions under 250 ms.</p></div></article></div><div class="meta"><span>Every improvement traces to PA3</span><span>06 / 16</span></div></section>
+<section class="slide" data-note="Ở PA4, nhóm chuyển commitment thành web prototype chạy thật bằng React và TypeScript. Bottom nav luôn hiện; date strip hỗ trợ cuộn và date picker; search lọc theo người chơi, giải hoặc địa điểm; chip lọc trạng thái; match detail có back navigation và bàn cờ nhúng."><p class="kicker">Hi-fi design direction</p><h2>Each PA3 finding became working behavior.</h2><div class="mapping"><div class="cell"><strong>Hidden navigation</strong><span>FAB and full-screen menu</span></div><div class="arrow">→</div><div class="cell"><strong>Persistent bottom navigation</strong><span>Active state and one-tap access</span></div><div class="cell"><strong>Long schedule browsing</strong><span>Timeline scrolling fatigue</span></div><div class="arrow">→</div><div class="cell"><strong>Date strip, picker, search, filters</strong><span>Direct routes to a match</span></div><div class="cell"><strong>Exit uncertainty</strong><span>Nested detail screen</span></div><div class="arrow">→</div><div class="cell"><strong>Back action + preserved state</strong><span>Return to the same schedule context</span></div><div class="cell"><strong>Paper interactions</strong><span>States switched manually</span></div><div class="arrow">→</div><div class="cell"><strong>Responsive coded behavior</strong><span>React, TypeScript, realistic content</span></div></div><div class="meta"><span>React + TypeScript + Vite</span><span>07 / 16</span></div></section>
+<section class="slide" data-note="Prototype có ba màn hình cốt lõi. Home đặt bối cảnh và mở Schedule. Schedule dùng date strip, search, filter và match card. Match Detail hiển thị kỳ thủ, tỷ số, game và bàn cờ. Chèn ba screenshot dọc; slide này là bản đồ trước live demo."><p class="kicker">Hi-fi prototype · Overview</p><h2>One core journey across three connected screens.</h2><div class="screens"><div class="mini"><figure class="media-slot" data-slot="overview-home"><img alt="Home screen"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Home screenshot</strong></figcaption></figure><h3>Home</h3><p>Entry and featured content</p></div><div class="mini"><figure class="media-slot" data-slot="overview-schedule"><img alt="Schedule screen"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Schedule screenshot</strong></figcaption></figure><h3>Schedule</h3><p>Date, search, filters, matches</p></div><div class="mini"><figure class="media-slot" data-slot="overview-detail"><img alt="Match Detail screen"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Match Detail screenshot</strong></figcaption></figure><h3>Match Detail</h3><p>Players, games, chessboard</p></div></div><div class="meta"><span>Home → Schedule → Match Detail</span><span>08 / 16</span></div></section>
+<section class="slide" data-note="Home định vị thương hiệu và dẫn người dùng đến nội dung quan trọng. CTA View Schedule và fixed bottom nav đều mở lịch đấu. Bottom nav có năm mục và active state rõ. Chèn screenshot Home đầy đủ vào khung điện thoại."><div class="demo"><div><p class="kicker">Hi-fi demo · Screen 1</p><h2>Home keeps navigation within reach.</h2><ul><li>Realistic Freestyle Chess content.</li><li>Direct “View schedule” action.</li><li>Persistent five-tab navigation.</li><li>Visible active state and ≥48 px targets.</li></ul><div class="route mono">Route: #/</div></div><figure class="media-slot phone" data-slot="demo-home"><img alt="Hi-fi Home"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Insert Home screenshot</strong><small>Portrait crop recommended</small></figcaption></figure></div><div class="meta"><span>Replaceable demo frame</span><span>09 / 16</span></div></section>
+<section class="slide" data-note="Schedule là nơi Sch-2 được phát triển rõ nhất. Date strip lướt nhanh; date picker hỗ trợ nhảy xa. Search tìm theo người chơi, sự kiện hoặc địa điểm. Status chip lọc trạng thái. Match card mở tại chỗ và View Details dẫn sang màn hình chi tiết. Nên live demo thao tác này."><div class="demo"><div><p class="kicker">Hi-fi demo · Screen 2</p><h2>Schedule replaces scrolling friction with direct retrieval.</h2><ul><li>Scrollable date strip plus picker.</li><li>Search by player, event or location.</li><li>Live, upcoming and completed filters.</li><li>Expandable cards and clear detail action.</li></ul><div class="route mono">Route: #/schedule</div></div><figure class="media-slot phone" data-slot="demo-schedule"><img alt="Hi-fi Schedule"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Insert Schedule screenshot</strong><small>Show a selected date and open match</small></figcaption></figure></div><div class="meta"><span>Replaceable demo frame</span><span>10 / 16</span></div></section>
+<section class="slide" data-note="Match Detail hoàn tất task flow. Back giữ date, search và match card đã mở. Phần đầu có giải đấu, ngày, thể thức, người chơi, Elo và tỷ số. Bên dưới là game accordion và bàn cờ Chess.com nhúng. Chèn screenshot có player info và một game đang mở."><div class="demo"><div><p class="kicker">Hi-fi demo · Screen 3</p><h2>Match Detail preserves context and rewards exploration.</h2><ul><li>Explicit Back with schedule state preserved.</li><li>Player identity, Elo, score and status.</li><li>Expandable game archive.</li><li>Embedded 8×8 Chess.com board.</li></ul><div class="route mono">Route: #/schedule/:matchId</div></div><figure class="media-slot phone" data-slot="demo-detail"><img alt="Hi-fi Match Detail"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Insert Match Detail screenshot</strong><small>Show player info and board</small></figcaption></figure></div><div class="meta"><span>Replaceable demo frame</span><span>11 / 16</span></div></section>
+<section class="slide" data-note="Summative study so sánh prototype với mobile website hiện tại của freestylechess.com. Thiết kế within-subjects cho mỗi người dùng cả hai hệ thống. Năm người tham gia được counterbalance AB hoặc BA để giảm learning effect. Tất cả phiên quay video, khoảng 20 phút mỗi phiên."><span class="mark">03</span><p class="kicker">Summative user study · Design</p><h2>Five participants compare the prototype with the current website.</h2><div class="study"><article><div class="value">5</div><h3>Participants</h3><p>Minimum required sample.</p></article><article><div class="value">A/B</div><h3>Within-subjects</h3><p>Everyone uses both systems.</p></article><article><div class="value">AB/BA</div><h3>Counterbalanced</h3><p>Alternate order to reduce learning.</p></article><article><div class="value">20′</div><h3>Per session</h3><p>Every session is recorded.</p></article></div><p class="lead" style="margin-top:calc(1.4*var(--u))">Baseline: <strong>freestylechess.com mobile web</strong></p><div class="meta"><span>Summative comparison</span><span>12 / 16</span></div></section>
+<section class="slide" data-note="Hai task bám trực tiếp vào vấn đề PA3. Task 1 yêu cầu mở Schedule khi cầm điện thoại một tay. Task 2 yêu cầu tìm trận theo ngày và mở bàn cờ. Nhóm đo completion time, success, error count, SUS và Likert satisfaction. Quy trình gồm consent, System A, questionnaire, nghỉ, System B, questionnaire và interview."><p class="kicker">User study · Tasks &amp; measures</p><h2>The study re-tests the same core needs at higher fidelity.</h2><div class="tasks"><article class="task"><div class="mono">TASK 01 · NAVIGATION</div><h3>Open Schedule with one hand.</h3><p>Success: reach Schedule without assistance.</p></article><article class="task"><div class="mono">TASK 02 · MATCH LOOKUP</div><h3>Find the target date and open the board.</h3><p>Success: reach Match Detail and view the board.</p></article></div><div class="procedure"><span>Consent + profile</span><i>→</i><span>System A<br>tasks</span><i>→</i><span>SUS + Likert</span><i>→</i><span>Break</span><i>→</i><span>System B<br>tasks</span><i>→</i><span>Interview</span></div><p class="hint">Measures: Completion Time · Success · Errors · SUS · Satisfaction</p><div class="meta"><span>Same needs · stronger evidence</span><span>13 / 16</span></div></section>
+<section class="slide" data-note="Slide này dành cho kết quả định lượng. Bấm ba ô trên để thay số thật: chênh lệch completion time, success rate và SUS. Kéo-thả ảnh biểu đồ vào khung. Ô phải viết một kết luận trung tâm và ghi sample, cách tính hoặc lưu ý. Không kết luận prototype tốt hơn trước khi có dữ liệu thật."><p class="kicker">User study · Results</p><h2>Replace the placeholders with measured outcomes.</h2><div class="metrics"><article class="metric"><span class="editable" contenteditable="true" data-edit-key="tct">—%</span><p>Completion time change</p></article><article class="metric"><span class="editable" contenteditable="true" data-edit-key="success">—%</span><p>Prototype success rate</p></article><article class="metric"><span class="editable" contenteditable="true" data-edit-key="sus">—/100</span><p>Prototype SUS score</p></article></div><div class="results"><figure class="media-slot wide" data-slot="study-chart"><img alt="Results chart"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Insert results chart</strong><small>TCT, success, errors, SUS or Likert</small></figcaption></figure><div class="result-note"><h3 contenteditable="true" data-edit-key="result-title">Write the main finding here.</h3><p contenteditable="true" data-edit-key="result-copy">Explain what changed, which task drove the difference, and whether the evidence supports the design decision.</p><span class="hint">Click text to edit · report n and method</span></div></div><div class="meta"><span>Editable result placeholders</span><span>14 / 16</span></div></section>
+<section class="slide" data-note="Slide này tổng hợp qualitative findings. Khung trái chèn ảnh testing session hoặc affinity map. Hai quote bên phải bấm để thay bằng phát biểu thật và participant ID. Ưu tiên quote giải thích vì sao interaction tốt hoặc chưa tốt. Nếu study phát hiện vấn đề mới, nói rõ cải tiến tiếp theo."><p class="kicker">User study · What users said</p><h2>Pair the numbers with observed behavior and participant voice.</h2><div class="findings"><figure class="media-slot" data-slot="testing-photo"><img alt="Testing session or affinity map"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Insert testing photo or affinity map</strong></figcaption></figure><div class="quotes"><article class="quote"><blockquote contenteditable="true" data-edit-key="quote-1">“Replace with a quote about navigation or one-handed use.”</blockquote><p contenteditable="true" data-edit-key="quote-1-id">Participant P—</p></article><article class="quote"><blockquote contenteditable="true" data-edit-key="quote-2">“Replace with a quote about date search or Match Detail.”</blockquote><p contenteditable="true" data-edit-key="quote-2-id">Participant P—</p></article><article class="quote"><h3 contenteditable="true" data-edit-key="next-improvement">Next improvement: describe the most important issue discovered.</h3></article></div></div><div class="meta"><span>Evidence, not decoration</span><span>15 / 16</span></div></section>
+<section class="slide conclusion" data-note="Kết luận, PA4 nối liền ba bước. PA3 giúp chọn Nav-1 và Sch-2 dựa trên hành vi người dùng. Hi-fi biến hai solution thành trải nghiệm mobile có interaction thật. Summative study kiểm tra lại chính hai nhu cầu ban đầu bằng dữ liệu định lượng và định tính. Sau khi nhập kết quả thật, hãy chốt điều đã được chứng minh và cải tiến tiếp theo."><p class="kicker">Conclusion</p><h2>We carried evidence through the entire design cycle.</h2><div class="takeaways"><article><div class="big-n">01</div><h3>Selected with evidence</h3><p>Nav-1 and Sch-2 address observed mobile needs.</p></article><article><div class="big-n">02</div><h3>Built as behavior</h3><p>The coded prototype makes the core journey realistic.</p></article><article><div class="big-n">03</div><h3>Validated with users</h3><p>Results determine what worked and what improves next.</p></article></div><div class="meta light"><span>Group 06 · Freestyle Chess Mobile Web</span><span>16 / 16</span></div></section>
+</main></div>
+<input class="file-input" id="fileInput" type="file" accept="image/*"><nav class="controls deck-controls" aria-label="Presentation controls"><button id="prev" aria-label="Previous slide">←</button><span class="counter" id="counter"></span><button id="next" aria-label="Next slide">→</button><button id="notes">Notes</button><button id="export">Export HTML</button><button id="fullscreen">Present</button></nav><div class="nav-dots" id="navDots" aria-label="Slide navigation"></div><div class="progress" id="progress"></div><aside class="notes-panel" id="notesPanel"><h3 id="notesTitle"></h3><p id="notesText"></p><p class="hint">S: notes · arrows/space: navigate · F: fullscreen · E: edit</p></aside><div class="edit-hotzone" title="Edit mode (E)"></div><button class="edit-toggle" id="editToggle" title="Edit mode (E)">✎</button>
+<script>
+/* === PA4 CONTENT MODEL ===
+   PA3 contributes only the two tested design inputs on slide 3.
+   The remaining narrative is the PA4 hi-fi prototype, demo and summative study. */
+const pa4Slides=[
+  {kind:'title-slide',note:'Chào thầy và các bạn. Đây là bài trình bày PA4 của Nhóm 06: high-fidelity prototype và summative user study cho Freestyle Chess Mobile Web. Trọng tâm hôm nay là sản phẩm PA4, cách prototype hoạt động và cách nhóm đánh giá nó với người dùng.',html:`<p class="kicker">Group 06 · CSC13112 UI/UX Design</p><h1>PA4<br>High-fidelity prototype &amp; user study.</h1><p class="lead">Freestyle Chess Mobile Web</p><div class="chess">♞</div><div class="meta light"><span>Final prototype · evaluation · demo</span><span>2026</span></div>`},
+  {note:'PA4 có ba đầu ra chính. Hi-fi prototype chiếm 55 phần trăm, summative user study chiếm 40 phần trăm và weekly report chiếm 5 phần trăm. Bài trình bày này tập trung vào hai phần có trọng số lớn nhất, kèm live demo trong browser.',html:`<p class="kicker">PA4 · Assignment focus</p><h2>Build the experience. Evaluate it. Demonstrate it.</h2><div class="story"><article><div class="big-n">55%</div><h3>Hi-fi prototype</h3><p>Rich visual fidelity, realistic content and working interactions.</p></article><article><div class="big-n">40%</div><h3>Summative study</h3><p>Five participants, recorded sessions and comparative evidence.</p></article><article><div class="big-n">5%</div><h3>Weekly report</h3><p>Clear ownership and documented contribution.</p></article></div><div class="meta"><span>PA4 · 175 points</span><span>02 / 16</span></div>`},
+  {note:'PA3 chỉ cung cấp dữ liệu đầu vào cho PA4. Từ formative testing, nhóm chọn Nav-1 là fixed bottom navigation và Sch-2 là date strip kết hợp match detail. Hai kết quả này trở thành ràng buộc thiết kế, không phải nội dung chính của deck PA4.',html:`<p class="kicker">Design inputs · Evidence from PA3</p><h2>PA4 begins with two tested decisions.</h2><div class="tasks"><article class="task"><div class="mono">INPUT 01 · NAV-1</div><h3>Fixed bottom navigation</h3><p>Persistent labels, one-tap access and comfortable thumb reach.</p></article><article class="task"><div class="mono">INPUT 02 · SCH-2</div><h3>Date strip + Match Detail</h3><p>Fast date filtering and a dedicated 8×8 analysis screen.</p></article></div><p class="lead" style="margin-top:42px">These inputs define what PA4 must implement at high fidelity.</p><div class="meta"><span>Source: PA3 formative testing</span><span>03 / 16</span></div>`},
+  {note:'High fidelity không chỉ là làm giao diện đẹp hơn. Theo brief PA4, prototype phải có màu sắc và UI chi tiết, interaction thật qua touch hoặc mouse, và content gần với ngữ cảnh thực. Vì vậy nhóm xây prototype chạy trực tiếp trên browser.',html:`<p class="kicker">Requirement 1 · High fidelity</p><h2>The prototype must feel real before it is tested.</h2><div class="story"><article><div class="big-n">01</div><h3>Rich fidelity</h3><p>Complete visual system, components, states and motion.</p></article><article><div class="big-n">02</div><h3>Real interactions</h3><p>Touch, mouse, search, filtering, expansion and navigation.</p></article><article><div class="big-n">03</div><h3>Realistic content</h3><p>Meaningful players, matches, dates, ratings and scores.</p></article></div><div class="meta"><span>Working browser prototype</span><span>04 / 16</span></div>`},
+  {note:'Bốn phát hiện formative được chuyển thành bốn tiêu chuẩn implementation trong PA4: touch target tối thiểu 48 nhân 48 pixel, back control rõ ràng, search kết hợp filter chip, và feedback dưới 250 mili giây. Slide này là cầu nối duy nhất cần thiết từ PA3 sang PA4.',html:`<p class="kicker">PA4 · Implementation criteria</p><h2>Four findings became four product constraints.</h2><div class="commit"><article><div class="n">01</div><div><h3>48×48 px targets</h3><p>Safe navigation and primary actions.</p></div></article><article><div class="n">02</div><div><h3>Explicit Back</h3><p>Clear escape from nested match views.</p></div></article><article><div class="n">03</div><div><h3>Search + filters</h3><p>Direct retrieval without long scrolling.</p></div></article><article><div class="n">04</div><div><h3>Visible feedback</h3><p>Active states and motion under 250 ms.</p></div></article></div><div class="meta"><span>Evidence translated into behavior</span><span>05 / 16</span></div>`},
+  {note:'Phạm vi prototype PA4 gồm ba màn hình kết nối thành một user journey hoàn chỉnh. Home tạo điểm vào, Schedule hỗ trợ tìm trận, và Match Detail cho phép xem thông tin cùng bàn cờ. Hãy chèn ba screenshot hi-fi vào các khung này.',html:`<p class="kicker">Hi-fi prototype · Scope</p><h2>One complete journey across three screens.</h2><div class="screens"><div class="mini"><figure class="media-slot" data-slot="overview-home"><img alt="Home screen"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Home screenshot</strong></figcaption></figure><h3>Home</h3><p>Entry and featured content</p></div><div class="mini"><figure class="media-slot" data-slot="overview-schedule"><img alt="Schedule screen"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Schedule screenshot</strong></figcaption></figure><h3>Schedule</h3><p>Dates, filters and matches</p></div><div class="mini"><figure class="media-slot" data-slot="overview-detail"><img alt="Match Detail screen"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Match Detail screenshot</strong></figcaption></figure><h3>Match Detail</h3><p>Players, games and board</p></div></div><div class="meta"><span>Home → Schedule → Match Detail</span><span>06 / 16</span></div>`},
+  {note:'Home là màn hình đầu tiên của hi-fi prototype. Nó sử dụng content gần thật, nổi bật live match và giữ bottom navigation trong tầm ngón tay. Khi demo, bắt đầu từ CTA hoặc chọn Schedule trên bottom nav.',html:`<div class="demo"><div><p class="kicker">Prototype · Home</p><h2>A credible entry point with navigation in reach.</h2><ul><li>Realistic tournament and player content.</li><li>Featured match and direct schedule CTA.</li><li>Persistent five-tab bottom navigation.</li><li>Clear active state and accessible targets.</li></ul><div class="route mono">Route: #/</div></div><figure class="media-slot phone" data-slot="demo-home"><img alt="Hi-fi Home"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Insert Home screenshot</strong><small>Portrait crop recommended</small></figcaption></figure></div><div class="meta"><span>Hi-fi screen 01</span><span>07 / 16</span></div>`},
+  {note:'Schedule là màn hình cốt lõi của solution. Date strip và date picker rút ngắn việc chọn ngày. Search tìm theo player, event hoặc location. Filter chip chia live, upcoming và completed. Match card mở rộng và dẫn thẳng đến detail.',html:`<div class="demo"><div><p class="kicker">Prototype · Schedule</p><h2>Direct retrieval replaces scrolling friction.</h2><ul><li>Scrollable date strip plus date picker.</li><li>Search by player, event or location.</li><li>Live, upcoming and completed filters.</li><li>Expandable cards with a clear detail action.</li></ul><div class="route mono">Route: #/schedule</div></div><figure class="media-slot phone" data-slot="demo-schedule"><img alt="Hi-fi Schedule"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Insert Schedule screenshot</strong><small>Show selected date and open match</small></figcaption></figure></div><div class="meta"><span>Hi-fi screen 02</span><span>08 / 16</span></div>`},
+  {note:'Match Detail hoàn tất task flow. Top bar có Back rõ ràng và giữ context khi quay lại. Player banner hiển thị tên, Elo, quốc kỳ, tỷ số và trạng thái. Phần game có move list và bàn cờ 8 nhân 8.',html:`<div class="demo"><div><p class="kicker">Prototype · Match Detail</p><h2>The final screen preserves context and supports analysis.</h2><ul><li>Explicit Back with schedule state preserved.</li><li>Player identity, Elo, score and status.</li><li>Expandable game archive and move list.</li><li>Interactive 8×8 chessboard.</li></ul><div class="route mono">Route: #/schedule/:matchId</div></div><figure class="media-slot phone" data-slot="demo-detail"><img alt="Hi-fi Match Detail"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Insert Match Detail screenshot</strong><small>Show player info and board</small></figcaption></figure></div><div class="meta"><span>Hi-fi screen 03</span><span>09 / 16</span></div>`},
+  {note:'Live demo là bằng chứng quan trọng của PA4. Trong khoảng bốn phút, nhóm sẽ mở Home, vào Schedule bằng bottom nav, chọn ngày 16 tháng 8, tìm trận Carlsen và Lê Quang Liêm, sau đó mở Match Detail và bàn cờ.',html:`<p class="kicker">Requirement 3 · Live demo</p><h2>A four-minute run proves the prototype is interactive.</h2><div class="commit"><article><div class="n">01</div><div><h3>Start at Home</h3><p>Establish real content and active navigation.</p></div></article><article><div class="n">02</div><div><h3>Open Schedule</h3><p>Use the bottom nav with one hand.</p></div></article><article><div class="n">03</div><div><h3>Find 16 August</h3><p>Use date, search and status filters.</p></div></article><article><div class="n">04</div><div><h3>Inspect the match</h3><p>Open detail, game archive and 8×8 board.</p></div></article></div><div class="meta"><span>Browser demo · no static mockup</span><span>10 / 16</span></div>`},
+  {note:'Phần thứ hai của PA4 là summative user study. Nhóm so sánh prototype với mobile website hiện tại của freestylechess.com. Năm participants sử dụng cả hai system theo thiết kế within-subjects. Thứ tự AB và BA được xen kẽ để giảm learning effect, và toàn bộ session được quay video.',html:`<p class="kicker">Requirement 2 · Study design</p><h2>Five participants compare two mobile experiences.</h2><div class="study"><article><div class="value">5</div><h3>Participants</h3><p>Required minimum sample.</p></article><article><div class="value">A/B</div><h3>Within-subjects</h3><p>Everyone uses both systems.</p></article><article><div class="value">AB/BA</div><h3>Counterbalanced</h3><p>Order alternates by participant.</p></article><article><div class="value">20′</div><h3>Recorded</h3><p>Approximately twenty minutes each.</p></article></div><p class="lead" style="margin-top:28px">Baseline: <strong>freestylechess.com mobile web</strong></p><div class="meta"><span>Summative usability study</span><span>11 / 16</span></div>`},
+  {note:'Hai task đánh giá trực tiếp user journey của prototype. Task 1 là mở Schedule khi cầm điện thoại một tay. Task 2 là tìm trận ngày 16 tháng 8 giữa Carlsen và Lê Quang Liêm, sau đó mở bàn cờ chi tiết. Hai system dùng cùng task và success criteria.',html:`<p class="kicker">User study · Tasks</p><h2>Both systems are tested on the same PA4 journey.</h2><div class="tasks"><article class="task"><div class="mono">TASK 01 · NAVIGATION</div><h3>Open Schedule with one hand.</h3><p>Success: reach Schedule without assistance.</p></article><article class="task"><div class="mono">TASK 02 · MATCH LOOKUP</div><h3>Find the target match and open its board.</h3><p>Success: reach Match Detail and view the 8×8 board.</p></article></div><p class="lead" style="margin-top:42px">Same scenario · same success criteria · two systems</p><div class="meta"><span>Prototype vs baseline</span><span>12 / 16</span></div>`},
+  {note:'Mỗi session bắt đầu bằng consent và profile, sau đó test System A, trả lời SUS và Likert, nghỉ ngắn, rồi lặp lại với System B và phỏng vấn. Nhóm thu thập completion time, success, errors và satisfaction để đánh giá efficiency, effectiveness và perceived usability.',html:`<p class="kicker">User study · Protocol &amp; measures</p><h2>The protocol combines behavior and perception.</h2><div class="procedure"><span>Consent + profile</span><i>→</i><span>System A<br>tasks</span><i>→</i><span>SUS + Likert</span><i>→</i><span>Break</span><i>→</i><span>System B<br>tasks</span><i>→</i><span>Interview</span></div><div class="study" style="margin-top:48px"><article><div class="value">TCT</div><h3>Efficiency</h3><p>Completion time.</p></article><article><div class="value">%</div><h3>Effectiveness</h3><p>Success rate.</p></article><article><div class="value">∑</div><h3>Errors</h3><p>Wrong taps and recovery.</p></article><article><div class="value">SUS</div><h3>Perception</h3><p>Usability + satisfaction.</p></article></div><div class="meta"><span>All sessions video-recorded</span><span>13 / 16</span></div>`},
+  {note:'Slide này dành cho kết quả định lượng thật của PA4. Bấm vào ba con số để nhập completion time, success rate và SUS. Kéo thả biểu đồ vào khung bên trái, sau đó viết một kết luận trung tâm dựa trên dữ liệu, không khẳng định trước khi study hoàn tất.',html:`<p class="kicker">User study · Quantitative results</p><h2>Replace placeholders with measured PA4 outcomes.</h2><div class="metrics"><article class="metric"><span class="editable" contenteditable="true" data-edit-key="tct">—%</span><p>Completion time change</p></article><article class="metric"><span class="editable" contenteditable="true" data-edit-key="success">—%</span><p>Prototype success rate</p></article><article class="metric"><span class="editable" contenteditable="true" data-edit-key="sus">—/100</span><p>Prototype SUS score</p></article></div><div class="results"><figure class="media-slot wide" data-slot="study-chart"><img alt="Results chart"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Insert results chart</strong><small>TCT, success, errors, SUS or Likert</small></figcaption></figure><div class="result-note"><h3 contenteditable="true" data-edit-key="result-title">Write the main finding here.</h3><p contenteditable="true" data-edit-key="result-copy">Explain what changed, which task drove the difference, and whether the evidence supports the design.</p><span class="hint">Click text to edit · report n and method</span></div></div><div class="meta"><span>Editable PA4 results</span><span>14 / 16</span></div>`},
+  {note:'Số liệu cần được giải thích bằng hành vi và tiếng nói người dùng. Khung trái có thể chèn ảnh testing session hoặc affinity map. Hai quote bên phải nên là phát biểu thật có participant ID. Ô cuối ghi issue quan trọng nhất và hướng iteration tiếp theo.',html:`<p class="kicker">User study · Qualitative findings</p><h2>Observed behavior explains the numbers.</h2><div class="findings"><figure class="media-slot" data-slot="testing-photo"><img alt="Testing session or affinity map"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Insert testing photo or affinity map</strong></figcaption></figure><div class="quotes"><article class="quote"><blockquote contenteditable="true" data-edit-key="quote-1">“Replace with a quote about navigation or one-handed use.”</blockquote><p contenteditable="true" data-edit-key="quote-1-id">Participant P—</p></article><article class="quote"><blockquote contenteditable="true" data-edit-key="quote-2">“Replace with a quote about date search or Match Detail.”</blockquote><p contenteditable="true" data-edit-key="quote-2-id">Participant P—</p></article><article class="quote"><h3 contenteditable="true" data-edit-key="next-improvement">Next iteration: describe the most important issue discovered.</h3></article></div></div><div class="meta"><span>Evidence for the next iteration</span><span>15 / 16</span></div>`},
+  {kind:'conclusion',note:'Kết luận, đây là một bài PA4 hoàn chỉnh. Nhóm đã xây high-fidelity prototype có interaction thật, đánh giá bằng summative user study với năm participants, và dùng kết quả để quyết định bước cải tiến tiếp theo. PA3 chỉ là nguồn evidence đầu vào; sản phẩm, demo và evaluation đều thuộc PA4.',html:`<p class="kicker">PA4 · Conclusion</p><h2>Prototype. Evaluate. Improve.</h2><div class="takeaways"><article><div class="big-n">01</div><h3>Built at high fidelity</h3><p>Real content, components, states and interactions.</p></article><article><div class="big-n">02</div><h3>Evaluated with users</h3><p>Five recorded, counterbalanced comparison sessions.</p></article><article><div class="big-n">03</div><h3>Ready to iterate</h3><p>Quantitative and qualitative evidence guide what comes next.</p></article></div><div class="meta light"><span>Group 06 · Freestyle Chess Mobile Web</span><span>16 / 16</span></div>`}
+];
+document.querySelectorAll('.slide').forEach((slide,i)=>{const model=pa4Slides[i];slide.className=`slide${model.kind?' '+model.kind:''}${i===0?' active visible':''}`;slide.dataset.note=model.note;slide.innerHTML=model.html});
+const slides=[...document.querySelectorAll('.slide')],counter=document.querySelector('#counter'),progress=document.querySelector('#progress'),panel=document.querySelector('#notesPanel'),notes=document.querySelector('#notesText'),noteTitle=document.querySelector('#notesTitle'),input=document.querySelector('#fileInput');let index=Math.max(0,Math.min(slides.length-1,Number(location.hash.slice(1))-1||0)),activeSlot=null;
+function show(n){index=(n+slides.length)%slides.length;slides.forEach((s,i)=>{s.classList.toggle('active',i===index);s.classList.toggle('visible',i===index)});document.querySelectorAll('.nav-dot').forEach((dot,i)=>dot.classList.toggle('active',i===index));counter.textContent=`${index+1} / ${slides.length}`;progress.style.width=`${(index+1)/slides.length*100}%`;noteTitle.textContent=`Slide ${index+1} · Vietnamese speaker script`;notes.textContent=slides[index].dataset.note||'';history.replaceState(null,'',`#${index+1}`)}
+function applyImage(slot,data){const f=document.querySelector(`[data-slot="${slot}"]`);if(!f)return;f.querySelector('img').src=data;f.classList.toggle('has-image',!!data);data?localStorage.setItem(`pa4-media-${slot}`,data):localStorage.removeItem(`pa4-media-${slot}`)}function read(file,slot){const r=new FileReader;r.onload=()=>applyImage(slot,r.result);r.readAsDataURL(file)}
+document.querySelectorAll('.media-slot').forEach(f=>{const slot=f.dataset.slot,saved=localStorage.getItem(`pa4-media-${slot}`),embedded=f.querySelector('img').getAttribute('src');if(saved||embedded)applyImage(slot,saved||embedded);f.onclick=e=>{if(e.target.closest('.remove'))return;activeSlot=slot;input.click()};f.querySelector('.remove').onclick=e=>{e.stopPropagation();applyImage(slot,'')};f.ondragover=e=>{e.preventDefault();f.classList.add('dragging')};f.ondragleave=()=>f.classList.remove('dragging');f.ondrop=e=>{e.preventDefault();f.classList.remove('dragging');const file=e.dataTransfer.files[0];if(file?.type.startsWith('image/'))read(file,slot)}});input.onchange=()=>{if(input.files[0]&&activeSlot)read(input.files[0],activeSlot);input.value=''};
+document.querySelectorAll('[data-edit-key]').forEach(el=>{const key=`pa4-edit-${el.dataset.editKey}`,saved=localStorage.getItem(key);if(saved)el.innerHTML=saved;el.oninput=()=>localStorage.setItem(key,el.innerHTML)});
+function exportHtml(){const clone=document.documentElement.cloneNode(true);clone.querySelectorAll('.slide').forEach((s,i)=>{s.classList.toggle('active',i===0);s.classList.toggle('visible',i===0)});clone.querySelector('#notesPanel').classList.remove('open');clone.querySelector('#counter').textContent=`1 / ${slides.length}`;clone.querySelector('#progress').style.width=`${100/slides.length}%`;const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['<!doctype html>\n'+clone.outerHTML],{type:'text/html'}));a.download='Freestyle-Chess-PA4-Presentation.html';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}const fullscreen=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();document.querySelector('#prev').onclick=()=>show(index-1);document.querySelector('#next').onclick=()=>show(index+1);document.querySelector('#notes').onclick=()=>panel.classList.toggle('open');document.querySelector('#export').onclick=exportHtml;document.querySelector('#fullscreen').onclick=fullscreen;document.onkeydown=e=>{if(e.target.closest?.('[contenteditable="true"]'))return;if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();show(index+1)}if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();show(index-1)}if(e.key.toLowerCase()==='s')panel.classList.toggle('open');if(e.key.toLowerCase()==='f')fullscreen();if(e.key==='Home')show(0);if(e.key==='End')show(slides.length-1)};
+
+/* ===========================================
+   FIXED-STAGE SCALER, TOUCH, AND WHEEL INPUT
+   The 1920×1080 canvas never reflows.
+   =========================================== */
+const deckStage=document.querySelector('#deckStage');
+function scaleStage(){const factor=Math.min(innerWidth/1920,innerHeight/1080),x=(innerWidth-1920*factor)/2,y=(innerHeight-1080*factor)/2;deckStage.style.transform=`translate(${x}px,${y}px) scale(${factor})`}
+addEventListener('resize',scaleStage);scaleStage();
+let touchStartX=0,touchStartY=0;addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].clientX;touchStartY=e.changedTouches[0].clientY},{passive:true});addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-touchStartX,dy=e.changedTouches[0].clientY-touchStartY;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy))show(index+(dx<0?1:-1))},{passive:true});
+let wheelLock=false;addEventListener('wheel',e=>{if(wheelLock||Math.abs(e.deltaY)<20)return;wheelLock=true;show(index+(e.deltaY>0?1:-1));setTimeout(()=>wheelLock=false,420)},{passive:true});
+
+/* ===========================================
+   INLINE EDITOR
+   Press E or use the top-left hotzone. Changes auto-save.
+   =========================================== */
+const editableSelector='.slide h1,.slide h2,.slide h3,.slide p,.slide li,.slide blockquote,.slide .winner,.slide .value,.slide .route';
+const editableNodes=[...document.querySelectorAll(editableSelector)].filter(el=>!el.closest('.slot-copy'));
+editableNodes.forEach((el,i)=>{const key=el.dataset.editKey||`node-${i}`,saved=localStorage.getItem(`pa4-edit-${key}`);el.dataset.editorKey=key;if(saved)el.innerHTML=saved;el.contentEditable='false';el.addEventListener('input',()=>localStorage.setItem(`pa4-edit-${key}`,el.innerHTML))});
+const editor={isActive:false,toggleEditMode(){this.isActive=!this.isActive;document.body.classList.toggle('edit-mode',this.isActive);document.querySelector('#editToggle').classList.toggle('active',this.isActive);editableNodes.forEach(el=>el.contentEditable=String(this.isActive))}};
+const hotzone=document.querySelector('.edit-hotzone'),editToggle=document.querySelector('#editToggle');let hideTimeout=null;
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideTimeout);editToggle.classList.add('show')});hotzone.addEventListener('mouseleave',()=>{hideTimeout=setTimeout(()=>{if(!editor.isActive)editToggle.classList.remove('show')},400)});editToggle.addEventListener('mouseenter',()=>clearTimeout(hideTimeout));editToggle.addEventListener('mouseleave',()=>{hideTimeout=setTimeout(()=>{if(!editor.isActive)editToggle.classList.remove('show')},400)});hotzone.addEventListener('click',()=>editor.toggleEditMode());editToggle.addEventListener('click',()=>editor.toggleEditMode());addEventListener('keydown',e=>{if((e.key==='e'||e.key==='E')&&!e.target.closest?.('[contenteditable="true"]'))editor.toggleEditMode();if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'){e.preventDefault();exportHtml()}});
+
+/* Match PA3's right-side navigation dots. */
+const navDots=document.querySelector('#navDots');slides.forEach((_,i)=>{const dot=document.createElement('button');dot.className='nav-dot';dot.setAttribute('aria-label',`Go to slide ${i+1}`);dot.addEventListener('click',()=>show(i));navDots.appendChild(dot)});
+
+/* Add Swiss Modern reveals without polluting visible slide copy. */
+slides.forEach(slide=>[...slide.children].filter(el=>!el.classList.contains('meta')&&!el.classList.contains('mark')).forEach(el=>el.classList.add('reveal')));show(index);
+</script></body></html>
