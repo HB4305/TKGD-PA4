@@ -64,22 +64,31 @@
 
 
 ### Participant P04
-- Video link proof: 
-- Flow: Research app -> Solution ; Schedule Tab -> Navigation 
+- Video link proof: (Youtube) https://www.youtube.com/watch?v=FYYQkVIUwJ4
+- Flow: Research app -> Solution ; Schedule Tab -> Navigation
 - Preference:
-    - Navigation:
-    - Schedule Tab:
+    - Navigation: Strongly prefer the new design.
+    - Schedule Tab: Prefer the new, but would like a combination of both.
 - Personal details:
-    - Handedness:
-    - Posture:
-    - Interests in chess/news:
+    - Handedness: Right handed
+    - Posture: Mainly two handed, rarely one hand
+    - Interests in chess/news: No interests
 - Detailed analysis:
+    - Navigation:
+    [5:30] Says the the old design is quite common, so they don't really have any issues with it. But do say that if possible, they would like it to be similar to the new design for the position of the button. They commonly use the phone one handed, so the old design is annoying sometimes.
+    [7:11] Think the new design is better for new users, where on the new design users can immediately know what features the site can provide. Compared to the old site where the navigation is hidden behind a button, which might make the user spend some time scrolling before knowing what to do
+    - Schedule:
+    [0:44] Likes that the upcoming events are shown first and is shown in big banners. 
+    [1:14] The font size and design of the previous event section makes it difficult to read.
+    [2:22] See that the new design is showing matches per day, rather than big events. Says that is more "optimized" which is easier to view small matches, because they suspect for chess most people would like to know who is playing who, rather than big events.
+    [3:39] They think there should be a big banner that show the event of the matches, a combination of both pages in that regard would be better.
+    [4:51] Think that the old site not having a search function is a bad thing.
 
 
 ### Participant P05 
-- Video link proof: (Youtube) https://www.youtube.com/watch?v=dVKwWvC-f_g
-- Flow: Solution -> Research app ; Navigation -> Schedule Tab
-- Preference:
+- Video link proof: (Youtube) https://www.youtube.com/watch?v=H0-6QAFTI7c
+- Flow: Solution -> Research app; Schedule Tab -> Navigation  
+- Preference: 
     - Navigation: Mixed opinion between the 2 design.
     - Schedule Tab: Strongly prefer the new design.
 - Personal details:
@@ -99,22 +108,13 @@
     
 
 ### Participant P06 
-- Video link proof:  
-- Flow: Solution -> Research app ; Schedule Tab -> Navigation
+- Video link proof: 
+- Flow: Solution -> Research app ; Navigation -> Schedule Tab
 - Preference:
-    - Navigation: Strongly prefer the new design.
-    - Schedule Tab: Prefer the new, but would like a combination of both.
-- Personal details:
-    - Handedness: Right handed
-    - Posture: Mainly two handed, rarely one hand
-    - Interests in chess/news: No interests
-- Detailed analysis:
     - Navigation:
-    [5:30] Says the the old design is quite common, so they don't really have any reason with it. But do say that if possible, they would like it to be similar to the new design for the position of the button. They commonly use the phone one handed, so the old design is annoying sometimes.
-    [7:11] Think the new design is better for new users, where on the new design users can immediately know what features the site can provide. Compared to the old site where the navigation is hidden behind a button, which might make the user spend some time scrolling before knowing what to do
-    - Schedule:
-    [0:44] Likes that the upcoming events are shown first and is shown in big banners. 
-    [1:14] The font size and design of the previous event section makes it difficult to read.
-    [2:22] See that the new design is showing matches per day, rather than big events. Says that is more "optimized" which is easier to view small matches, because they suspect for chess most people would like to know who is playing who, rather than big events.
-    [3:39] They think there should be a big banner that show the event of the matches, a combination of both pages in that regard would be better.
-    [4:51] Think that the old site not having a search function is a bad thing.
+    - Schedule Tab:
+- Personal details:
+    - Handedness:
+    - Posture:
+    - Interests in chess/news:
+- Detailed analysis:
