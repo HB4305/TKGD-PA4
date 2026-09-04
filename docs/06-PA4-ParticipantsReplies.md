@@ -111,10 +111,21 @@
 - Video link proof: 
 - Flow: Solution -> Research app ; Navigation -> Schedule Tab
 - Preference:
-    - Navigation:
-    - Schedule Tab:
+    - Navigation: Strongly prefer to the new design
+    - Schedule Tab: Strongly prefer to the new design
 - Personal details:
-    - Handedness:
-    - Posture:
-    - Interests in chess/news:
+    - Handedness: Right hand
+    - Posture: Usually use one hand to hold and interact with the phone while watching media.
+    - Interests in chess/news: Not often, but understand how to play chess.
 - Detailed analysis:
+    - Navigation: 
+      - The user hesitated and seemed confused when navigating to the schedule page in the **research app**.
+      - When navigating between pages in the **research app**, the user had to hold the phone with two hands, one hand to hold it and the other to interact with areas out of thumb's reach. In contrast, with the **solution app**, he only needed one hand and could easily access any page without hesitation or other obstacles.
+      - These issues made him feel confused when switching between different tasks, leading to disorientation. He explicitly stated that he did not like this app.      
+    - Schedule:
+      - The user found it easy to understand and learn how to use the **solution app** provided by the team after being given just 30 seconds to try it out beforehand.
+      - The user felt that navigating to another page in the **solution app** was quite natural and convenient.
+      - The "Read more" button in the **research app** was too small to tap comfortably, and tapping it also redirected to a new (news) page, which confused the user.
+      - Accessing the match schedule in the **solution app** was easier, but the user felt it would be more suitable if he could input the date directly (day/month/year) instead of selecting each component separately.
+      - The user took more than 2 minutes to complete part of the schedule-finding task in the **research app**, whereas it only took him 12 seconds in the **solution app**.
+      
