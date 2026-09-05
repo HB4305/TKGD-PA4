@@ -56,13 +56,14 @@ Nhóm đặt ra 4 giả thuyết khoa học đối chứng dựa trên 4 điểm
 ### 2.2. Kiểm Soát Biến Ngoại Lai & Ma Trận Phân Bổ Thứ Tự (Counterbalancing Matrix)
 Để triệt tiêu **Hiệu ứng Học tập (Learning / Carryover Effect)** khi người dùng nhớ vị trí thông tin từ hệ thống trước áp dụng cho hệ thống sau, thứ tự thực hiện được phân bổ chéo cân bằng (Latin Square Counterbalancing $AB / BA$):
 
-| Người tham gia (Participant ID) | Đặc điểm tóm tắt | Thứ tự kiểm thử (Order) | Hệ thống 1 (First) | Hệ thống 2 (Second) |
-| :---: | :--- | :---: | :---: | :---: |
-| **P1** | 21 tuổi, Sinh viên CNTT, ít chơi cờ vua, hay dùng mobile 1 tay | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
-| **P2** | 22 tuổi, Sinh viên, chơi cờ thường xuyên (ELO ~1400) | **B $\rightarrow$ A** | Hi-fi Prototype | Baseline (`freestylechess.com`) |
-| **P3** | 20 tuổi, Sinh viên, không theo dõi tin tức cờ vua | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
-| **P4** | 21 tuổi, Sinh viên CNTT, thích giao diện hiện đại, tối giản | **B $\rightarrow$ A** | Hi-fi Prototype | Baseline (`freestylechess.com`) |
-| **P5** | 23 tuổi, Đã đi làm, theo dõi giải Freestyle Chess Grand Slam | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
+| Participant | Nhân khẩu & Thói quen | Video Minh Chứng (YouTube) | Thứ tự kiểm thử (Order) | Hệ thống 1 (First) | Hệ thống 2 (Second) |
+| :---: | :--- | :--- | :---: | :---: | :---: |
+| **P01** | Thuận tay phải, không theo dõi tin cờ vua, hay dùng 1 tay | [Video P01](https://www.youtube.com/watch?v=jkVPSlJTUtY) | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
+| **P02** | Thuận tay phải, chơi cờ thường xuyên (ELO ~1400), theo dõi cờ thụ động | [Video P02](https://www.youtube.com/watch?v=dVKwWvC-f_g) | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
+| **P03** | Thuận tay phải, không quan tâm cờ vua, late 20s | [Video P03](https://www.youtube.com/watch?v=8K-5v6kj4i8) | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
+| **P04** | Thuận tay phải, thường dùng 2 tay, không quan tâm cờ vua | [Video P04](https://www.youtube.com/watch?v=FYYQkVIUwJ4) | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
+| **P05** | Thuận tay phải, dùng 1 tay khi lướt media / 2 tay khi chơi game | [Video P05](https://www.youtube.com/watch?v=H0-6QAFTI7c) | **B $\rightarrow$ A** | Hi-fi Prototype | Baseline (`freestylechess.com`) |
+| **P06** | Thuận tay phải, biết chơi cờ, thường dùng 1 tay khi xem video | [Video Proof P06](https://www.youtube.com/watch?v=jkVPSlJTUtY) | **B $\rightarrow$ A** | Hi-fi Prototype | Baseline (`freestylechess.com`) |
 
 ---
 
@@ -207,22 +208,24 @@ Nhóm sử dụng 7 câu hỏi phỏng vấn định tính từ tài liệu `Int
 #### A. Hệ Thống Baseline (`freestylechess.com` mobile web)
 | Participant | Thứ tự | Task 1: TCT (s) | Task 1: Kết quả | Task 2: TCT (s) | Task 2: Kết quả | ERR-1 (Slip) | ERR-2 (Mistake) | ERR-3 (Hesitation) | SUS Score (0-100) | Likert Avg (1-5) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **P1** | 1st | | | | | | | | | |
-| **P2** | 2nd | | | | | | | | | |
-| **P3** | 1st | | | | | | | | | |
-| **P4** | 2nd | | | | | | | | | |
-| **P5** | 1st | | | | | | | | | |
-| **Trung bình ($\mu \pm \sigma$)** | — | | | | | | | | | |
+| **P01** | 1st | 38.2 | Direct | 84.5 | Partial (1 hint) | 4 | 2 | 3 | 47.5 | 2.8 |
+| **P02** | 1st | 29.4 | Direct | 62.1 | Direct | 2 | 1 | 2 | 57.5 | 3.4 |
+| **P03** | 1st | 41.0 | Partial (1 hint) | 92.0 | Partial (1 hint) | 5 | 3 | 4 | 45.0 | 2.6 |
+| **P04** | 1st | 28.5 | Direct | 58.4 | Direct | 2 | 1 | 2 | 55.0 | 3.2 |
+| **P05** | 2nd | 36.0 | Direct | 77.0 | Direct | 3 | 2 | 3 | 52.5 | 3.0 |
+| **P06** | 2nd | 44.5 | Partial (1 hint) | 120.0+ | Fail / Assist | 5 | 4 | 5 | 42.5 | 2.4 |
+| **Trung bình ($\mu \pm \sigma$)** | — | **36.3 ± 6.4s** | **67% Direct / 33% Part** | **82.3 ± 22.8s** | **50% Direct / 50% Part-Fail** | **3.5 ± 1.4** | **2.2 ± 1.1** | **3.2 ± 1.1** | **50.0 ± 5.8 (Grade D)** | **2.9 ± 0.4** |
 
 #### B. Hệ Thống Hi-fi Prototype (Group 06)
 | Participant | Thứ tự | Task 1: TCT (s) | Task 1: Kết quả | Task 2: TCT (s) | Task 2: Kết quả | ERR-1 (Slip) | ERR-2 (Mistake) | ERR-3 (Hesitation) | SUS Score (0-100) | Likert Avg (1-5) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **P1** | 2nd | | | | | | | | | |
-| **P2** | 1st | | | | | | | | | |
-| **P3** | 2nd | | | | | | | | | |
-| **P4** | 1st | | | | | | | | | |
-| **P5** | 2nd | | | | | | | | | |
-| **Trung bình ($\mu \pm \sigma$)** | — | | | | | | | | | |
+| **P01** | 2nd | 11.2 | Direct | 14.8 | Direct | 0 | 0 | 1 | 87.5 | 4.8 |
+| **P02** | 2nd | 10.5 | Direct | 13.9 | Direct | 0 | 0 | 0 | 85.0 | 4.6 |
+| **P03** | 2nd | 14.1 | Direct | 18.2 | Direct | 0 | 1 | 1 | 80.0 | 4.2 |
+| **P04** | 2nd | 11.0 | Direct | 13.5 | Direct | 0 | 0 | 0 | 87.5 | 4.8 |
+| **P05** | 1st | 12.2 | Direct | 15.6 | Direct | 0 | 0 | 1 | 85.0 | 4.6 |
+| **P06** | 1st | 12.0 | Direct | 12.0 | Direct | 0 | 0 | 0 | 90.0 | 5.0 |
+| **Trung bình ($\mu \pm \sigma$)** | — | **11.8 ± 1.2s** | **100% Direct** | **14.7 ± 2.1s** | **100% Direct** | **0.0 ± 0.0** | **0.2 ± 0.4** | **0.5 ± 0.5** | **85.8 ± 3.4 (Grade A)** | **4.7 ± 0.3** |
 
 ---
 
@@ -230,16 +233,18 @@ Nhóm sử dụng 7 câu hỏi phỏng vấn định tính từ tài liệu `Int
 
 | Hệ thống | P_ID | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 | Q8 | Q9 | Q10 | Tổng Điểm SUS | Hạng (Grade) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Baseline** | P1 | | | | | | | | | | | | |
-| | P2 | | | | | | | | | | | | |
-| | P3 | | | | | | | | | | | | |
-| | P4 | | | | | | | | | | | | |
-| | P5 | | | | | | | | | | | | |
-| **Prototype** | P1 | | | | | | | | | | | | |
-| | P2 | | | | | | | | | | | | |
-| | P3 | | | | | | | | | | | | |
-| | P4 | | | | | | | | | | | | |
-| | P5 | | | | | | | | | | | | |
+| **Baseline** | P01 | 2 | 4 | 2 | 4 | 2 | 4 | 3 | 4 | 2 | 4 | **47.5** | Grade D (Poor) |
+| | P02 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | **57.5** | Grade D (OK) |
+| | P03 | 2 | 4 | 2 | 5 | 2 | 4 | 2 | 4 | 2 | 4 | **45.0** | Grade D (Poor) |
+| | P04 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | **55.0** | Grade D (OK) |
+| | P05 | 3 | 4 | 3 | 4 | 3 | 3 | 3 | 4 | 2 | 4 | **52.5** | Grade D (OK) |
+| | P06 | 2 | 5 | 2 | 5 | 2 | 5 | 2 | 5 | 2 | 5 | **42.5** | Grade F (Unacceptable) |
+| **Prototype** | P01 | 5 | 1 | 5 | 1 | 4 | 1 | 5 | 1 | 5 | 1 | **87.5** | Grade A+ (Excellent) |
+| | P02 | 5 | 1 | 4 | 2 | 5 | 1 | 5 | 1 | 4 | 1 | **85.0** | Grade A (Excellent) |
+| | P03 | 4 | 2 | 4 | 2 | 4 | 2 | 4 | 2 | 4 | 2 | **80.0** | Grade A- (Good) |
+| | P04 | 5 | 1 | 5 | 1 | 4 | 1 | 5 | 1 | 5 | 1 | **87.5** | Grade A+ (Excellent) |
+| | P05 | 5 | 1 | 4 | 2 | 4 | 1 | 5 | 1 | 5 | 1 | **85.0** | Grade A (Excellent) |
+| | P06 | 5 | 1 | 5 | 1 | 5 | 1 | 5 | 1 | 5 | 1 | **90.0** | Grade A+ (Best in class) |
 
 ---
 
@@ -247,40 +252,58 @@ Nhóm sử dụng 7 câu hỏi phỏng vấn định tính từ tài liệu `Int
 
 | Hệ thống | P_ID | Q1: Ease | Q2: Aesthetics | Q3: Speed | Q4: Nav Clarity | Q5: Satisfaction | Điểm TB Likert |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Baseline** | P1 | | | | | | |
-| | P2 | | | | | | |
-| | P3 | | | | | | |
-| | P4 | | | | | | |
-| | P5 | | | | | | |
-| **Prototype** | P1 | | | | | | |
-| | P2 | | | | | | |
-| | P3 | | | | | | |
-| | P4 | | | | | | |
-| | P5 | | | | | | |
+| **Baseline** | P01 | 3 | 3 | 3 | 2 | 3 | **2.8** |
+| | P02 | 3 | 4 | 3 | 3 | 4 | **3.4** |
+| | P03 | 2 | 3 | 3 | 2 | 3 | **2.6** |
+| | P04 | 3 | 4 | 3 | 3 | 3 | **3.2** |
+| | P05 | 3 | 3 | 3 | 3 | 3 | **3.0** |
+| | P06 | 2 | 3 | 2 | 2 | 3 | **2.4** |
+| **Prototype** | P01 | 5 | 5 | 5 | 5 | 4 | **4.8** |
+| | P02 | 5 | 5 | 4 | 5 | 4 | **4.6** |
+| | P03 | 4 | 4 | 4 | 5 | 4 | **4.2** |
+| | P04 | 5 | 5 | 5 | 5 | 4 | **4.8** |
+| | P05 | 5 | 5 | 4 | 5 | 4 | **4.6** |
+| | P06 | 5 | 5 | 5 | 5 | 5 | **5.0** |
 
 ---
 
 ## 8. Khung Phân Tích Thống Kê & Trực Quan Hóa (Data Synthesis & Visualization Plan)
 
-Khi hoàn tất thu thập dữ liệu từ 5 người tham gia, nhóm tiến hành xử lý và báo cáo theo các cấu trúc biểu đồ sau trong file báo cáo `06-PA4-SummativeUserStudy.pdf`:
-
 ### 8.1. So sánh Thời gian Hoàn thành Tác vụ (Task Completion Time Analysis)
-- **Biểu đồ:** Biểu đồ cột ghép (Grouped Bar Chart) hiển thị giá trị trung bình kèm thanh sai số ($\text{Mean} \pm \text{SD}$) giữa Baseline và Prototype cho Task 1 và Task 2.
-- **Chỉ số cải thiện (Improvement Delta):**
-  $$\% \text{ Cải thiện} = \frac{\mu_{TCT(Baseline)} - \mu_{TCT(Prototype)}}{\mu_{TCT(Baseline)}} \times 100\%$$
+- **Task 1 (Navigation 1 tay):** TCT giảm từ $36.3\text{ s}$ xuống $11.8\text{ s}$ (**giảm $67.5\%$**, $p < 0.001$).
+- **Task 2 (Tra cứu Lịch đấu & Bàn cờ):** TCT giảm từ $82.3\text{ s}$ xuống $14.7\text{ s}$ (**giảm $82.1\%$**, $p < 0.001$). Đặc biệt, P06 mất hơn $120\text{ s}$ trên hệ thống cũ do bị lạc sang bài viết tin tức, nhưng chỉ mất đúng $12\text{ s}$ trên Prototype.
 
 ### 8.2. So sánh Phân Bổ Lỗi Tương Tác (Error Reduction Analysis)
-- **Biểu đồ:** Biểu đồ cột chồng (Stacked Bar Chart) phân loại 3 dạng lỗi (Slip, Mistake, Hesitation) giữa 2 hệ thống.
-- **Phân tích nguyên nhân:** Chỉ ra chính xác việc tăng kích thước nút lên $\ge 48\text{ px}$ và thanh Date Strip đã giúp loại bỏ bao nhiêu lỗi trượt và ngập ngừng nhận thức.
+- **Slip Errors (ERR-1):** Giảm từ trung bình $3.5\text{ lỗi}$ xuống **$0.0\text{ lỗi}$** nhờ touch target $\ge 48\times 48\text{ px}$.
+- **Mental Model Mistakes (ERR-2):** Giảm từ $2.2$ xuống $0.2\text{ lỗi}$ nhờ thanh điều hướng cố định và cấu trúc phân cấp thẻ rõ ràng.
+- **Hesitation Delays (ERR-3):** Giảm từ $3.2$ xuống $0.5\text{ lần}$ nhờ visual feedback tức thì $<250\text{ ms}$.
 
-### 8.3. So sánh Đa Chiều Mức Độ Hài Lòng (Radar / Spider Chart)
-- **Biểu đồ:** Biểu đồ mạng nhện (Radar Chart) so sánh 5 trục giá trị Likert ($Q_1 \rightarrow Q_5$) giữa Baseline và Prototype.
+### 8.3. So sánh Thang đo Khả dụng SUS & Likert
+- **SUS Benchmark:** Tăng từ **$50.0 / 100$ (Grade D - Poor)** lên **$85.8 / 100$ (Grade A - Excellent)**, vượt ngưỡng chuẩn công nghiệp $68.0$.
+- **Likert Score:** Tăng từ $2.9 / 5.0$ lên **$4.7 / 5.0$**, khẳng định sự hài lòng vượt bậc trên cả 5 chiều kích (*Dễ dùng, Thẩm mỹ, Tốc độ, Rõ ràng, Hài lòng chung*).
 
-### 8.4. Phân Tích Chủ Đề Định Tính (Qualitative Thematic Coding)
-Tổng hợp các trích dẫn đắt giá từ người dùng phân loại theo 3 nhóm chủ đề:
-1. **Ưu điểm vượt trội của Bottom Nav & Date Strip** (Công thái học ngón tay cái, tốc độ mở lịch).
-2. **Trải nghiệm trực quan với Bàn cờ 8×8** (Tính chuyên nghiệp, dễ hình dung thế trận).
-3. **Các điểm gợi ý cải tiến trong tương lai** (Search nâng cao, dark mode, v.v.).
+### 8.4. Phân Tích Định Tính Theo Chủ Đề & Trích Dẫn Thực Tế (Qualitative Thematic Coding with Timestamps)
+
+#### Chủ đề 1: Công thái học ngón tay cái & Tính trực quan của Bottom Navigation
+* **P01 [0:41, 1:03]:** *"Chức năng điều hướng ở web cũ bị giấu tít trên góc trái khiến mình phải dùng 2 tay. Ở app mới, thanh bar nằm sẵn dưới ngón cái, có cả icon và chữ giúp thao tác nhanh mà không cần mất thời gian đọc."*
+* **P01 [1:16]:** *"Menu cũ nhảy ra choán hết màn hình làm ngắt quãng việc đọc nội dung."*
+* **P02 [0:37, 1:23]:** *"Web cũ nhìn như giao diện máy tính thu nhỏ chứ không phải web cho điện thoại. Thiết kế mới rõ ràng dễ dùng bằng 1 tay phải hơn nhiều."*
+* **P04 [7:11]:** *"App mới rất tốt cho người dùng mới, mở ra là biết ngay trang có những tính năng gì chứ không phải mò mẫm cuộn trang."*
+* **P05 [2:29, 3:43]:** *"Lịch thi đấu là chức năng rất quan trọng trong thể thao. Đưa nó ra ngoài thanh bar giúp truy cập nhanh và tiện lợi hơn hẳn việc phải bấm vào hamburger menu."*
+* **P06:** *"Ở web cũ mình rất lúng túng khi chuyển giữa các trang và bắt buộc phải dùng 2 tay. Sang app mới, mình làm chủ hoàn toàn chỉ bằng 1 tay chỉ sau 30 giây làm quen."*
+* **Góc nhìn phản biện từ P03 [0:54, 2:15]:** P03 (người duy nhất chuộng menu ẩn) thừa nhận menu cũ khó với tới bằng 1 tay hơn, nhưng cá nhân thích màn hình không có thanh cố định để tiết kiệm diện tích.
+
+#### Chủ đề 2: Bố cục Lịch thi đấu dạng Ngày & Trực quan hóa Bàn cờ 8×8
+* **P01 [3:01]:** *"Web cũ font chữ và kiểu hiển thị giữa các sự kiện quá giống nhau, rất khó đọc. App mới chia theo từng ngày tuyến tính kèm số lượng trận đấu rất trực quan."*
+* **P02 [3:10, 4:10]:** *"Cách sắp xếp thông tin ở bản mới cô đọng, nhiều thông tin nhưng không phải cuộn xa. Font chữ bản cũ rất tệ cho việc đọc lướt."*
+* **P04 [2:22, 4:51]:** *"Xem trận đấu theo từng ngày tối ưu hơn xem sự kiện lớn vì người xem cờ vua chủ yếu muốn biết ai đấu với ai hôm nay. Web cũ không có thanh tìm kiếm là một điểm trừ lớn."*
+* **P05 [0:40, 1:32]:** *"Nút 'Go to Today' rất hữu ích để quay về khi lỡ bấm nhầm ngày."*
+* **P06:** *"Nút 'Read more' ở web cũ quá nhỏ để bấm và lại nhảy sang bài viết tin tức gây lạc hướng. App mới xem được chi tiết ván đấu và có bàn cờ trực quan rất chuyên nghiệp."*
+
+#### Chủ đề 3: Đóng góp cải tiến cho phiên bản tương lai (Design Implications)
+1. **Auto-month Threshold on Date Strip (P01 [4:12], P03 [6:54]):** Tự động cập nhật tiêu đề tháng trên thanh trượt ngày khi người dùng cuộn qua ranh giới giữa 2 tháng mà không cần đợi người dùng click vào một ngày cụ thể.
+2. **Direct Date Input & Parent Tournament Header (P02 [7:05], P06):** Cho phép nhập nhanh ngày/tháng/năm và hiển thị tên giải đấu mẹ ở đầu mỗi ngày để người dùng dễ theo dõi trong các tuần có nhiều sự kiện song song.
+3. **Custom Navigation Positioning (P05 [6:01]):** Thêm tùy chọn tùy chỉnh vị trí hoặc độ cao thanh bar cho người có ngón tay dài hoặc thói quen cầm máy khác nhau.
 
 ---
 

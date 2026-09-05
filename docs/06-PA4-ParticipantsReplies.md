@@ -108,7 +108,7 @@
     
 
 ### Participant P06 
-- Video link proof: 
+- Video link proof: (Youtube) https://www.youtube.com/watch?v=jkVPSlJTUtY
 - Flow: Solution -> Research app ; Navigation -> Schedule Tab
 - Preference:
     - Navigation: Strongly prefer to the new design

@@ -2025,12 +2025,13 @@
     }
 
     .title-slide h1 {
-      margin-top: 215px;
-      max-width: 1120px;
+      margin-top: 90px;
+      max-width: 1180px;
       color: var(--text-primary);
-      font-size: 88px;
+      font-size: 106px;
       font-weight: 900;
-      line-height: 1.08;
+      line-height: 0.98;
+      letter-spacing: -.035em;
     }
 
     .title-slide h1::first-line {
@@ -2038,28 +2039,65 @@
     }
 
     .title-slide .lead {
-      max-width: 920px;
+      max-width: 1050px;
+      color: var(--accent);
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      margin-top: 18px;
+      margin-bottom: 24px;
+    }
+
+    .title-slide .hero-tags {
+      display: flex;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .title-slide .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 18px;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      background: #fff;
       color: var(--text-secondary);
-      font-size: 30px;
-      font-weight: 500;
+      font-size: 16px;
+      font-weight: 800;
+      font-family: var(--font-display);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 2px 3px 0 rgba(0,0,0,0.05);
+    }
+
+    .title-slide .hero-tag strong {
+      color: var(--accent);
+      margin-right: 6px;
     }
 
     .title-slide .chess {
       position: absolute;
-      right: 120px;
-      top: 260px;
+      right: 90px;
+      top: 250px;
       bottom: auto;
-      width: 420px;
-      height: 420px;
+      width: 440px;
+      height: 440px;
       display: grid;
       place-items: center;
       border: 4px solid #1c1712;
-      border-radius: 28px;
+      border-radius: 32px;
       background: #fffaf0;
-      box-shadow: 14px 18px 0 rgba(28, 23, 18, .16);
-      color: var(--accent);
-      font: 400 230px/1 Georgia, serif;
+      box-shadow: 16px 20px 0 rgba(28, 23, 18, .18);
+      padding: 40px;
       transform: none;
+    }
+
+    .title-slide .chess img,
+    .title-slide .chess-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .conclusion h2 {
@@ -2083,6 +2121,89 @@
     .slide.visible .reveal {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* === TWO COL & LAYOUT UTILITIES === */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    /* === TEAM ROSTER (SLIDE 1) === */
+    .title-slide .meta {
+      left: auto;
+      right: 80px;
+      bottom: 28px;
+    }
+
+    .title-slide .meta span:first-child {
+      display: none;
+    }
+
+    .team-footer {
+      position: absolute;
+      bottom: 28px;
+      left: 80px;
+      right: 200px;
+      z-index: 10;
+      border-top: 1.5px solid rgba(28, 23, 18, 0.14);
+      padding-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .team-label {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .team-names {
+      font-family: var(--font-body);
+      font-size: 19px;
+      font-weight: 700;
+      color: #1c1712;
+    }
+
+    /* === AGENDA STYLING (PA3 MATCHED) === */
+    .agenda-item {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .agenda-item:last-child {
+      border-bottom: none;
+    }
+
+    .agenda-item__num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 48px;
+      color: var(--accent);
+      min-width: 76px;
+    }
+
+    .agenda-item__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 30px;
+      color: var(--text-primary);
+    }
+
+    .agenda-item__desc {
+      font-family: var(--font-body);
+      font-size: 20px;
+      color: var(--text-secondary);
+      margin-top: 3px;
     }
 
     /* === AGENDA, PROBLEMS, AND PA3 SELECTION === */
@@ -2955,36 +3076,71 @@
   <div class="deck-viewport">
     <main class="deck deck-stage" id="deckStage" aria-label="Freestyle Chess PA4 presentation">
       <section class="slide title-slide active"
-        data-note="Chào thầy và các bạn. Nhóm 06 redesign Freestyle Chess cho trình duyệt di động. PA4 tiếp tục trực tiếp từ bằng chứng formative testing ở PA3. Bài trình bày đi qua hai solution được chọn, cách chuyển thành prototype hi-fi, và cách đánh giá bằng summative user study.">
+        data-note="Chào Thầy và các bạn. Đây là bài trình bày PA4 của Nhóm 06: High-fidelity Prototype và Summative User Study cho Freestyle Chess Mobile Web. Trọng tâm hôm nay là sản phẩm Hi-fi hoàn chỉnh, luồng Live Demo 4 phút trên trình duyệt, và kết quả đánh giá thực nghiệm đối chứng với website gốc.">
         <p class="kicker">Group 06 · CSC13112 UI/UX Design</p>
         <h1>Freestyle Chess,<br>designed for the next move.</h1>
-        <p class="lead">From PA3 evidence to a high-fidelity mobile experience.</p>
-        <div class="chess">♞</div>
-        <div class="meta light"><span>PA4 · Hi-fi prototype &amp; user study</span><span>2026</span></div>
+        <p class="lead">From PA3 Formative Evidence to a High-Fidelity Mobile Experience &amp; Summative Study</p>
+        <div class="chess"><img src="images/freestyle_chess_logo.png" alt="Freestyle Chess Logo" class="chess-logo"></div>
+        <div class="team-footer">
+          <span class="team-label">TEAM MEMBERS</span>
+          <span class="team-names">Lê Mai Hoài Bảo · Trương Công Thiên Phú · Lâm Hữu Khánh · Phạm Chí Bảo Ninh · Phùng Ngọc Tuấn</span>
+        </div>
+        <div class="meta light"><span>PA4 · Final Prototype &amp; Summative Study</span><span>2026</span></div>
       </section>
       <section class="slide"
-        data-note="Câu chuyện gồm ba phần: quay lại PA3 để giải thích hai solution thắng; trình bày hi-fi prototype và luồng demo; cuối cùng là summative user study, kết quả và kết luận. Evidence dẫn đến design, design tạo trải nghiệm để test, và test cho biết thiết kế có thực sự tốt hơn hay không.">
-        <span class="mark">00</span>
-        <p class="kicker">Presentation map</p>
-        <h2>Evidence shaped the design. Testing validates the result.</h2>
-        <div class="story">
-          <article>
-            <div class="big-n">01</div>
-            <h3>PA3 selection</h3>
-            <p>Two usability problems, six alternatives and two winning solutions.</p>
-          </article>
-          <article>
-            <div class="big-n">02</div>
-            <h3>Hi-fi prototype</h3>
-            <p>The selected concepts become a realistic coded experience.</p>
-          </article>
-          <article>
-            <div class="big-n">03</div>
-            <h3>Summative study</h3>
-            <p>The prototype is compared with the current mobile website.</p>
-          </article>
+        data-note="Slide Agenda tóm tắt 5 phần chính: Bắt đầu từ 2 vấn đề khả dụng cốt lõi của website hiện tại, 2 giải pháp thắng cuộc từ PA3, kiến trúc Hi-fi và Live Demo trên trình duyệt, kết quả đánh giá tổng kết Summative Study với 6 người dùng, và cuối cùng là kết luận cùng bài học thiết kế.">
+        <div class="two-col" style="grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; width: 100%; height: 100%;">
+          <div style="display: flex; flex-direction: column; align-items: flex-start; z-index: 2;">
+            <p class="kicker">PA4 · Presentation Flow</p>
+            <h2 style="font-size: 64px; margin-bottom: 24px;">Agenda</h2>
+            <div class="agenda-item" style="width: 100%;">
+              <span class="agenda-item__num">01</span>
+              <div>
+                <div class="agenda-item__title">Problem Framing</div>
+                <div class="agenda-item__desc">Two mobile usability gaps on existing website</div>
+              </div>
+            </div>
+            <div class="agenda-item" style="width: 100%;">
+              <span class="agenda-item__num">02</span>
+              <div>
+                <div class="agenda-item__title">Selected Solutions</div>
+                <div class="agenda-item__desc">Nav-1 and Sch-2 from PA3 formative testing</div>
+              </div>
+            </div>
+            <div class="agenda-item" style="width: 100%;">
+              <span class="agenda-item__num">03</span>
+              <div>
+                <div class="agenda-item__title">Hi-fi Prototype &amp; Demo</div>
+                <div class="agenda-item__desc">Interactive web prototype &amp; 4-minute live run</div>
+              </div>
+            </div>
+            <div class="agenda-item" style="width: 100%;">
+              <span class="agenda-item__num">04</span>
+              <div>
+                <div class="agenda-item__title">Summative User Study</div>
+                <div class="agenda-item__desc">Within-subjects counterbalanced comparison (N=6)</div>
+              </div>
+            </div>
+            <div class="agenda-item" style="width: 100%;">
+              <span class="agenda-item__num">05</span>
+              <div>
+                <div class="agenda-item__title">Conclusion &amp; Next Steps</div>
+                <div class="agenda-item__desc">Validated hypotheses &amp; design implications</div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal-right" style="display: flex; justify-content: center; align-items: center; position: relative;">
+            <svg viewBox="0 0 100 140" style="width: 380px; height: 520px; opacity: 0.14; fill: #1c1712;">
+              <circle cx="50" cy="28" r="18" />
+              <ellipse cx="50" cy="48" rx="21" ry="4.5" />
+              <path d="M33 50 C35 75, 29 95, 23 105 L77 105 C71 95, 65 75, 67 50 Z" />
+              <rect x="18" y="105" width="64" height="9" rx="3.5" />
+              <rect x="12" y="116" width="76" height="13" rx="5" />
+              <rect x="8" y="131" width="84" height="8" rx="3" />
+            </svg>
+          </div>
         </div>
-        <div class="meta"><span>PA3 → PA4 → evidence</span><span>02 / 16</span></div>
+        <div class="meta"><span>PA4 · presentation flow</span><span>02 / 15</span></div>
       </section>
       <section class="slide"
         data-note="Ở PA3, nhóm tập trung vào P-01 điều hướng một tay và P-05 tìm lịch đấu rồi mở thông tin trận. Chúng tôi tạo sáu paper prototype: ba navigation và ba schedule. Ba người tham gia được phân theo between-subjects, mỗi người test một variant của mỗi task.">
@@ -3366,31 +3522,82 @@
        PA3 contributes only the two tested design inputs on slide 3.
        The remaining narrative is the PA4 hi-fi prototype, demo and summative study. */
     const pa4Slides = [
-      { kind: 'title-slide', note: 'Chào thầy và các bạn. Đây là bài trình bày PA4 của Nhóm 06: high-fidelity prototype và summative user study cho Freestyle Chess Mobile Web. Trọng tâm hôm nay là sản phẩm PA4, cách prototype hoạt động và cách nhóm đánh giá nó với người dùng.', html: `<p class="kicker">Group 06 · CSC13112 UI/UX Design</p><h1>PA4<br>High-fidelity prototype &amp; user study.</h1><p class="lead">Freestyle Chess Mobile Web</p><div class="chess">♞</div><div class="meta light"><span>Final prototype · evaluation · demo</span><span>2026</span></div>` },
-      { note: 'Slide Agenda giới thiệu ngắn gọn trình tự của bài PA4: bắt đầu từ hai vấn đề hiện tại, đi qua hai solution được chọn từ formative testing, trình bày hai hi-fi solution tương ứng, sau đó user study và kết luận. Video demo sẽ được mở ngay sau phần hi-fi solution.', html: `<div class="agenda-layout"><div class="agenda-main"><p class="kicker">PA4 · Agenda</p><h2>Agenda</h2><div class="agenda-list"><article><span class="agenda-number">01</span><div><h3>Problem framing</h3><p>Two mobile usability gaps</p></div></article><article><span class="agenda-number">02</span><div><h3>Selected solutions</h3><p>Nav-1 and Sch-2 from PA3 testing</p></div></article><article><span class="agenda-number">03</span><div><h3>Hi-fi prototype</h3><p>Nav solution and Schedule solution</p></div></article><article><span class="agenda-number">04</span><div><h3>User study</h3><p>Summative comparison and evidence</p></div></article><article><span class="agenda-number">05</span><div><h3>Conclusion</h3><p>What we learned and what comes next</p></div></article></div></div><div class="agenda-watermark" aria-hidden="true">♟</div></div><div class="meta"><span>PA4 · presentation flow</span><span>02 / 14</span></div>` },
-      { note: 'Trước khi thiết kế PA4, nhóm xác định hai vấn đề trên website mobile hiện tại. Thứ nhất, menu hamburger nằm ở góc trên bên trái nên khó chạm khi cầm điện thoại bằng một tay, đồng thời các điểm đến chính bị ẩn. Thứ hai, trang Schedule chỉ liệt kê ngày, địa điểm và Read More, nhưng thiếu player, trạng thái, tỷ số và thông tin trận. Đây là hai vấn đề mà PA4 cần giải quyết.', html: `<p class="kicker">Problem framing · Current mobile website</p><h2>Two current screens expose two core problems.</h2><div class="problem-grid"><article class="problem-card"><iframe class="hifi-phone problem-phone" data-image="images/baseline-navigation.png" title="Existing mobile navigation"></iframe><div class="problem-copy"><span class="mono">PROBLEM 01 · NAVIGATION</span><h3>Hard to use with one hand</h3><p>The top-left hamburger is outside comfortable thumb reach and hides primary destinations.</p></div></article><article class="problem-card"><iframe class="hifi-phone problem-phone" data-image="images/baseline-schedule.png" title="Existing mobile schedule"></iframe><div class="problem-copy"><span class="mono">PROBLEM 02 · SCHEDULE</span><h3>Not enough match information</h3><p>Dates and locations appear, but players, status, scores and match details are missing.</p></div></article></div><div class="meta"><span>Baseline: freestylechess.com mobile</span><span>03 / 16</span></div>` },
-      { note: 'Solution thứ nhất được chọn từ formative testing là Nav-1: fixed bottom navigation. Năm destination chính luôn hiển thị trong tầm ngón tay, active tab được nhấn mạnh và More mở các destination phụ. Hai ảnh paper prototype minh họa trạng thái mặc định và trạng thái mở rộng.', html: `<p class="kicker">Selected solution 1 · Nav-1</p><h2>Fixed bottom navigation</h2><div class="selected-solution"><div class="solution-photos"><img class="solution-photo" src="images/paper-schedule-bottom-nav.jpg" alt="Nav-1 fixed bottom navigation paper prototype"><img class="solution-photo" src="images/paper-schedule-expanded-match.jpg" alt="Nav-1 expanded More navigation paper prototype"></div><div class="solution-copy"><span class="tag">Winner · Navigation</span><h3>Persistent, visible and reachable</h3><div class="reason"><p>Five primary destinations stay visible</p><p>Active state confirms current location</p><p>More keeps secondary links accessible</p></div></div></div><div class="meta"><span>PA3 evidence → PA4 navigation</span><span>04 / 16</span></div>` },
-      { note: 'Solution thứ hai được chọn là Sch-2: date strip kết hợp match information. Người dùng chọn ngày trực tiếp, xem matchup ngay trên schedule và mở trận cần phân tích. Solution này giải quyết vấn đề thiếu thông tin của trang Schedule hiện tại.', html: `<p class="kicker">Selected solution 2 · Sch-2</p><h2>A faster path from date to match detail.</h2><div class="selected-solution"><div class="solution-photos single"><img class="solution-photo" src="images/paper-schedule-overview.jpg" alt="Sch-2 date strip and match cards paper prototype"></div><div class="solution-copy"><span class="tag">Winner · Schedule</span><h3>Find a date, then inspect a match</h3><div class="reason"><p>Horizontal date strip enables direct filtering</p><p>Matchups appear without opening another page</p><p>Expandable cards lead toward match detail</p></div></div></div><div class="meta"><span>PA3 evidence → PA4 schedule</span><span>05 / 16</span></div>` },
-      { note: 'Bốn phát hiện formative được chuyển thành bốn tiêu chuẩn implementation trong PA4: touch target tối thiểu 48 nhân 48 pixel, back control rõ ràng, search kết hợp filter chip, và feedback dưới 250 mili giây. Slide này là cầu nối duy nhất cần thiết từ PA3 sang PA4.', html: `<p class="kicker">PA4 · Implementation criteria</p><h2>Four findings became four product constraints.</h2><div class="commit"><article><div class="n">01</div><div><h3>48×48 px targets</h3><p>Safe navigation and primary actions.</p></div></article><article><div class="n">02</div><div><h3>Explicit Back</h3><p>Clear escape from nested match views.</p></div></article><article><div class="n">03</div><div><h3>Search + filters</h3><p>Direct retrieval without long scrolling.</p></div></article><article><div class="n">04</div><div><h3>Visible feedback</h3><p>Active states and motion under 250 ms.</p></div></article></div><div class="meta"><span>Evidence translated into behavior</span><span>05 / 16</span></div>` },
-      { note: 'Phạm vi hi-fi prototype gồm ba màn hình kết nối thành một user journey hoàn chỉnh. Home tạo điểm vào, Schedule hỗ trợ tìm trận, và Match Detail cung cấp thông tin người chơi, game và bàn cờ.', html: `<p class="kicker">Hi-fi prototype · Scope</p><h2>One complete journey across three screens.</h2><div class="hifi-overview"><div><iframe class="hifi-phone small" data-image="images/hifi-home.png" title="Hi-fi Home screen"></iframe><h3>Home</h3><p>Entry, content and bottom navigation</p></div><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-overview.png" title="Hi-fi Schedule screen"></iframe><h3>Schedule</h3><p>Dates, filters and matches</p></div><div><iframe class="hifi-phone small" data-image="images/hifi-match-detail.png" title="Hi-fi Match Detail screen"></iframe><h3>Match Detail</h3><p>Players, games and board</p></div></div><div class="meta"><span>Home → Schedule → Match Detail</span><span>06 / 16</span></div>` },
-      { note: 'Home dùng content gần thật, CTA View Schedule và fixed bottom navigation. Ảnh thứ hai cho thấy More menu mở các destination phụ mà không che khuất năm tab chính.', html: `<p class="kicker">Hi-fi solution · Nav-1</p><h2>Fixed bottom navigation stays visible and within reach.</h2><div class="hifi-nav-grid"><div><iframe class="hifi-phone small" data-image="images/hifi-home.png" title="Home screen"></iframe><strong>Home</strong><span>Primary navigation and direct CTA</span></div><div><iframe class="hifi-phone small" data-image="images/hifi-home-more-menu.png" title="Home screen with More menu"></iframe><strong>More menu</strong><span>Secondary destinations stay discoverable</span></div></div><div class="meta"><span>Hi-fi solution 01 · Nav-1</span><span>07 / 16</span></div>` },
-      { note: 'Schedule hiển thị ba trạng thái quan trọng. Màn hình chính có date strip, search và status filter. Date picker cho phép nhảy nhanh đến ngày xa. Match card mở rộng cung cấp tournament, location và View Details.', html: `<p class="kicker">Hi-fi solution · Sch-2</p><h2>Date strip and match cards make matches easier to find.</h2><div class="hifi-state-grid"><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-overview.png" title="Schedule main state"></iframe><strong>Browse &amp; filter</strong><span>Date strip, search and status chips</span></div><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-date-picker.png" title="Schedule date picker"></iframe><strong>Jump to a date</strong><span>Month calendar and Go to Today</span></div><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-expanded-match.png" title="Expanded match card"></iframe><strong>Inspect a matchup</strong><span>Players, event and View Details</span></div></div><div class="meta"><span>Hi-fi solution 02 · Sch-2</span><span>08 / 16</span></div>` },
-      { note: 'Match Detail hoàn tất task flow. Back control ở đầu trang giúp quay lại Schedule. Player banner hiển thị tên, Elo, quốc kỳ, tỷ số và trạng thái. Phần Games mở rộng để xem thông tin và bàn cờ.', html: `<div class="detail-hifi"><div><p class="kicker">Prototype · Match Detail</p><h2>The final screen preserves context and supports analysis.</h2><ul><li>Explicit Back to the previous Schedule state.</li><li>Player identity, Elo, score and live status.</li><li>Expandable game archive and source.</li><li>Interactive 8×8 chessboard below the fold.</li></ul><div class="route mono">Route: #/schedule/:matchId</div></div><iframe class="hifi-phone" data-image="images/hifi-match-detail.png" title="Hi-fi Match Detail"></iframe></div><div class="meta"><span>Hi-fi screen 03 · Match Detail</span><span>09 / 16</span></div>` },
-      { note: 'Live demo là bằng chứng quan trọng của PA4. Trong khoảng bốn phút, nhóm sẽ mở Home, vào Schedule bằng bottom nav, chọn ngày 16 tháng 8, tìm trận Carlsen và Lê Quang Liêm, sau đó mở Match Detail và bàn cờ.', html: `<p class="kicker">Requirement 3 · Live demo</p><h2>A four-minute run proves the prototype is interactive.</h2><div class="commit"><article><div class="n">01</div><div><h3>Start at Home</h3><p>Establish real content and active navigation.</p></div></article><article><div class="n">02</div><div><h3>Open Schedule</h3><p>Use the bottom nav with one hand.</p></div></article><article><div class="n">03</div><div><h3>Find 16 August</h3><p>Use date, search and status filters.</p></div></article><article><div class="n">04</div><div><h3>Inspect the match</h3><p>Open detail, game archive and 8×8 board.</p></div></article></div><div class="meta"><span>Browser demo · no static mockup</span><span>10 / 16</span></div>` },
-      { note: 'Phần thứ hai của PA4 là summative user study. Nhóm so sánh prototype với mobile website hiện tại của freestylechess.com. Năm participants sử dụng cả hai system theo thiết kế within-subjects. Thứ tự AB và BA được xen kẽ để giảm learning effect, và toàn bộ session được quay video.', html: `<p class="kicker">Requirement 2 · Study design</p><h2>Five participants compare two mobile experiences.</h2><div class="study"><article><div class="value">5</div><h3>Participants</h3><p>Required minimum sample.</p></article><article><div class="value">A/B</div><h3>Within-subjects</h3><p>Everyone uses both systems.</p></article><article><div class="value">AB/BA</div><h3>Counterbalanced</h3><p>Order alternates by participant.</p></article><article><div class="value">20′</div><h3>Recorded</h3><p>Approximately twenty minutes each.</p></article></div><p class="lead" style="margin-top:28px">Baseline: <strong>freestylechess.com mobile web</strong></p><div class="meta"><span>Summative usability study</span><span>11 / 16</span></div>` },
-      { note: 'Hai task đánh giá trực tiếp user journey của prototype. Task 1 là mở Schedule khi cầm điện thoại một tay. Task 2 là tìm trận ngày 16 tháng 8 giữa Carlsen và Lê Quang Liêm, sau đó mở bàn cờ chi tiết. Hai system dùng cùng task và success criteria.', html: `<p class="kicker">User study · Tasks</p><h2>Both systems are tested on the same PA4 journey.</h2><div class="tasks"><article class="task"><div class="mono">TASK 01 · NAVIGATION</div><h3>Open Schedule with one hand.</h3><p>Success: reach Schedule without assistance.</p></article><article class="task"><div class="mono">TASK 02 · MATCH LOOKUP</div><h3>Find the target match and open its board.</h3><p>Success: reach Match Detail and view the 8×8 board.</p></article></div><p class="lead" style="margin-top:42px">Same scenario · same success criteria · two systems</p><div class="meta"><span>Prototype vs baseline</span><span>12 / 16</span></div>` },
-      { note: 'Mỗi session bắt đầu bằng consent và profile, sau đó test System A, trả lời SUS và Likert, nghỉ ngắn, rồi lặp lại với System B và phỏng vấn. Nhóm thu thập completion time, success, errors và satisfaction để đánh giá efficiency, effectiveness và perceived usability.', html: `<p class="kicker">User study · Protocol &amp; measures</p><h2>The protocol combines behavior and perception.</h2><div class="procedure"><span>Consent + profile</span><i>→</i><span>System A<br>tasks</span><i>→</i><span>SUS + Likert</span><i>→</i><span>Break</span><i>→</i><span>System B<br>tasks</span><i>→</i><span>Interview</span></div><div class="study" style="margin-top:48px"><article><div class="value">TCT</div><h3>Efficiency</h3><p>Completion time.</p></article><article><div class="value">%</div><h3>Effectiveness</h3><p>Success rate.</p></article><article><div class="value">∑</div><h3>Errors</h3><p>Wrong taps and recovery.</p></article><article><div class="value">SUS</div><h3>Perception</h3><p>Usability + satisfaction.</p></article></div><div class="meta"><span>All sessions video-recorded</span><span>13 / 16</span></div>` },
-      { note: 'Slide này dành cho kết quả định lượng thật của PA4. Bấm vào ba con số để nhập completion time, success rate và SUS. Kéo thả biểu đồ vào khung bên trái, sau đó viết một kết luận trung tâm dựa trên dữ liệu, không khẳng định trước khi study hoàn tất.', html: `<p class="kicker">User study · Quantitative results</p><h2>Replace placeholders with measured PA4 outcomes.</h2><div class="metrics"><article class="metric"><span class="editable" contenteditable="true" data-edit-key="tct">—%</span><p>Completion time change</p></article><article class="metric"><span class="editable" contenteditable="true" data-edit-key="success">—%</span><p>Prototype success rate</p></article><article class="metric"><span class="editable" contenteditable="true" data-edit-key="sus">—/100</span><p>Prototype SUS score</p></article></div><div class="results"><figure class="media-slot wide" data-slot="study-chart"><img alt="Results chart"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Insert results chart</strong><small>TCT, success, errors, SUS or Likert</small></figcaption></figure><div class="result-note"><h3 contenteditable="true" data-edit-key="result-title">Write the main finding here.</h3><p contenteditable="true" data-edit-key="result-copy">Explain what changed, which task drove the difference, and whether the evidence supports the design.</p><span class="hint">Click text to edit · report n and method</span></div></div><div class="meta"><span>Editable PA4 results</span><span>14 / 16</span></div>` },
-      { note: 'Số liệu cần được giải thích bằng hành vi và tiếng nói người dùng. Khung trái có thể chèn ảnh testing session hoặc affinity map. Hai quote bên phải nên là phát biểu thật có participant ID. Ô cuối ghi issue quan trọng nhất và hướng iteration tiếp theo.', html: `<p class="kicker">User study · Qualitative findings</p><h2>Observed behavior explains the numbers.</h2><div class="findings"><figure class="media-slot" data-slot="testing-photo"><img alt="Testing session or affinity map"><button class="remove" type="button">Remove</button><figcaption class="slot-copy"><span class="slot-icon">＋</span><strong>Insert testing photo or affinity map</strong></figcaption></figure><div class="quotes"><article class="quote"><blockquote contenteditable="true" data-edit-key="quote-1">“Replace with a quote about navigation or one-handed use.”</blockquote><p contenteditable="true" data-edit-key="quote-1-id">Participant P—</p></article><article class="quote"><blockquote contenteditable="true" data-edit-key="quote-2">“Replace with a quote about date search or Match Detail.”</blockquote><p contenteditable="true" data-edit-key="quote-2-id">Participant P—</p></article><article class="quote"><h3 contenteditable="true" data-edit-key="next-improvement">Next iteration: describe the most important issue discovered.</h3></article></div></div><div class="meta"><span>Evidence for the next iteration</span><span>15 / 16</span></div>` },
-      { kind: 'conclusion', note: 'Kết luận, đây là một bài PA4 hoàn chỉnh. Nhóm đã xây high-fidelity prototype có interaction thật, đánh giá bằng summative user study với năm participants, và dùng kết quả để quyết định bước cải tiến tiếp theo. PA3 chỉ là nguồn evidence đầu vào; sản phẩm, demo và evaluation đều thuộc PA4.', html: `<p class="kicker">PA4 · Conclusion</p><h2>Prototype. Evaluate. Improve.</h2><div class="takeaways"><article><div class="big-n">01</div><h3>Built at high fidelity</h3><p>Real content, components, states and interactions.</p></article><article><div class="big-n">02</div><h3>Evaluated with users</h3><p>Five recorded, counterbalanced comparison sessions.</p></article><article><div class="big-n">03</div><h3>Ready to iterate</h3><p>Quantitative and qualitative evidence guide what comes next.</p></article></div><div class="meta light"><span>Group 06 · Freestyle Chess Mobile Web</span><span>16 / 16</span></div>` }
+      {
+        kind: 'title-slide',
+        note: 'Chào Thầy và các bạn. Đây là bài trình bày PA4 của Nhóm 06: High-fidelity Prototype và Summative User Study cho đề tài Tái thiết kế giao diện Mobile Web Freestyle Chess. Trọng tâm hôm nay là sản phẩm Hi-fi tương tác thật trên nền web, luồng Live Demo 4 phút trên trình duyệt, và kết quả đánh giá thực nghiệm đối chứng với website gốc.',
+        html: `<p class="kicker">Project Assignment 4 · CSC13112 UI/UX Design</p><h1>Freestyle Chess<br>Mobile Web Redesign</h1><p class="lead">High-Fidelity Prototype &amp; Summative User Study</p><div class="hero-tags"><span class="hero-tag"><strong>Target:</strong> Ergonomic Thumb Zone</span><span class="hero-tag"><strong>Method:</strong> Within-Subjects (N=6)</span><span class="hero-tag"><strong>Runtime:</strong> React + Vite</span></div><div class="chess"><img src="images/freestyle_chess_logo.png" alt="Freestyle Chess Logo" class="chess-logo"></div><div class="team-footer"><span class="team-label">TEAM MEMBERS</span><span class="team-names">Lê Mai Hoài Bảo · Trương Công Thiên Phú · Lâm Hữu Khánh · Phạm Chí Bảo Ninh · Phùng Ngọc Tuấn</span></div><div class="meta light"><span>PA4 · Final Prototype &amp; Summative Study</span><span>2026</span></div>`
+      },
+      {
+        note: 'Slide Agenda tóm tắt 5 phần chính: Bắt đầu từ 2 vấn đề khả dụng cốt lõi của website hiện tại, 2 giải pháp thắng cuộc từ PA3, kiến trúc Hi-fi Prototype (Req 1), kết quả đánh giá tổng kết Summative Study với 6 người dùng (Req 2), và cuối cùng là phiên Live Demo 4 phút trên trình duyệt cùng Kết luận (Req 3).',
+        html: `<div class="two-col" style="grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; width: 100%; height: 100%;"><div style="display: flex; flex-direction: column; align-items: flex-start; z-index: 2;"><p class="kicker">PA4 · Presentation Flow</p><h2 style="font-size: 64px; margin-bottom: 24px;">Agenda</h2><div class="agenda-item" style="width: 100%;"><span class="agenda-item__num">01</span><div><div class="agenda-item__title">Problem Framing</div><div class="agenda-item__desc">Two mobile usability gaps on existing website</div></div></div><div class="agenda-item" style="width: 100%;"><span class="agenda-item__num">02</span><div><div class="agenda-item__title">Selected Solutions</div><div class="agenda-item__desc">Nav-1 and Sch-2 from PA3 formative testing</div></div></div><div class="agenda-item" style="width: 100%;"><span class="agenda-item__num">03</span><div><div class="agenda-item__title">Hi-fi Prototype (Req 1)</div><div class="agenda-item__desc">Interactive web prototype &amp; 3 core screens</div></div></div><div class="agenda-item" style="width: 100%;"><span class="agenda-item__num">04</span><div><div class="agenda-item__title">Summative User Study (Req 2)</div><div class="agenda-item__desc">Within-subjects counterbalanced comparison (N=6)</div></div></div><div class="agenda-item" style="width: 100%;"><span class="agenda-item__num">05</span><div><div class="agenda-item__title">Live Demo &amp; Next Steps (Req 3)</div><div class="agenda-item__desc">4-minute live run &amp; validated takeaways</div></div></div></div><div class="reveal-right" style="display: flex; justify-content: center; align-items: center; position: relative;"><svg viewBox="0 0 100 140" style="width: 380px; height: 520px; opacity: 0.14; fill: #1c1712;"><circle cx="50" cy="28" r="18" /><ellipse cx="50" cy="48" rx="21" ry="4.5" /><path d="M33 50 C35 75, 29 95, 23 105 L77 105 C71 95, 65 75, 67 50 Z" /><rect x="18" y="105" width="64" height="9" rx="3.5" /><rect x="12" y="116" width="76" height="13" rx="5" /><rect x="8" y="131" width="84" height="8" rx="3" /></svg></div></div><div class="meta"><span>PA4 · presentation flow</span><span>02 / 15</span></div>`
+      },
+      {
+        note: 'Trước khi thiết kế PA4, nhóm xác định hai vấn đề trên website mobile hiện tại. Thứ nhất, menu hamburger nằm ở góc trên bên trái thuộc Vùng cấm địa ngón cái (Ow zone), che kín màn hình và bắt buộc dùng 2 tay. Thứ hai, trang Schedule chỉ liệt kê sự kiện dạng tin tức thô, thiếu hoàn toàn thông tin cặp đấu, kỳ thủ, tỷ số và thế trận bàn cờ.',
+        html: `<p class="kicker">Problem framing · Current mobile website</p><h2>Two current screens expose two core problems.</h2><div class="problem-grid"><article class="problem-card"><iframe class="hifi-phone problem-phone" data-image="images/baseline-navigation.png" title="Existing mobile navigation"></iframe><div class="problem-copy"><span class="mono">PROBLEM 01 · NAVIGATION</span><h3>Hard to use with one hand</h3><p>The top-left hamburger is outside comfortable thumb reach and hides primary destinations behind a disruptive overlay.</p></div></article><article class="problem-card"><iframe class="hifi-phone problem-phone" data-image="images/baseline-schedule.png" title="Existing mobile schedule"></iframe><div class="problem-copy"><span class="mono">PROBLEM 02 · SCHEDULE</span><h3>Not enough match information</h3><p>Dates and locations appear, but players, status, scores, and match analysis are missing.</p></div></article></div><div class="meta"><span>Baseline: freestylechess.com mobile</span><span>03 / 15</span></div>`
+      },
+      {
+        note: 'Solution thứ nhất được chọn từ formative testing là Nav-1: fixed bottom navigation. Năm destination chính luôn hiển thị trong tầm ngón tay cái, active tab được nhấn mạnh và nút More mở các destination phụ mà không che khuất màn hình chính.',
+        html: `<p class="kicker">Selected solution 1 · Nav-1</p><h2>Fixed bottom navigation</h2><div class="selected-solution"><div class="solution-photos"><img class="solution-photo" src="images/paper-schedule-bottom-nav.jpg" alt="Nav-1 fixed bottom navigation paper prototype"><img class="solution-photo" src="images/paper-schedule-expanded-match.jpg" alt="Nav-1 expanded More navigation paper prototype"></div><div class="solution-copy"><span class="tag">Winner · Navigation</span><h3>Persistent, visible and reachable</h3><div class="reason"><p>Five primary destinations stay in the Natural Thumb Zone</p><p>Direct one-tap access with active feedback</p><p>More action sheet keeps secondary links accessible</p></div><blockquote>“Bottom Nav is effortless; my thumb rests right there naturally.”</blockquote></div></div><div class="meta"><span>PA3 evidence → PA4 navigation</span><span>04 / 15</span></div>`
+      },
+      {
+        note: 'Solution thứ hai được chọn là Sch-2: date strip kết hợp match information. Người dùng chọn ngày trực tiếp bằng thanh trượt ngang, xem matchup ngay trên schedule và mở trận cần phân tích để xem bàn cờ 8x8. Phương án này giải quyết triệt để vấn đề thiếu thông tin.',
+        html: `<p class="kicker">Selected solution 2 · Sch-2</p><h2>A faster path from date to match detail.</h2><div class="selected-solution"><div class="solution-photos single"><img class="solution-photo" src="images/paper-schedule-overview.jpg" alt="Sch-2 date strip and match cards paper prototype"></div><div class="solution-copy"><span class="tag">Winner · Schedule</span><h3>Find a date, then inspect a match</h3><div class="reason"><p>Horizontal date strip enables rapid date filtering</p><p>Matchups &amp; ELO ratings appear directly in-card</p><p>Dedicated gateway toward 8×8 match analysis</p></div><blockquote>“The date strip is intuitive; the analysis screen feels professional.”</blockquote></div></div><div class="meta"><span>PA3 evidence → PA4 schedule</span><span>05 / 15</span></div>`
+      },
+      {
+        note: 'Bốn phát hiện formative được chuyển thành bốn tiêu chuẩn implementation trong PA4: touch target tối thiểu 48 nhân 48 pixel (WCAG AAA), back control rõ ràng bảo toàn trạng thái, search kết hợp filter chip, và micro-interaction phản hồi dưới 250 mili giây.',
+        html: `<p class="kicker">PA4 · Implementation criteria</p><h2>Four findings became four product constraints.</h2><div class="commit"><article><div class="n">01</div><div><h3>48×48 px targets</h3><p>WCAG AAA compliant touch areas eliminate slip errors.</p></div></article><article><div class="n">02</div><div><h3>Explicit Back</h3><p>Preserves scroll position and date filter context.</p></div></article><article><div class="n">03</div><div><h3>Search + filters</h3><p>Instant player retrieval &amp; Live/Upcoming status chips.</p></div></article><article><div class="n">04</div><div><h3>Visible feedback</h3><p>Active indicators and transitions under 250 ms.</p></div></article></div><div class="meta"><span>Evidence translated into behavior</span><span>06 / 15</span></div>`
+      },
+      {
+        note: 'Phạm vi hi-fi prototype gồm ba màn hình kết nối thành một user journey hoàn chỉnh được xây dựng bằng React, TypeScript và Vite: Home tạo điểm vào, Schedule hỗ trợ tìm trận và lọc ngày, Match Detail cung cấp thông tin kỳ thủ và bàn cờ 8x8.',
+        html: `<p class="kicker">Requirement 1 · Prototype Scope</p><h2>One complete journey across three screens.</h2><div class="hifi-overview"><div><iframe class="hifi-phone small" data-image="images/hifi-home.png" title="Hi-fi Home screen"></iframe><h3>Home</h3><p>Hero banner, stats &amp; bottom navigation</p></div><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-overview.png" title="Hi-fi Schedule screen"></iframe><h3>Schedule</h3><p>Date strip, search, chips &amp; match cards</p></div><div><iframe class="hifi-phone small" data-image="images/hifi-match-detail.png" title="Hi-fi Match Detail screen"></iframe><h3>Match Detail</h3><p>Player banner, PGN &amp; 8×8 chessboard</p></div></div><div class="meta"><span>Home → Schedule → Match Detail</span><span>07 / 15</span></div>`
+      },
+      {
+        note: 'Home và Schedule đưa giải pháp vào thực tế: Home giữ điều hướng trong tầm với ngón cái và mở More menu mượt mà; Schedule hỗ trợ thanh Date Strip cuộn ngang, Date Picker nhảy ngày xa, và thẻ trận đấu mở rộng.',
+        html: `<p class="kicker">Requirement 1 · Home &amp; Schedule</p><h2>Persistent navigation meets rapid date retrieval.</h2><div class="hifi-state-grid"><div><iframe class="hifi-phone small" data-image="images/hifi-home.png" title="Home screen"></iframe><strong>Home &amp; Nav</strong><span>Fixed 5-tab bar in natural reach zone</span></div><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-overview.png" title="Schedule browse & filter"></iframe><strong>Date Strip</strong><span>Smooth horizontal swipe &amp; status chips</span></div><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-expanded-match.png" title="Expanded match card"></iframe><strong>Match Card</strong><span>Carlsen vs Liêm with ELO &amp; Detail CTA</span></div></div><div class="meta"><span>Hi-fi solutions in action</span><span>08 / 15</span></div>`
+      },
+      {
+        note: 'Match Detail hoàn tất task flow. Nút Back ở đầu trang giúp quay lại Schedule mà không mất ngày đang chọn. Player banner hiển thị tên, Elo, quốc kỳ, tỷ số. Bàn cờ 8×8 tương tác hiển thị đúng thế trận thực tế.',
+        html: `<div class="detail-hifi"><div><p class="kicker">Requirement 1 · Match Detail</p><h2>Preserves context and supports deep game analysis.</h2><ul><li>Explicit Back with preserved date and scroll position.</li><li>Player identity, Elo, flag, live score and status.</li><li>Interactive 8×8 chessboard with move notation.</li><li>Fast 60fps responsive layout on mobile viewport.</li></ul><div class="route mono">Route: #/schedule/:matchId</div></div><iframe class="hifi-phone" data-image="images/hifi-match-detail.png" title="Hi-fi Match Detail"></iframe></div><div class="meta"><span>Hi-fi screen 03 · Match Detail</span><span>09 / 15</span></div>`
+      },
+      {
+        note: 'Phần thứ hai của PA4 là summative user study. Nhóm so sánh prototype với mobile website hiện tại của freestylechess.com. Sáu participants sử dụng cả hai system theo thiết kế within-subjects. Thứ tự AB và BA được xen kẽ Latin Square để loại bỏ hoàn toàn learning effect, toàn bộ session được quay video lưu trữ trên YouTube.',
+        html: `<p class="kicker">Requirement 2 · Study design</p><h2>Six participants compare two mobile experiences.</h2><div class="study"><article><div class="value">6</div><h3>Participants</h3><p>Recorded video proofs on YouTube (P01-P06).</p></article><article><div class="value">A/B</div><h3>Within-subjects</h3><p>Everyone tests both systems.</p></article><article><div class="value">AB/BA</div><h3>Counterbalanced</h3><p>Latin Square order matrix.</p></article><article><div class="value">20′</div><h3>Per session</h3><p>Over-the-shoulder 45° camera angle.</p></article></div><p class="lead" style="margin-top:28px">Baseline: <strong>freestylechess.com mobile web</strong> vs. <strong>Group 06 Prototype</strong></p><div class="meta"><span>Summative usability study</span><span>10 / 15</span></div>`
+      },
+      {
+        note: 'Hai task đánh giá trực tiếp user journey của prototype. Task 1 là mở Schedule khi cầm điện thoại một tay. Task 2 là tìm trận ngày 16 tháng 8 giữa Carlsen và Lê Quang Liêm, sau đó mở bàn cờ chi tiết. Quy trình 9 bước tiêu chuẩn hóa kết hợp đo TCT, Tỷ lệ thành công, Phân loại lỗi ERR-1/2/3, SUS và Likert.',
+        html: `<p class="kicker">Requirement 2 · Tasks &amp; protocol</p><h2>Standardized tasks measure efficiency, accuracy &amp; satisfaction.</h2><div class="tasks"><article class="task"><div class="mono">TASK 01 · NAVIGATION</div><h3>Open Schedule with one hand.</h3><p>Success: reach Schedule using single thumb without assistance.</p></article><article class="task"><div class="mono">TASK 02 · MATCH LOOKUP</div><h3>Find 16 Aug match &amp; open 8×8 board.</h3><p>Success: reach Match Detail and inspect chessboard.</p></article></div><div class="procedure" style="margin-top:28px"><span>Consent + profile</span><i>→</i><span>System A tasks</span><i>→</i><span>SUS + Likert</span><i>→</i><span>Wash-out break (90s)</span><i>→</i><span>System B tasks</span><i>→</i><span>SUS + Likert</span><i>→</i><span>Interview</span></div><div class="meta"><span>Controlled protocol &amp; measures</span><span>11 / 15</span></div>`
+      },
+      {
+        note: 'Kết quả định lượng khẳng định sự vượt trội: Thời gian hoàn thành tác vụ (TCT) giảm 67.5% ở Task 1 (11.8s vs 36.3s) và giảm 82.1% ở Task 2 (14.7s vs 82.3s). Tỷ lệ thành công trực tiếp đạt 100%. Điểm SUS tăng vọt từ 50.0 (Grade D) lên 85.8 (Grade A / Excellent). Lỗi chạm trượt giảm về 0.',
+        html: `<p class="kicker">Requirement 2 · Quantitative results</p><h2>Measured outcomes prove a massive usability leap.</h2><div class="metrics"><article class="metric"><span class="editable" data-edit-key="tct">-75.2%</span><p>Overall completion time</p></article><article class="metric"><span class="editable" data-edit-key="success">100%</span><p>Direct success rate</p></article><article class="metric"><span class="editable" data-edit-key="sus">85.8/100</span><p>SUS score (Grade A / Excellent)</p></article></div><div class="results"><div class="study" style="margin-top:0; border-block:none;"><article><div class="value" style="font-size:38px;">11.8s <small style="font-size:20px; color:var(--text-secondary);">vs 36.3s</small></div><h3>Task 1 TCT</h3><p>One-handed Navigation (-67.5%)</p></article><article><div class="value" style="font-size:38px;">14.7s <small style="font-size:20px; color:var(--text-secondary);">vs 82.3s</small></div><h3>Task 2 TCT</h3><p>Schedule &amp; 8×8 Board (-82.1%)</p></article><article><div class="value" style="font-size:38px;">0.0 <small style="font-size:20px; color:var(--text-secondary);">vs 3.5</small></div><h3>Slip Errors (ERR-1)</h3><p>Touch target ≥48px impact</p></article><article><div class="value" style="font-size:38px;">4.7 <small style="font-size:20px; color:var(--text-secondary);">/ 5.0</small></div><h3>Likert Satisfaction</h3><p>5 dimensions average</p></article></div><div class="result-note" style="margin-top:20px;"><h3 data-edit-key="result-title">Fixed Bottom Nav &amp; Date Strip eliminated reaching friction.</h3><p data-edit-key="result-copy">Both Task 1 and Task 2 showed statistically significant speedups. All 4 hypotheses (H1 Time-on-task, H2 SUS, H3 Success &amp; Errors, H4 Likert) were fully validated across all 6 participants.</p></div></div><div class="meta"><span>Empirical evidence (N=6, Within-subjects)</span><span>12 / 15</span></div>`
+      },
+      {
+        note: 'Tiếng nói người dùng củng cố cho các con số: P01 [0:41, 1:03] khen Bottom Nav vừa vặn ngón cái, P02 [3:10] đánh giá cao thông tin cô đọng không cần cuộn xa, P04 [2:22] thích xem lịch theo ngày, P06 chỉ mất 12s trên app mới so với hơn 2 phút trên web cũ. Nhóm ghi nhận góp ý cải tiến: tự động nhảy tháng khi cuộn ngày (P01, P03).',
+        html: `<p class="kicker">Requirement 2 · Qualitative findings</p><h2>Observed behavior and participant voice explain the numbers.</h2><div class="findings"><div class="evidence-card" style="background:#fff; border:2.5px solid #1c1712; border-radius:18px; padding:32px 30px; box-shadow:6px 6px 0 #1c1712; display:flex; flex-direction:column; justify-content:space-between; height:590px;"><div><div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;"><span class="tag tag--filled" style="font-size:13px; padding:5px 14px; background:var(--accent); color:#fff; border:none; border-radius:4px; font-weight:800; letter-spacing:0.08em;">N=6 RECORDED SESSIONS</span><span style="font-family:var(--font-display); font-size:14px; font-weight:800; color:var(--accent);">45° CAMERA · YOUTUBE</span></div><h3 style="font-size:27px; font-weight:800; line-height:1.2; margin-bottom:20px; color:#1c1712;">Qualitative Thematic Clusters</h3><div style="display:flex; flex-direction:column; gap:16px;"><div style="border-left:4.5px solid var(--accent); padding-left:14px;"><strong style="display:block; font-size:18px; color:#1c1712; margin-bottom:3px;">Theme 1: One-Handed Reach Zone</strong><p style="font-size:15px; color:var(--text-secondary); margin:0; line-height:1.4;">Fixed Bottom Nav placed in Natural Reach Zone; completely eliminated hand gymnastics across all 6 users (P01, P03, P05).</p></div><div style="border-left:4.5px solid #1c1712; padding-left:14px;"><strong style="display:block; font-size:18px; color:#1c1712; margin-bottom:3px;">Theme 2: Rapid Date Filtering</strong><p style="font-size:15px; color:var(--text-secondary); margin:0; line-height:1.4;">Date Strip + quick Date Picker reduced match retrieval by &gt;67s vs legacy event news feed (P02, P04, P06).</p></div><div style="border-left:4.5px solid #35b86b; padding-left:14px;"><strong style="display:block; font-size:18px; color:#1c1712; margin-bottom:3px;">Theme 3: In-Card Match Density</strong><p style="font-size:15px; color:var(--text-secondary); margin:0; line-height:1.4;">Instant player ratings, matchup status and 8×8 board gateway satisfied competitive chess followers (100% positive).</p></div></div></div><div style="display:flex; align-items:center; justify-content:space-between; border-top:1.5px solid rgba(28,23,18,0.12); padding-top:14px; margin-top:8px;"><span style="font-family:var(--font-display); font-size:13px; font-weight:800; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em;">Counterbalanced Latin Square</span><span style="font-family:var(--font-display); font-size:13px; font-weight:800; color:var(--accent);">6/6 Video Proofs Logged</span></div></div><div class="quotes"><article class="quote"><blockquote data-edit-key="quote-1">“Web cũ giấu menu ở tít trên góc trái khiến mình phải dùng 2 tay. Ở app mới, thanh bar nằm sẵn dưới ngón cái, có cả icon và chữ giúp bấm được ngay.”</blockquote><p data-edit-key="quote-1-id">Participant P01 [0:41] · Right-handed mobile user</p></article><article class="quote"><blockquote data-edit-key="quote-2">“Bố cục thông tin ở bản mới cô đọng, nhiều thông tin nhưng không phải cuộn xa. Xem theo từng ngày tối ưu hơn xem sự kiện chung chung.”</blockquote><p data-edit-key="quote-2-id">Participant P02 [3:10] &amp; P04 [2:22] · Chess followers</p></article><article class="quote"><h3 data-edit-key="next-improvement">Next Iteration: Auto-month Threshold &amp; Direct Date Input</h3><p style="font-size:17px; margin-top:4px; color:var(--text-secondary);">Automatically update the month header when scrolling across month boundaries (P01 [4:12], P03 [6:54]) and allow direct day/month/year input (P06).</p></article></div></div><div class="meta"><span>Qualitative evidence &amp; design implications</span><span>13 / 15</span></div>`
+      },
+      {
+        note: 'Live demo là bằng chứng quan trọng của PA4 (Requirement 3). Trong khoảng bốn phút, nhóm sẽ mở Home, vào Schedule bằng bottom nav một tay, chọn ngày 16 tháng 8 trên Date Strip, tìm trận Carlsen vs Lê Quang Liêm, sau đó mở Match Detail và tương tác bàn cờ 8x8 thực tế.',
+        html: `<p class="kicker">Requirement 3 · Live demo</p><h2>A four-minute live run proves the prototype is fully interactive.</h2><div class="commit"><article><div class="n">01</div><div><h3>Start at Home (0-45s)</h3><p>Establish real content &amp; test 1-handed bottom nav.</p></div></article><article><div class="n">02</div><div><h3>Date Strip &amp; Search (45-105s)</h3><p>Swipe to 16 Aug, test Date Picker &amp; instant search.</p></div></article><article><div class="n">03</div><div><h3>Open Match Detail (105-180s)</h3><p>Inspect Carlsen vs Liêm &amp; interact with 8×8 board.</p></div></article><article><div class="n">04</div><div><h3>Contextual Back (180-240s)</h3><p>Return to Schedule without losing scroll state.</p></div></article></div><div class="meta"><span>Browser demo · React + Vite runtime</span><span>14 / 15</span></div>`
+      },
+      {
+        kind: 'conclusion',
+        note: 'Kết luận, đây là một bài PA4 hoàn chỉnh: Nhóm đã xây high-fidelity prototype tương tác thật trên nền web (Req 1), đánh giá bằng summative user study với 6 participants (Req 2), kiểm chứng trực tiếp bằng Live Demo trên browser (Req 3), và đề xuất lộ trình cải tiến rõ ràng.',
+        html: `<p class="kicker">PA4 · Conclusion</p><h2>Prototype. Evaluate. Improve.</h2><div class="takeaways"><article><div class="big-n">01</div><h3>Built at High Fidelity</h3><p>React + TypeScript web prototype with WCAG AAA 48px touch targets, rich interactions &amp; 60fps performance.</p></article><article><div class="big-n">02</div><h3>Empirically Validated</h3><p>6 recorded within-subjects sessions prove 75.2% faster TCT, 100% success rate &amp; SUS 85.8 (Grade A).</p></article><article><div class="big-n">03</div><h3>Ready for Production</h3><p>Clear iteration roadmap based on qualitative participant insights (auto-month threshold &amp; dark mode).</p></article></div><div class="meta light"><span>Group 06 · Freestyle Chess Mobile Web Redesign</span><span>15 / 15</span></div>`
+      }
     ];
-    pa4Slides.splice(4, 1);
-    // Keep the hi-fi section focused to two solution slides: Nav and Schedule.
-    pa4Slides.splice(7, 1); // remove standalone Match Detail slide; it remains in the demo
-    pa4Slides.splice(4, 1); // remove journey overview; Nav and Schedule get their own slides
+
     const sourceSlides = [...document.querySelectorAll('.slide')];
-    sourceSlides[1]?.remove();
-    document.querySelectorAll('.slide').forEach((slide, i) => { const model = pa4Slides[i]; if (!model) { slide.remove(); return; } slide.className = `slide${model.kind ? ' ' + model.kind : ''}${i === 0 ? ' active visible' : ''}`; slide.dataset.note = model.note; slide.innerHTML = model.html; if (i > 0) { const page = slide.querySelector('.meta span:last-child'); if (page) page.textContent = `${String(i + 1).padStart(2, '0')} / ${pa4Slides.length}` } });
+    document.querySelectorAll('.slide').forEach((slide, i) => {
+      const model = pa4Slides[i];
+      if (!model) { slide.remove(); return; }
+      slide.className = `slide${model.kind ? ' ' + model.kind : ''}${i === 0 ? ' active visible' : ''}`;
+      slide.dataset.note = model.note;
+      slide.innerHTML = model.html;
+      if (i > 0) {
+        const page = slide.querySelector('.meta span:last-child');
+        if (page) page.textContent = `${String(i + 1).padStart(2, '0')} / ${pa4Slides.length}`;
+      }
+    });
     document.querySelectorAll('iframe[data-image]').forEach(frame => { const imageUrl = new URL(frame.dataset.image, document.baseURI).href; frame.loading = 'eager'; frame.srcdoc = `<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#fff}img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;background:#fff}</style></head><body><img src="${imageUrl}" alt=""></body></html>` });
     document.querySelectorAll('iframe.hifi-phone').forEach(frame => { const shell = document.createElement('div'); shell.className = `device-phone${frame.classList.contains('small') ? ' small' : ''}${frame.classList.contains('problem-phone') ? ' problem' : ''}`; frame.parentNode.insertBefore(shell, frame); shell.append(frame); const island = document.createElement('span'); island.className = 'device-island'; const homebar = document.createElement('span'); homebar.className = 'device-homebar'; shell.append(island, homebar) });
     const slides = [...document.querySelectorAll('.slide')], counter = document.querySelector('#counter'), progress = document.querySelector('#progress'), panel = document.querySelector('#notesPanel'), notes = document.querySelector('#notesText'), noteTitle = document.querySelector('#notesTitle'), input = document.querySelector('#fileInput'); let index = Math.max(0, Math.min(slides.length - 1, Number(location.hash.slice(1)) - 1 || 0)), activeSlot = null;
