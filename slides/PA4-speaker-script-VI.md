@@ -14,8 +14,8 @@
 | :--- | :--- | :---: | :---: |
 | **SPEAKER 1** | **Bối cảnh, Động lực & Giải pháp kế thừa PA3**<br>• Giới thiệu đồ án, Agenda, Problem framing 2 lỗi khả dụng di động.<br>• 2 Giải pháp thắng cuộc từ Formative Testing PA3 (`Nav-1`, `Sch-2`). | **Slide 01 $\rightarrow$ Slide 05** | **~4.0 phút** |
 | **SPEAKER 2** | **Requirement 1 — Hiện thực hóa Hi-fi Prototype**<br>• 4 Tiêu chuẩn công thái học chuyển dịch từ PA3 sang Hi-fi.<br>• Kiến trúc & chi tiết 3 màn hình cốt lõi (*Home, Schedule, Match Detail*). | **Slide 06 $\rightarrow$ Slide 09** | **~4.0 phút** |
-| **SPEAKER 3** | **Requirement 2 — Nghiên cứu Người dùng Tổng kết**<br>• Thiết kế thí nghiệm đối chứng ($N=6$, Within-subjects, Latin Square).<br>• 2 Tác vụ chuẩn hóa, **5 Ảnh thực nghiệm hiện trường**, Kết quả Định lượng & Định tính. | **Slide 10 $\rightarrow$ Slide 14** | **~4.5 phút** |
-| **SPEAKER 4** | **Requirement 3 — Live Demo Trực tiếp & Kết luận**<br>• Thuyết minh trực tiếp 4 phút Live Demo trên Browser (cùng Operator).<br>• 3 Trụ cột kết luận, bài học thiết kế, lộ trình & Điều phối Q&A. | **Slide 15 $\rightarrow$ Slide 16**<br>*(+ Q&A Lead)* | **~5.0 phút** |
+| **SPEAKER 3** | **Requirement 2 — Nghiên cứu Người dùng Tổng kết**<br>• Thiết kế thí nghiệm đối chứng ($N=6$, Within-subjects, Latin Square).<br>• 2 Tác vụ chuẩn hóa, **6 Ảnh thực nghiệm hiện trường**, Kết quả Định lượng & Định tính. | **Slide 10 $\rightarrow$ Slide 14** | **~4.5 phút** |
+| **SPEAKER 4** | **Requirement 3 — Live Demo Trực tiếp & Kết luận**<br>• Thuyết minh trực tiếp 4 phút Live Demo trên Browser (cùng Operator).<br>• 3 Trụ cột kết luận, bài học thiết kế, lộ trình & Điều phối Q&A. | **Slide 15 $\rightarrow$ Slide 17**<br>*(+ Q&A Lead)* | **~5.0 phút** |
 
 ---
 
@@ -220,7 +220,7 @@
 
 ---
 
-#### SLIDE 12: REQUIREMENT 2: BẰNG CHỨNG HÌNH ẢNH THỰC NGHIỆM HIỆN TRƯỜNG (5 ẢNH REAL N=6)
+#### SLIDE 12: REQUIREMENT 2: BẰNG CHỨNG HÌNH ẢNH THỰC NGHIỆM HIỆN TRƯỜNG (6 ẢNH REAL N=6)
 * **Người trình bày:** **SPEAKER 3**
 * **Thời lượng:** 01 phút 00 giây
 * **Tiêu đề Slide:** `Requirement 2 · Empirical Testing Evidence: Real-world user testing sessions in action (N=6).`
@@ -334,21 +334,30 @@
 * **Người trình bày:** **SPEAKER 4**
 * **Thời lượng:** 01 phút 00 giây
 * **Tiêu đề Slide:** `PA4 · Conclusion: Prototype. Evaluate. Improve.`
-* **Visual:** 3 trụ cột kết luận (Built at High Fidelity, Empirically Validated, Ready for Production) + Lời cảm ơn.
+* **Visual:** 3 trụ cột kết luận (Built at High Fidelity, Empirically Validated, Ready for Production).
 
 > **[LỜI THOẠI SPEAKER 4]:**  
 > *"Kính thưa Thầy và các bạn, nhìn lại toàn bộ chặng đường từ PA1 đến PA4:  
 > Nhóm 06 đã hoàn thành trọn vẹn một vòng đời thiết kế lấy người dùng làm trung tâm (User-Centered Design Cycle):  
 > 1. **Kế thừa bằng chứng vững chắc từ PA3** để chọn ra `Nav-1` và `Sch-2`.  
 > 2. **Hiện thực hóa thành bản Hi-fi Prototype tương tác thật (Requirement 1)**, đạt chuẩn công thái học WCAG AAA.  
-> 3. **Đánh giá tổng kết nghiêm ngặt với 6 người dùng thật (Requirement 2)**, định lượng hóa sự vượt trội về tốc độ (TCT -75.2%), độ chính xác (100% Success) và SUS 85.8 điểm Hạng A xuất sắc.  
+> 3. **Đánh giá tổng kết nghiêm ngặt với 6 người dùng thật (Requirement 2)**, định lượng hóa sự vượt trội về tốc độ (TCT -77.7%), độ chính xác (100% Success) và SUS 85.8 điểm Hạng A xuất sắc.  
 > 4. **Trình diễn tương tác trực tiếp (Requirement 3)** chứng minh tính sẵn sàng triển khai thực tế.  
 > 
-> Trong tương lai, nhóm sẽ tiếp tục tối ưu hóa Date Strip với cơ chế auto-month threshold theo góp ý của P01 và tích hợp chế độ Dark Mode cho người dùng cờ vua ban đêm.  
+> Trong tương lai, nhóm sẽ tiếp tục tối ưu hóa Date Strip với cơ chế auto-month threshold theo góp ý của P01, P03 và tích hợp chế độ Dark Mode cho người dùng cờ vua ban đêm."*
+
+---
+
+#### SLIDE 17: CẢM ƠN & PHIÊN HỎI ĐÁP (THANK YOU & Q&A SESSION)
+* **Người trình bày:** **SPEAKER 4** *(kết chuyển & điều phối cùng toàn nhóm)*
+* **Thời lượng:** 00 phút 30 giây
+* **Tiêu đề Slide:** `Thank You! · Q&A Session: Questions & Discussion`
+* **Visual:** Slide cảm ơn Swiss Modern, logo giải đấu, danh sách 5 thành viên Nhóm 06 và thẻ thông tin tóm tắt.
+
+> **[LỜI THOẠI SPEAKER 4]:**  
+> *"Nhóm 06 xin chân thành cảm ơn sự lắng nghe và chỉ dẫn tận tình của Thầy Lê Khánh Duy cùng Thầy Phạm Nguyễn Sơn Tùng trong suốt học kỳ vừa qua.  
 > 
-> Nhóm 06 xin chân thành cảm ơn sự lắng nghe và chỉ dẫn tận tình của Thầy Lê Khánh Duy cùng Thầy Phạm Nguyễn Sơn Tùng trong suốt học kỳ vừa qua.  
-> 
-> Em xin mời Thầy và các bạn cùng đặt câu hỏi phản biện cho nhóm!"*
+> Sau đây, toàn thể các thành viên Nhóm 06 xin trân trọng kính mời Thầy và các bạn cùng đặt câu hỏi phản biện và đóng góp ý kiến cho nhóm!"*
 
 ---
 
@@ -364,8 +373,8 @@
 ### Câu hỏi 2 của Giảng viên: *"Làm thế nào nhóm đảm bảo tính khách quan, không mớm ý cho người dùng trong lúc test?"*
 * **Người trả lời đề xuất:** **SPEAKER 3 hoặc SPEAKER 1**  
 * **Cách trả lời chuẩn:**  
-  *"Dạ thưa Thầy, nhóm đã xây dựng **Kịch bản điều phối chuẩn hóa từng lời thoại (Standardized Facilitator Script)** trong tài liệu `SummativeUserStudy-Framework.md`.  
-  Người điều phối chỉ đọc đúng kịch bản đề bài và chỉ được phép đưa ra 01 gợi ý chuẩn duy nhất nếu người dùng bế tắc quá 45 giây ở Task 1 hoặc 60 giây ở Task 2. Mọi cử chỉ chỉ tay vào màn hình hay giải thích trước đều bị cấm tuyệt đối và toàn bộ 6 buổi test đều được quay video góc $45^\circ$ để minh chứng."*
+  *"Dạ thưa Thầy, nhóm đã áp dụng **Quy trình nghiên cứu 9 bước tiêu chuẩn hóa (Standardized 9-Step Usability Protocol)** trong tài liệu `SummativeUserStudy-Framework.md`.  
+  Người điều phối chỉ đọc đúng phiếu đề bài đã chuẩn bị trước và chỉ được phép đưa ra 01 gợi ý chuẩn duy nhất nếu người dùng bế tắc quá 45 giây ở Task 1 hoặc 60 giây ở Task 2. Mọi cử chỉ chỉ tay vào màn hình hay giải thích can thiệp trước đều bị cấm tuyệt đối, và toàn bộ 6 buổi test đều được quay video góc $45^\circ$ lưu trữ trên YouTube để minh chứng."*
 
 ### Câu hỏi 3 của Giảng viên: *"Điểm khác biệt cốt lõi nhất giữa bản Hi-fi của nhóm và website gốc là gì?"*
 * **Người trả lời đề xuất:** **SPEAKER 2 (Hi-fi Lead) hoặc SPEAKER 4**  
