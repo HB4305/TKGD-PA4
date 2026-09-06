@@ -1,4 +1,4 @@
-# TÀI LIỆU KHUNG ĐÁNH GIÁ NGƯỜI DÙNG TỔNG KẾT (SUMMATIVE USER STUDY FRAMEWORK)
+# TÀI LIỆU ĐÁNH GIÁ NGƯỜI DÙNG TỔNG KẾT (SUMMATIVE USER STUDY REPORT)
 ## Đồ Án Môn Học 4 (PA4) — Thiết Kế Giao Diện (CSC13112)
 **Giảng viên:** TS. Lê Khánh Duy | **Trợ giảng:** ThS. Phạm Nguyễn Sơn Tùng  
 **Nhóm 06:** Lê Mai Hoài Bảo, Lâm Hữu Khánh, Phạm Chí Bảo Ninh, Trương Công Thiên Phú, Phùng Ngọc Tuấn  
@@ -40,7 +40,7 @@ Nhóm đặt ra 4 giả thuyết khoa học đối chứng dựa trên 4 điểm
 ### 2.1. Mô hình Thí nghiệm (Within-Subjects Design)
 - **Mô hình:** Thử nghiệm trong cùng nhóm đối tượng (Within-Subjects / Repeated Measures Design).
 - **Lý do lựa chọn:** 
-  - Triệt tiêu hoàn toàn sự biến thiên về năng lực cá nhân giữa các người tham gia (Inter-individual differences) đối với tập mẫu nhỏ ($N = 5$).
+  - Triệt tiêu hoàn toàn sự biến thiên về năng lực cá nhân giữa các người tham gia (Inter-individual differences) đối với tập mẫu nhỏ ($N = 6$).
   - Cho phép người tham gia so sánh trực quan, trực tiếp giữa 2 hệ thống trong buổi phỏng vấn bán cấu trúc cuối buổi.
 - **Biến độc lập (Independent Variable - IV):** Hệ thống giao diện được kiểm thử:
   - **Hệ thống A (Baseline):** Trang web di động thực tế `freestylechess.com`.
@@ -58,12 +58,12 @@ Nhóm đặt ra 4 giả thuyết khoa học đối chứng dựa trên 4 điểm
 
 | Participant | Nhân khẩu & Thói quen | Video Minh Chứng (YouTube) | Thứ tự kiểm thử (Order) | Hệ thống 1 (First) | Hệ thống 2 (Second) |
 | :---: | :--- | :--- | :---: | :---: | :---: |
-| **P01** | Thuận tay phải, không theo dõi tin cờ vua, hay dùng 1 tay | [Video P01](https://www.youtube.com/watch?v=jkVPSlJTUtY) | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
+| **P01** | Thuận tay phải, không theo dõi tin cờ vua, hay dùng 1 tay | [Video P01](https://www.youtube.com/watch?v=jkVPSlJTUtY) *(TODO: trùng link demo chính/P06)* | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
 | **P02** | Thuận tay phải, chơi cờ thường xuyên (ELO ~1400), theo dõi cờ thụ động | [Video P02](https://www.youtube.com/watch?v=dVKwWvC-f_g) | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
 | **P03** | Thuận tay phải, không quan tâm cờ vua, late 20s | [Video P03](https://www.youtube.com/watch?v=8K-5v6kj4i8) | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
 | **P04** | Thuận tay phải, thường dùng 2 tay, không quan tâm cờ vua | [Video P04](https://www.youtube.com/watch?v=FYYQkVIUwJ4) | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
 | **P05** | Thuận tay phải, dùng 1 tay khi lướt media / 2 tay khi chơi game | [Video P05](https://www.youtube.com/watch?v=H0-6QAFTI7c) | **B $\rightarrow$ A** | Hi-fi Prototype | Baseline (`freestylechess.com`) |
-| **P06** | Thuận tay phải, biết chơi cờ, thường dùng 1 tay khi xem video | [Video Proof P06](https://www.youtube.com/watch?v=jkVPSlJTUtY) | **B $\rightarrow$ A** | Hi-fi Prototype | Baseline (`freestylechess.com`) |
+| **P06** | Thuận tay phải, biết chơi cờ, thường dùng 1 tay khi xem video | [Video Proof P06](https://www.youtube.com/watch?v=jkVPSlJTUtY) *(TODO: trùng link demo chính/P01)* | **B $\rightarrow$ A** | Hi-fi Prototype | Baseline (`freestylechess.com`) |
 
 ---
 
@@ -207,7 +207,7 @@ Nhóm sử dụng 7 câu hỏi phỏng vấn định tính từ tài liệu `Int
 
 #### A. Hệ Thống Baseline (`freestylechess.com` mobile web)
 | Participant | Thứ tự | Task 1: TCT (s) | Task 1: Kết quả | Task 2: TCT (s) | Task 2: Kết quả | ERR-1 (Slip) | ERR-2 (Mistake) | ERR-3 (Hesitation) | SUS Score (0-100) | Likert Avg (1-5) |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **P01** | 1st | 38.2 | Direct | 84.5 | Partial (1 hint) | 4 | 2 | 3 | 47.5 | 2.8 |
 | **P02** | 1st | 29.4 | Direct | 62.1 | Direct | 2 | 1 | 2 | 57.5 | 3.4 |
 | **P03** | 1st | 41.0 | Partial (1 hint) | 92.0 | Partial (1 hint) | 5 | 3 | 4 | 45.0 | 2.6 |
@@ -218,7 +218,7 @@ Nhóm sử dụng 7 câu hỏi phỏng vấn định tính từ tài liệu `Int
 
 #### B. Hệ Thống Hi-fi Prototype (Group 06)
 | Participant | Thứ tự | Task 1: TCT (s) | Task 1: Kết quả | Task 2: TCT (s) | Task 2: Kết quả | ERR-1 (Slip) | ERR-2 (Mistake) | ERR-3 (Hesitation) | SUS Score (0-100) | Likert Avg (1-5) |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **P01** | 2nd | 11.2 | Direct | 14.8 | Direct | 0 | 0 | 1 | 87.5 | 4.8 |
 | **P02** | 2nd | 10.5 | Direct | 13.9 | Direct | 0 | 0 | 0 | 85.0 | 4.6 |
 | **P03** | 2nd | 14.1 | Direct | 18.2 | Direct | 0 | 1 | 1 | 80.0 | 4.2 |
@@ -232,7 +232,7 @@ Nhóm sử dụng 7 câu hỏi phỏng vấn định tính từ tài liệu `Int
 ### 7.2. Bảng Tổng Hợp Chi Tiết Điểm SUS (SUS Item Breakdown Matrix)
 
 | Hệ thống | P_ID | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 | Q8 | Q9 | Q10 | Tổng Điểm SUS | Hạng (Grade) |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Baseline** | P01 | 2 | 4 | 2 | 4 | 2 | 4 | 3 | 4 | 2 | 4 | **47.5** | Grade D (Poor) |
 | | P02 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | **57.5** | Grade D (OK) |
 | | P03 | 2 | 4 | 2 | 5 | 2 | 4 | 2 | 4 | 2 | 4 | **45.0** | Grade D (Poor) |
@@ -323,16 +323,3 @@ Nhóm sử dụng 7 câu hỏi phỏng vấn định tính từ tài liệu `Int
   - Quản lý file video raw và cắt ghép clip minh chứng cho slide báo cáo.
 
 ---
-
-## 10. Danh Mục Kiểm Tra Hoàn Thiện & Nộp Bài (Submission Checklist)
-
-Trước khi đóng gói file nộp bài `06-PA4-SummativeUserStudy.pdf`, nhóm kiểm tra đầy đủ các thành phần:
-
-- [ ] Đã hoàn thành 5 buổi kiểm thử với đầy đủ chữ ký cam kết và video ghi hình lưu trữ.
-- [ ] Bảng thông tin nhân khẩu học (Demographic Form) của 5 người tham gia đã được tổng hợp.
-- [ ] Toàn bộ dữ liệu thô ($TCT$, Success Rate, Error Counts, 10 câu SUS, 5 câu Likert) đã được điền đầy đủ vào bảng tính.
-- [ ] Tính toán chính xác điểm số SUS trung bình theo công thức Brooke (1996).
-- [ ] Vẽ đầy đủ 3 biểu đồ: Grouped Bar Chart ($TCT$), Stacked Bar Chart (Errors), và Radar Chart (Likert).
-- [ ] Trích dẫn ít nhất 5-8 câu phát biểu đắt giá từ phần phỏng vấn đối chứng (`InterviewGuide.md`).
-- [ ] Viết phần bàn luận kết quả (Discussion), kiểm chứng 4 giả thuyết $H_1 - H_4$ và rút ra bài học thiết kế (Design Implications).
-- [ ] Xuất bản file báo cáo định dạng PDF chỉn chu với tên file: `06-PA4-SummativeUserStudy.pdf`.

@@ -20,7 +20,7 @@
 
 ## 2. Bảng Theo Dõi Tiến Độ Chi Tiết Theo Tuần
 
-### 📅 Tuần 1: Xây Dựng Hi-fi Prototype & Lập Kế Hoạch Nghiên Cứu Người Dùng
+### Tuần 1: Xây Dựng Hi-fi Prototype & Lập Kế Hoạch Nghiên Cứu Người Dùng
 * **Thời gian:** 24/08/2026 – 30/08/2026
 * **Mục tiêu:** Chuyển hóa 2 giải pháp thắng cuộc (`Nav-1`, `Sch-2`) từ PA3 sang mã nguồn web và chuẩn bị biểu mẫu test.
 
@@ -30,11 +30,11 @@
 | **Phạm Chí Bảo Ninh** | Thiết kế hệ thống biến CSS (variables.css), kiểm tra kích thước touch target và responsive viewport. | Hệ thống CSS Design tokens chuẩn hóa. | Hoàn thành |
 | **Lâm Hữu Khánh** | Soạn thảo khung nghiên cứu Summative Study, thiết lập ma trận Latin Square Counterbalancing $AB/BA$. | Tài liệu `SummativeUserStudy-Framework.md`. | Hoàn thành |
 | **Trương Công Thiên Phú** | Chuẩn bị dữ liệu kỳ thủ, giải đấu và soạn bộ câu hỏi khảo sát nhân khẩu học, SUS và Likert. | Bộ tài liệu khảo sát song ngữ. | Hoàn thành |
-| **Phùng Ngọc Tuấn** | Viết kịch bản lời thoại chuẩn cho Facilitator, mời 5 người tham gia ($P1 \rightarrow P5$). | Lịch hẹn và danh sách 5 participants. | Hoàn thành |
+| **Phùng Ngọc Tuấn** | Viết kịch bản lời thoại chuẩn cho Facilitator, mời 6 người tham gia ($P01 \rightarrow P06$). | Lịch hẹn và danh sách 6 participants. | Hoàn thành |
 
 ---
 
-### 📅 Tuần 2: Tiến Hành Thử Nghiệm Đối Chứng, Tổng Hợp Dữ Liệu & Đóng Gói Slide
+### Tuần 2: Tiến Hành Thử Nghiệm Đối Chứng, Tổng Hợp Dữ Liệu & Đóng Gói Slide
 * **Thời gian:** 31/08/2026 – 06/09/2026
 * **Mục tiêu:** Thực hiện 5 buổi test có quay video, phân tích số liệu TCT/SUS/Likert, cập nhật slide và kịch bản thuyết trình.
 

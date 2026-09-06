@@ -1,5 +1,5 @@
 ### Participant P01
-- Video link proof: (Youtube) https://www.youtube.com/watch?v=jkVPSlJTUtY
+- Video link proof: (Youtube) https://www.youtube.com/watch?v=jkVPSlJTUtY ⚠️ [TODO: xác nhận lại — link này đang trùng với video demo chính và với P06, cần thay bằng link video thật của phiên P01 nếu có]
 - Flow: Research app -> Solution ; Navigation -> Schedule Tab
 - Preference:
     - Navigation: Prefer the new one completely
