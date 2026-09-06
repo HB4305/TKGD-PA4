@@ -22,7 +22,7 @@
 
 ```
 
-## 4. Khi thực hiện task tìm trận đấu ngày 16/8, bạn cảm thấy bước nào dễ nhất và bước nào khó nhất?
+## 4. Khi thực hiện task tìm trận đấu ngày 02/09/2026, bạn cảm thấy bước nào dễ nhất và bước nào khó nhất?
 ```
 
 

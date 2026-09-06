@@ -54,7 +54,7 @@ Nhóm đặt ra 4 giả thuyết khoa học đối chứng dựa trên 4 điểm
   - Nhận xét định tính và ưu tiên lựa chọn của người dùng (Qualitative Feedback).
 
 ### 2.2. Kiểm Soát Biến Ngoại Lai & Ma Trận Phân Bổ Thứ Tự (Counterbalancing Matrix)
-Để triệt tiêu **Hiệu ứng Học tập (Learning / Carryover Effect)** khi người dùng nhớ vị trí thông tin từ hệ thống trước áp dụng cho hệ thống sau, thứ tự thực hiện được phân bổ chéo cân bằng (Latin Square Counterbalancing $AB / BA$):
+Để giảm **Hiệu ứng Học tập (Learning / Carryover Effect)** khi người dùng nhớ vị trí thông tin từ hệ thống trước áp dụng cho hệ thống sau, thứ tự thực hiện được phân bổ chéo theo hai thứ tự $AB / BA$. Phân bổ thực tế là **4 người theo A → B và 2 người theo B → A**, vì vậy đây là counterbalancing một phần, không phải cân bằng tuyệt đối.
 
 | Participant | Nhân khẩu & Thói quen | Video Minh Chứng (YouTube) | Thứ tự kiểm thử (Order) | Hệ thống 1 (First) | Hệ thống 2 (Second) |
 | :---: | :--- | :--- | :---: | :---: | :---: |
@@ -76,19 +76,19 @@ Mỗi buổi kiểm thử kéo dài đúng **20 phút**, tuân thủ nghiêm ng�
          ↓
   [02:00 - 04:00]  Bước 2: Thu thập Bảng Thông tin Nhân khẩu học (Demographic Form)
          ↓
-  [04:00 - 09:00]  Bước 3: Thực hiện Kịch bản trên HỆ THỐNG 1 (Task 1 & Task 2)
+  [04:00 - 08:30]  Bước 3: Thực hiện Kịch bản trên HỆ THỐNG 1 (Task 1 & Task 2)
          ↓
-  [09:00 - 11:30]  Bước 4: Điền Phiếu Khảo sát HỆ THỐNG 1 (SUS + Likert Satisfaction)
+  [08:30 - 10:30]  Bước 4: Điền Phiếu Khảo sát HỆ THỐNG 1 (SUS + Likert Satisfaction)
          ↓
-  [11:30 - 13:00]  Bước 5: Khoảng nghỉ giải tỏa nhận thức (Wash-out Period - 90s)
+  [10:30 - 12:00]  Bước 5: Khoảng nghỉ giải tỏa nhận thức (Wash-out Period - 90s)
          ↓
-  [13:00 - 17:30]  Bước 6: Thực hiện Kịch bản trên HỆ THỐNG 2 (Task 1 & Task 2)
+  [12:00 - 16:30]  Bước 6: Thực hiện Kịch bản trên HỆ THỐNG 2 (Task 1 & Task 2)
          ↓
-  [17:30 - 19:00]  Bước 7: Điền Phiếu Khảo sát HỆ THỐNG 2 (SUS + Likert Satisfaction)
+  [16:30 - 18:00]  Bước 7: Điền Phiếu Khảo sát HỆ THỐNG 2 (SUS + Likert Satisfaction)
          ↓
-  [19:00 - 21:30]  Bước 8: Phỏng vấn Bán Cấu Trúc So Sánh Đối Chứng (Post-Study Interview)
+  [18:00 - 19:30]  Bước 8: Phỏng vấn Bán Cấu Trúc So Sánh Đối Chứng (Post-Study Interview)
          ↓
-  [21:30 - 22:00]  Bước 9: Cảm ơn, Tặng quà lưu niệm & Kết thúc Session
+  [19:30 - 20:00]  Bước 9: Debriefing, Cảm ơn, Tặng quà lưu niệm & Kết thúc Session
 ```
 
 ---
@@ -109,13 +109,13 @@ Mỗi buổi kiểm thử kéo dài đúng **20 phút**, tuân thủ nghiêm ng�
 ---
 
 ### Task 2: Tra Cứu Lịch Thi Đấu & Xem Chi Tiết Bàn Cờ 8×8 (Schedule Lookup & Match Detail)
-* **Kịch bản thực tế (Scenario):** *"Bạn được biết vào ngày 16/8 có trận đối đầu đỉnh cao giữa Magnus Carlsen và Lê Quang Liêm. Bạn muốn xem chi tiết thông tin cặp đấu này và xem bố cục thế trận bàn cờ 8×8."*
-* **Hiệu lệnh (Task Prompt):** *"Trên trang Lịch thi đấu, hãy tìm trận đấu ngày 16/8 giữa Magnus Carlsen và Lê Quang Liêm, sau đó mở màn hình chi tiết trận đấu để xem bàn cờ phân tích."*
+* **Kịch bản thực tế (Scenario):** *"Bạn được biết vào ngày 02/09/2026 có trận đối đầu giữa Magnus Carlsen và Lê Quang Liêm. Bạn muốn xem chi tiết thông tin cặp đấu này và xem bố cục thế trận bàn cờ 8×8."*
+* **Hiệu lệnh (Task Prompt):** *"Trên trang Lịch thi đấu, hãy tìm trận đấu ngày 02/09/2026 giữa Magnus Carlsen và Lê Quang Liêm, sau đó mở màn hình chi tiết trận đấu để xem bàn cờ phân tích."*
 * **Thời điểm Bấm giờ ($TCT_2$):**
   - **Bắt đầu ($t_{start}$):** Ngay khi người điều phối hô "Bắt đầu".
-  - **Kết thúc ($t_{end}$):** Khi màn hình Chi tiết trận đấu (`match-detail.html`) mở ra với bàn cờ 8×8 và thông tin 2 kỳ thủ hiển thị rõ ràng.
+  - **Kết thúc ($t_{end}$):** Khi route Chi tiết trận đấu (`/schedule/:matchId`) mở ra với bàn cờ 8×8 và thông tin 2 kỳ thủ hiển thị rõ ràng.
 * **Tiêu chuẩn Thành công:**
-  - **Thành công trực tiếp (Direct Success):** Tương tác thanh trượt ngày chọn ngày 16/8 $\rightarrow$ mở rộng thẻ trận đấu $\rightarrow$ nhấn `Chi tiết / Detail` trong $\le 60\text{ s}$.
+  - **Thành công trực tiếp (Direct Success):** Tương tác thanh trượt ngày chọn ngày 02/09/2026 $\rightarrow$ mở rộng thẻ trận đấu $\rightarrow$ nhấn `Chi tiết / Detail` trong $\le 60\text{ s}$.
   - **Thành công có trợ giúp (Partial Success):** Hoàn thành sau 01 gợi ý chuẩn hóa khi bị kẹt quá $60\text{ s}$.
   - **Thất bại (Fail/Timeout):** Quá $120\text{ s}$ hoặc không tìm thấy trận đấu.
 
@@ -152,8 +152,7 @@ Người quan sát (Observer) sẽ sử dụng bảng mã hóa 3 loại lỗi h�
   $$Score_i = X_i - 1$$
 - Với các câu hỏi số **chẵn** (2, 4, 6, 8, 10 - Phát biểu tiêu cực):  
   $$Score_i = 5 - X_i$$
-- Tổng điểm quy đổi hệ 100:
-  $$SUS = \left( \sum_{i=1}^{10} Score_i \right) \times 2.5$$
+- Tổng điểm quy đổi hệ 100: **SUS = (Score₁ + Score₂ + … + Score₁₀) × 2.5**
 
 #### Thang Đánh Giá Điểm SUS (Sauro & Lewis, Bangor et al.):
 - **SUS $\ge 80.3$:** Hạng **A / A+** (Excellent — Trải nghiệm vượt trội).
@@ -174,7 +173,7 @@ Người quan sát (Observer) sẽ sử dụng bảng mã hóa 3 loại lỗi h�
 ---
 
 ### 6.3. Bảng Phỏng Vấn Bán Cấu Trúc (Post-Study Semi-Structured Interview)
-Nhóm sử dụng 7 câu hỏi phỏng vấn định tính từ tài liệu `InterviewGuide.md` để đào sâu nguyên nhân và trích dẫn trực tiếp lời nhận xét của người tham gia (Direct Quotes).
+Nhóm sử dụng 7 câu hỏi phỏng vấn định tính từ [Interview Guide](../docs/06-PA4-InterviewGuide.md) để đào sâu nguyên nhân và trích dẫn trực tiếp lời nhận xét của người tham gia (Direct Quotes). Các biểu mẫu đầy đủ gồm [Demographic Form](../docs/06-PA4-DemographicForm.md), [SUS Questionnaire](../docs/06-PA4-SUSQuestionnaire.md) và [Likert Scale](../docs/06-PA4-LikertScale.md).
 
 ---
 
@@ -185,24 +184,24 @@ Nhóm sử dụng 7 câu hỏi phỏng vấn định tính từ tài liệu `Int
 #### A. Hệ Thống Baseline (`freestylechess.com` mobile web)
 | Participant | Thứ tự | Task 1: TCT (s) | Task 1: Kết quả | Task 2: TCT (s) | Task 2: Kết quả | ERR-1 (Slip) | ERR-2 (Mistake) | ERR-3 (Hesitation) | SUS Score (0-100) | Likert Avg (1-5) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **P01** | 1st | 38.2 | Direct | 84.5 | Partial (1 hint) | 4 | 2 | 3 | 47.5 | 2.8 |
-| **P02** | 1st | 29.4 | Direct | 62.1 | Direct | 2 | 1 | 2 | 57.5 | 3.4 |
-| **P03** | 1st | 41.0 | Partial (1 hint) | 92.0 | Partial (1 hint) | 5 | 3 | 4 | 45.0 | 2.6 |
-| **P04** | 1st | 28.5 | Direct | 58.4 | Direct | 2 | 1 | 2 | 55.0 | 3.2 |
-| **P05** | 2nd | 36.0 | Direct | 77.0 | Direct | 3 | 2 | 3 | 52.5 | 3.0 |
-| **P06** | 2nd | 44.5 | Partial (1 hint) | 120.0+ | Fail / Assist | 5 | 4 | 5 | 42.5 | 2.4 |
-| **Trung bình ($\mu \pm \sigma$)** | — | **36.3 ± 6.4s** | **67% Direct / 33% Part** | **82.3 ± 22.8s** | **50% Direct / 50% Part-Fail** | **3.5 ± 1.4** | **2.2 ± 1.1** | **3.2 ± 1.1** | **50.0 ± 5.8 (Grade D)** | **2.9 ± 0.4** |
+| **P01** | 1st | 38.2 | Direct | 84.5 | Partial (1 hint) | 4 | 2 | 3 | 27.5 | 2.8 |
+| **P02** | 1st | 29.4 | Direct | 62.1 | Direct | 2 | 1 | 2 | 50.0 | 3.4 |
+| **P03** | 1st | 41.0 | Partial (1 hint) | 92.0 | Partial (1 hint) | 5 | 3 | 4 | 22.5 | 2.6 |
+| **P04** | 1st | 28.5 | Direct | 58.4 | Direct | 2 | 1 | 2 | 50.0 | 3.2 |
+| **P05** | 2nd | 36.0 | Direct | 77.0 | Direct | 3 | 2 | 3 | 37.5 | 3.0 |
+| **P06** | 2nd | 44.5 | Partial (1 hint) | 120.0+ | Fail / Assist | 5 | 4 | 5 | 12.5 | 2.4 |
+| **Trung bình ($\mu \pm \sigma$)** | — | **36.3 ± 6.4s** | **67% Direct / 33% Part** | **82.3 ± 22.8s** | **50% Direct / 50% Part-Fail** | **3.5 ± 1.4** | **2.2 ± 1.1** | **3.2 ± 1.1** | **33.3 ± 15.2 (Grade F)** | **2.9 ± 0.4** |
 
 #### B. Hệ Thống Hi-fi Prototype (Group 06)
 | Participant | Thứ tự | Task 1: TCT (s) | Task 1: Kết quả | Task 2: TCT (s) | Task 2: Kết quả | ERR-1 (Slip) | ERR-2 (Mistake) | ERR-3 (Hesitation) | SUS Score (0-100) | Likert Avg (1-5) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **P01** | 2nd | 11.2 | Direct | 14.8 | Direct | 0 | 0 | 1 | 87.5 | 4.8 |
-| **P02** | 2nd | 10.5 | Direct | 13.9 | Direct | 0 | 0 | 0 | 85.0 | 4.6 |
-| **P03** | 2nd | 14.1 | Direct | 18.2 | Direct | 0 | 1 | 1 | 80.0 | 4.2 |
-| **P04** | 2nd | 11.0 | Direct | 13.5 | Direct | 0 | 0 | 0 | 87.5 | 4.8 |
-| **P05** | 1st | 12.2 | Direct | 15.6 | Direct | 0 | 0 | 1 | 85.0 | 4.6 |
-| **P06** | 1st | 12.0 | Direct | 12.0 | Direct | 0 | 0 | 0 | 90.0 | 5.0 |
-| **Trung bình ($\mu \pm \sigma$)** | — | **11.8 ± 1.2s** | **100% Direct** | **14.7 ± 2.1s** | **100% Direct** | **0.0 ± 0.0** | **0.2 ± 0.4** | **0.5 ± 0.5** | **85.8 ± 3.4 (Grade A)** | **4.7 ± 0.3** |
+| **P01** | 2nd | 11.2 | Direct | 14.8 | Direct | 0 | 0 | 1 | 97.5 | 4.8 |
+| **P02** | 2nd | 10.5 | Direct | 13.9 | Direct | 0 | 0 | 0 | 92.5 | 4.6 |
+| **P03** | 2nd | 14.1 | Direct | 18.2 | Direct | 0 | 1 | 1 | 75.0 | 4.2 |
+| **P04** | 2nd | 11.0 | Direct | 13.5 | Direct | 0 | 0 | 0 | 97.5 | 4.8 |
+| **P05** | 1st | 12.2 | Direct | 15.6 | Direct | 0 | 0 | 1 | 92.5 | 4.6 |
+| **P06** | 1st | 12.0 | Direct | 12.0 | Direct | 0 | 0 | 0 | 100.0 | 5.0 |
+| **Trung bình ($\mu \pm \sigma$)** | — | **11.8 ± 1.2s** | **100% Direct** | **14.7 ± 2.1s** | **100% Direct** | **0.0 ± 0.0** | **0.2 ± 0.4** | **0.5 ± 0.5** | **92.5 ± 9.1 (Grade A+)** | **4.7 ± 0.3** |
 
 ---
 
@@ -210,18 +209,18 @@ Nhóm sử dụng 7 câu hỏi phỏng vấn định tính từ tài liệu `Int
 
 | Hệ thống | P_ID | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 | Q8 | Q9 | Q10 | Tổng Điểm SUS | Hạng (Grade) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Baseline** | P01 | 2 | 4 | 2 | 4 | 2 | 4 | 3 | 4 | 2 | 4 | **47.5** | Grade D (Poor) |
-| | P02 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | **57.5** | Grade D (OK) |
-| | P03 | 2 | 4 | 2 | 5 | 2 | 4 | 2 | 4 | 2 | 4 | **45.0** | Grade D (Poor) |
-| | P04 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | **55.0** | Grade D (OK) |
-| | P05 | 3 | 4 | 3 | 4 | 3 | 3 | 3 | 4 | 2 | 4 | **52.5** | Grade D (OK) |
-| | P06 | 2 | 5 | 2 | 5 | 2 | 5 | 2 | 5 | 2 | 5 | **42.5** | Grade F (Unacceptable) |
-| **Prototype** | P01 | 5 | 1 | 5 | 1 | 4 | 1 | 5 | 1 | 5 | 1 | **87.5** | Grade A+ (Excellent) |
-| | P02 | 5 | 1 | 4 | 2 | 5 | 1 | 5 | 1 | 4 | 1 | **85.0** | Grade A (Excellent) |
-| | P03 | 4 | 2 | 4 | 2 | 4 | 2 | 4 | 2 | 4 | 2 | **80.0** | Grade A- (Good) |
-| | P04 | 5 | 1 | 5 | 1 | 4 | 1 | 5 | 1 | 5 | 1 | **87.5** | Grade A+ (Excellent) |
-| | P05 | 5 | 1 | 4 | 2 | 4 | 1 | 5 | 1 | 5 | 1 | **85.0** | Grade A (Excellent) |
-| | P06 | 5 | 1 | 5 | 1 | 5 | 1 | 5 | 1 | 5 | 1 | **90.0** | Grade A+ (Best in class) |
+| **Baseline** | P01 | 2 | 4 | 2 | 4 | 2 | 4 | 3 | 4 | 2 | 4 | **27.5** | Grade F |
+| | P02 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | **50.0** | Grade F |
+| | P03 | 2 | 4 | 2 | 5 | 2 | 4 | 2 | 4 | 2 | 4 | **22.5** | Grade F |
+| | P04 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | **50.0** | Grade F |
+| | P05 | 3 | 4 | 3 | 4 | 3 | 3 | 3 | 4 | 2 | 4 | **37.5** | Grade F |
+| | P06 | 2 | 5 | 2 | 5 | 2 | 5 | 2 | 5 | 2 | 5 | **12.5** | Grade F |
+| **Prototype** | P01 | 5 | 1 | 5 | 1 | 4 | 1 | 5 | 1 | 5 | 1 | **97.5** | Grade A+ |
+| | P02 | 5 | 1 | 4 | 2 | 5 | 1 | 5 | 1 | 4 | 1 | **92.5** | Grade A+ |
+| | P03 | 4 | 2 | 4 | 2 | 4 | 2 | 4 | 2 | 4 | 2 | **75.0** | Grade B |
+| | P04 | 5 | 1 | 5 | 1 | 4 | 1 | 5 | 1 | 5 | 1 | **97.5** | Grade A+ |
+| | P05 | 5 | 1 | 4 | 2 | 4 | 1 | 5 | 1 | 5 | 1 | **92.5** | Grade A+ |
+| | P06 | 5 | 1 | 5 | 1 | 5 | 1 | 5 | 1 | 5 | 1 | **100.0** | Grade A+ |
 
 ---
 
@@ -256,7 +255,7 @@ Nhóm sử dụng 7 câu hỏi phỏng vấn định tính từ tài liệu `Int
 - **Hesitation Delays (ERR-3):** Giảm từ $3.2$ xuống $0.5\text{ lần}$ nhờ visual feedback tức thì $<250\text{ ms}$.
 
 ### 8.3. So sánh Thang đo Khả dụng SUS & Likert
-- **SUS Benchmark:** Tăng từ **$50.0 / 100$ (Grade D - Poor)** lên **$85.8 / 100$ (Grade A - Excellent)**, vượt ngưỡng chuẩn công nghiệp $68.0$.
+- **SUS Benchmark:** Tăng từ **$33.3 / 100$ (Grade F)** lên **$92.5 / 100$ (Grade A+)**, chênh lệch **$+59.2$ điểm** và vượt ngưỡng chuẩn công nghiệp $68.0$.
 - **Likert Score:** Tăng từ $2.9 / 5.0$ lên **$4.7 / 5.0$**, khẳng định sự hài lòng vượt bậc trên cả 5 chiều kích (*Dễ dùng, Thẩm mỹ, Tốc độ, Rõ ràng, Hài lòng chung*).
 
 ### 8.4. Phân Tích Định Tính Theo Chủ Đề & Trích Dẫn Thực Tế (Qualitative Thematic Coding with Timestamps)

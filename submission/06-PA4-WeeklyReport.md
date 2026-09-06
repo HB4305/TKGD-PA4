@@ -10,7 +10,7 @@
 **Product Scope:** Freestyle Chess Mobile Website on Smartphone Browser
 **Sprint:** Sprint 4 (2-week sprint: August 24, 2026 – September 06, 2026)
 **Process Methodology:** RUP + Scrum
-**Repository:** [https:/ /github.com/HB4305/TKGD-PA4](https://github.com/HB4305/TKGD-PA4)
+**Repository:** [https://github.com/HB4305/TKGD-PA4](https://github.com/HB4305/TKGD-PA4)
 
 ---
 
@@ -36,8 +36,8 @@
 | No. | Full Name                 | Student ID | Scrum Role & Primary Responsibilities                                                                                                                                                                                                         | Contribution |
 | :-: | :------------------------ | :--------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------: |
 |  1  | **Le Mai Hoai Bao**       |  23127326  | **Product Owner / Frontend Developer**- Lead React/Vite/TypeScript prototype development and deployment to Vercel.- Manage GitHub repository, coordinate 45° camera video proofs, and produce YouTube demo.                                   |   **100%**   |
-|  2  | **Lam Huu Khanh**         |  23127205  | **Scrum Master / UX Researcher**- Design Summative Study framework, Latin Square Counterbalancing matrix ($AB/BA$).- Synthesize raw data logs, calculate mean TCT, SUS scores, Likert distributions, and statistical tests.                   |   **100%**   |
-|  3  | **Pham Chi Bao Ninh**     |  23127446  | **UI Designer / Data Observer**- Architect CSS Design Tokens (`variables.css`), ensure WCAG AAA touch targets ($\ge 48\times 48\text{ px}$).- Serve as Observer & Note-taker, classify ERR-1/2/3 interaction errors during testing sessions.  |   **100%**   |
+|  2  | **Lam Huu Khanh**         |  23127205  | **Scrum Master / UX Researcher**- Design Summative Study framework, AB/BA order allocation ($4/2$ actual split).- Synthesize raw data logs, calculate mean TCT, SUS scores, Likert distributions, and statistical tests.                   |   **100%**   |
+|  3  | **Pham Chi Bao Ninh**     |  23127446  | **UI Designer / Data Observer**- Architect CSS Design Tokens (`variables.css`), ensure touch targets meet the project target of $\ge 48\times 48\text{ px}$.- Serve as Observer & Note-taker, classify ERR-1/2/3 interaction errors during testing sessions.  |   **100%**   |
 |  4  | **Truong Cong Thien Phú** |  23127455  | **Content Lead / Co-Facilitator**- Populate realistic tournament/match datasets and design bilingual survey instruments.- Assist in conducting user testing sessions and lead post-study semi-structured interviews.                          |   **100%**   |
 |  5  | **Phung Ngoc Tuan**       |  23127510  | **Lead Facilitator / Slide Lead**- Guide participants through testing protocol, stopwatch timing, and participant logistics ($N=6$).- Build interactive Swiss Modern HTML/CSS slide deck (`PA4-assignment-briefing.html`) and Speaker Script. |   **100%**   |
 
@@ -49,10 +49,10 @@ In accordance with the RUP + Scrum course framework, Group 06 conducted 4 formal
 
 | Meeting Record                    |           Date & Time           |                                         Mode / Location                                          | Purpose                                                                                                         |
 | :-------------------------------- | :-----------------------------: | :----------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------- |
-| **Sprint Planning Meeting**       |  August 25, 202621:00 – 22:30   |     Google Meet[https://meet.google.com/yat-svzi-mkm](https://meet.google.com/yat-svzi-mkm)      | Define Sprint 4 goals, translate PA3 winning solutions into technical WBS tasks, assign deadlines.              |
-| **Weekly Scrum Meeting 1**        |  August 30, 202621:00 – 22:30   | Google Meet / Online[https://meet.google.com/yat-svzi-mkm](https://meet.google.com/yat-svzi-mkm) | Review Week 1 progress: React prototype core screens, design system tokens, study protocol setup.               |
-| **Weekly Scrum Meeting 2**        | September 03, 202621:00 – 22:30 | Google Meet / Online[https://meet.google.com/yat-svzi-mkm](https://meet.google.com/yat-svzi-mkm) | Review 6 user testing sessions ($P01 \rightarrow P06$), verify YouTube video proofs, review initial slide deck. |
-| **Sprint Review & Retrospective** | September 06, 202621:00 – 22:30 |     Google Meet[https://meet.google.com/yat-svzi-mkm](https://meet.google.com/yat-svzi-mkm)      | Evaluate deliverables vs PA4 criteria, analyze quantitative & qualitative results, finalize submission package. |
+| **Sprint Planning Meeting**       | August 25, 2026 · 21:00 – 22:30   | Google Meet — [link](https://meet.google.com/yat-svzi-mkm) | Define Sprint 4 goals, translate PA3 winning solutions into technical WBS tasks, assign deadlines. |
+| **Weekly Scrum Meeting 1**        | August 30, 2026 · 21:00 – 22:30   | Google Meet / Online — [link](https://meet.google.com/yat-svzi-mkm) | Review Week 1 progress: React prototype core screens, design system tokens, study protocol setup. |
+| **Weekly Scrum Meeting 2**        | September 03, 2026 · 21:00 – 22:30 | Google Meet / Online — [link](https://meet.google.com/yat-svzi-mkm) | Review 6 user testing sessions ($P01 \rightarrow P06$), verify YouTube video proofs, review initial slide deck. |
+| **Sprint Review & Retrospective** | September 06, 2026 · 21:00 – 22:30 | Google Meet — [link](https://meet.google.com/yat-svzi-mkm) | Evaluate deliverables vs PA4 criteria, analyze quantitative & qualitative results, finalize submission package. |
 
 ---
 
@@ -77,7 +77,7 @@ Develop a production-grade, responsive High-Fidelity Prototype running smoothly 
 | **TSK-04** | Implement Date Strip carousel, Date Picker modal, and match filtering (`Sch-2`)            |       Bảo, Ninh       |    12h     |   High   | `DateStrip.tsx`, `Schedule.tsx`                                                     |
 | **TSK-05** | Implement Match Detail screen with interactive 8×8 SVG chessboard                          |    Le Mai Hoai Bao    |    10h     |   High   | `MatchDetail.tsx`, 8×8 board                                                        |
 | **TSK-06** | Curate realistic tournament database (players, FIDE ratings, matches, boards)              | Truong Cong Thien Phu |     6h     |  Medium  | `matches.ts`, player datasets                                                       |
-| **TSK-07** | Design Summative Usability Study protocol & Latin Square Counterbalancing ($AB/BA$)        |     Lam Huu Khanh     |     8h     |   High   | `06-PA4-SummativeUserStudy-Framework.md`                                            |
+| **TSK-07** | Design Summative Usability Study protocol & AB/BA order allocation        |     Lam Huu Khanh     |     8h     |   High   | `06-PA4-SummativeUserStudy-Framework.md`                                            |
 | **TSK-08** | Prepare bilingual questionnaires (Demographic, SUS 10-item, Likert 5-dimension)            |      Phu, Khanh       |     6h     |   High   | `DemographicForm.md`, `SUS.md`, `Likert.md`                                         |
 | **TSK-09** | Recruit 6 participants ($P01 \rightarrow P06$) with diverse backgrounds, schedule sessions |    Phung Ngoc Tuan    |     6h     |   High   | Participant roster & testing schedule                                               |
 | **TSK-10** | Setup Over-the-Shoulder$45^\circ$ camera recording rig and conduct dry-run                 |       Bao, Tuan       |     4h     |  Medium  | Standardized testing environment                                                    |
@@ -107,7 +107,7 @@ Develop a production-grade, responsive High-Fidelity Prototype running smoothly 
    - **Issues / Obstacles:** Ensuring the bottom navigation bar remains firmly pinned above mobile OS virtual home bars (iOS Home Indicator & Android gesture pill). Resolved via `env(safe-area-inset-bottom)`.
 
 2. **Lam Huu Khanh (Scrum Master / UX Researcher):**
-   - **Completed Tasks:** Established experimental framework: Within-subjects Latin Square design ($3\times AB + 3\times BA = 6\text{ users}$); defined 4 testable hypotheses ($H_1$ to $H_4$); created raw logging template.
+   - **Completed Tasks:** Established experimental framework: Within-subjects AB/BA design with an actual final allocation of $4\times AB + 2\times BA = 6\text{ users}$; defined 4 testable hypotheses ($H_1$ to $H_4$); created raw logging template.
    - **To-do Tasks:** Monitor testing data collection; calculate Brooke's 1996 SUS formula and paired delta comparisons once logs are submitted.
    - **Issues / Obstacles:** Ensuring wash-out interval ($90\text{ s}$) between System 1 and System 2 is strictly adhered to prevent carryover fatigue.
 
@@ -148,9 +148,9 @@ Develop a production-grade, responsive High-Fidelity Prototype running smoothly 
    - **Issues / Obstacles:** Hand occlusion on camera for left-handed angle; adjusted camera position to $45^\circ$ right elevation.
 
 2. **Lam Huu Khanh (Scrum Master / UX Researcher):**
-   - **Completed Tasks:** Completed full quantitative data synthesis ($N=6$): Total TCT reduced by **$77.7\%$** ($118.6\text{ s} \rightarrow 26.5\text{ s}$), SUS increased from **$50.0$ (Grade D)** to **$85.8$ (Grade A)**, Slip errors eliminated ($3.5 \rightarrow 0.0$); validated all 4 hypotheses ($p < 0.001$).
+   - **Completed Tasks:** Completed full quantitative data synthesis ($N=6$): Total TCT reduced by **$77.7\%$** ($118.6\text{ s} \rightarrow 26.5\text{ s}$), SUS increased from **$33.3$ (Grade F)** to **$92.5$ (Grade A+)**, Slip errors eliminated ($3.5 \rightarrow 0.0$); direct-success and error rates are reported descriptively because $N=6$.
    - **To-do Tasks:** Complete `06-PA4-SummativeUserStudy.md`; verify raw logs against video timestamps.
-   - **Issues / Obstacles:** None; data distributions showed strong statistical significance across all metrics.
+   - **Issues / Obstacles:** None; continuous measures were synthesized quantitatively, while categorical success/error results are reported descriptively because $N=6$.
 
 3. **Pham Chi Bao Ninh (UI Designer / Observer):**
    - **Completed Tasks:** Consolidated error logs: 0 ERR-1 slips observed on Prototype vs 21 total slips on Baseline; captured in-situ photos from testing sessions for presentation evidence.
@@ -179,7 +179,7 @@ Develop a production-grade, responsive High-Fidelity Prototype running smoothly 
 | Week   | Member                | Assigned Task IDs & Details                                                                              | Output / Evidence Artifact        | Status | Notes & Role              |
 | :----- | :-------------------- | :------------------------------------------------------------------------------------------------------- | :-------------------------------- | :----: | :------------------------ |
 | **W1** | Le Mai Hoai Bao       | **TSK-01, TSK-03, TSK-05**: Setup React/Vite repo, build Bottom Nav & Match Detail 8×8 board.            | Codebase, Vercel deployment       |  Done  | Frontend & PO             |
-| **W1** | Lam Huu Khanh         | **TSK-07, TSK-08**: Design Summative study protocol, Latin Square matrix, survey questionnaires.         | `SummativeUserStudy-Framework.md` |  Done  | UX Research Lead          |
+| **W1** | Lam Huu Khanh         | **TSK-07, TSK-08**: Design Summative study protocol, AB/BA order matrix, survey questionnaires.         | `SummativeUserStudy-Framework.md` |  Done  | UX Research Lead          |
 | **W1** | Pham Chi Bao Ninh     | **TSK-02**: Design CSS tokens (`variables.css`), verify touch target boundaries $\ge 48\text{ px}$.      | `variables.css`, Error taxonomy   |  Done  | UI & Observation Lead     |
 | **W1** | Truong Cong Thien Phu | **TSK-06, TSK-08**: Curate match/tournament dataset, prepare bilingual survey forms.                     | Dataset files, Survey forms       |  Done  | Content & Survey Lead     |
 | **W1** | Phung Ngoc Tuan       | **TSK-09, TSK-10**: Recruit 6 participants, setup $45^\circ$ camera rig, conduct testing dry-run.        | Testing schedule & lab setup      |  Done  | Facilitation Lead         |
@@ -226,12 +226,12 @@ The table below maps representative repository commits to their corresponding ta
 
 ### 7.1. Deliverables Checklist vs. PA4 Assignment Requirements
 
-| Assignment Requirement (PA4 Spec)                                                                                                                                                                                                                                                                                                                                                                                                | Group 06 Deliverable & Evidence                                                                                                                                                                                                                                                                                                                                                                                                                                      |       Status       |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------: | --- |
-| **Requirement 1: High-Fidelity Prototype (40%)**- Mobile web prototype implemented with high design fidelity.- Resolves PA2/PA3 user problems (`Nav-1` & `Sch-2`).- Fully interactive on mobile browsers (Home, Schedule, Match Detail).- Interactive 4-minute YouTube demo video link provided.                                                                                                                                 | - Responsive React + Vite web application deployed on Vercel:[https://testpa4.vercel.app](https://testpa4.vercel.app).- 3 complete screens: Home with ergonomic Thumb Zone, Schedule with Date Strip & Date Picker, Match Detail with 8×8 SVG chessboard.- YouTube Demo Video: [https://www.youtube.com/watch?v=jkVPSlJTUtY](https://www.youtube.com/watch?v=jkVPSlJTUtY).- Detailed architecture & component documentation delivered in `06-PA4-HifiPrototype.pdf`. | **100% Completed** |
-| **Requirement 2: Summative Usability Study (40%)**- Within-subjects counterbalanced study design ($N \ge 5$, Group 06 conducted $N=6$).- Standardized protocol: Task 1 (Navigation) & Task 2 (Schedule lookup).- Quantitative metrics: TCT, Success Rate, Error taxonomy (ERR-1/2/3), SUS score, 5-dimension Likert.- Qualitative thematic analysis with participant quotes.- YouTube video proof links for all 6 test sessions. | - Complete study report in `06-PA4-SummativeUserStudy.pdf`.- 6 testing sessions ($P01 \rightarrow P06$) with Latin Square $AB/BA$ order.- 6 YouTube proof video links recorded with $45^\circ$ over-the-shoulder angle.- Statistically significant findings ($p < 0.001$) across all 4 formal hypotheses ($H_1$ to $H_4$).                                                                                                                                           | **100% Completed** |     |
-| **Requirement 3: Live Demo & Presentation (10%)**- 15–20 minute presentation including a 4-minute live prototype run.- Slide deck summarizing problem framing, solutions, prototype, and study outcomes.- Prepared speaker script with time allocations.                                                                                                                                                                         | - 17-slide interactive Swiss Modern presentation deck (`PA4-assignment-briefing.html`).- Embedded interactive raw data modal & 6 in-situ photo gallery cards.- Comprehensive 18-minute 4-speaker script (`PA4-speaker-script-VI.md`).                                                                                                                                                                                                                                | **100% Completed** |
-| **Requirement 4: Weekly Report (10%)**- Complete task tracking using RUP+Scrum template.- Document sprint planning, weekly scrums, and retrospective.- Git commit traceability and contribution breakdown.                                                                                                                                                                                                                       | - Full sprint documentation, meeting minutes, and commit mapping.- Delivered in `06-PA4-WeeklyReport.md` / `06-PA4-WeeklyReport.pdf`.                                                                                                                                                                                                                                                                                                                                | **100% Completed** |
+| Assignment Requirement (PA4 Spec) | Group 06 Deliverable & Evidence | Status |
+| :--- | :--- | :---: |
+| **Requirement 1: High-Fidelity Prototype (55%)** — Mobile web prototype implemented with high design fidelity; resolves PA2/PA3 user problems (`Nav-1` & `Sch-2`); fully interactive on mobile browsers; demo video provided. | Responsive React + Vite web application deployed on Vercel: [https://testpa4.vercel.app](https://testpa4.vercel.app). Three complete screens, YouTube demo, and architecture documentation delivered in `06-PA4-HifiPrototype.pdf`. | **100% Completed** |
+| **Requirement 2: Summative Usability Study (40%)** — Within-subjects AB/BA study with $N \ge 5$; standardized protocol; quantitative metrics; qualitative feedback; video proof. | Complete report in `06-PA4-SummativeUserStudy.pdf`, 6 sessions, actual order allocation 4 AB / 2 BA, and 6 YouTube proof links. Direct-success and error results are reported descriptively for the small sample. | **100% Completed** |
+| **Requirement 3: Live Demo & Presentation** *(supporting deliverable; not separately weighted in Section C)* — 15–20 minute presentation and live prototype run. | 17-slide presentation deck and 18-minute speaker script. | **100% Completed** |
+| **Requirement 4: Weekly Report (5%)** — Complete task tracking, sprint meetings, retrospective, commit traceability and contribution breakdown. | Full sprint documentation, meeting minutes, and commit mapping in `06-PA4-WeeklyReport.md` / `06-PA4-WeeklyReport.pdf`. | **100% Completed** |
 
 ---
 
@@ -242,9 +242,9 @@ The table below maps representative repository commits to their corresponding ta
   - **Task 2 (Schedule & Match Detail):** TCT decreased from **$82.3\text{ s}$** to **$14.7\text{ s}$** (**giảm $82.1\%$**, $p < 0.001$).
   - **Total Time-on-Task:** Decreased by **$77.7\%$** overall ($118.6\text{ s} \rightarrow 26.5\text{ s}$).
 - **Hypothesis $H_2$ (SUS Benchmark):**
-  - SUS Score jumped by **$+35.8\text{ points}$**, from **$50.0 / 100$ (Grade D - Poor)** on Baseline to **$85.8 / 100$ (Grade A - Excellent)** on Prototype, far exceeding the industry average benchmark of $68.0$.
+  - SUS Score increased by **$+59.2\text{ points}$**, from **$33.3 / 100$ (Grade F)** on Baseline to **$92.5 / 100$ (Grade A+)** on Prototype, far exceeding the industry average benchmark of $68.0$.
 - **Hypothesis $H_3$ (Effectiveness & Error Reduction):**
-  - Direct Task Success reached **$100\%$** on Prototype (vs $50\%$ on Baseline).
+  - For **Task 2**, Direct Task Success reached **$100\%$** on Prototype versus **$50\%$** on Baseline; Task 1 baseline direct success was **$67\%$**.
   - Slip Errors (ERR-1) were completely eliminated (**$0.0\text{ errors}$** vs $3.5\text{ errors/user}$ on Baseline) due to large touch targets ($\ge 48\times 48\text{ px}$) and thumb-zone optimization.
 - **Hypothesis $H_4$ (Subjective Satisfaction):**
   - 5-dimension Likert score reached **$4.7 / 5.0$** (vs $2.9 / 5.0$ on Baseline), confirming overwhelming user preference for the redesigned interface.
@@ -256,8 +256,8 @@ The table below maps representative repository commits to their corresponding ta
 | Team Member               |  Student ID  | Primary Roles & Key Contributions                                                                                               | Completion Quality | Contribution Score |
 | :------------------------ | :----------: | :------------------------------------------------------------------------------------------------------------------------------ | :----------------: | :----------------: |
 | **Le Mai Hoai Bao**       | **23127326** | Product Owner, React/Vite development, Vercel deployment, YouTube video proofs & demo production, repository governance.        |     Excellent      |      **100%**      |
-| **Lam Huu Khanh**         | **23127205** | Scrum Master, Summative study experimental design, Latin Square matrix, statistical synthesis (TCT/SUS/Likert), report writing. |     Excellent      |      **100%**      |
-| **Pham Chi Bao Ninh**     | **23127446** | UI Designer, CSS design tokens, touch target WCAG AAA compliance, live test observer & error classification.                    |     Excellent      |      **100%**      |
+| **Lam Huu Khanh**         | **23127205** | Scrum Master, Summative study experimental design, AB/BA order allocation, statistical synthesis (TCT/SUS/Likert), report writing. |     Excellent      |      **100%**      |
+| **Pham Chi Bao Ninh**     | **23127446** | UI Designer, CSS design tokens, project touch-target target, live test observer & error classification.                    |     Excellent      |      **100%**      |
 | **Truong Cong Thien Phu** | **23127455** | Content Lead, match/tournament dataset curation, survey questionnaires, co-facilitation, qualitative thematic synthesis.        |     Excellent      |      **100%**      |
 | **Phung Ngoc Tuan**       | **23127510** | Testing Lead, participant logistics ($N=6$), lead test facilitator, Swiss Modern HTML presentation deck, speaker script.        |     Excellent      |      **100%**      |
 
@@ -272,7 +272,7 @@ The table below maps representative repository commits to their corresponding ta
 ### 8.1. What Went Well
 
 - **Production-Grade Hi-fi Prototype:** Building the prototype in React + TypeScript with realistic animations and haptic-like visual states provided participants with a truly authentic app experience that felt native.
-- **Flawless Counterbalancing Execution:** The Latin Square $AB/BA$ order distribution successfully canceled out carryover learning effects, providing rock-solid empirical data.
+- **Counterbalancing:** The AB/BA allocation reduced carryover effects, but the final distribution was 4/2 rather than perfectly balanced; this is documented as a study limitation.
 - **Interactive Presentation Engineering:** The self-contained Swiss Modern presentation (`PA4-assignment-briefing.html`) with embedded raw log modal, comparative SVG charts, and in-situ photo evidence created an exceptionally compelling visual narrative for the briefing.
 
 ### 8.2. What Went Wrong & Problems Encountered
@@ -300,8 +300,8 @@ The table below maps representative repository commits to their corresponding ta
 
 | Issue Identified                                                                                  | Impact on Project                                | Corrective Adjustment Made                                                                                       |
 | :------------------------------------------------------------------------------------------------ | :----------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
-| Mobile browser navigation bars occluded bottom tabs on certain Android viewports.                 | Risk of touch target clipping for Bottom Nav.    | Added`padding-bottom: max(16px, env(safe-area-inset-bottom))` to keep tabs in prime Thumb Zone.                  |
-| Baseline site lacked search and date filtering, causing participant P06 to exceed 120s timeout.   | Skewed baseline time-on-task variance.           | Recorded baseline completion as$120.0\text{ s}+$ (Timeout/Assist) according to standardized assistance protocol. |
+| Mobile browser navigation bars occluded bottom tabs on certain Android viewports.                 | Risk of touch target clipping for Bottom Nav.    | Added `padding-bottom: max(16px, env(safe-area-inset-bottom))` to keep tabs in prime Thumb Zone.                  |
+| Baseline site lacked search and date filtering, causing participant P06 to exceed 120s timeout.   | Skewed baseline time-on-task variance.           | Recorded baseline completion as $120.0\text{ s}+$ (Timeout/Assist) according to standardized assistance protocol. |
 | Slide 12 gallery required displaying 6 participant photos side-by-side without vertical clipping. | Risk of overcrowded visual cards on 16:9 canvas. | Implemented responsive 6-column CSS grid with card hover micro-animations and compact typography.                |
 
 ### Final Status

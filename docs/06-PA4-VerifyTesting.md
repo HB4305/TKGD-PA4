@@ -13,7 +13,7 @@ Kế hoạch hiện có mô tả từng người tham gia cụ thể (tuổi, ng
 ### 1.3. Nhiệm vụ (Task)
 Kế hoạch đã xác định rõ 2 nhiệm vụ:
 * **Task 1:** Điều hướng một tay từ màn hình chính đến trang Schedule.
-* **Task 2:** Tra cứu trận đấu ngày 16/8 và mở màn hình chi tiết bàn cờ 8x8.
+* **Task 2:** Tra cứu trận đấu ngày 02/09/2026 và mở màn hình chi tiết bàn cờ 8x8.
 
 Mỗi Task đều có kịch bản thực tế, hiệu lệnh cụ thể, mốc bắt đầu và kết thúc bấm giờ, cùng ba mức tiêu chuẩn thành công (trực tiếp, có trợ giúp, thất bại).
 **Kết luận:** Đạt yêu cầu Bước 1.3
@@ -56,12 +56,12 @@ Một điểm chưa thấy được nêu rõ trong kế hoạch: **liệu thiế
 **Kết luận:** Từng phần.
 
 ### 2.4. Biến ngẫu nhiên (Random Variable)
-Đặc điểm người tham gia (tuổi, mức độ quen thuộc với cờ vua, thói quen dùng điện thoại) đã được ghi nhận trong bảng mô tả 5 người tham gia, đúng vai trò Random Variable giúp tăng tính khái quát hóa (generalizability).
+Đặc điểm người tham gia (tuổi, mức độ quen thuộc với cờ vua, thói quen dùng điện thoại) đã được ghi nhận trong bảng mô tả 6 người tham gia, đúng vai trò Random Variable giúp tăng tính khái quát hóa (generalizability).
 **Kết luận:** Đạt yêu cầu.
 
 ### 2.5. Rà soát Biến gây nhiễu (Confounding Variable)
 1. **Thứ tự trình bày (order effect):** đã được xử lý bằng counterbalancing AB/BA, đúng hướng dẫn.
-2. **Kinh nghiệm sẵn có với hệ thống cũ (prior experience):** Đối chiếu với dữ liệu người tham gia trong kế hoạch: P2 chơi cờ thường xuyên và có khả năng đã dùng các trang cờ vua tương tự, P5 theo dõi giải đấu Freestyle Chess Grand Slam nên nhiều khả năng đã từng truy cập freestylechess.com trước đây. Trong khi đó, **không ai trong 5 người tham gia từng thấy Hi fi Prototype trước buổi test.**
+2. **Kinh nghiệm sẵn có với hệ thống cũ (prior experience):** Đối chiếu với dữ liệu người tham gia trong kế hoạch: P2 chơi cờ thường xuyên và có khả năng đã dùng các trang cờ vua tương tự, P5 theo dõi giải đấu Freestyle Chess Grand Slam nên nhiều khả năng đã từng truy cập freestylechess.com trước đây. Trong khi đó, **không ai trong 6 người tham gia từng thấy Hi fi Prototype trước buổi test.**
 
 ---
 
@@ -71,7 +71,7 @@ Một điểm chưa thấy được nêu rõ trong kế hoạch: **liệu thiế
 IV duy nhất cần cân bằng thứ tự: Hệ thống, 2 mức (Baseline, Prototype). Đã được liệt kê rõ trong kế hoạch.
 
 ### 3.2. Chiến lược cân bằng thứ tự
-Kế hoạch chọn cân bằng đầy đủ (fully counter balanced) dạng AB/BA cho IV chính: "IV chính luôn cần được counter balance."
+Kế hoạch chọn phân bổ chéo AB/BA cho IV chính. Dữ liệu thực tế có 4 người theo A → B và 2 người theo B → A, nên đây là counterbalancing một phần thay vì cân bằng tuyệt đối.
 
 ### 3.3. Số người tham gia tối thiểu
 Với 2 mức, cân bằng đầy đủ dạng AB/BA cần số người tham gia là bội số của 2 để mỗi thứ tự có số người bằng nhau. Đối chiếu với bảng phân bổ thực tế trong kế hoạch (N = 6, P01–P06):
@@ -79,7 +79,7 @@ Với 2 mức, cân bằng đầy đủ dạng AB/BA cần số người tham gi
 * Thứ tự B → A (Prototype trước): P05, P06 (2 người)
 
 Với N = 6 (số chẵn), về lý thuyết nhóm có thể chia đều 3 và 3, nhưng bảng phân bổ thực tế lại chia lệch 4 và 2. Đây không phải là hệ quả tất yếu của cỡ mẫu (vì N chẵn hoàn toàn chia hết cho 2), mà là một lựa chọn phân bổ thứ tự chưa cân bằng.
-**Kết luận:** Cần nhóm xác nhận có chấp nhận độ lệch 4/2 này hay đây là điều cần rebalance lại trước khi báo cáo.
+**Kết luận:** Nhóm chấp nhận phân bổ thực tế 4/2 và cần trình bày đây là một giới hạn phương pháp; không được mô tả là cân bằng tuyệt đối.
 
 ### 3.4. Sắp xếp tổng thể
 Bảng phân bổ người tham gia theo thứ tự A/B đã có sẵn và rõ ràng trong kế hoạch (bảng Counterbalancing Matrix).
@@ -108,13 +108,13 @@ Về thời lượng: tổng thời gian mỗi buổi khoảng 20 phút, nằm t
 
 | Các bước thực hiện | Có trong kế hoạch không | Ghi chú đối chiếu |
 | :--- | :---: | :--- |
-| 5.1 Tuyển người tham gia | Có | 5 người, có bảng đặc điểm và phân bổ thứ tự rõ ràng |
+| 5.1 Tuyển người tham gia | Có | 6 người, có bảng đặc điểm và phân bổ thứ tự rõ ràng |
 | 5.2 Phiếu đồng thuận và khảo sát trước | Có | Bước 1 (Consent) và Bước 2 (Demographic Form) trong kịch bản |
 | 5.3 Hướng dẫn | Có | Kịch bản lời thoại chuẩn hóa cho từng bước, kèm quy tắc can thiệp cố định 2 mức |
 | 5.4 Trial làm quen (Practice) | Không thấy | Không có bước cho người tham gia làm quen thao tác trước khi bấm giờ chính thức ở mỗi hệ thống |
 | 5.5 Thử nghiệm chính có nghỉ | Có | Task 1 và Task 2 cho từng hệ thống, có khoảng nghỉ Wash out 90 giây giữa 2 hệ thống |
 | 5.6 Khảo sát và phỏng vấn sau | Có | SUS, Likert 5 khía cạnh, phỏng vấn bán cấu trúc 7 câu |
-| 5.7 Debriefing | Từng phần | Bước 9 chỉ ghi "cảm ơn, tặng quà, kết thúc", chưa thấy nội dung giải thích lại mục tiêu nghiên cứu hoặc hỏi đáp cuối buổi |
+| 5.7 Debriefing | Có | Bước 9 có debriefing, cảm ơn, tặng quà lưu niệm và kết thúc session |
 
 ### Điểm cần lưu ý đặc biệt: Practice Trial (Bước 5.4)
 Hiện kế hoạch chưa có bước làm quen ngắn (ví dụ vài giây thao tác thử trên giao diện trước khi bấm giờ chính thức) cho cả hai hệ thống.
@@ -126,9 +126,9 @@ Hiện kế hoạch chưa có bước làm quen ngắn (ví dụ vài giây thao
 1. **Định nghĩa Target Population (Bước 1.2):** Nhóm có muốn bổ sung một câu phát biểu tổng quát duy nhất về đối tượng mục tiêu của nghiên cứu (ví dụ nhóm tuổi, mức độ quen thuộc công nghệ, có bắt buộc biết chơi cờ hay không), thay vì chỉ liệt kê đặc điểm từng người tham gia riêng lẻ?
 2. **Chuẩn hóa thiết bị (Bước 2.3, Control Variable):** Tất cả 5 hoặc 6 người tham gia có dùng chung một mẫu điện thoại do nhóm cung cấp hay mỗi người dùng điện thoại cá nhân của họ? Nếu dùng điện thoại cá nhân, nhóm có ghi nhận kích thước màn hình của từng người để đối chiếu sau này không?
 3. **Practice Trial và kiểm soát độ quen thuộc với Baseline (Bước 2.5 và Bước 5.4):** Nhóm có dự định thêm một bước làm quen ngắn (không tính giờ) trên cả hai hệ thống trước khi bắt đầu đo TCT chính thức hay không? Nếu không thêm, nhóm có cách nào khác để xử lý việc một số người tham gia đã biết freestylechess.com trong khi không ai biết Prototype trước đó?
-4. **Cỡ mẫu và cân bằng thứ tự (Bước 3.3):** Với N = 6 người, tỉ lệ thứ tự A trước B và B trước A hiện là 4 và 2, không cân bằng tuyệt đối dù N là số chẵn. Nhóm có dự định phân bổ lại thứ tự của 1 người (đổi từ A→B sang B→A hoặc ngược lại) để đạt tỉ lệ 3 và 3, hay giữ nguyên tỉ lệ 4/2 như hiện tại?
+4. **Cỡ mẫu và cân bằng thứ tự (Bước 3.3):** Với N = 6 người, tỉ lệ thứ tự A trước B và B trước A là 4 và 2. Nhóm giữ nguyên dữ liệu đã thu thập và trình bày đây là giới hạn phương pháp.
 5. **Số lượng trial cho mỗi Task (Bước 4):** Việc mỗi Task chỉ thực hiện 1 lần cho mỗi hệ thống có phải là quyết định chủ đích của nhóm (do đặc thù usability test theo kịch bản một lần) hay nhóm muốn cân nhắc thêm lần lặp?
-6. **Nội dung Debriefing (Bước 5.7):** Ở Bước 9 (kết thúc buổi test), nhóm có kịch bản cụ thể để giải thích lại mục tiêu thật của nghiên cứu và trả lời thắc mắc của người tham gia hay chưa, hay hiện tại dự định chỉ dừng ở mức cảm ơn và tặng quà?
+6. **Nội dung Debriefing (Bước 5.7):** Đã bổ sung debriefing vào Bước 9; cần bảo đảm phần giải thích mục tiêu nghiên cứu và hỏi đáp được thực hiện trong tất cả session.
 
 ---
 
@@ -154,6 +154,6 @@ Hiện kế hoạch chưa có bước làm quen ngắn (ví dụ vài giây thao
 | 5.4 | Practice trial | Chưa có, cần xác nhận |
 | 5.5 | Thử nghiệm chính có nghỉ | Đạt |
 | 5.6 | Khảo sát và phỏng vấn sau | Đạt |
-| 5.7 | Debriefing | Từng phần |
+| 5.7 | Debriefing | Đạt |
 
-**Kết luận chung:** Ba khoảng trống đáng lưu ý nhất trước khi triển khai chính thức là: chưa có bước làm quen (practice trial) để kiểm soát chênh lệch mức độ quen thuộc giữa hai hệ thống, số lượng trial mỗi điều kiện thấp hơn khuyến nghị, và cỡ mẫu lẻ khiến việc cân bằng thứ tự không tuyệt đối. Đây đều là các điểm nên được nhóm xác nhận rõ trước khi tiến hành 5 buổi kiểm thử chính thức.
+**Kết luận chung:** Ba khoảng trống đáng lưu ý nhất cần ghi nhận trong báo cáo là: chưa có bước làm quen (practice trial) để kiểm soát chênh lệch mức độ quen thuộc giữa hai hệ thống, số lượng trial mỗi điều kiện thấp hơn khuyến nghị, và phân bổ thứ tự thực tế 4/2 chưa cân bằng tuyệt đối dù cỡ mẫu $N=6$ là số chẵn. Đây là các giới hạn phương pháp cần nêu rõ khi diễn giải kết quả của 6 buổi kiểm thử.

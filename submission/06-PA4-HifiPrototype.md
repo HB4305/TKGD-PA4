@@ -9,6 +9,8 @@
 - Trương Công Thiên Phú (23127455)
 - Phùng Ngọc Tuấn (23127510)
 
+**Prototype chạy trực tiếp:** [https://testpa4.vercel.app](https://testpa4.vercel.app)
+
 ---
 
 ## LIÊN KẾT VIDEO DEMO SẢN PHẨM & MINH CHỨNG KIỂM THỬ (YÊU CẦU BẮT BUỘC)
@@ -45,7 +47,7 @@ Prototype không sử dụng mockup tĩnh mà được hiện thực hóa bằng
 * **Routing:** `React Router` với `HashRouter` hỗ trợ điều hướng không độ trễ và deploy static linh hoạt.
 * **Design Tokens & Styling:** CSS thuần hiện đại (CSS Custom Properties), layout CSS Grid/Flexbox tối ưu cho chuẩn màn hình di động `390×844` (iPhone 14 / modern smartphones).
 * **Thành phần tương tác cao cấp:** Radix Popover và React Day Picker cho bộ chọn ngày tháng (Date Picker Modal) chuẩn shadcn/ui.
-* **Dữ liệu thực tế (Realistic Content):** Tích hợp thông tin giải đấu *Freestyle Chess Grand Slam 2025*, hệ số ELO chuẩn FIDE, ảnh chân dung và quốc kỳ của các Đại kiện tướng quốc tế (Magnus Carlsen, Lê Quang Liêm, Hikaru Nakamura, Fabiano Caruana, Vincent Keymer...).
+* **Dữ liệu thực tế (Realistic Content):** Tích hợp thông tin giải đấu *2026 FIDE Freestyle Chess World Championship*, hệ số ELO chuẩn FIDE, ảnh chân dung và quốc kỳ của các Đại kiện tướng quốc tế (Magnus Carlsen, Lê Quang Liêm, Hikaru Nakamura, Fabiano Caruana, Vincent Keymer...).
 
 ---
 
@@ -77,13 +79,21 @@ Prototype không sử dụng mockup tĩnh mà được hiện thực hóa bằng
 * **Interactive 8×8 Chessboard:** Bàn cờ 8×8 trực quan hiển thị đúng thế trận thực tế của ván cờ.
 * **PGN Move History & Game Clock:** Danh sách nước đi theo chuẩn quốc tế và thời gian thi đấu còn lại.
 
+### 3.4. Ảnh chụp giao diện
+
+![Màn hình Home](../slides/images/hifi-home.png)
+
+![Màn hình Schedule](../slides/images/hifi-schedule-overview.png)
+
+![Màn hình Match Detail](../slides/images/hifi-match-detail.png)
+
 ---
 
-## 4. Bốn Tiêu Chuẩn Công Thái Học & Khả Năng Tiếp Cận (WCAG AAA)
+## 4. Bốn Tiêu Chuẩn Công Thái Học & Khả Năng Tiếp Cận
 
 1. **Touch Target Size $\ge 48\times 48\text{ px}$:** Loại bỏ hoàn toàn lỗi chạm trượt ngón cái.
 2. **Thumb Zone Optimization:** Đưa các chức năng thường dùng nhất vào nửa dưới màn hình (Natural Thumb Zone).
-3. **Contrast Ratio $\ge 4.5:1$:** Nền Light Mode Clean với độ tương phản cao, dễ đọc dưới ánh sáng ngoài trời.
+3. **Contrast Ratio $\ge 4.5:1$:** Mục tiêu tương phản theo WCAG AA cho văn bản thông thường; nền Light Mode Clean giúp dễ đọc dưới ánh sáng ngoài trời.
 4. **Phản hồi tức thì $< 250\text{ ms}$:** Toàn bộ vi tương tác (micro-interactions) phản hồi tức thì dưới 250ms tạo trải nghiệm mượt mà như Native App.
 
 ---

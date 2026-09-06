@@ -36,11 +36,11 @@
 | Phạm vi màn hình | **3 màn hình**: Home + Schedule (Date Strip) + Match Detail (8x8) |
 | Design theme | **Light mode clean** — nền trắng/xám nhạt, accent xanh dương/xanh lá |
 | Dữ liệu content | **Dữ liệu thực** từ freestylechess.com (Magnus Carlsen, Lê Quang Liêm, Hikaru Nakamura...) |
-| Số participants study | **5 người** |
+| Số participants study | **6 người** |
 | Study design | **Within-subjects** + counterbalancing |
 | Baseline so sánh | **freestylechess.com** mobile web (sản phẩm gốc đang redesign) |
 | Metrics | Task Completion Time, SUS, Task Success Rate, Error Count, Likert Satisfaction |
-| Study tasks | Task 1: Navigate Home→Schedule (1 tay), Task 2: Tìm match 16/8 → Detail 8x8 |
+| Study tasks | Task 1: Navigate Home→Schedule (1 tay), Task 2: Tìm match 02/09/2026 → Detail 8x8 |
 | Presentation | 15–20 phút: Hi-fi walk-through + Study results + **Live demo trên browser** + Q&A |
 
 ---
@@ -57,7 +57,7 @@
 TKGD-PA4/
 ├── index.html              # Entry point — Home Screen
 ├── schedule.html           # Schedule Screen (Date Strip + Match cards)
-├── match-detail.html       # Match Detail Screen (8x8 chessboard)
+├── /schedule/:matchId      # Match Detail Screen (8x8 chessboard)
 ├── css/
 │   ├── variables.css       # Design tokens (colors, spacing, typography, shadows)
 │   ├── global.css          # Reset, base styles, font imports
@@ -85,14 +85,14 @@ TKGD-PA4/
 | :--- | :--- |
 | **Status Bar** | Thanh trạng thái giả lập (giờ, wifi, pin) — viewport 390×844 (iPhone 14) |
 | **Header** | Logo Freestyle Chess + greeting text |
-| **Hero Banner** | Live tournament banner — "Freestyle Chess Grand Slam 2025" với countdown timer, gradient background |
+| **Hero Banner** | Live tournament banner — "2026 FIDE Freestyle Chess World Championship" với countdown timer, gradient background |
 | **Quick Stats** | 3 stat cards: "Live Matches", "Players", "Upcoming Events" |
 | **Featured Match** | Card nổi bật: Carlsen vs Lê Quang Liêm, avatar 2 bên, ELO rating, "Watch Live" CTA |
 | **Recent News** | 2–3 news preview cards (thumbnail + title + date) |
 | **Bottom Navigation Bar** | 5 tabs: Schedule, Videos, **Home** (active), News, More — icon + label, active state highlight xanh |
 
 > [!IMPORTANT]
-> Bottom Nav phải đảm bảo touch target ≥ 48×48px, spacing ≥ 8px giữa các icon (WCAG AAA — điểm cải thiện #1 từ PA3).
+> Bottom Nav phải đảm bảo touch target mục tiêu ≥ 48×48px, spacing ≥ 8px giữa các icon (điểm cải thiện #1 từ PA3).
 
 #### Màn hình 2: Schedule Screen (`schedule.html`)
 
@@ -109,7 +109,7 @@ TKGD-PA4/
 > [!IMPORTANT]
 > Date Strip phải có micro-animation khi chuyển ngày (smooth scroll + scale-up active date) — điểm cải thiện #4 từ PA3.
 
-#### Màn hình 3: Match Detail Screen (`match-detail.html`)
+#### Màn hình 3: Match Detail Screen (`/schedule/:matchId`)
 
 | Element | Mô tả chi tiết |
 | :--- | :--- |
@@ -147,7 +147,7 @@ TKGD-PA4/
   --space-lg: 24px;
   --space-xl: 32px;
   
-  /* Touch Targets (WCAG AAA) */
+  /* Touch Targets — project target */
   --touch-target-min: 48px;
   --touch-spacing-min: 8px;
   
@@ -192,7 +192,7 @@ TKGD-PA4/
 | **Loại nghiên cứu** | Summative Usability Study |
 | **Thiết kế thí nghiệm** | Within-subjects (repeated measures) |
 | **Counterbalancing** | AB/BA — P1,P3,P5 test freestylechess.com trước; P2,P4 test prototype trước |
-| **Số participants** | 5 người (≥ yêu cầu tối thiểu) |
+| **Số participants** | 6 người (≥ yêu cầu tối thiểu) |
 | **Hệ thống so sánh** | Prototype (nhóm) vs. freestylechess.com mobile web (baseline) |
 | **Quay video** | Bắt buộc tất cả sessions |
 
@@ -225,7 +225,7 @@ TKGD-PA4/
 | Task | Scenario | Hành động kỳ vọng | Success Criteria |
 | :--- | :--- | :--- | :--- |
 | **Task 1** | "Bạn đang cầm điện thoại 1 tay khi đi bộ. Hãy mở trang Schedule." | Tap "Schedule" trên bottom nav (prototype) hoặc tìm cách navigate trên freestylechess.com | Đến được trang Schedule thành công |
-| **Task 2** | "Tìm trận đấu ngày 16/8 giữa Carlsen và Lê Quang Liêm, xem chi tiết bàn cờ." | Chọn ngày trên date strip → expand match card → tap Detail → xem 8x8 board | Nhìn thấy bàn cờ chi tiết + thông tin trận đấu |
+| **Task 2** | "Tìm trận đấu ngày 02/09/2026 giữa Carlsen và Lê Quang Liêm, xem chi tiết bàn cờ." | Chọn ngày trên date strip → expand match card → tap Detail → xem 8x8 board | Nhìn thấy bàn cờ chi tiết + thông tin trận đấu |
 
 #### 2.4. Metrics thu thập
 
