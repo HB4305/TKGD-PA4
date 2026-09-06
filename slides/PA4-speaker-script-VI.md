@@ -2,7 +2,7 @@
 ## ĐỀ TÀI: REDESIGN FREESTYLE CHESS MOBILE WEB
 **Môn học:** CSC13112 - Thiết kế giao diện (UI/UX Design)  
 **Giảng viên hướng dẫn:** TS. Lê Khánh Duy | **Trợ giảng:** ThS. Phạm Nguyễn Sơn Tùng  
-**Nhóm thực hiện:** Nhóm 06 (4 Người thuyết trình chính + 1 Demo Operator)  
+**Nhóm thực hiện:** Nhóm 06 — **Lớp:** 23KTMP2 (4 Người thuyết trình chính + 1 Demo Operator)  
 **Thời lượng chuẩn:** 16 – 18 phút (bao gồm 4 phút Live Demo tương tác)  
 **Tài liệu tham chiếu:** `docs/PA4-LKDuy-2026-VI.md`, `docs/06-PA4-SummativeUserStudy-Framework.md`, `docs/06-PA4-ParticipantsReplies.md`
 
@@ -224,16 +224,17 @@
 * **Người trình bày:** **SPEAKER 3**
 * **Thời lượng:** 01 phút 00 giây
 * **Tiêu đề Slide:** `Requirement 2 · Empirical Testing Evidence: Real-world user testing sessions in action (N=6).`
-* **Visual:** Gallery 5 khung thẻ ảnh thực tế của 6 người tham gia trên thiết bị di động thật (Android, iPhone, không gian trong nhà và quán cafe ngoài trời).
+* **Visual:** Gallery 6 khung thẻ ảnh thực tế của 6 người tham gia (P01 đến P06) trên thiết bị di động thật (Android, iPhone, không gian trong nhà và quán cafe ngoài trời).
 
 > **[LỜI THOẠI SPEAKER 3]:**  
-> *"Thưa Thầy và các bạn, trên màn hình là **5 bức ảnh ghi nhận trực tiếp từ các buổi thử nghiệm thực tế** với 6 người dùng:  
+> *"Thưa Thầy và các bạn, trên màn hình là **6 bức ảnh ghi nhận trực tiếp từ 6 buổi thử nghiệm thực tế** với đầy đủ 6 người dùng:  
 > 
 > - **Ảnh 1 (Session P01):** Thao tác ngón cái tự nhiên chạm nút 'View schedule' và Bottom Nav trên Android mà không cần đổi tư thế cầm máy.  
 > - **Ảnh 2 (Session P02):** Kiểm thử môi trường thực tế ngoài trời tại quán cafe, bảng màu tương phản cao giúp đọc rõ ràng dưới ánh sáng ban ngày.  
 > - **Ảnh 3 (Session P03):** Người dùng thao tác mượt mà trên iPhone (iOS), vuốt nhanh thanh Date Strip đến ngày 16/8 và mở thẻ trận Carlsen vs Lê Quang Liêm.  
-> - **Ảnh 4 (Session P04/P05):** Đối chứng thực tế khi người dùng lúng túng với menu hamburger góc trái và danh sách sự kiện dài trên website gốc `freestylechess.com`.  
-> - **Ảnh 5 (Session P06):** Thao tác điều hướng 1 tay mượt mà qua 5 tab trên thanh Bottom Nav, hoàn thành tác vụ với tốc độ kỷ lục 12 giây và 0 lỗi thao tác.  
+> - **Ảnh 4 (Session P04):** Đối chứng thực tế khi người dùng lúng túng với menu hamburger góc trái và danh sách sự kiện dài trên website gốc `freestylechess.com`.  
+> - **Ảnh 5 (Session P05):** Thao tác điều hướng 1 tay mượt mà qua 5 tab trên thanh Bottom Nav trong lượt kiểm thử thứ tự B -> A.  
+> - **Ảnh 6 (Session P06):** Thao tác làm chủ tác vụ sau 30s làm quen, hoàn thành Task 2 với tốc độ kỷ lục 12 giây và 0 lỗi thao tác.  
 > 
 > Đây là minh chứng xác thực cho tính chân thực của toàn bộ dữ liệu thực nghiệm."*
 

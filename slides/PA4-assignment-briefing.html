@@ -3429,9 +3429,9 @@
       /* === REAL USER TESTING PHOTO GALLERY === */
       .testing-grid {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 18px;
-        margin-top: 18px;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 14px;
+        margin-top: 16px;
         height: 640px;
       }
 
@@ -3441,7 +3441,7 @@
         border: 2.5px solid #1c1712;
         border-radius: 16px;
         overflow: hidden;
-        box-shadow: 6px 6px 0 #1c1712;
+        box-shadow: 5px 5px 0 #1c1712;
         display: flex;
         flex-direction: column;
         transition:
@@ -3451,12 +3451,12 @@
 
       .testing-card:hover {
         transform: translateY(-5px);
-        box-shadow: 8px 12px 0 var(--accent);
+        box-shadow: 6px 10px 0 var(--accent);
       }
 
       .testing-photo-wrapper {
         position: relative;
-        height: 390px;
+        height: 380px;
         background: #0f0d0b;
         overflow: hidden;
       }
@@ -3476,13 +3476,13 @@
 
       .testing-badge {
         position: absolute;
-        top: 12px;
-        left: 12px;
-        padding: 5px 11px;
+        top: 10px;
+        left: 10px;
+        padding: 4px 9px;
         border-radius: 6px;
         font-family: var(--font-display);
         font-weight: 800;
-        font-size: 12px;
+        font-size: 11px;
         letter-spacing: 0.05em;
         text-transform: uppercase;
         z-index: 2;
@@ -3507,7 +3507,7 @@
       }
 
       .testing-info {
-        padding: 16px 14px;
+        padding: 14px 11px;
         background: #fff;
         border-top: 2.5px solid #1c1712;
         flex: 1;
@@ -3517,30 +3517,30 @@
       }
 
       .testing-info h4 {
-        margin: 0 0 5px;
+        margin: 0 0 4px;
         font-family: var(--font-display);
-        font-size: 18.5px;
+        font-size: 16px;
         font-weight: 800;
         color: #1c1712;
-        line-height: 1.18;
+        line-height: 1.15;
       }
 
       .testing-info p {
         margin: 0;
-        font-size: 13.5px;
+        font-size: 12.5px;
         color: var(--text-secondary);
-        line-height: 1.35;
+        line-height: 1.3;
       }
 
       .testing-meta {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 8px;
-        padding-top: 8px;
+        margin-top: 6px;
+        padding-top: 6px;
         border-top: 1px dashed var(--border-color);
         font-family: var(--font-mono);
-        font-size: 11.5px;
+        font-size: 11px;
         font-weight: 700;
         color: var(--text-muted);
       }
@@ -3622,7 +3622,7 @@
           class="slide title-slide active"
           data-note="Chào Thầy và các bạn. Đây là bài trình bày PA4 của Nhóm 06: High-fidelity Prototype và Summative User Study cho Freestyle Chess Mobile Web. Trọng tâm hôm nay là sản phẩm Hi-fi hoàn chỉnh, luồng Live Demo 4 phút trên trình duyệt, và kết quả đánh giá thực nghiệm đối chứng với website gốc."
         >
-          <p class="kicker">Group 06 · CSC13112 UI/UX Design</p>
+          <p class="kicker">Group 06 · Class 23KTMP2 · CSC13112 UI/UX Design</p>
           <h1>Freestyle Chess,<br />designed for the next move.</h1>
           <p class="lead">
             From PA3 Formative Evidence to a High-Fidelity Mobile Experience
@@ -4176,7 +4176,7 @@
         </section>
         <section
           class="slide"
-          data-note="Bằng chứng thực nghiệm sinh động nhất là các buổi usability testing trực tiếp trên thiết bị di động thật. 5 bức ảnh ghi lại thực tế 6 phiên kiểm thử: từ việc cầm máy 1 tay thao tác trong Vùng tự nhiên của ngón cái trên Android (P01, P06), kiểm thử bối cảnh ngoài trời tại quán cafe (P02), thao tác vuốt Date Strip chọn ngày 16/8 trên iPhone (P03), cho đến việc đối chứng người dùng gặp khó khăn trên website gốc với menu góc trái (P04/P05)."
+          data-note="Bằng chứng thực nghiệm sinh động nhất là các buổi usability testing trực tiếp trên thiết bị di động thật. 6 bức ảnh ghi lại thực tế 6 phiên kiểm thử: từ việc cầm máy 1 tay thao tác trong Vùng tự nhiên của ngón cái trên Android (P01), kiểm thử bối cảnh ngoài trời tại quán cafe (P02), thao tác vuốt Date Strip chọn ngày 16/8 trên iPhone (P03), đối chứng người dùng gặp khó khăn trên website gốc với menu góc trái (P04), cho đến phiên trải nghiệm mượt mà Bottom Nav (P05) và thao tác kỷ lục 12s không lỗi của P06."
         >
           <p class="kicker">Requirement 2 · Empirical Testing Evidence</p>
           <h2>Real-world user testing sessions in action (N=6).</h2>
@@ -4194,7 +4194,7 @@
                   <h4>One-Handed Reach</h4>
                   <p>
                     Thumb easily activates "View schedule" CTA and Bottom Nav
-                    without shifting single-hand grip.
+                    without shifting grip.
                   </p>
                 </div>
                 <div class="testing-meta">
@@ -4214,7 +4214,7 @@
                 <div>
                   <h4>Outdoor Field Test</h4>
                   <p>
-                    Natural daylight test on live Vercel URL; high-contrast warm
+                    Natural daylight test on live Vercel URL; warm
                     palette ensures instant readability.
                   </p>
                 </div>
@@ -4225,7 +4225,7 @@
             </article>
             <article class="testing-card">
               <div class="testing-photo-wrapper">
-                <span class="testing-badge ios">iOS · P03</span>
+                <span class="testing-badge proto">Prototype · P03</span>
                 <img
                   src="images/testing-03-ios-datestrip.png"
                   alt="Participant P03 testing Date Strip on iPhone"
@@ -4233,9 +4233,9 @@
               </div>
               <div class="testing-info">
                 <div>
-                  <h4>iOS Date Strip &amp; Match</h4>
+                  <h4>iOS Date Strip</h4>
                   <p>
-                    Smooth horizontal swipe to 16 Aug and rapid match expansion
+                    Smooth swipe to 16 Aug and rapid match expansion
                     (Carlsen vs Lê Quang Liêm).
                   </p>
                 </div>
@@ -4246,23 +4246,42 @@
             </article>
             <article class="testing-card">
               <div class="testing-photo-wrapper">
-                <span class="testing-badge base">Baseline · P04/P05</span>
+                <span class="testing-badge proto">Prototype · P04</span>
                 <img
                   src="images/testing-04-baseline-freestyle.png"
-                  alt="Participant testing legacy freestylechess.com website"
+                  alt="Participant P04 testing schedule view"
                 />
               </div>
               <div class="testing-info">
                 <div>
-                  <h4>Legacy Baseline Friction</h4>
+                  <h4>Day-by-Day View</h4>
                   <p>
-                    Participant struggles with top-left hamburger menu and long
-                    homogeneous text feed on old site.
+                    Linear date listing optimized small match inspection without deep scrolling.
                   </p>
                 </div>
                 <div class="testing-meta">
-                  <span>Baseline Web · Outdoor</span
-                  ><span>3.5 Slip Errors</span>
+                  <span>Android · Outdoor</span><span>Task 1 &amp; 2 Pass</span>
+                </div>
+              </div>
+            </article>
+            <article class="testing-card">
+              <div class="testing-photo-wrapper">
+                <span class="testing-badge proto">Prototype · P05</span>
+                <img
+                  src="images/testing-05-bottom-nav-vertical.png"
+                  alt="Participant P05 testing 5-tab bottom navigation"
+                />
+              </div>
+              <div class="testing-info">
+                <div>
+                  <h4>Bottom Nav Flow</h4>
+                  <p>
+                    Instant tab switching via persistent 5-tab bar with
+                    zero slip errors (Order B &rarr; A).
+                  </p>
+                </div>
+                <div class="testing-meta">
+                  <span>Android · Session 5</span><span>TCT: 27.8s</span>
                 </div>
               </div>
             </article>
@@ -4270,16 +4289,15 @@
               <div class="testing-photo-wrapper">
                 <span class="testing-badge proto">Prototype · P06</span>
                 <img
-                  src="images/testing-05-bottom-nav-vertical.png"
-                  alt="Participant P06 testing 5-tab bottom navigation"
+                  src="images/testing-06-p06.png"
+                  alt="Participant P06 testing prototype session"
                 />
               </div>
               <div class="testing-info">
                 <div>
-                  <h4>Full Navigation Flow</h4>
+                  <h4>Direct Task Mastery</h4>
                   <p>
-                    Instant tab switching via persistent 5-tab bar in 12.0s with
-                    zero slip errors or hand repositioning.
+                    Mastered in 30s; completed Task 2 in 12.0s (vs 120s+ on baseline) with 1 hand.
                   </p>
                 </div>
                 <div class="testing-meta">
@@ -4290,7 +4308,7 @@
           </div>
           <div class="meta">
             <span>Empirical proof · In-situ photo evidence</span
-            ><span>12 / 16</span>
+            ><span>12 / 17</span>
           </div>
         </section>
         <section
@@ -4459,7 +4477,7 @@
         {
           kind: "title-slide",
           note: "Chào Thầy và các bạn. Đây là bài trình bày PA4 của Nhóm 06: High-fidelity Prototype và Summative User Study cho đề tài Tái thiết kế giao diện Mobile Web Freestyle Chess. Trọng tâm hôm nay là sản phẩm Hi-fi tương tác thật trên nền web, luồng Live Demo 4 phút trên trình duyệt, và kết quả đánh giá thực nghiệm đối chứng với website gốc.",
-          html: `<p class="kicker">Project Assignment 4 · CSC13112 UI/UX Design</p><h1>Freestyle Chess<br>Mobile Web Redesign</h1><p class="lead">High-Fidelity Prototype &amp; Summative User Study</p><div class="hero-tags"><span class="hero-tag"><strong>Target:</strong> Ergonomic Thumb Zone</span><span class="hero-tag"><strong>Method:</strong> Within-Subjects (N=6)</span><span class="hero-tag"><strong>Runtime:</strong> React + Vite</span></div><div class="chess"><img src="images/freestyle_chess_logo.png" alt="Freestyle Chess Logo" class="chess-logo"></div><div class="team-footer"><span class="team-label">TEAM MEMBERS</span><span class="team-names">Lê Mai Hoài Bảo · Trương Công Thiên Phú · Lâm Hữu Khánh · Phạm Chí Bảo Ninh · Phùng Ngọc Tuấn</span></div><div class="meta light"><span>PA4 · Final Prototype &amp; Summative Study</span><span>2026</span></div>`,
+          html: `<p class="kicker">Group 06 · Class 23KTMP2 · CSC13112 UI/UX Design</p><h1>Freestyle Chess<br>Mobile Web Redesign</h1><p class="lead">High-Fidelity Prototype &amp; Summative User Study</p><div class="hero-tags"><span class="hero-tag"><strong>Target:</strong> Ergonomic Thumb Zone</span><span class="hero-tag"><strong>Method:</strong> Within-Subjects (N=6)</span><span class="hero-tag"><strong>Runtime:</strong> React + Vite</span></div><div class="chess"><img src="images/freestyle_chess_logo.png" alt="Freestyle Chess Logo" class="chess-logo"></div><div class="team-footer"><span class="team-label">TEAM MEMBERS</span><span class="team-names">Lê Mai Hoài Bảo · Trương Công Thiên Phú · Lâm Hữu Khánh · Phạm Chí Bảo Ninh · Phùng Ngọc Tuấn</span></div><div class="meta light"><span>PA4 · Final Prototype &amp; Summative Study</span><span>2026</span></div>`,
         },
         {
           note: "Slide Agenda tóm tắt 5 phần chính: Bắt đầu từ 2 vấn đề khả dụng cốt lõi của website hiện tại, 2 giải pháp thắng cuộc từ PA3, kiến trúc Hi-fi Prototype (Req 1), kết quả đánh giá tổng kết Summative Study với 6 người dùng (Req 2), và cuối cùng là phiên Live Demo 4 phút trên trình duyệt cùng Kết luận (Req 3).",
@@ -4502,8 +4520,8 @@
           html: `<p class="kicker">Requirement 2 · Tasks &amp; protocol</p><h2>Standardized tasks measure efficiency, accuracy &amp; satisfaction.</h2><div class="tasks"><article class="task"><div class="mono">TASK 01 · NAVIGATION</div><h3>Open Schedule with one hand.</h3><p>Success: reach Schedule using single thumb without assistance.</p></article><article class="task"><div class="mono">TASK 02 · MATCH LOOKUP</div><h3>Find 16 Aug match &amp; open 8×8 board.</h3><p>Success: reach Match Detail and inspect chessboard.</p></article></div><div class="procedure" style="margin-top:28px"><span>Consent + profile</span><i>→</i><span>System A tasks</span><i>→</i><span>SUS + Likert</span><i>→</i><span>Wash-out break (90s)</span><i>→</i><span>System B tasks</span><i>→</i><span>SUS + Likert</span><i>→</i><span>Interview</span></div><div class="meta"><span>Controlled protocol &amp; measures</span><span>11 / 16</span></div>`,
         },
         {
-          note: "Bằng chứng thực nghiệm sinh động nhất là các buổi usability testing trực tiếp trên thiết bị di động thật. 5 bức ảnh ghi lại thực tế 6 phiên kiểm thử: từ việc cầm máy 1 tay thao tác trong Vùng tự nhiên của ngón cái trên Android (P01, P06), kiểm thử bối cảnh ngoài trời tại quán cafe (P02), thao tác vuốt Date Strip chọn ngày 16/8 trên iPhone (P03), cho đến việc đối chứng người dùng gặp khó khăn trên website gốc với menu góc trái (P04/P05).",
-          html: `<p class="kicker">Requirement 2 · Empirical Testing Evidence</p><h2 style="margin-bottom: 16px;">Real-world user testing sessions in action (N=6).</h2><div class="testing-grid"><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P01</span><img src="images/testing-01-home-thumb.png" alt="Participant P01 testing one-handed reach on Home screen"></div><div class="testing-info"><div><h4>One-Handed Reach</h4><p>Thumb easily activates "View schedule" CTA and Bottom Nav without shifting single-hand grip.</p></div><div class="testing-meta"><span>Android · Handheld</span><span>Task 1 Pass</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P02</span><img src="images/testing-02-outdoor-session.png" alt="Participant P02 testing prototype in outdoor cafe setting"></div><div class="testing-info"><div><h4>Outdoor Field Test</h4><p>Natural daylight test on live Vercel URL; high-contrast warm palette ensures instant readability.</p></div><div class="testing-meta"><span>Android · Outdoor</span><span>Task 1 &amp; 2 Pass</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge ios">iOS · P03</span><img src="images/testing-03-ios-datestrip.png" alt="Participant P03 testing Date Strip on iPhone"></div><div class="testing-info"><div><h4>iOS Date Strip &amp; Match</h4><p>Smooth horizontal swipe to 16 Aug and rapid match expansion (Carlsen vs Lê Quang Liêm).</p></div><div class="testing-meta"><span>iPhone · Desktop Lab</span><span>Task 2: 18.2s</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge base">Baseline · P04/P05</span><img src="images/testing-04-baseline-freestyle.png" alt="Participant testing legacy freestylechess.com website"></div><div class="testing-info"><div><h4>Legacy Baseline Friction</h4><p>Participant struggles with top-left hamburger menu and long homogeneous text feed on old site.</p></div><div class="testing-meta"><span>Baseline Web · Outdoor</span><span>3.5 Slip Errors</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P06</span><img src="images/testing-05-bottom-nav-vertical.png" alt="Participant P06 testing 5-tab bottom navigation"></div><div class="testing-info"><div><h4>Full Navigation Flow</h4><p>Instant tab switching via persistent 5-tab bar in 12.0s with zero slip errors or hand repositioning.</p></div><div class="testing-meta"><span>Android · Portrait</span><span>TCT: 24.0s (Top)</span></div></div></article></div><div class="meta"><span>Empirical proof · In-situ photo evidence</span><span>12 / 16</span></div>`,
+          note: "Bằng chứng thực nghiệm sinh động nhất là các buổi usability testing trực tiếp trên thiết bị di động thật. 6 bức ảnh ghi lại thực tế 6 phiên kiểm thử: từ việc cầm máy 1 tay thao tác trong Vùng tự nhiên của ngón cái trên Android (P01), kiểm thử bối cảnh ngoài trời tại quán cafe (P02), thao tác vuốt Date Strip chọn ngày 16/8 trên iPhone (P03), đối chứng người dùng gặp khó khăn trên website gốc với menu góc trái (P04), cho đến phiên trải nghiệm mượt mà Bottom Nav (P05) và thao tác kỷ lục 12s không lỗi của P06.",
+          html: `<p class="kicker">Requirement 2 · Empirical Testing Evidence</p><h2 style="margin-bottom: 16px;">Real-world user testing sessions in action (N=6).</h2><div class="testing-grid"><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P01</span><img src="images/testing-01-home-thumb.png" alt="Participant P01 testing one-handed reach on Home screen"></div><div class="testing-info"><div><h4>One-Handed Reach</h4><p>Thumb easily activates "View schedule" CTA and Bottom Nav without shifting grip.</p></div><div class="testing-meta"><span>Android · Handheld</span><span>Task 1 Pass</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P02</span><img src="images/testing-02-outdoor-session.png" alt="Participant P02 testing prototype in outdoor cafe setting"></div><div class="testing-info"><div><h4>Outdoor Field Test</h4><p>Natural daylight test on live Vercel URL; warm palette ensures instant readability.</p></div><div class="testing-meta"><span>Android · Outdoor</span><span>Task 1 &amp; 2 Pass</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P03</span><img src="images/testing-03-ios-datestrip.png" alt="Participant P03 testing Date Strip on iPhone"></div><div class="testing-info"><div><h4>iOS Date Strip</h4><p>Smooth swipe to 16 Aug and rapid match expansion (Carlsen vs Lê Quang Liêm).</p></div><div class="testing-meta"><span>iPhone · Desktop Lab</span><span>Task 2: 18.2s</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P04</span><img src="images/testing-04-baseline-freestyle.png" alt="Participant P04 testing schedule view"></div><div class="testing-info"><div><h4>Day-by-Day View</h4><p>Linear date listing optimized small match inspection without deep scrolling.</p></div><div class="testing-meta"><span>Android · Outdoor</span><span>Task 1 &amp; 2 Pass</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P05</span><img src="images/testing-05-bottom-nav-vertical.png" alt="Participant P05 testing 5-tab bottom navigation"></div><div class="testing-info"><div><h4>Bottom Nav Flow</h4><p>Instant tab switching via persistent 5-tab bar with zero slip errors (Order B &rarr; A).</p></div><div class="testing-meta"><span>Android · Session 5</span><span>TCT: 27.8s</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P06</span><img src="images/testing-06-p06.png" alt="Participant P06 testing prototype session"></div><div class="testing-info"><div><h4>Direct Task Mastery</h4><p>Mastered in 30s; completed Task 2 in 12.0s (vs 120s+ on baseline) with 1 hand.</p></div><div class="testing-meta"><span>Android · Portrait</span><span>TCT: 24.0s (Top)</span></div></div></article></div><div class="meta"><span>Empirical proof · In-situ photo evidence</span><span>12 / 17</span></div>`,
         },
         {
           note: 'Kết quả định lượng đối chứng trên 6 người tham gia chứng minh sự vượt trội toàn diện: Thời gian hoàn thành tác vụ (TCT) giảm từ 118.6s xuống 26.5s (giảm 77.7% tổng thể). Tỷ lệ thành công trực tiếp đạt 100%. Lỗi chạm trượt giảm từ 3.5 về 0.0. Điểm SUS tăng 35.8 điểm từ 50.0 (Grade D) lên 85.8 (Grade A / Excellent). Cả 4 giả thuyết H1-H4 đều được kiểm chứng thành công với p < 0.001. Có thể bấm nút "View Per-Participant Raw Logs" để mở bảng chi tiết từng người dùng P01-P06 khi cần đối soát số liệu thô trong phần Q&A.',

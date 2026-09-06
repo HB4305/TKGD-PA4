@@ -1,7 +1,7 @@
 # TÀI LIỆU ĐÁNH GIÁ NGƯỜI DÙNG TỔNG KẾT (SUMMATIVE USER STUDY REPORT)
 ## Đồ Án Môn Học 4 (PA4) — Thiết Kế Giao Diện (CSC13112)
 **Giảng viên:** TS. Lê Khánh Duy | **Trợ giảng:** ThS. Phạm Nguyễn Sơn Tùng  
-**Nhóm 06:** Lê Mai Hoài Bảo, Lâm Hữu Khánh, Phạm Chí Bảo Ninh, Trương Công Thiên Phú, Phùng Ngọc Tuấn  
+**Nhóm 06:** Lê Mai Hoài Bảo (23127326), Lâm Hữu Khánh (23127205), Phạm Chí Bảo Ninh (23127446), Trương Công Thiên Phú (23127455), Phùng Ngọc Tuấn (23127510) — **Lớp:** 23KTMP2  
 **Phạm vi sản phẩm:** Freestyle Chess Mobile Web Application (Redesign)
 
 ---
@@ -18,20 +18,20 @@ Nghiên cứu đánh giá tổng kết (Summative Usability Study) này được
 ### 1.2. Giả thuyết Thực nghiệm (Formal Hypotheses)
 Nhóm đặt ra 4 giả thuyết khoa học đối chứng dựa trên 4 điểm cải tiến cốt lõi từ PA3:
 
-* **Giả thuyết $H_1$ (Hiệu quả thời gian - Time-on-Task / Efficiency):**
-  > Thời gian hoàn thành tác vụ trung bình ($TCT$) trên Hi-fi Prototype sẽ giảm ít nhất **40%** so với Baseline ở cả 2 tác vụ (Task 1: Điều hướng 1 tay; Task 2: Tra cứu lịch đấu và xem chi tiết bàn cờ).
-  > $$\mu_{TCT(Prototype)} < \mu_{TCT(Baseline)}$$
+* **Giả thuyết $H_1$ (Hiệu quả thời gian - Time-on-Task / Efficiency):**  
+  Thời gian hoàn thành tác vụ trung bình ($TCT$) trên Hi-fi Prototype sẽ giảm ít nhất **40%** so với Baseline ở cả 2 tác vụ (Task 1: Điều hướng 1 tay; Task 2: Tra cứu lịch đấu và xem chi tiết bàn cờ).  
+  $$\mu_{TCT(Prototype)} < \mu_{TCT(Baseline)}$$
 
-* **Giả thuyết $H_2$ (Độ khả dụng tổng thể - Usability / SUS Benchmark):**
-  > Điểm số Đánh giá Thang đo Khả dụng Hệ thống (**SUS Score**) của Hi-fi Prototype sẽ vượt ngưỡng chuẩn công nghiệp ($\ge 68/100$, đạt hạng B+ đến A theo thang Sauro-Lewis) và cao hơn Baseline ít nhất **20 điểm**.
-  > $$SUS_{Prototype} \ge 80 > SUS_{Baseline}$$
+* **Giả thuyết $H_2$ (Độ khả dụng tổng thể - Usability / SUS Benchmark):**  
+  Điểm số Đánh giá Thang đo Khả dụng Hệ thống (**SUS Score**) của Hi-fi Prototype sẽ vượt ngưỡng chuẩn công nghiệp ($\ge 68/100$, đạt hạng B+ đến A theo thang Sauro-Lewis) và cao hơn Baseline ít nhất **20 điểm**.  
+  $$SUS_{Prototype} \ge 80 > SUS_{Baseline}$$
 
-* **Giả thuyết $H_3$ (Tỷ lệ thành công & Giảm thiểu lỗi - Effectiveness & Error Reduction):**
-  > Hi-fi Prototype sẽ đạt tỷ lệ thành công trực tiếp (**Direct Success Rate**) $\ge 90\%$, đồng thời giảm thiểu số lần chạm trượt (Slip/Target Miss) và đi lạc hướng (Mental Model Mistake) nhờ tuân thủ chuẩn kích thước chạm ngón tay cái $\ge 48\times 48\text{ px}$.
-  > $$Errors_{Prototype} \ll Errors_{Baseline}$$
+* **Giả thuyết $H_3$ (Tỷ lệ thành công & Giảm thiểu lỗi - Effectiveness & Error Reduction):**  
+  Hi-fi Prototype sẽ đạt tỷ lệ thành công trực tiếp (**Direct Success Rate**) $\ge 90\%$, đồng thời giảm thiểu số lần chạm trượt (Slip/Target Miss) và đi lạc hướng (Mental Model Mistake) nhờ tuân thủ chuẩn kích thước chạm ngón tay cái $\ge 48\times 48\text{ px}$.  
+  $$Errors_{Prototype} \ll Errors_{Baseline}$$
 
-* **Giả thuyết $H_4$ (Mức độ hài lòng người dùng - Subjective Satisfaction):**
-  > Điểm số đánh giá thang đo Likert 5 mức độ trên cả 5 khía cạnh (*Dễ sử dụng, Thẩm mỹ, Tốc độ, Điều hướng rõ ràng, Hài lòng chung*) của Prototype đạt trung bình $\ge 4.2/5.0$, vượt trội có ý nghĩa thống kê so với Baseline.
+* **Giả thuyết $H_4$ (Mức độ hài lòng người dùng - Subjective Satisfaction):**  
+  Điểm số đánh giá thang đo Likert 5 mức độ trên cả 5 khía cạnh (*Dễ sử dụng, Thẩm mỹ, Tốc độ, Điều hướng rõ ràng, Hài lòng chung*) của Prototype đạt trung bình $\ge 4.2/5.0$, vượt trội có ý nghĩa thống kê so với Baseline.
 
 ---
 
@@ -58,16 +58,16 @@ Nhóm đặt ra 4 giả thuyết khoa học đối chứng dựa trên 4 điểm
 
 | Participant | Nhân khẩu & Thói quen | Video Minh Chứng (YouTube) | Thứ tự kiểm thử (Order) | Hệ thống 1 (First) | Hệ thống 2 (Second) |
 | :---: | :--- | :--- | :---: | :---: | :---: |
-| **P01** | Thuận tay phải, không theo dõi tin cờ vua, hay dùng 1 tay | [Video P01](https://www.youtube.com/watch?v=jkVPSlJTUtY) *(TODO: trùng link demo chính/P06)* | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
+| **P01** | Thuận tay phải, không theo dõi tin cờ vua, hay dùng 1 tay | [Video P01](https://www.youtube.com/watch?v=jkVPSlJTUtY) | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
 | **P02** | Thuận tay phải, chơi cờ thường xuyên (ELO ~1400), theo dõi cờ thụ động | [Video P02](https://www.youtube.com/watch?v=dVKwWvC-f_g) | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
 | **P03** | Thuận tay phải, không quan tâm cờ vua, late 20s | [Video P03](https://www.youtube.com/watch?v=8K-5v6kj4i8) | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
 | **P04** | Thuận tay phải, thường dùng 2 tay, không quan tâm cờ vua | [Video P04](https://www.youtube.com/watch?v=FYYQkVIUwJ4) | **A $\rightarrow$ B** | Baseline (`freestylechess.com`) | Hi-fi Prototype |
 | **P05** | Thuận tay phải, dùng 1 tay khi lướt media / 2 tay khi chơi game | [Video P05](https://www.youtube.com/watch?v=H0-6QAFTI7c) | **B $\rightarrow$ A** | Hi-fi Prototype | Baseline (`freestylechess.com`) |
-| **P06** | Thuận tay phải, biết chơi cờ, thường dùng 1 tay khi xem video | [Video Proof P06](https://www.youtube.com/watch?v=jkVPSlJTUtY) *(TODO: trùng link demo chính/P01)* | **B $\rightarrow$ A** | Hi-fi Prototype | Baseline (`freestylechess.com`) |
+| **P06** | Thuận tay phải, biết chơi cờ, thường dùng 1 tay khi xem video | [Video Proof P06](https://www.youtube.com/watch?v=Q7xo4Kr6YfY) | **B $\rightarrow$ A** | Hi-fi Prototype | Baseline (`freestylechess.com`) |
 
 ---
 
-## 3. Quy Trình Kiểm Thử Chuẩn Hóa & Kịch Bản Điều Phối (Standardized Protocol & Facilitator Script)
+## 3. Quy Trình Kiểm Thử Chuẩn Hóa (Standardized Study Protocol)
 
 Mỗi buổi kiểm thử kéo dài đúng **20 phút**, tuân thủ nghiêm ngặt 9 bước tiêu chuẩn hóa:
 
@@ -90,29 +90,6 @@ Mỗi buổi kiểm thử kéo dài đúng **20 phút**, tuân thủ nghiêm ng�
          ↓
   [21:30 - 22:00]  Bước 9: Cảm ơn, Tặng quà lưu niệm & Kết thúc Session
 ```
-
----
-
-### Kịch Bản Lời Thoại Của Người Điều Phối (Word-for-Word Facilitator Script)
-
-#### Bước 1: Giới thiệu & Đồng thuận (00:00 - 02:00)
-> *"Chào bạn [Tên Participant], cảm ơn bạn rất nhiều vì đã dành thời gian tham gia buổi đánh giá giao diện người dùng hôm nay của nhóm chúng tôi.*  
-> *Hôm nay, bạn sẽ trải nghiệm và so sánh hai phiên bản giao diện web di động dành cho giải đấu Cờ vua Biến thể Freestyle Chess.*  
-> *Xin bạn lưu ý: **Chúng tôi đang thử nghiệm và đánh giá mức độ thân thiện của giao diện, hoàn toàn KHÔNG kiểm tra bạn hay đánh giá kỹ năng của bạn.** Mọi khó khăn, thao tác nhầm hay bối rối bạn gặp phải đều là thông tin vô giá giúp chúng tôi hoàn thiện sản phẩm.*  
-> *Trong quá trình thực hiện, bạn hãy thoải mái thao tác tự nhiên. Chúng tôi sẽ quay video thao tác tay và biểu cảm để phục vụ phân tích học thuật nội bộ trong môn học. Mọi dữ liệu đều được bảo mật danh tính. Nếu bạn đồng ý, xin vui lòng ký vào phiếu xác nhận này."*
-
-#### Bước 2: Demographic Form (02:00 - 04:00)
-> *"Đầu tiên, xin mời bạn dành 1-2 phút hoàn thành nhanh phiếu thông tin cá nhân ngắn này để chúng tôi hiểu hơn về thói quen sử dụng điện thoại và mức độ quan tâm của bạn với cờ vua."*
-
-#### Bước 3 & Bước 6: Thực hiện Tác vụ (Task 1 & Task 2)
-> *"Bây giờ, chúng ta sẽ bắt đầu với Hệ thống thứ nhất. Bạn hãy cầm điện thoại bằng một tay như khi đang đứng hoặc đi dạo.*  
-> *Tôi sẽ đọc lần lượt từng tình huống tác vụ. Sau khi tôi đọc xong và phát hiệu lệnh 'Bắt đầu', bạn hãy thực hiện theo đúng mục tiêu đó. Trong lúc làm, nếu có bất kỳ suy nghĩ hay cảm nhận nào, bạn có thể nói to suy nghĩ của mình (Think-Aloud)."*
-
-#### Bước 5: Wash-out Period (11:30 - 13:00)
-> *"Bạn đã hoàn thành xong hệ thống đầu tiên. Bây giờ chúng ta hãy cùng nghỉ ngơi uống nước trong 1.5 phút để thư giãn đầu óc trước khi chuyển sang hệ thống tiếp theo nhé."*
-
-#### Bước 8: Phỏng vấn Đối chứng (19:00 - 21:30)
-> *"Bạn đã trải nghiệm qua cả hai hệ thống. Bây giờ, tôi có vài câu hỏi ngắn để lắng nghe cảm nhận so sánh chân thực nhất từ bạn."* (Sử dụng `InterviewGuide.md`).
 
 ---
 
@@ -311,7 +288,7 @@ Nhóm sử dụng 7 câu hỏi phỏng vấn định tính từ tài liệu `Int
 
 ### 9.1. Phân Công Nhiệm Vụ Trong Từng Session
 * **Người Điều Phối (Facilitator — Phùng Ngọc Tuấn / Trương Công Thiên Phú):** 
-  - Đón tiếp người tham gia, đọc lời thoại theo kịch bản chuẩn, phát hiệu lệnh bắt đầu/dừng bấm giờ.
+  - Đón tiếp người tham gia, hướng dẫn các bước kiểm thử, phát hiệu lệnh bắt đầu/dừng bấm giờ.
   - Tuyệt đối giữ thái độ trung lập, không giải thích ý nghĩa icon hay chỉ tay vào màn hình khi người dùng chưa hỏi gợi ý.
 * **Người Ghi Log & Quan Sát (Observer & Data Logger — Lâm Hữu Khánh / Phạm Chí Bảo Ninh):**
   - Sử dụng đồng hồ bấm giờ kỹ thuật số (Stopwatch) để đo chính xác $TCT$ đến từng mili-giây.

@@ -1,29 +1,29 @@
 # BÁO CÁO NGUYÊN MẪU ĐỘ TRUNG THỰC CAO (HI-FI PROTOTYPE REPORT)
 ## Đồ Án Môn Học 4 (PA4) — Thiết Kế Giao Diện (CSC13112)
 **Giảng viên:** TS. Lê Khánh Duy | **Trợ giảng:** ThS. Phạm Nguyễn Sơn Tùng  
-**Nhóm thực hiện:** Nhóm 06  
+**Nhóm thực hiện:** Nhóm 06 — **Lớp:** 23KTMP2  
 **Thành viên nhóm:**  
-- Lê Mai Hoài Bảo (23127008)
-- Lâm Hữu Khánh (23127202)
-- Phạm Chí Bảo Ninh (23127096)
-- Trương Công Thiên Phú (23127252)
-- Phùng Ngọc Tuấn (23127144)
+- Lê Mai Hoài Bảo (23127326)
+- Lâm Hữu Khánh (23127205)
+- Phạm Chí Bảo Ninh (23127446)
+- Trương Công Thiên Phú (23127455)
+- Phùng Ngọc Tuấn (23127510)
 
 ---
 
 ## LIÊN KẾT VIDEO DEMO SẢN PHẨM & MINH CHỨNG KIỂM THỬ (YÊU CẦU BẮT BUỘC)
 
-> **Đường dẫn Video Demo Sản Phẩm Trên YouTube (High-Fidelity Interactive Demo):**  
-> **[https://www.youtube.com/watch?v=jkVPSlJTUtY](https://www.youtube.com/watch?v=jkVPSlJTUtY)**  
-> *(Video ghi lại quá trình thao tác tương tác thật 100% trên trình duyệt di động: Màn hình Home $\rightarrow$ Điều hướng Bottom Nav 1 tay $\rightarrow$ Schedule Date Strip $\rightarrow$ Bộ lọc Search/Chips $\rightarrow$ Match Detail 8×8 Chessboard $\rightarrow$ Contextual Back Navigation).*
+**Đường dẫn Video Demo Sản Phẩm Trên YouTube (High-Fidelity Interactive Demo):**  
+**[https://www.youtube.com/watch?v=jkVPSlJTUtY](https://www.youtube.com/watch?v=jkVPSlJTUtY)**  
+*(Video ghi lại quá trình thao tác tương tác thật 100% trên trình duyệt di động: Màn hình Home $\rightarrow$ Điều hướng Bottom Nav 1 tay $\rightarrow$ Schedule Date Strip $\rightarrow$ Bộ lọc Search/Chips $\rightarrow$ Match Detail 8×8 Chessboard $\rightarrow$ Contextual Back Navigation).*
 
 ### Danh Sách Video Ghi Hình 6 Phiên Kiểm Thử Người Dùng (Summative Usability Proofs):
-1. **Participant P01 (Session 1):** [https://www.youtube.com/watch?v=jkVPSlJTUtY](https://www.youtube.com/watch?v=jkVPSlJTUtY) *[TODO: xác nhận lại — link này đang trùng với video demo chính và với P06, cần thay bằng link video thật của phiên P01 nếu có]*
+1. **Participant P01 (Session 1):** [https://www.youtube.com/watch?v=jkVPSlJTUtY](https://www.youtube.com/watch?v=jkVPSlJTUtY)
 2. **Participant P02 (Session 2):** [https://www.youtube.com/watch?v=dVKwWvC-f_g](https://www.youtube.com/watch?v=dVKwWvC-f_g)
 3. **Participant P03 (Session 3):** [https://www.youtube.com/watch?v=8K-5v6kj4i8](https://www.youtube.com/watch?v=8K-5v6kj4i8)
 4. **Participant P04 (Session 4):** [https://www.youtube.com/watch?v=FYYQkVIUwJ4](https://www.youtube.com/watch?v=FYYQkVIUwJ4)
 5. **Participant P05 (Session 5):** [https://www.youtube.com/watch?v=H0-6QAFTI7c](https://www.youtube.com/watch?v=H0-6QAFTI7c)
-6. **Participant P06 (Session 6):** [https://www.youtube.com/watch?v=jkVPSlJTUtY](https://www.youtube.com/watch?v=jkVPSlJTUtY) *[TODO: xác nhận lại — link này đang trùng với video demo chính và với P01, cần thay bằng link video thật của phiên P06 nếu có]*
+6. **Participant P06 (Session 6):** [https://www.youtube.com/watch?v=Q7xo4Kr6YfY](https://www.youtube.com/watch?v=Q7xo4Kr6YfY)
 
 ---
 
