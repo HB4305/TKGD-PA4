@@ -1,12 +1,15 @@
 # PA4 - HI-FI PROTOTYPE
 
-**Môn học:** Thiết Kế Giao Diện (CSC13112)**Giảng viên hướng dẫn:** TS. Lê Khánh Duy, ThS. Phạm Nguyễn Sơn Tùng**Nhóm thực hiện:** Nhóm 06 - **Lớp:** 23KTMP2**Thành viên nhóm:**
-
+**Môn học:** Thiết Kế Giao Diện (CSC13112)  
+**Giảng viên hướng dẫn:** TS. Lê Khánh Duy, ThS. Phạm Nguyễn Sơn Tùng  
+**Nhóm thực hiện:** Nhóm 06 - **Lớp:** 23KTMP2    
+**Thành viên nhóm:**  
 - Lê Mai Hoài Bảo (23127326)
 - Lâm Hữu Khánh (23127205)
 - Phạm Chí Bảo Ninh (23127446)
 - Trương Công Thiên Phú (23127455)
 - Phùng Ngọc Tuấn (23127510)
+
 
 ---
 

@@ -1,7 +1,9 @@
 # PA4 - HI-FI PROTOTYPE
 
-**Course:** Interface Design (CSC13112)**Instructors:** Dr. Le Khanh Duy, MSc. Pham Nguyen Son Tung**Team:** Group 06 - **Class:** 23KTMP2**Team members:**
-
+**Course:** Interface Design (CSC13112)  
+**Instructors:** Dr. Le Khanh Duy, MSc. Pham Nguyen Son Tung  
+**Group:** Group 06 - **Class:** 23KTMP2  
+**Team members:**  
 - Le Mai Hoai Bao (23127326)
 - Lam Huu Khanh (23127205)
 - Pham Chi Bao Ninh (23127446)

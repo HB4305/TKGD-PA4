@@ -1,0 +1,4815 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f2f2f2" />
+    <title>Freestyle Chess — PA4 Presentation</title>
+    <style>
+      :root {
+        --ink: #171513;
+        --paper: #f7f1e8;
+        --cream: #fffaf3;
+        --gold: #d7aa72;
+        --blue: #4669ff;
+        --green: #35b86b;
+        --muted: #756c63;
+        --u: min(1vw, 1.7778vh);
+        font-family: Inter, system-ui, sans-serif;
+        color: var(--ink);
+        background: #0d0c0b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      strong {
+        font-weight: 850;
+      }
+
+      code,
+      .mono {
+        font-family: ui-monospace, monospace;
+      }
+
+      .deck {
+        position: relative;
+        width: calc(100 * var(--u));
+        height: calc(56.25 * var(--u));
+        overflow: hidden;
+        background: var(--paper);
+        box-shadow: 0 1.5rem 5rem #0008;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        display: none;
+        overflow: hidden;
+        padding: calc(3.8 * var(--u)) calc(5.2 * var(--u)) calc(4 * var(--u));
+        background: var(--paper);
+      }
+
+      .slide.active {
+        display: block;
+        animation: in 0.24s ease-out;
+      }
+
+      @keyframes in {
+        from {
+          opacity: 0.3;
+          transform: translateX(1%);
+        }
+      }
+
+      .kicker {
+        margin: 0 0 calc(1.05 * var(--u));
+        font:
+          850 calc(0.92 * var(--u))/1 ui-monospace,
+          monospace;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #9a7145;
+      }
+
+      h1 {
+        margin-bottom: calc(1.4 * var(--u));
+        font:
+          500 calc(6.4 * var(--u))/0.95 Georgia,
+          serif;
+        letter-spacing: -0.06em;
+        max-width: 82%;
+      }
+
+      h2 {
+        margin-bottom: calc(2.1 * var(--u));
+        font:
+          500 calc(3.15 * var(--u))/1.02 Georgia,
+          serif;
+        letter-spacing: -0.045em;
+        max-width: 88%;
+      }
+
+      h3 {
+        margin-bottom: calc(0.55 * var(--u));
+        font-size: calc(1.38 * var(--u));
+        line-height: 1.12;
+      }
+
+      p,
+      li {
+        font-size: calc(1.05 * var(--u));
+        line-height: 1.42;
+      }
+
+      .lead {
+        font-size: calc(1.55 * var(--u));
+        line-height: 1.3;
+        max-width: 72%;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .tag {
+        display: inline-block;
+        padding: calc(0.42 * var(--u)) calc(0.7 * var(--u));
+        border: calc(0.12 * var(--u)) solid;
+        border-radius: 99px;
+        font-size: calc(0.74 * var(--u));
+        font-weight: 850;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .meta {
+        position: absolute;
+        left: calc(5.2 * var(--u));
+        right: calc(5.2 * var(--u));
+        bottom: calc(1.35 * var(--u));
+        display: flex;
+        justify-content: space-between;
+        font:
+          750 calc(0.7 * var(--u))/1 ui-monospace,
+          monospace;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .meta.light {
+        color: #fff9;
+      }
+
+      .mark {
+        position: absolute;
+        right: calc(3 * var(--u));
+        top: calc(1.4 * var(--u));
+        font:
+          950 calc(13 * var(--u))/1 ui-monospace,
+          monospace;
+        color: #1715130c;
+        letter-spacing: -0.09em;
+      }
+
+      .title-slide {
+        background:
+          radial-gradient(circle at 86% 18%, #765535 0 13%, transparent 13.2%),
+          linear-gradient(145deg, #171513, #29231e 68%, #745437 160%);
+        color: var(--cream);
+      }
+
+      .title-slide h1 {
+        margin-top: calc(5.5 * var(--u));
+        max-width: 76%;
+        font-size: calc(7.1 * var(--u));
+      }
+
+      .title-slide .lead {
+        color: #d8cec1;
+      }
+
+      .title-slide:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: calc(6 * var(--u));
+        width: 68%;
+        height: calc(0.9 * var(--u));
+        background: var(--gold);
+      }
+
+      .chess {
+        position: absolute;
+        right: calc(8 * var(--u));
+        bottom: calc(8 * var(--u));
+        font:
+          calc(13 * var(--u))/1 Georgia,
+          serif;
+        color: var(--gold);
+        transform: rotate(-8deg);
+      }
+
+      .story {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: calc(1.5 * var(--u));
+        margin-top: calc(4 * var(--u));
+      }
+
+      .story article {
+        min-height: calc(20 * var(--u));
+        border-top: calc(0.42 * var(--u)) solid var(--gold);
+        padding-top: calc(1.2 * var(--u));
+      }
+
+      .story article:nth-child(2) {
+        border-color: var(--blue);
+      }
+
+      .story article:nth-child(3) {
+        border-color: var(--green);
+      }
+
+      .agenda-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px 56px;
+        margin-top: 34px;
+      }
+
+      .agenda-list article {
+        display: grid;
+        grid-template-columns: 46px 1fr;
+        gap: 16px;
+        align-items: start;
+        border-top: 1px solid var(--border-color);
+        padding-top: 14px;
+      }
+
+      .agenda-number {
+        color: var(--accent);
+        font:
+          800 16px ui-monospace,
+          monospace;
+      }
+
+      .agenda-list h3 {
+        margin: 0 0 4px;
+        font-size: 20px;
+      }
+      .agenda-list p {
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: 14px;
+      }
+
+      .agenda-layout {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 60px;
+        align-items: center;
+        width: 100%;
+        margin-top: 8px;
+      }
+      .agenda-main h2 {
+        font-size: 64px;
+        margin-bottom: 22px;
+      }
+      .agenda-main .agenda-list {
+        display: block;
+        margin-top: 0;
+      }
+      .agenda-main .agenda-list article {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        padding: 12px 0;
+        border-top: 1px solid var(--border-color);
+      }
+      .agenda-main .agenda-list article:last-child {
+        border-bottom: none;
+      }
+      .agenda-main .agenda-number {
+        min-width: 62px;
+        font-size: 36px;
+      }
+      .agenda-main .agenda-list h3 {
+        margin: 0;
+        font-size: 23px;
+      }
+      .agenda-main .agenda-list p {
+        margin-top: 3px;
+        font-size: 15px;
+      }
+      .agenda-watermark {
+        display: grid;
+        place-items: center;
+        color: var(--ink);
+        opacity: 0.12;
+        font:
+          520px/1 Georgia,
+          serif;
+        transform: translateY(4px);
+      }
+
+      .big-n {
+        font:
+          950 calc(4.3 * var(--u))/1 ui-monospace,
+          monospace;
+        letter-spacing: -0.08em;
+        color: #17151320;
+      }
+
+      .pa3 {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: calc(4.2 * var(--u));
+        align-items: center;
+      }
+
+      .problems {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .problems li {
+        border-top: calc(0.13 * var(--u)) solid;
+        padding: calc(1.2 * var(--u)) 0;
+      }
+
+      .problems strong {
+        display: block;
+        font-size: calc(1.35 * var(--u));
+      }
+
+      .experiment {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border: calc(0.16 * var(--u)) solid;
+      }
+
+      .experiment div {
+        min-height: calc(13 * var(--u));
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: calc(1.25 * var(--u));
+        border-right: calc(0.16 * var(--u)) solid;
+      }
+
+      .experiment div:last-child {
+        border: 0;
+      }
+
+      .experiment b {
+        font:
+          950 calc(4 * var(--u))/1 ui-monospace,
+          monospace;
+        color: var(--blue);
+      }
+
+      .experiment span {
+        font-size: calc(0.92 * var(--u));
+        font-weight: 750;
+      }
+
+      .solution {
+        display: grid;
+        grid-template-columns: 42% 58%;
+        gap: calc(4 * var(--u));
+        align-items: center;
+      }
+
+      .winner {
+        margin-top: calc(0.8 * var(--u));
+        font:
+          950 calc(4.7 * var(--u))/0.94 ui-monospace,
+          monospace;
+        color: #ad7c45;
+        letter-spacing: -0.08em;
+      }
+
+      .reason {
+        margin-top: calc(1.4 * var(--u));
+        display: grid;
+        gap: calc(0.5 * var(--u));
+      }
+
+      .reason p {
+        margin: 0;
+      }
+
+      .reason p:before {
+        content: "✓";
+        display: inline-block;
+        width: calc(1.7 * var(--u));
+        color: var(--green);
+        font-weight: 900;
+      }
+
+      blockquote {
+        margin: calc(1.5 * var(--u)) 0 0;
+        padding-left: calc(1.1 * var(--u));
+        border-left: calc(0.3 * var(--u)) solid var(--gold);
+        font:
+          calc(1.2 * var(--u))/1.35 Georgia,
+          serif;
+      }
+
+      .media-slot {
+        position: relative;
+        overflow: hidden;
+        border: calc(0.18 * var(--u)) dashed #b8966e;
+        background: repeating-linear-gradient(
+          135deg,
+          #fffaf3,
+          #fffaf3 calc(1.2 * var(--u)),
+          #f0e3d3 calc(1.2 * var(--u)),
+          #f0e3d3 calc(2.4 * var(--u))
+        );
+        display: grid;
+        place-items: center;
+        text-align: center;
+        cursor: pointer;
+        isolation: isolate;
+      }
+
+      .media-slot:hover {
+        border-color: var(--blue);
+      }
+
+      .media-slot.dragging {
+        outline: calc(0.35 * var(--u)) solid var(--blue);
+        outline-offset: calc(-0.35 * var(--u));
+      }
+
+      .media-slot img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: #fff;
+        display: none;
+        z-index: 1;
+      }
+
+      .media-slot.has-image img {
+        display: block;
+      }
+
+      .slot-copy {
+        max-width: 76%;
+        padding: calc(1 * var(--u));
+        color: #6f5f50;
+      }
+
+      .slot-icon {
+        display: block;
+        font-size: calc(2.7 * var(--u));
+        line-height: 1;
+      }
+
+      .slot-copy strong {
+        display: block;
+        font-size: calc(1.05 * var(--u));
+      }
+
+      .slot-copy small {
+        font-size: calc(0.7 * var(--u));
+      }
+
+      .remove {
+        position: absolute;
+        z-index: 3;
+        right: calc(0.6 * var(--u));
+        top: calc(0.6 * var(--u));
+        display: none;
+        border: 0;
+        border-radius: 99px;
+        background: #171513dc;
+        color: white;
+        padding: calc(0.4 * var(--u)) calc(0.65 * var(--u));
+        font-size: calc(0.65 * var(--u));
+      }
+
+      .has-image:hover .remove {
+        display: block;
+      }
+
+      .sketch {
+        height: calc(38 * var(--u));
+      }
+
+      .phone {
+        height: calc(42 * var(--u));
+        max-width: calc(24 * var(--u));
+        margin: auto;
+        border: calc(0.62 * var(--u)) solid var(--ink);
+        border-radius: calc(2 * var(--u));
+        box-shadow: calc(0.6 * var(--u)) calc(0.7 * var(--u)) 0 #d4b890;
+      }
+
+      .wide {
+        height: calc(23 * var(--u));
+      }
+
+      .commit {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: calc(1.3 * var(--u)) calc(2 * var(--u));
+        margin-top: calc(2 * var(--u));
+      }
+
+      .commit article {
+        display: grid;
+        grid-template-columns: calc(4.2 * var(--u)) 1fr;
+        gap: calc(1 * var(--u));
+        border-top: calc(0.17 * var(--u)) solid;
+        padding-top: calc(1 * var(--u));
+      }
+
+      .commit .n {
+        font:
+          950 calc(3 * var(--u))/1 ui-monospace,
+          monospace;
+        color: #ad7c45;
+      }
+
+      .commit p {
+        margin: 0;
+        font-size: calc(0.93 * var(--u));
+      }
+
+      .mapping {
+        display: grid;
+        grid-template-columns: 1fr calc(4 * var(--u)) 1fr;
+        row-gap: calc(0.7 * var(--u));
+        align-items: stretch;
+      }
+
+      .mapping .cell {
+        padding: calc(0.8 * var(--u)) calc(1.1 * var(--u));
+        border-top: calc(0.13 * var(--u)) solid;
+      }
+
+      .mapping .arrow {
+        display: grid;
+        place-items: center;
+        font-size: calc(1.6 * var(--u));
+        color: var(--blue);
+      }
+
+      .mapping strong {
+        display: block;
+      }
+
+      .mapping span {
+        font-size: calc(0.82 * var(--u));
+        color: var(--muted);
+      }
+
+      .screens {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: calc(2.2 * var(--u));
+        align-items: end;
+      }
+
+      .mini .media-slot {
+        height: calc(26 * var(--u));
+        max-width: calc(15 * var(--u));
+        margin: auto;
+        border: calc(0.45 * var(--u)) solid;
+        border-radius: calc(1.4 * var(--u));
+      }
+
+      .mini h3,
+      .mini p {
+        text-align: center;
+      }
+
+      .mini p {
+        margin: 0;
+        font-size: calc(0.82 * var(--u));
+        color: var(--muted);
+      }
+
+      .demo {
+        display: grid;
+        grid-template-columns: 42% 58%;
+        gap: calc(3 * var(--u));
+        align-items: center;
+      }
+
+      .demo ul {
+        padding-left: calc(1.2 * var(--u));
+      }
+
+      .demo li {
+        margin: calc(0.5 * var(--u)) 0;
+      }
+
+      .route {
+        padding: calc(0.7 * var(--u)) calc(0.9 * var(--u));
+        background: var(--ink);
+        color: white;
+        font-size: calc(0.8 * var(--u));
+      }
+
+      .study {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: calc(3.5 * var(--u));
+        border-block: calc(0.2 * var(--u)) solid;
+      }
+
+      .study article {
+        min-height: calc(18 * var(--u));
+        padding: calc(1.3 * var(--u));
+        border-right: calc(0.13 * var(--u)) solid;
+      }
+
+      .study article:last-child {
+        border: 0;
+      }
+
+      .value {
+        font:
+          950 calc(3.2 * var(--u))/1 ui-monospace,
+          monospace;
+        color: var(--blue);
+      }
+
+      .study p {
+        font-size: calc(0.88 * var(--u));
+      }
+
+      .tasks {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: calc(1.6 * var(--u));
+      }
+
+      .task {
+        min-height: calc(16 * var(--u));
+        padding: calc(1.4 * var(--u));
+        border: calc(0.16 * var(--u)) solid;
+      }
+
+      .task h3 {
+        font:
+          500 calc(1.55 * var(--u))/1.15 Georgia,
+          serif;
+      }
+
+      .task p {
+        font-size: calc(0.9 * var(--u));
+      }
+
+      .procedure {
+        display: flex;
+        align-items: center;
+        gap: calc(0.35 * var(--u));
+        margin-top: calc(1.4 * var(--u));
+      }
+
+      .procedure span {
+        flex: 1;
+        min-height: calc(4 * var(--u));
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: calc(0.4 * var(--u));
+        background: #e9dece;
+        font-size: calc(0.68 * var(--u));
+        font-weight: 800;
+      }
+
+      .procedure i {
+        font-style: normal;
+        color: var(--blue);
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: calc(0.9 * var(--u));
+        margin-bottom: calc(1 * var(--u));
+      }
+
+      .metric {
+        padding: calc(1 * var(--u));
+        background: var(--cream);
+        border-top: calc(0.32 * var(--u)) solid var(--gold);
+      }
+
+      .editable {
+        display: block;
+        min-height: calc(3.4 * var(--u));
+        font:
+          950 calc(3 * var(--u))/1 ui-monospace,
+          monospace;
+        color: var(--blue);
+        outline: none;
+      }
+
+      .metric p {
+        margin: 0;
+        font-size: calc(0.7 * var(--u));
+        text-transform: uppercase;
+        font-weight: 850;
+      }
+
+      .results {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: calc(2 * var(--u));
+      }
+
+      .result-note {
+        padding: calc(1.2 * var(--u));
+        background: var(--ink);
+        color: white;
+      }
+
+      .result-note h3 {
+        color: var(--gold);
+        outline: none;
+      }
+
+      .result-note p {
+        font-size: calc(0.9 * var(--u));
+        outline: none;
+      }
+
+      .hint {
+        font-size: calc(0.68 * var(--u));
+        color: var(--muted);
+      }
+
+      .findings {
+        display: grid;
+        grid-template-columns: 45% 55%;
+        gap: calc(2.2 * var(--u));
+      }
+
+      .findings .media-slot {
+        height: calc(31 * var(--u));
+      }
+
+      .quotes {
+        display: grid;
+        gap: calc(0.8 * var(--u));
+      }
+
+      .quote {
+        padding: calc(1 * var(--u));
+        border-left: calc(0.3 * var(--u)) solid var(--gold);
+        background: var(--cream);
+      }
+
+      .quote blockquote {
+        margin: 0 0 calc(0.5 * var(--u));
+        padding: 0;
+        border: 0;
+        outline: none;
+      }
+
+      .quote p,
+      .quote h3 {
+        margin: 0;
+        outline: none;
+      }
+
+      .quote p {
+        font-size: calc(0.75 * var(--u));
+        color: var(--muted);
+      }
+
+      .conclusion {
+        background: var(--ink);
+        color: var(--cream);
+      }
+
+      .conclusion h2 {
+        font-size: calc(4.6 * var(--u));
+        max-width: 84%;
+      }
+
+      .takeaways {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: calc(1.5 * var(--u));
+        margin-top: calc(3 * var(--u));
+      }
+
+      .takeaways article {
+        border-top: calc(0.28 * var(--u)) solid var(--gold);
+        padding-top: calc(1 * var(--u));
+      }
+
+      .takeaways article:nth-child(2) {
+        border-color: var(--blue);
+      }
+
+      .takeaways article:nth-child(3) {
+        border-color: var(--green);
+      }
+
+      .takeaways p {
+        font-size: calc(0.9 * var(--u));
+        color: #d4cabf;
+      }
+
+      .controls {
+        position: fixed;
+        z-index: 50;
+        left: 50%;
+        bottom: 1rem;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.38rem;
+        background: #111d;
+        color: white;
+        border-radius: 999px;
+        backdrop-filter: blur(10px);
+        opacity: 0.2;
+        transition: 0.2s;
+      }
+
+      .controls:hover,
+      .controls:focus-within {
+        opacity: 1;
+      }
+
+      .controls button {
+        border: 0;
+        border-radius: 99px;
+        background: transparent;
+        color: white;
+        padding: 0.42rem 0.65rem;
+      }
+
+      .controls button:hover {
+        background: #fff2;
+      }
+
+      .counter {
+        min-width: 4.4rem;
+        text-align: center;
+        font:
+          700 0.76rem/1 ui-monospace,
+          monospace;
+      }
+
+      .progress {
+        position: fixed;
+        z-index: 60;
+        left: 0;
+        bottom: 0;
+        height: 4px;
+        background: var(--gold);
+      }
+
+      .notes-panel {
+        position: fixed;
+        z-index: 70;
+        right: 1rem;
+        top: 1rem;
+        bottom: 1rem;
+        width: min(31rem, 38vw);
+        overflow: auto;
+        padding: 1.2rem;
+        background: #171513f7;
+        color: var(--cream);
+        display: none;
+      }
+
+      .notes-panel.open {
+        display: block;
+      }
+
+      .notes-panel h3 {
+        color: var(--gold);
+      }
+
+      .notes-panel p {
+        font-size: 1rem;
+        line-height: 1.55;
+        white-space: pre-line;
+      }
+
+      .file-input {
+        display: none;
+      }
+
+      @media (max-aspect-ratio: 16/9) {
+        :root {
+          --u: 1vw;
+        }
+      }
+
+      @media (min-aspect-ratio: 16/9) {
+        :root {
+          --u: 1.7778vh;
+        }
+      }
+
+      @media print {
+        html,
+        body {
+          overflow: visible;
+          background: #fff;
+          display: block;
+        }
+
+        .deck {
+          width: 13.333in;
+          height: auto;
+          box-shadow: none;
+          overflow: visible;
+        }
+
+        .slide {
+          position: relative;
+          display: block !important;
+          width: 13.333in;
+          height: 7.5in;
+          page-break-after: always;
+          --u: 0.13333in;
+        }
+
+        .controls,
+        .progress,
+        .notes-panel {
+          display: none !important;
+        }
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style>
+      /* ===========================================
+   COBALT GRID THEME — LIGHT TWO-COLOR SYSTEM
+   Edit these variables to adjust the deck globally.
+   =========================================== */
+      :root {
+        --stage-bg: #171d78;
+        --slide-bg: #f0ebde;
+        --paper: #f0ebde;
+        --paper-2: #e6e0ce;
+        --ink: #1f2be0;
+        --ink-soft: #5560e5;
+        --grid: rgba(31, 43, 224, 0.1);
+        --ink-faint: rgba(31, 43, 224, 0.18);
+        --font-display: "Newsreader", Georgia, serif;
+        --font-body: "Hanken Grotesk", sans-serif;
+        --font-mono: "DM Mono", monospace;
+        --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      /* ===========================================
+   FIXED 16:9 STAGE: MANDATORY BASE STYLES
+   Included in full from viewport-base.css.
+   =========================================== */
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: var(--stage-bg, #000);
+      }
+
+      .deck-viewport {
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        background: var(--stage-bg, #000);
+      }
+
+      .deck-stage {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        transform-origin: 0 0;
+        background: var(--slide-bg, #fff);
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        display: block;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        background: var(--slide-bg, #fff);
+      }
+
+      .slide.active,
+      .slide.visible {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        z-index: 1;
+      }
+
+      img,
+      video,
+      canvas,
+      svg {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .deck-controls {
+        position: fixed;
+        left: 50%;
+        bottom: 22px;
+        transform: translateX(-50%);
+        z-index: 1000;
+      }
+
+      @media print {
+        html,
+        body {
+          width: 1920px;
+          height: auto;
+          overflow: visible;
+          background: #fff;
+        }
+
+        .deck-viewport {
+          position: static;
+          overflow: visible;
+          background: #fff;
+        }
+
+        .deck-stage {
+          position: static;
+          width: auto;
+          height: auto;
+          transform: none !important;
+          background: none;
+        }
+
+        .slide {
+          position: relative;
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+          pointer-events: auto !important;
+          width: 1920px;
+          height: 1080px;
+          break-after: page;
+          page-break-after: always;
+        }
+
+        .slide:last-child {
+          break-after: auto;
+          page-break-after: auto;
+        }
+
+        .deck-controls {
+          display: none !important;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.2s !important;
+        }
+      }
+
+      /* ===========================================
+   GLOBAL SLIDE CANVAS AND TYPOGRAPHY
+   Every slide carries the grid and hairline frame.
+   =========================================== */
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: block;
+        color: var(--ink);
+        font-family: var(--font-body);
+      }
+
+      .deck {
+        box-shadow: none;
+      }
+
+      .slide {
+        padding: 84px 96px 132px;
+        color: var(--ink);
+        background-color: var(--paper);
+        background-image:
+          linear-gradient(var(--ink), var(--ink)),
+          linear-gradient(var(--ink), var(--ink)),
+          linear-gradient(to right, var(--grid) 1px, transparent 1px),
+          linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+        background-size:
+          1728px 2px,
+          1728px 2px,
+          40px 40px,
+          40px 40px;
+        background-position:
+          96px 28px,
+          96px 1048px,
+          0 0,
+          0 0;
+        background-repeat: no-repeat, no-repeat, repeat, repeat;
+        transition: opacity 0.28s ease;
+      }
+
+      .slide > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .kicker {
+        margin: 0 0 22px;
+        color: var(--ink);
+        font: 600 18px/1 var(--font-body);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        color: var(--ink);
+      }
+
+      h1 {
+        margin: 0 0 28px;
+        max-width: 1500px;
+        color: var(--ink);
+        font: 400 160px/0.91 var(--font-display);
+        letter-spacing: -0.008em;
+      }
+
+      h2 {
+        margin: 0 0 42px;
+        max-width: 1580px;
+        color: var(--ink);
+        font: 400 86px/0.96 var(--font-display);
+        letter-spacing: -0.005em;
+      }
+
+      h3 {
+        margin: 0 0 12px;
+        font: 400 38px/1.05 var(--font-display);
+      }
+
+      p,
+      li {
+        color: var(--ink);
+        font: 400 25px/1.45 var(--font-body);
+      }
+
+      .lead {
+        max-width: 980px;
+        font-size: 32px;
+        line-height: 1.42;
+      }
+
+      .muted {
+        color: var(--ink);
+        opacity: 0.66;
+      }
+
+      .mono,
+      .route {
+        font-family: var(--font-mono);
+        letter-spacing: 0.05em;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 10px 14px;
+        border: 1.5px solid var(--ink);
+        border-radius: 0;
+        color: var(--ink);
+        font: 600 16px/1 var(--font-body);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .meta {
+        position: absolute;
+        left: 96px;
+        right: 96px;
+        bottom: 52px;
+        display: flex;
+        justify-content: space-between;
+        color: var(--ink);
+        font: 400 14px/1 var(--font-mono);
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+
+      .meta.light {
+        color: var(--ink);
+      }
+
+      .mark {
+        position: absolute;
+        right: 86px;
+        top: 76px;
+        color: var(--ink-faint);
+        font: 400 230px/0.8 var(--font-display);
+        letter-spacing: -0.015em;
+      }
+
+      /* ===========================================
+   EDITORIAL REVEAL MOTION
+   Active slides stagger their authored content.
+   =========================================== */
+      .reveal {
+        opacity: 1;
+        transform: translateY(28px);
+        transition: transform 0.3s var(--ease-editorial);
+      }
+
+      .slide.visible .reveal {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===========================================
+   COVER AND CHAPTER COMPOSITIONS
+   Pixel scanlines replace the former dark artwork.
+   =========================================== */
+      .title-slide,
+      .conclusion {
+        color: var(--ink);
+        background-color: var(--paper);
+        background-image:
+          linear-gradient(var(--ink), var(--ink)),
+          linear-gradient(var(--ink), var(--ink)),
+          linear-gradient(to right, var(--grid) 1px, transparent 1px),
+          linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+        background-size:
+          1728px 2px,
+          1728px 2px,
+          40px 40px,
+          40px 40px;
+        background-position:
+          96px 28px,
+          96px 1048px,
+          0 0,
+          0 0;
+        background-repeat: no-repeat, no-repeat, repeat, repeat;
+      }
+
+      .title-slide::after,
+      .conclusion::after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        right: 64px;
+        left: auto;
+        top: 90px;
+        width: 310px;
+        height: 800px;
+        background: repeating-linear-gradient(
+          90deg,
+          var(--ink) 0 9px,
+          transparent 9px 17px
+        );
+        clip-path: polygon(
+          56% 0,
+          100% 0,
+          100% 20%,
+          82% 20%,
+          82% 40%,
+          62% 40%,
+          62% 60%,
+          42% 60%,
+          42% 80%,
+          21% 80%,
+          21% 100%,
+          0 100%,
+          0 82%,
+          12% 82%,
+          12% 61%,
+          29% 61%,
+          29% 41%,
+          44% 41%,
+          44% 20%,
+          56% 20%
+        );
+      }
+
+      .title-slide h1 {
+        margin-top: 210px;
+        max-width: 1420px;
+        font-size: 170px;
+      }
+
+      .title-slide .lead {
+        max-width: 860px;
+      }
+
+      .title-slide .chess {
+        position: absolute;
+        right: 120px;
+        bottom: 110px;
+        color: var(--ink);
+        font: 400 210px/1 var(--font-display);
+        transform: none;
+      }
+
+      .conclusion h2 {
+        max-width: 1450px;
+        font-size: 128px;
+      }
+
+      .conclusion .takeaways {
+        max-width: 1460px;
+      }
+
+      .conclusion::after {
+        width: 230px;
+        right: 34px;
+      }
+
+      /* ===========================================
+   STORY, PA3, AND DECISION LAYOUTS
+   Flat rules and ledger rows replace cards.
+   =========================================== */
+      .story {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 42px;
+        margin-top: 92px;
+      }
+
+      .story article {
+        min-height: 380px;
+        padding-top: 24px;
+        border-top: 2px solid var(--ink);
+      }
+
+      .story article:nth-child(n) {
+        border-color: var(--ink);
+      }
+
+      .story article p {
+        max-width: 90%;
+      }
+
+      .big-n {
+        color: var(--ink-faint);
+        font: 400 108px/0.9 var(--font-display);
+        letter-spacing: -0.015em;
+      }
+
+      .pa3 {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 88px;
+        align-items: center;
+      }
+
+      .problems {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .problems li {
+        padding: 26px 0;
+        border-top: 1px solid var(--ink);
+      }
+
+      .problems strong {
+        display: block;
+        margin-bottom: 6px;
+        font: 400 34px/1.1 var(--font-display);
+      }
+
+      .experiment {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-block: 2px solid var(--ink);
+      }
+
+      .experiment div {
+        min-height: 250px;
+        padding: 28px;
+        border-right: 1px solid var(--ink);
+      }
+
+      .experiment div:last-child {
+        border: 0;
+      }
+
+      .experiment b {
+        display: block;
+        margin-bottom: 70px;
+        color: var(--ink);
+        font: 400 106px/0.8 var(--font-display);
+      }
+
+      .experiment span {
+        font: 600 18px/1.3 var(--font-body);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .solution {
+        display: grid;
+        grid-template-columns: 690px 1fr;
+        gap: 78px;
+        align-items: center;
+      }
+
+      .winner {
+        margin-top: 18px;
+        color: var(--ink);
+        font: 400 90px/0.88 var(--font-display);
+        letter-spacing: -0.005em;
+      }
+
+      .reason {
+        display: grid;
+        gap: 0;
+        margin-top: 26px;
+      }
+
+      .reason p {
+        margin: 0;
+        padding: 11px 0;
+        border-top: 1px solid var(--ink-faint);
+      }
+
+      .reason p::before {
+        content: "→";
+        display: inline-block;
+        width: 42px;
+        color: var(--ink);
+        font-family: var(--font-mono);
+      }
+
+      blockquote {
+        margin: 28px 0 0;
+        padding: 18px 0 0;
+        border: 0;
+        border-top: 1px solid var(--ink);
+        color: var(--ink);
+        font: italic 400 29px/1.3 var(--font-display);
+      }
+
+      .commit {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 52px;
+        margin-top: 44px;
+      }
+
+      .commit article {
+        display: grid;
+        grid-template-columns: 96px 1fr;
+        gap: 22px;
+        padding-top: 22px;
+        border-top: 1.5px solid var(--ink);
+      }
+
+      .commit .n {
+        color: var(--ink);
+        font: 400 56px/0.9 var(--font-display);
+      }
+
+      .commit p {
+        margin: 0;
+        font-size: 22px;
+      }
+
+      .mapping {
+        display: grid;
+        grid-template-columns: 1fr 70px 1fr;
+        row-gap: 0;
+      }
+
+      .mapping .cell {
+        min-height: 128px;
+        padding: 20px 24px;
+        border-top: 1px solid var(--ink-faint);
+      }
+
+      .mapping .arrow {
+        display: grid;
+        place-items: center;
+        color: var(--ink);
+        font: 400 28px/1 var(--font-mono);
+      }
+
+      .mapping strong {
+        display: block;
+        margin-bottom: 7px;
+        font: 400 29px/1.08 var(--font-display);
+      }
+
+      .mapping span {
+        color: var(--ink);
+        opacity: 0.68;
+        font-size: 19px;
+      }
+
+      /* ===========================================
+   REPLACEABLE SCREENSHOT FRAMES
+   Click or drop images; frames remain strict rectangles.
+   =========================================== */
+      .media-slot {
+        position: relative;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        border: 2px dashed var(--ink);
+        border-radius: 0;
+        background-color: var(--paper);
+        background-image:
+          linear-gradient(
+            45deg,
+            var(--grid) 25%,
+            transparent 25%,
+            transparent 75%,
+            var(--grid) 75%
+          ),
+          linear-gradient(
+            45deg,
+            var(--grid) 25%,
+            transparent 25%,
+            transparent 75%,
+            var(--grid) 75%
+          );
+        background-position:
+          0 0,
+          20px 20px;
+        background-size: 40px 40px;
+        box-shadow: none;
+        color: var(--ink);
+        cursor: pointer;
+      }
+
+      .media-slot.dragging {
+        outline: 8px solid var(--ink);
+        outline-offset: -8px;
+      }
+
+      .media-slot img {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: none;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: var(--paper);
+      }
+
+      .media-slot.has-image img {
+        display: block;
+      }
+
+      .slot-copy {
+        max-width: 74%;
+        padding: 20px;
+        color: var(--ink);
+        text-align: center;
+      }
+
+      .slot-icon {
+        display: block;
+        font: 400 62px/1 var(--font-display);
+      }
+
+      .slot-copy strong {
+        display: block;
+        margin: 8px 0;
+        font: 400 26px/1.1 var(--font-display);
+      }
+
+      .slot-copy small {
+        font: 400 14px/1 var(--font-mono);
+        letter-spacing: 0.05em;
+      }
+
+      .remove {
+        position: absolute;
+        z-index: 3;
+        right: 10px;
+        top: 10px;
+        display: none;
+        padding: 8px 10px;
+        border: 1px solid var(--ink);
+        border-radius: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font: 400 12px/1 var(--font-mono);
+      }
+
+      .has-image:hover .remove {
+        display: block;
+      }
+
+      .sketch {
+        width: 850px;
+        height: 700px;
+      }
+
+      .phone {
+        width: 420px;
+        height: 760px;
+        margin: auto;
+        border: 10px solid var(--ink);
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .wide {
+        height: 420px;
+      }
+
+      .screens {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 58px;
+        align-items: end;
+      }
+
+      .mini .media-slot {
+        width: 300px;
+        height: 530px;
+        margin: auto;
+        border: 7px solid var(--ink);
+        border-radius: 0;
+      }
+
+      .mini h3,
+      .mini p {
+        text-align: center;
+      }
+
+      .mini h3 {
+        margin-top: 16px;
+      }
+
+      .mini p {
+        margin: 0;
+        font-size: 18px;
+        opacity: 0.7;
+      }
+
+      .demo {
+        display: grid;
+        grid-template-columns: 1fr 650px;
+        gap: 70px;
+        align-items: center;
+      }
+
+      .demo h2 {
+        max-width: 1050px;
+      }
+
+      .demo ul {
+        max-width: 880px;
+        margin: 24px 0 30px;
+        padding-left: 28px;
+      }
+
+      .demo li {
+        margin: 12px 0;
+      }
+
+      .route {
+        display: inline-block;
+        padding: 13px 16px;
+        border: 1.5px solid var(--ink);
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 16px;
+      }
+
+      /* ===========================================
+   USER STUDY AND RESULTS LAYOUTS
+   Structured as research ledgers, not UI cards.
+   =========================================== */
+      .study {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 76px;
+        border-block: 2px solid var(--ink);
+      }
+
+      .study article {
+        min-height: 330px;
+        padding: 28px;
+        border-right: 1px solid var(--ink);
+      }
+
+      .study article:last-child {
+        border: 0;
+      }
+
+      .value {
+        color: var(--ink);
+        font: 400 82px/0.9 var(--font-display);
+      }
+
+      .study h3 {
+        margin-top: 46px;
+      }
+
+      .study p {
+        font-size: 20px;
+      }
+
+      .tasks {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+      }
+
+      .task {
+        min-height: 300px;
+        padding: 32px 0;
+        border: 0;
+        border-block: 2px solid var(--ink);
+      }
+
+      .task .mono {
+        font-size: 16px;
+      }
+
+      .task h3 {
+        margin-top: 54px;
+        font-size: 44px;
+      }
+
+      .task p {
+        font-size: 21px;
+      }
+
+      .procedure {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        margin-top: 36px;
+        border-block: 1.5px solid var(--ink);
+      }
+
+      .procedure span {
+        flex: 1;
+        min-height: 88px;
+        display: grid;
+        place-items: center;
+        padding: 12px;
+        border-right: 1px solid var(--ink-faint);
+        background: transparent;
+        color: var(--ink);
+        font: 600 14px/1.35 var(--font-body);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .procedure i {
+        display: none;
+      }
+
+      .hint {
+        color: var(--ink);
+        opacity: 0.55;
+        font: 400 13px/1.4 var(--font-mono);
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        margin-bottom: 30px;
+        border-block: 2px solid var(--ink);
+      }
+
+      .metric {
+        padding: 20px 26px;
+        border: 0;
+        border-right: 1px solid var(--ink);
+        background: transparent;
+      }
+
+      .metric:last-child {
+        border: 0;
+      }
+
+      .editable {
+        display: block;
+        min-height: 74px;
+        color: var(--ink);
+        font: 400 70px/0.95 var(--font-display);
+        outline: none;
+      }
+
+      .metric p {
+        margin: 10px 0 0;
+        font: 600 14px/1 var(--font-body);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .results {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 46px;
+      }
+
+      .result-note {
+        padding: 28px 0;
+        border-block: 2px solid var(--ink);
+        background: transparent;
+        color: var(--ink);
+      }
+
+      .result-note h3,
+      .result-note p {
+        color: var(--ink);
+        outline: none;
+      }
+
+      .result-note p {
+        font-size: 21px;
+      }
+
+      .findings {
+        display: grid;
+        grid-template-columns: 44% 56%;
+        gap: 52px;
+      }
+
+      .findings .media-slot {
+        height: 590px;
+      }
+
+      .quotes {
+        display: grid;
+        gap: 0;
+        border-top: 2px solid var(--ink);
+      }
+
+      .quote {
+        padding: 24px 0;
+        border: 0;
+        border-bottom: 1px solid var(--ink-faint);
+        background: transparent;
+      }
+
+      .quote blockquote {
+        margin: 0 0 12px;
+        padding: 0;
+        border: 0;
+        font-size: 30px;
+        outline: none;
+      }
+
+      .quote p,
+      .quote h3 {
+        margin: 0;
+        color: var(--ink);
+        outline: none;
+      }
+
+      .quote p {
+        font: 400 13px/1 var(--font-mono);
+      }
+
+      .takeaways {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px;
+        margin-top: 90px;
+      }
+
+      .takeaways article {
+        padding-top: 22px;
+        border-top: 2px solid var(--ink);
+      }
+
+      .takeaways article:nth-child(n) {
+        border-color: var(--ink);
+      }
+
+      .takeaways p {
+        color: var(--ink);
+        font-size: 21px;
+      }
+
+      /* ===========================================
+   PRESENTATION CONTROLS AND INLINE EDITING
+   Chrome lives outside the 1920×1080 stage.
+   =========================================== */
+      .controls {
+        opacity: 0;
+      }
+
+      .controls:hover,
+      .controls:focus-within {
+        opacity: 1;
+      }
+
+      .progress {
+        background: var(--ink);
+      }
+
+      .notes-panel {
+        background: #111967;
+        color: var(--paper);
+      }
+
+      .notes-panel h3,
+      .notes-panel p {
+        color: var(--paper);
+      }
+
+      .edit-hotzone {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 80px;
+        height: 80px;
+        z-index: 10000;
+        cursor: pointer;
+      }
+
+      .edit-toggle {
+        position: fixed;
+        top: 18px;
+        left: 18px;
+        z-index: 10001;
+        opacity: 0;
+        pointer-events: none;
+        padding: 10px 12px;
+        border: 1px solid var(--paper);
+        background: var(--ink);
+        color: var(--paper);
+        transition: opacity 0.3s ease;
+      }
+
+      .edit-toggle.show,
+      .edit-toggle.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .edit-mode [contenteditable="true"] {
+        outline: 2px dashed var(--ink);
+        outline-offset: 3px;
+        cursor: text;
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;800;900&family=Nunito:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ===========================================
+   PA3 VISUAL CONTINUITY — SWISS MODERN
+   This final layer intentionally mirrors docs/PA3_presentation.html.
+   =========================================== */
+      :root {
+        --stage-bg: #e5e5e5;
+        --slide-bg: #ffffff;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f7f7f8;
+        --text-primary: #0a0a0a;
+        --text-secondary: #444444;
+        --text-muted: #666666;
+        --accent: #e02e00;
+        --accent-light: rgba(224, 46, 0, 0.08);
+        --accent-medium: rgba(224, 46, 0, 0.16);
+        --grid-color: rgba(0, 0, 0, 0.04);
+        --border-color: rgba(0, 0, 0, 0.12);
+        --font-display: "Archivo", sans-serif;
+        --font-body: "Nunito", sans-serif;
+        --font-mono: "Archivo", sans-serif;
+      }
+
+      /* === BASE CANVAS AND PA3 GRID === */
+      body {
+        color: var(--text-primary);
+        font-family: var(--font-body);
+      }
+
+      .slide {
+        padding: 80px 80px 112px;
+        color: var(--text-primary);
+        background: var(--bg-primary);
+        transition: opacity 0.5s ease;
+      }
+
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background-image:
+          linear-gradient(var(--grid-color) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+        background-size: 80px 80px;
+        pointer-events: none;
+      }
+
+      .slide::after,
+      .title-slide::after,
+      .conclusion::after {
+        content: "";
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        left: 0;
+        right: auto;
+        width: 100%;
+        height: 6px;
+        background: var(--accent);
+        clip-path: none;
+      }
+
+      .slide > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .mark {
+        display: none;
+      }
+
+      /* === TYPOGRAPHY: ARCHIVO + NUNITO === */
+      .kicker {
+        display: inline-block;
+        width: fit-content;
+        margin: 0 0 24px;
+        padding: 8px 20px;
+        border: 2px solid var(--accent);
+        color: var(--accent);
+        font: 700 18px/1 var(--font-display);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--text-primary);
+        font-family: var(--font-display);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      h1 {
+        margin: 0 0 24px;
+        max-width: 1450px;
+        font-size: 96px;
+        line-height: 1.06;
+      }
+
+      h2 {
+        margin: 0 0 42px;
+        max-width: 1540px;
+        font-size: 72px;
+        line-height: 1.08;
+      }
+
+      h3 {
+        margin: 0 0 12px;
+        font-size: 32px;
+        line-height: 1.15;
+      }
+
+      p,
+      li {
+        color: var(--text-primary);
+        font: 400 25px/1.5 var(--font-body);
+      }
+
+      .lead {
+        max-width: 980px;
+        color: var(--text-secondary);
+        font-size: 30px;
+        line-height: 1.55;
+      }
+
+      .muted {
+        color: var(--text-secondary);
+        opacity: 1;
+      }
+
+      .mono,
+      .route {
+        font-family: var(--font-display);
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      .tag {
+        padding: 8px 20px;
+        border: 2px solid var(--accent);
+        border-radius: 0;
+        color: var(--accent);
+        font: 700 18px/1 var(--font-display);
+        letter-spacing: 0.18em;
+      }
+
+      .meta {
+        position: absolute;
+        left: 80px;
+        right: 40px;
+        bottom: 30px;
+        color: var(--text-muted);
+        font: 700 18px/1 var(--font-display);
+        letter-spacing: 0.1em;
+      }
+
+      .meta.light {
+        color: var(--text-muted);
+      }
+
+      /* === PA3-MATCHED COVER === */
+      .title-slide,
+      .conclusion {
+        background: var(--bg-primary);
+        color: var(--text-primary);
+      }
+
+      .title-slide h1 {
+        margin-top: 90px;
+        max-width: 1180px;
+        color: var(--text-primary);
+        font-size: 106px;
+        font-weight: 900;
+        line-height: 0.98;
+        letter-spacing: -0.035em;
+      }
+
+      .title-slide h1::first-line {
+        color: var(--text-primary);
+      }
+
+      .title-slide .lead {
+        max-width: 1050px;
+        color: var(--accent);
+        font-size: 34px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        margin-top: 18px;
+        margin-bottom: 24px;
+      }
+
+      .title-slide .hero-tags {
+        display: flex;
+        gap: 14px;
+        margin-top: 24px;
+      }
+
+      .title-slide .hero-tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 18px;
+        border: 2px solid var(--border-color);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text-secondary);
+        font-size: 16px;
+        font-weight: 800;
+        font-family: var(--font-display);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.05);
+      }
+
+      .title-slide .hero-tag strong {
+        color: var(--accent);
+        margin-right: 6px;
+      }
+
+      .title-slide .chess {
+        position: absolute;
+        right: 90px;
+        top: 250px;
+        bottom: auto;
+        width: 440px;
+        height: 440px;
+        display: grid;
+        place-items: center;
+        border: 4px solid #1c1712;
+        border-radius: 32px;
+        background: #fffaf0;
+        box-shadow: 16px 20px 0 rgba(28, 23, 18, 0.18);
+        padding: 40px;
+        transform: none;
+      }
+
+      .title-slide .chess img,
+      .title-slide .chess-logo {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .conclusion h2 {
+        max-width: 1420px;
+        color: var(--text-primary);
+        font-size: 94px;
+        font-weight: 900;
+      }
+
+      .conclusion .takeaways {
+        max-width: none;
+      }
+
+      /* === REVEAL MOTION: SAME CLEAN PA3 FEEL === */
+      .reveal {
+        opacity: 1;
+        transform: translateY(24px);
+        transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .slide.visible .reveal {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* === TWO COL & LAYOUT UTILITIES === */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      /* === TEAM ROSTER (SLIDE 1) === */
+      .title-slide .meta {
+        left: auto;
+        right: 80px;
+        bottom: 28px;
+      }
+
+      .title-slide .meta span:first-child {
+        display: none;
+      }
+
+      .team-footer {
+        position: absolute;
+        bottom: 28px;
+        left: 80px;
+        right: 200px;
+        z-index: 10;
+        border-top: 1.5px solid rgba(28, 23, 18, 0.14);
+        padding-top: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .team-label {
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 900;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .team-names {
+        font-family: var(--font-body);
+        font-size: 19px;
+        font-weight: 700;
+        color: #1c1712;
+      }
+
+      /* === AGENDA STYLING (PA3 MATCHED) === */
+      .agenda-item {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .agenda-item:last-child {
+        border-bottom: none;
+      }
+
+      .agenda-item__num {
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 48px;
+        color: var(--accent);
+        min-width: 76px;
+      }
+
+      .agenda-item__title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 30px;
+        color: var(--text-primary);
+      }
+
+      .agenda-item__desc {
+        font-family: var(--font-body);
+        font-size: 20px;
+        color: var(--text-secondary);
+        margin-top: 3px;
+      }
+
+      /* === AGENDA, PROBLEMS, AND PA3 SELECTION === */
+      .story {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-top: 84px;
+      }
+
+      .story article {
+        min-height: 390px;
+        padding: 34px;
+        border: 2px solid var(--border-color);
+        background: #fff;
+      }
+
+      .story article:nth-child(n) {
+        border-color: var(--border-color);
+      }
+
+      .story article::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: var(--accent);
+      }
+
+      .big-n {
+        color: var(--accent);
+        font: 900 74px/0.9 var(--font-display);
+      }
+
+      .problem-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 42px;
+      }
+
+      .problem-card {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        align-items: center;
+        gap: 30px;
+        height: 650px;
+        padding: 24px;
+        border: 2px solid var(--border-color);
+        background: #fff;
+      }
+
+      .problem-shot {
+        width: 300px;
+        height: 598px;
+        object-fit: cover;
+        object-position: top;
+        border: 2px solid var(--text-primary);
+        border-radius: 18px;
+        background: #fff;
+      }
+
+      .problem-copy {
+        align-self: center;
+      }
+
+      .problem-copy .mono {
+        display: block;
+        margin-bottom: 22px;
+        color: var(--accent);
+        font-size: 18px;
+      }
+
+      .problem-copy h3 {
+        margin-bottom: 20px;
+        font-size: 40px;
+      }
+
+      .problem-copy p {
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: 23px;
+        line-height: 1.5;
+      }
+
+      .paper-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 34px;
+      }
+
+      .paper-card {
+        height: 660px;
+        padding: 20px;
+        border: 2px solid var(--border-color);
+        background: #fff;
+      }
+
+      .paper-shot {
+        display: block;
+        width: 100%;
+        height: 490px;
+        object-fit: contain;
+        border-bottom: 1px solid var(--border-color);
+        background: #f7f7f7;
+      }
+
+      .paper-card figcaption {
+        padding: 20px 6px 0;
+      }
+
+      .paper-card .mono {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--accent);
+        font-size: 16px;
+      }
+
+      .paper-card strong {
+        display: block;
+        color: var(--text-primary);
+        font: 800 27px/1.15 var(--font-display);
+      }
+
+      .paper-card small {
+        display: block;
+        margin-top: 8px;
+        color: var(--text-secondary);
+        font: 500 18px/1.3 var(--font-body);
+      }
+
+      .selected-solution {
+        display: grid;
+        grid-template-columns: 980px 1fr;
+        gap: 64px;
+        align-items: center;
+      }
+
+      .solution-photos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+        height: 650px;
+      }
+
+      .solution-photos.single {
+        grid-template-columns: 1fr;
+        width: 520px;
+        margin: 0 auto;
+      }
+
+      .solution-photo {
+        width: 100%;
+        height: 650px;
+        object-fit: contain;
+        border: 2px solid var(--border-color);
+        background: #f7f7f7;
+      }
+
+      .solution-copy .tag {
+        margin-bottom: 24px;
+      }
+
+      .solution-copy h3 {
+        margin-bottom: 28px;
+        font-size: 58px;
+      }
+
+      .solution-copy .reason {
+        margin-top: 0;
+      }
+
+      .solution-copy .reason p {
+        font-size: 24px;
+      }
+
+      .pa3 {
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 70px;
+      }
+
+      .problems li {
+        padding: 25px 0;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .problems strong {
+        color: var(--text-primary);
+        font: 800 34px/1.15 var(--font-display);
+      }
+
+      .experiment {
+        border: 2px solid var(--border-color);
+        background: #fff;
+      }
+
+      .experiment div {
+        min-height: 270px;
+        padding: 34px;
+        border-right: 1px solid var(--border-color);
+      }
+
+      .experiment b {
+        color: var(--accent);
+        font: 900 96px/0.9 var(--font-display);
+      }
+
+      .experiment span {
+        color: var(--text-secondary);
+        font: 700 18px/1.35 var(--font-display);
+        letter-spacing: 0.1em;
+      }
+
+      .solution {
+        grid-template-columns: 700px 1fr;
+        gap: 72px;
+      }
+
+      .winner {
+        color: var(--text-primary);
+        font: 900 78px/0.92 var(--font-display);
+        letter-spacing: -0.03em;
+      }
+
+      .reason p {
+        padding: 12px 0;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+
+      .reason p::before {
+        content: "→";
+        color: var(--accent);
+        font-family: var(--font-display);
+        font-weight: 900;
+      }
+
+      blockquote {
+        padding: 20px 0 0;
+        border-top: 2px solid var(--accent);
+        color: var(--text-primary);
+        font: italic 600 27px/1.45 var(--font-body);
+      }
+
+      .commit article {
+        grid-template-columns: 92px 1fr;
+        padding: 26px 28px;
+        border: 2px solid var(--border-color);
+        background: #fff;
+      }
+
+      .commit article::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 5px;
+        height: 100%;
+        background: var(--accent);
+      }
+
+      .commit .n {
+        color: var(--accent);
+        font: 900 48px/0.9 var(--font-display);
+      }
+
+      .mapping .cell {
+        padding: 20px 24px;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .mapping .arrow {
+        color: var(--accent);
+        font-family: var(--font-display);
+        font-weight: 900;
+      }
+
+      .mapping strong {
+        color: var(--text-primary);
+        font: 800 27px/1.1 var(--font-display);
+      }
+
+      .mapping span {
+        color: var(--text-secondary);
+        opacity: 1;
+        font-size: 19px;
+      }
+
+      /* === SCREENSHOT AND PHONE FRAMES === */
+      .media-slot {
+        border: 3px dashed var(--border-color);
+        border-radius: 14px;
+        background: var(--bg-secondary);
+        background-image: none;
+        box-shadow: none;
+        color: var(--text-muted);
+      }
+
+      .media-slot:hover {
+        border-color: var(--accent);
+      }
+
+      .media-slot.dragging {
+        outline-color: var(--accent);
+      }
+
+      .media-slot img {
+        background: #fff;
+      }
+
+      .slot-copy {
+        color: var(--text-muted);
+      }
+
+      .slot-icon {
+        color: var(--accent);
+        font: 900 58px/1 var(--font-display);
+      }
+
+      .slot-copy strong {
+        color: var(--text-primary);
+        font: 800 24px/1.15 var(--font-display);
+      }
+
+      .slot-copy small {
+        color: var(--text-muted);
+        font-family: var(--font-body);
+      }
+
+      .remove {
+        border: 2px solid var(--text-primary);
+        border-radius: 6px;
+        background: #fff;
+        color: var(--text-primary);
+        font-family: var(--font-display);
+        font-weight: 700;
+      }
+
+      .sketch {
+        width: 850px;
+        height: 700px;
+      }
+
+      .phone {
+        width: 410px;
+        height: 750px;
+        border: 8px solid #1c1712;
+        border-radius: 34px;
+        background: #fff;
+        box-shadow: 12px 16px 0 rgba(28, 23, 18, 0.14);
+      }
+
+      .mini .media-slot {
+        width: 300px;
+        height: 530px;
+        border: 5px solid #1c1712;
+        border-radius: 22px;
+        box-shadow: 7px 9px 0 rgba(28, 23, 18, 0.12);
+      }
+
+      .mini h3 {
+        font-size: 28px;
+      }
+
+      .mini p {
+        color: var(--text-secondary);
+      }
+
+      .hifi-phone {
+        display: block;
+        width: 350px;
+        height: 758px;
+        border: 9px solid #1c1712;
+        border-radius: 38px;
+        background: #fff;
+        box-shadow: 12px 16px 0 rgba(28, 23, 18, 0.14);
+        pointer-events: none;
+      }
+
+      .hifi-phone.small {
+        width: 270px;
+        height: 584px;
+        border-width: 7px;
+        border-radius: 30px;
+        box-shadow: 8px 10px 0 rgba(28, 23, 18, 0.12);
+      }
+
+      .hifi-overview {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 52px;
+        align-items: start;
+        text-align: center;
+      }
+
+      .hifi-overview .hifi-phone {
+        margin: 0 auto 22px;
+      }
+
+      .hifi-overview h3 {
+        margin-bottom: 6px;
+        font-size: 28px;
+      }
+
+      .hifi-overview p {
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: 19px;
+      }
+
+      .demo-hifi {
+        display: grid;
+        grid-template-columns: 820px 1fr;
+        gap: 54px;
+        align-items: center;
+      }
+
+      .phone-pair {
+        display: grid;
+        grid-template-columns: repeat(2, 300px);
+        gap: 26px;
+        justify-content: end;
+      }
+
+      .phone-pair .hifi-phone {
+        width: 300px;
+        height: 650px;
+        border-width: 7px;
+        border-radius: 32px;
+      }
+
+      .hifi-state-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 44px;
+        text-align: center;
+      }
+
+      .hifi-state-grid .hifi-phone {
+        margin: 0 auto 18px;
+      }
+
+      .hifi-state-grid strong {
+        display: block;
+        color: var(--text-primary);
+        font: 800 24px/1.15 var(--font-display);
+      }
+
+      .hifi-state-grid span {
+        display: block;
+        margin-top: 5px;
+        color: var(--text-secondary);
+        font: 500 17px/1.25 var(--font-body);
+      }
+
+      .detail-hifi {
+        display: grid;
+        grid-template-columns: 1fr 560px;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .detail-hifi .hifi-phone {
+        margin: 0 auto;
+      }
+
+      /* === REALISTIC PHONE DEVICE SHELL === */
+      .device-phone {
+        position: relative;
+        width: 350px;
+        height: 750px;
+        padding: 11px;
+        border: 2px solid #555;
+        border-radius: 54px;
+        background: linear-gradient(
+          145deg,
+          #4a4a4a 0%,
+          #0c0c0c 18%,
+          #000 82%,
+          #343434 100%
+        );
+        box-shadow:
+          0 0 0 2px #050505,
+          12px 18px 0 rgba(28, 23, 18, 0.13),
+          0 24px 42px rgba(0, 0, 0, 0.18);
+        isolation: isolate;
+      }
+
+      .device-phone::before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        left: -8px;
+        top: 142px;
+        width: 6px;
+        height: 84px;
+        border-radius: 5px 0 0 5px;
+        background: linear-gradient(#4b4b4b, #111);
+        box-shadow: 0 104px 0 #1a1a1a;
+      }
+
+      .device-phone::after {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        right: -8px;
+        top: 190px;
+        width: 6px;
+        height: 116px;
+        border-radius: 0 5px 5px 0;
+        background: linear-gradient(#4b4b4b, #111);
+      }
+
+      .device-phone .hifi-phone {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        border: 0;
+        border-radius: 42px;
+        background: #fff;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+      }
+
+      .device-phone.small,
+      .hifi-overview .device-phone,
+      .hifi-state-grid .device-phone {
+        width: 270px;
+        height: 580px;
+        padding: 8px;
+        border-radius: 43px;
+      }
+
+      .device-phone.small .hifi-phone,
+      .hifi-overview .device-phone .hifi-phone,
+      .hifi-state-grid .device-phone .hifi-phone {
+        border-radius: 34px;
+      }
+
+      .device-phone.small .device-island,
+      .hifi-overview .device-island,
+      .hifi-state-grid .device-island {
+        top: 13px;
+        width: 76px;
+        height: 19px;
+      }
+
+      .device-phone.small .device-homebar,
+      .hifi-overview .device-homebar,
+      .hifi-state-grid .device-homebar {
+        bottom: 12px;
+        width: 72px;
+        height: 4px;
+      }
+
+      .hifi-overview .device-phone,
+      .hifi-state-grid .device-phone {
+        margin: 0 auto 22px;
+      }
+
+      .hifi-nav-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 270px);
+        justify-content: center;
+        gap: 54px;
+        margin-top: 28px;
+      }
+
+      .hifi-nav-grid > div {
+        text-align: center;
+      }
+
+      .hifi-nav-grid strong,
+      .hifi-nav-grid span {
+        display: block;
+      }
+
+      .hifi-nav-grid strong {
+        font-size: 20px;
+        margin-bottom: 6px;
+      }
+
+      .hifi-nav-grid span {
+        color: var(--text-secondary);
+        font-size: 14px;
+      }
+
+      .phone-pair .device-phone {
+        width: 300px;
+        height: 650px;
+        padding: 9px;
+        border-radius: 47px;
+      }
+
+      .phone-pair .device-phone .hifi-phone {
+        border-radius: 38px;
+      }
+
+      .problem-card .device-phone {
+        width: 300px;
+        height: 598px;
+        padding: 9px;
+        border-radius: 46px;
+      }
+
+      .problem-card .device-phone .hifi-phone {
+        border-radius: 37px;
+      }
+
+      .problem-card .device-phone {
+        justify-self: center;
+      }
+
+      .detail-hifi .device-phone {
+        margin: 0 auto;
+      }
+
+      .demo {
+        grid-template-columns: 1fr 620px;
+        gap: 70px;
+      }
+
+      .demo li {
+        margin: 13px 0;
+        color: var(--text-secondary);
+      }
+
+      .route {
+        padding: 12px 18px;
+        border: 2px solid var(--text-primary);
+        background: #fff;
+        color: var(--text-primary);
+        font-size: 16px;
+      }
+
+      /* === USER STUDY, TASKS, AND EDITABLE RESULTS === */
+      .study {
+        border-block: 3px solid var(--text-primary);
+      }
+
+      .study article {
+        border-right: 1px solid var(--border-color);
+      }
+
+      .value {
+        color: var(--accent);
+        font: 900 78px/0.9 var(--font-display);
+      }
+
+      .study h3 {
+        font-weight: 800;
+      }
+
+      .study p {
+        color: var(--text-secondary);
+      }
+
+      .task {
+        padding: 32px;
+        border: 2px solid var(--border-color);
+        background: #fff;
+      }
+
+      .task h3 {
+        color: var(--text-primary);
+        font: 800 42px/1.15 var(--font-display);
+      }
+
+      .task p {
+        color: var(--text-secondary);
+      }
+
+      .procedure {
+        border-block: 2px solid var(--text-primary);
+      }
+
+      .procedure span {
+        border-right: 1px solid var(--border-color);
+        color: var(--text-primary);
+        font-family: var(--font-display);
+        font-weight: 700;
+      }
+
+      .procedure + .hint {
+        margin: 12px 0 0;
+        color: var(--accent);
+        opacity: 1;
+        font: 700 17px/1.25 var(--font-display);
+        letter-spacing: 0.02em;
+      }
+
+      .metrics {
+        border-block: 3px solid var(--text-primary);
+      }
+
+      .metric {
+        border-right: 1px solid var(--border-color);
+      }
+
+      .editable {
+        color: var(--accent);
+        font: 900 68px/0.95 var(--font-display);
+      }
+
+      .metric p {
+        color: var(--text-secondary);
+        font-family: var(--font-display);
+        font-weight: 700;
+      }
+
+      /* === RAW RESULTS COMPARATIVE TABLE === */
+      .raw-table-wrap {
+        margin-top: 14px;
+        border: 2.5px solid #1c1712;
+        border-radius: 14px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 6px 8px 0 rgba(28, 23, 18, 0.14);
+      }
+
+      .raw-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: var(--font-body);
+        font-size: 15.5px;
+        text-align: center;
+      }
+
+      .raw-table th {
+        background: #1c1712;
+        color: #fff;
+        padding: 11px 12px;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 14px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        border-right: 1px solid rgba(255, 255, 255, 0.15);
+        line-height: 1.25;
+      }
+
+      .raw-table th:last-child {
+        border-right: none;
+      }
+
+      .raw-table td {
+        padding: 9px 10px;
+        border-bottom: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+        color: var(--text-primary);
+        font-size: 15px;
+      }
+
+      .raw-table td:last-child {
+        border-right: none;
+      }
+
+      .raw-table tr:nth-child(even) td {
+        background: #fbf9f6;
+      }
+
+      .raw-table tr.mean-row td {
+        background: #fff0eb;
+        font-weight: 800;
+        font-family: var(--font-display);
+        font-size: 15.5px;
+        border-top: 2.5px solid var(--accent);
+        border-bottom: none;
+        color: #1c1712;
+      }
+
+      .raw-table .delta-badge {
+        display: inline-block;
+        padding: 2px 6px;
+        border-radius: 4px;
+        background: rgba(13, 138, 67, 0.12);
+        color: #0d8a43;
+        font-weight: 800;
+        font-size: 13px;
+        margin-left: 3px;
+      }
+
+      .raw-table .base-val {
+        color: #777;
+        text-decoration: line-through;
+        margin-right: 5px;
+        font-size: 13.5px;
+      }
+
+      .raw-table .proto-val {
+        font-weight: 800;
+        color: #1c1712;
+      }
+
+      /* === RAW DATA MODAL & TOGGLE === */
+      .raw-data-modal {
+        position: absolute;
+        inset: 0;
+        background: rgba(23, 29, 120, 0.45);
+        backdrop-filter: blur(8px);
+        z-index: 100;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 36px 48px;
+      }
+
+      .raw-data-modal.active {
+        display: flex;
+      }
+
+      .raw-data-card {
+        position: relative;
+        width: 100%;
+        max-width: 1720px;
+        background: #fff;
+        border: 3px solid #1c1712;
+        border-radius: 20px;
+        padding: 28px 36px 32px;
+        box-shadow: 14px 18px 0 #1c1712;
+        max-height: 960px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .raw-data-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        padding-bottom: 14px;
+        border-bottom: 2px solid var(--border-color);
+      }
+
+      .raw-data-header h3 {
+        margin: 0;
+        font-size: 30px;
+        font-weight: 800;
+        color: #1c1712;
+      }
+
+      .raw-data-close {
+        width: 44px;
+        height: 44px;
+        border: 2.5px solid #1c1712;
+        border-radius: 10px;
+        background: #fff;
+        font-size: 22px;
+        font-weight: 900;
+        color: #1c1712;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        transition: all 0.18s ease;
+      }
+
+      .raw-data-close:hover {
+        background: var(--accent);
+        color: #fff;
+        transform: scale(1.06);
+      }
+
+      .raw-toggle-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 18px;
+        border: 2.5px solid #1c1712;
+        border-radius: 8px;
+        background: #fff;
+        color: #1c1712;
+        font-family: var(--font-display);
+        font-size: 15px;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 3px 4px 0 #1c1712;
+        transition: all 0.18s ease;
+      }
+
+      .raw-toggle-btn:hover {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 4px 5px 0 #1c1712;
+        transform: translateY(-2px);
+      }
+
+      .compare-chart {
+        display: grid;
+        gap: 24px;
+        margin-top: 14px;
+        padding: 26px 32px;
+        border: 2.5px solid #1c1712;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 4px 5px 0 rgba(28, 23, 18, 0.08);
+      }
+
+      .compare-row {
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .compare-row + .compare-row {
+        padding-top: 22px;
+        border-top: 1.5px solid rgba(28, 23, 18, 0.12);
+      }
+
+      .compare-label {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 21px;
+        color: #1c1712;
+        line-height: 1.25;
+      }
+
+      .compare-bars {
+        display: grid;
+        gap: 12px;
+      }
+
+      .compare-bar {
+        display: grid;
+        grid-template-columns: 115px 1fr;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .compare-bar-tag {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 16px;
+        color: #1c1712;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .compare-bar-track {
+        position: relative;
+        height: 42px;
+        background: #ece8e1;
+        border-radius: 8px;
+        border: 1.5px solid rgba(28, 23, 18, 0.12);
+        overflow: hidden;
+      }
+
+      .compare-bar-fill {
+        height: 100%;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 18px;
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 20px;
+        color: #fff;
+        white-space: nowrap;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+      }
+
+      .compare-bar-fill.baseline {
+        background: #9d9485;
+      }
+
+      .compare-bar-fill.prototype {
+        background: var(--accent);
+      }
+
+      .result-note {
+        padding: 30px;
+        border: 2px solid var(--border-color);
+        background: var(--accent-light);
+      }
+
+      .result-note h3 {
+        color: var(--text-primary);
+        font-weight: 800;
+      }
+
+      .result-note p {
+        color: var(--text-secondary);
+      }
+
+      .findings .media-slot {
+        height: 590px;
+      }
+
+      .quotes {
+        border-top: 3px solid var(--text-primary);
+      }
+
+      .quote {
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .quote blockquote {
+        color: var(--text-primary);
+        font-style: italic;
+      }
+
+      .quote p {
+        color: var(--text-muted);
+        font-family: var(--font-body);
+      }
+
+      .quote h3 {
+        color: var(--accent);
+      }
+
+      .takeaways article {
+        padding: 30px;
+        border: 2px solid var(--border-color);
+        background: #fff;
+      }
+
+      .takeaways article:nth-child(n) {
+        border-color: var(--border-color);
+      }
+
+      .takeaways article::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        background: var(--accent);
+      }
+
+      .takeaways p {
+        color: var(--text-secondary);
+      }
+
+      /* === REAL USER TESTING PHOTO GALLERY === */
+      .testing-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 14px;
+        margin-top: 16px;
+        height: 640px;
+      }
+
+      .testing-card {
+        position: relative;
+        background: #fff;
+        border: 2.5px solid #1c1712;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 5px 5px 0 #1c1712;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+          box-shadow 0.22s ease;
+      }
+
+      .testing-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 6px 10px 0 var(--accent);
+      }
+
+      .testing-photo-wrapper {
+        position: relative;
+        height: 380px;
+        background: #0f0d0b;
+        overflow: hidden;
+      }
+
+      .testing-photo-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      .testing-card:hover .testing-photo-wrapper img {
+        transform: scale(1.05);
+      }
+
+      .testing-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 4px 9px;
+        border-radius: 6px;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        z-index: 2;
+      }
+
+      .testing-badge.proto {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .testing-badge.base {
+        background: #1c1712;
+        color: #fff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .testing-badge.ios {
+        background: #35b86b;
+        color: #fff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .testing-info {
+        padding: 14px 11px;
+        background: #fff;
+        border-top: 2.5px solid #1c1712;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .testing-info h4 {
+        margin: 0 0 4px;
+        font-family: var(--font-display);
+        font-size: 16px;
+        font-weight: 800;
+        color: #1c1712;
+        line-height: 1.15;
+      }
+
+      .testing-info p {
+        margin: 0;
+        font-size: 12.5px;
+        color: var(--text-secondary);
+        line-height: 1.3;
+      }
+
+      .testing-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 6px;
+        padding-top: 6px;
+        border-top: 1px dashed var(--border-color);
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--text-muted);
+      }
+
+      .testing-meta span:last-child {
+        color: var(--accent);
+      }
+
+      /* === PA3-MATCHED NAVIGATION DOTS === */
+      .nav-dots {
+        position: fixed;
+        right: 20px;
+        top: 50%;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        transform: translateY(-50%);
+      }
+
+      .nav-dot {
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.15);
+        transition: 0.3s ease;
+      }
+
+      .nav-dot.active {
+        background: var(--accent);
+        transform: scale(1.6);
+      }
+
+      .progress {
+        display: none;
+      }
+
+      .controls {
+        opacity: 0;
+      }
+
+      .controls:hover,
+      .controls:focus-within {
+        opacity: 1;
+      }
+
+      .notes-panel {
+        background: rgba(10, 10, 10, 0.96);
+        color: #fff;
+      }
+
+      .notes-panel h3,
+      .notes-panel p {
+        color: #fff;
+      }
+
+      .edit-toggle {
+        background: var(--accent);
+        color: #fff;
+        border-color: #fff;
+      }
+
+      .edit-mode [contenteditable="true"] {
+        outline-color: var(--accent);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="deck-viewport">
+      <main
+        class="deck deck-stage"
+        id="deckStage"
+        aria-label="Freestyle Chess PA4 presentation"
+      >
+        <section
+          class="slide title-slide active"
+          data-note="Chào Thầy và các bạn. Đây là bài trình bày PA4 của Nhóm 06: High-fidelity Prototype và Summative User Study cho Freestyle Chess Mobile Web. Trọng tâm hôm nay là sản phẩm Hi-fi hoàn chỉnh, luồng Live Demo 4 phút trên trình duyệt, và kết quả đánh giá thực nghiệm đối chứng với website gốc."
+        >
+          <p class="kicker">Group 06 · Class 23KTMP2 · CSC13112 UI/UX Design</p>
+          <h1>Freestyle Chess,<br />designed for the next move.</h1>
+          <p class="lead">
+            From PA3 Formative Evidence to a High-Fidelity Mobile Experience
+            &amp; Summative Study
+          </p>
+          <div class="chess">
+            <img
+              src="images/freestyle_chess_logo.png"
+              alt="Freestyle Chess Logo"
+              class="chess-logo"
+            />
+          </div>
+          <div class="team-footer">
+            <span class="team-label">TEAM MEMBERS</span>
+            <span class="team-names"
+              >Lê Mai Hoài Bảo · Trương Công Thiên Phú · Lâm Hữu Khánh · Phạm
+              Chí Bảo Ninh · Phùng Ngọc Tuấn</span
+            >
+          </div>
+          <div class="meta light">
+            <span>PA4 · Final Prototype &amp; Summative Study</span
+            ><span>2026</span>
+          </div>
+        </section>
+        <section
+          class="slide"
+          data-note="Slide Agenda tóm tắt 5 phần chính: Bắt đầu từ 2 vấn đề khả dụng cốt lõi của website hiện tại, 2 giải pháp thắng cuộc từ PA3, kiến trúc Hi-fi và Live Demo trên trình duyệt, kết quả đánh giá tổng kết Summative Study với 6 người dùng, và cuối cùng là kết luận cùng bài học thiết kế."
+        >
+          <div
+            class="two-col"
+            style="
+              grid-template-columns: 1.1fr 0.9fr;
+              gap: 60px;
+              align-items: center;
+              width: 100%;
+              height: 100%;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                z-index: 2;
+              "
+            >
+              <p class="kicker">PA4 · Presentation Flow</p>
+              <h2 style="font-size: 64px; margin-bottom: 24px">Agenda</h2>
+              <div class="agenda-item" style="width: 100%">
+                <span class="agenda-item__num">01</span>
+                <div>
+                  <div class="agenda-item__title">Problem Framing</div>
+                  <div class="agenda-item__desc">
+                    Two mobile usability gaps on existing website
+                  </div>
+                </div>
+              </div>
+              <div class="agenda-item" style="width: 100%">
+                <span class="agenda-item__num">02</span>
+                <div>
+                  <div class="agenda-item__title">Selected Solutions</div>
+                  <div class="agenda-item__desc">
+                    Nav-1 and Sch-2 from PA3 formative testing
+                  </div>
+                </div>
+              </div>
+              <div class="agenda-item" style="width: 100%">
+                <span class="agenda-item__num">03</span>
+                <div>
+                  <div class="agenda-item__title">
+                    Hi-fi Prototype &amp; Demo
+                  </div>
+                  <div class="agenda-item__desc">
+                    Interactive web prototype &amp; 4-minute live run
+                  </div>
+                </div>
+              </div>
+              <div class="agenda-item" style="width: 100%">
+                <span class="agenda-item__num">04</span>
+                <div>
+                  <div class="agenda-item__title">Summative User Study</div>
+                  <div class="agenda-item__desc">
+                    Within-subjects counterbalanced comparison (N=6)
+                  </div>
+                </div>
+              </div>
+              <div class="agenda-item" style="width: 100%">
+                <span class="agenda-item__num">05</span>
+                <div>
+                  <div class="agenda-item__title">
+                    Conclusion &amp; Next Steps
+                  </div>
+                  <div class="agenda-item__desc">
+                    Validated hypotheses &amp; design implications
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="reveal-right"
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+              "
+            >
+              <svg
+                viewBox="0 0 100 140"
+                style="
+                  width: 380px;
+                  height: 520px;
+                  opacity: 0.14;
+                  fill: #1c1712;
+                "
+              >
+                <circle cx="50" cy="28" r="18" />
+                <ellipse cx="50" cy="48" rx="21" ry="4.5" />
+                <path
+                  d="M33 50 C35 75, 29 95, 23 105 L77 105 C71 95, 65 75, 67 50 Z"
+                />
+                <rect x="18" y="105" width="64" height="9" rx="3.5" />
+                <rect x="12" y="116" width="76" height="13" rx="5" />
+                <rect x="8" y="131" width="84" height="8" rx="3" />
+              </svg>
+            </div>
+          </div>
+          <div class="meta">
+            <span>PA4 · presentation flow</span><span>02 / 15</span>
+          </div>
+        </section>
+        <section
+          class="slide"
+          data-note="Ở PA3, nhóm tập trung vào P-01 điều hướng một tay và P-05 tìm lịch đấu rồi mở thông tin trận. Chúng tôi tạo sáu paper prototype: ba navigation và ba schedule. Ba người tham gia được phân theo between-subjects, mỗi người test một variant của mỗi task."
+        >
+          <span class="mark">01</span>
+          <p class="kicker">PA3 · Formative testing</p>
+          <h2>
+            Two usability problems were explored through six alternatives.
+          </h2>
+          <div class="pa3">
+            <ul class="problems">
+              <li>
+                <strong>P-01 · One-handed navigation</strong
+                ><span class="muted"
+                  >Reach News and Schedule with the thumb while walking.</span
+                >
+              </li>
+              <li>
+                <strong>P-05 · Schedule lookup</strong
+                ><span class="muted"
+                  >Find a date, inspect players and open match analysis.</span
+                >
+              </li>
+            </ul>
+            <div class="experiment">
+              <div><b>6</b><span>paper variants</span></div>
+              <div><b>3</b><span>participants</span></div>
+              <div><b>2</b><span>task scenarios</span></div>
+            </div>
+          </div>
+          <div class="meta">
+            <span>Between-subjects · non-intervention</span><span>03 / 16</span>
+          </div>
+        </section>
+        <section
+          class="slide"
+          data-note="Solution thứ nhất là Nav-1, fixed bottom navigation bar. Người tham gia nhận ra Schedule ngay, chỉ cần một chạm và không đổi cách cầm. So với FAB, Nav-1 không giấu cấu trúc; so với hamburger toàn màn hình, nó giữ được ngữ cảnh. Chèn ảnh paper prototype Nav-1 vào khung bên phải."
+        >
+          <p class="kicker">Selected solution 1 · P-01</p>
+          <div class="solution">
+            <div>
+              <span class="tag">Winner · Nav-1</span>
+              <div class="winner">FIXED<br />BOTTOM NAV</div>
+              <div class="reason">
+                <p>Direct one-tap access</p>
+                <p>Persistent labels</p>
+                <p>Natural thumb reach</p>
+              </div>
+              <blockquote>
+                “Bottom Nav is effortless; my thumb rests right there
+                naturally.”
+              </blockquote>
+            </div>
+            <figure class="media-slot sketch" data-slot="pa3-nav1">
+              <img alt="PA3 Nav-1 sketch" /><button
+                class="remove"
+                type="button"
+              >
+                Remove
+              </button>
+              <figcaption class="slot-copy">
+                <span class="slot-icon">＋</span
+                ><strong>Insert PA3 Nav-1 sketch</strong
+                ><small>Click or drop PNG/JPG</small>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="meta">
+            <span>Navigation winner</span><span>04 / 16</span>
+          </div>
+        </section>
+        <section
+          class="slide"
+          data-note="Solution thứ hai là Sch-2: date strip kết hợp match detail. Date strip giúp lọc ngày nhanh hơn timeline dài. Matchup card tạo cấu trúc rõ và dẫn đến màn hình bàn cờ 8×8. Phương án tránh scrolling fatigue và tránh làm trang quá dài. Chèn ảnh paper prototype Sch-2 vào khung."
+        >
+          <p class="kicker">Selected solution 2 · P-05</p>
+          <div class="solution">
+            <div>
+              <span class="tag">Winner · Sch-2</span>
+              <div class="winner">DATE STRIP<br />+ DETAIL</div>
+              <div class="reason">
+                <p>Rapid date filtering</p>
+                <p>Clear hierarchy</p>
+                <p>Dedicated 8×8 analysis</p>
+              </div>
+              <blockquote>
+                “The date strip is intuitive; the analysis screen feels
+                professional.”
+              </blockquote>
+            </div>
+            <figure class="media-slot sketch" data-slot="pa3-sch2">
+              <img alt="PA3 Sch-2 sketch" /><button
+                class="remove"
+                type="button"
+              >
+                Remove
+              </button>
+              <figcaption class="slot-copy">
+                <span class="slot-icon">＋</span
+                ><strong>Insert PA3 Sch-2 sketch</strong
+                ><small>Click or drop PNG/JPG</small>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="meta">
+            <span>Schedule winner</span><span>05 / 16</span>
+          </div>
+        </section>
+        <section
+          class="slide"
+          data-note="Formative testing và peer review tạo ra bốn commitment cho PA4: touch target tối thiểu 48×48 pixel; back button rõ; search và filter chip; micro-interaction và active state dưới 250 mili giây. Đây là cầu nối trực tiếp từ PA3 sang hi-fi."
+        >
+          <span class="mark">02</span>
+          <p class="kicker">PA3 → PA4</p>
+          <h2>Four observed breakdowns became four design commitments.</h2>
+          <div class="commit">
+            <article>
+              <div class="n">01</div>
+              <div>
+                <h3>48×48 px targets</h3>
+                <p>Safe navigation, toggles and detail actions.</p>
+              </div>
+            </article>
+            <article>
+              <div class="n">02</div>
+              <div>
+                <h3>Explicit back controls</h3>
+                <p>Keep users in control on nested screens.</p>
+              </div>
+            </article>
+            <article>
+              <div class="n">03</div>
+              <div>
+                <h3>Search + filter chips</h3>
+                <p>Find players and match states without long scrolling.</p>
+              </div>
+            </article>
+            <article>
+              <div class="n">04</div>
+              <div>
+                <h3>Visible feedback</h3>
+                <p>Active states and transitions under 250 ms.</p>
+              </div>
+            </article>
+          </div>
+          <div class="meta">
+            <span>Every improvement traces to PA3</span><span>06 / 16</span>
+          </div>
+        </section>
+        <section
+          class="slide"
+          data-note="Ở PA4, nhóm chuyển commitment thành web prototype chạy thật bằng React và TypeScript. Bottom nav luôn hiện; date strip hỗ trợ cuộn và date picker; search lọc theo người chơi, giải hoặc địa điểm; chip lọc trạng thái; match detail có back navigation và bàn cờ nhúng."
+        >
+          <p class="kicker">Hi-fi design direction</p>
+          <h2>Each PA3 finding became working behavior.</h2>
+          <div class="mapping">
+            <div class="cell">
+              <strong>Hidden navigation</strong
+              ><span>FAB and full-screen menu</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="cell">
+              <strong>Persistent bottom navigation</strong
+              ><span>Active state and one-tap access</span>
+            </div>
+            <div class="cell">
+              <strong>Long schedule browsing</strong
+              ><span>Timeline scrolling fatigue</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="cell">
+              <strong>Date strip, picker, search, filters</strong
+              ><span>Direct routes to a match</span>
+            </div>
+            <div class="cell">
+              <strong>Exit uncertainty</strong><span>Nested detail screen</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="cell">
+              <strong>Back action + preserved state</strong
+              ><span>Return to the same schedule context</span>
+            </div>
+            <div class="cell">
+              <strong>Paper interactions</strong
+              ><span>States switched manually</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="cell">
+              <strong>Responsive coded behavior</strong
+              ><span>React, TypeScript, realistic content</span>
+            </div>
+          </div>
+          <div class="meta">
+            <span>React + TypeScript + Vite</span><span>07 / 16</span>
+          </div>
+        </section>
+        <section
+          class="slide"
+          data-note="Prototype có ba màn hình cốt lõi. Home đặt bối cảnh và mở Schedule. Schedule dùng date strip, search, filter và match card. Match Detail hiển thị kỳ thủ, tỷ số, game và bàn cờ. Chèn ba screenshot dọc; slide này là bản đồ trước live demo."
+        >
+          <p class="kicker">Hi-fi prototype · Overview</p>
+          <h2>One core journey across three connected screens.</h2>
+          <div class="screens">
+            <div class="mini">
+              <figure class="media-slot" data-slot="overview-home">
+                <img alt="Home screen" /><button class="remove" type="button">
+                  Remove
+                </button>
+                <figcaption class="slot-copy">
+                  <span class="slot-icon">＋</span
+                  ><strong>Home screenshot</strong>
+                </figcaption>
+              </figure>
+              <h3>Home</h3>
+              <p>Entry and featured content</p>
+            </div>
+            <div class="mini">
+              <figure class="media-slot" data-slot="overview-schedule">
+                <img alt="Schedule screen" /><button
+                  class="remove"
+                  type="button"
+                >
+                  Remove
+                </button>
+                <figcaption class="slot-copy">
+                  <span class="slot-icon">＋</span
+                  ><strong>Schedule screenshot</strong>
+                </figcaption>
+              </figure>
+              <h3>Schedule</h3>
+              <p>Date, search, filters, matches</p>
+            </div>
+            <div class="mini">
+              <figure class="media-slot" data-slot="overview-detail">
+                <img alt="Match Detail screen" /><button
+                  class="remove"
+                  type="button"
+                >
+                  Remove
+                </button>
+                <figcaption class="slot-copy">
+                  <span class="slot-icon">＋</span
+                  ><strong>Match Detail screenshot</strong>
+                </figcaption>
+              </figure>
+              <h3>Match Detail</h3>
+              <p>Players, games, chessboard</p>
+            </div>
+          </div>
+          <div class="meta">
+            <span>Home → Schedule → Match Detail</span><span>08 / 16</span>
+          </div>
+        </section>
+        <section
+          class="slide"
+          data-note="Home định vị thương hiệu và dẫn người dùng đến nội dung quan trọng. CTA View Schedule và fixed bottom nav đều mở lịch đấu. Bottom nav có năm mục và active state rõ. Chèn screenshot Home đầy đủ vào khung điện thoại."
+        >
+          <div class="demo">
+            <div>
+              <p class="kicker">Hi-fi demo · Screen 1</p>
+              <h2>Home keeps navigation within reach.</h2>
+              <ul>
+                <li>Realistic Freestyle Chess content.</li>
+                <li>Direct “View schedule” action.</li>
+                <li>Persistent five-tab navigation.</li>
+                <li>Visible active state and ≥48 px targets.</li>
+              </ul>
+              <div class="route mono">Route: #/</div>
+            </div>
+            <figure class="media-slot phone" data-slot="demo-home">
+              <img alt="Hi-fi Home" /><button class="remove" type="button">
+                Remove
+              </button>
+              <figcaption class="slot-copy">
+                <span class="slot-icon">＋</span
+                ><strong>Insert Home screenshot</strong
+                ><small>Portrait crop recommended</small>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="meta">
+            <span>Replaceable demo frame</span><span>09 / 16</span>
+          </div>
+        </section>
+        <section
+          class="slide"
+          data-note="Schedule là nơi Sch-2 được phát triển rõ nhất. Date strip lướt nhanh; date picker hỗ trợ nhảy xa. Search tìm theo người chơi, sự kiện hoặc địa điểm. Status chip lọc trạng thái. Match card mở tại chỗ và View Details dẫn sang màn hình chi tiết. Nên live demo thao tác này."
+        >
+          <div class="demo">
+            <div>
+              <p class="kicker">Hi-fi demo · Screen 2</p>
+              <h2>
+                Schedule replaces scrolling friction with direct retrieval.
+              </h2>
+              <ul>
+                <li>Scrollable date strip plus picker.</li>
+                <li>Search by player, event or location.</li>
+                <li>Live, upcoming and completed filters.</li>
+                <li>Expandable cards and clear detail action.</li>
+              </ul>
+              <div class="route mono">Route: #/schedule</div>
+            </div>
+            <figure class="media-slot phone" data-slot="demo-schedule">
+              <img alt="Hi-fi Schedule" /><button class="remove" type="button">
+                Remove
+              </button>
+              <figcaption class="slot-copy">
+                <span class="slot-icon">＋</span
+                ><strong>Insert Schedule screenshot</strong
+                ><small>Show a selected date and open match</small>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="meta">
+            <span>Replaceable demo frame</span><span>10 / 16</span>
+          </div>
+        </section>
+        <section
+          class="slide"
+          data-note="Match Detail hoàn tất task flow. Back giữ date, search và match card đã mở. Phần đầu có giải đấu, ngày, thể thức, người chơi, Elo và tỷ số. Bên dưới là game accordion và bàn cờ Chess.com nhúng. Chèn screenshot có player info và một game đang mở."
+        >
+          <div class="demo">
+            <div>
+              <p class="kicker">Hi-fi demo · Screen 3</p>
+              <h2>Match Detail preserves context and rewards exploration.</h2>
+              <ul>
+                <li>Explicit Back with schedule state preserved.</li>
+                <li>Player identity, Elo, score and status.</li>
+                <li>Expandable game archive.</li>
+                <li>Embedded 8×8 Chess.com board.</li>
+              </ul>
+              <div class="route mono">Route: #/schedule/:matchId</div>
+            </div>
+            <figure class="media-slot phone" data-slot="demo-detail">
+              <img alt="Hi-fi Match Detail" /><button
+                class="remove"
+                type="button"
+              >
+                Remove
+              </button>
+              <figcaption class="slot-copy">
+                <span class="slot-icon">＋</span
+                ><strong>Insert Match Detail screenshot</strong
+                ><small>Show player info and board</small>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="meta">
+            <span>Replaceable demo frame</span><span>11 / 16</span>
+          </div>
+        </section>
+        <section
+          class="slide"
+          data-note="Summative study so sánh prototype với mobile website hiện tại của freestylechess.com. Thiết kế within-subjects cho mỗi người dùng cả hai hệ thống. Năm người tham gia được counterbalance AB hoặc BA để giảm learning effect. Tất cả phiên quay video, khoảng 20 phút mỗi phiên."
+        >
+          <span class="mark">03</span>
+          <p class="kicker">Summative user study · Design</p>
+          <h2>
+            Five participants compare the prototype with the current website.
+          </h2>
+          <div class="study">
+            <article>
+              <div class="value">5</div>
+              <h3>Participants</h3>
+              <p>Minimum required sample.</p>
+            </article>
+            <article>
+              <div class="value">A/B</div>
+              <h3>Within-subjects</h3>
+              <p>Everyone uses both systems.</p>
+            </article>
+            <article>
+              <div class="value">AB/BA</div>
+              <h3>Counterbalanced</h3>
+              <p>Alternate order to reduce learning.</p>
+            </article>
+            <article>
+              <div class="value">20′</div>
+              <h3>Per session</h3>
+              <p>Every session is recorded.</p>
+            </article>
+          </div>
+          <p class="lead" style="margin-top: calc(1.4 * var(--u))">
+            Baseline: <strong>freestylechess.com mobile web</strong>
+          </p>
+          <div class="meta">
+            <span>Summative comparison</span><span>12 / 16</span>
+          </div>
+        </section>
+        <section
+          class="slide"
+          data-note="Hai task bám trực tiếp vào vấn đề PA3. Task 1 yêu cầu mở Schedule khi cầm điện thoại một tay. Task 2 yêu cầu tìm trận theo ngày và mở bàn cờ. Nhóm đo completion time, success, error count, SUS và Likert satisfaction. Quy trình gồm consent, System A, questionnaire, nghỉ, System B, questionnaire và interview."
+        >
+          <p class="kicker">User study · Tasks &amp; measures</p>
+          <h2>The study re-tests the same core needs at higher fidelity.</h2>
+          <div class="tasks">
+            <article class="task">
+              <div class="mono">TASK 01 · NAVIGATION</div>
+              <h3>Open Schedule with one hand.</h3>
+              <p>Success: reach Schedule without assistance.</p>
+            </article>
+            <article class="task">
+              <div class="mono">TASK 02 · MATCH LOOKUP</div>
+              <h3>Find the target date and open the board.</h3>
+              <p>Success: reach Match Detail and view the board.</p>
+            </article>
+          </div>
+          <div class="procedure">
+            <span>Consent + profile</span><i>→</i
+            ><span>System A<br />tasks</span><i>→</i><span>SUS + Likert</span
+            ><i>→</i><span>Break</span><i>→</i><span>System B<br />tasks</span
+            ><i>→</i><span>Interview</span>
+          </div>
+          <p class="hint">
+            Measures: Completion Time · Success · Errors · SUS · Satisfaction
+          </p>
+          <div class="meta">
+            <span>Same needs · stronger evidence</span><span>11 / 16</span>
+          </div>
+        </section>
+        <section
+          class="slide"
+          data-note="Bằng chứng thực nghiệm sinh động nhất là các buổi usability testing trực tiếp trên thiết bị di động thật. 6 bức ảnh ghi lại thực tế 6 phiên kiểm thử: từ việc cầm máy 1 tay thao tác trong Vùng tự nhiên của ngón cái trên Android (P01), kiểm thử bối cảnh ngoài trời tại quán cafe (P02), thao tác vuốt Date Strip chọn ngày 16/8 trên iPhone (P03), đối chứng người dùng gặp khó khăn trên website gốc với menu góc trái (P04), cho đến phiên trải nghiệm mượt mà Bottom Nav (P05) và thao tác kỷ lục 12s không lỗi của P06."
+        >
+          <p class="kicker">Requirement 2 · Empirical Testing Evidence</p>
+          <h2>Real-world user testing sessions in action (N=6).</h2>
+          <div class="testing-grid">
+            <article class="testing-card">
+              <div class="testing-photo-wrapper">
+                <span class="testing-badge proto">Prototype · P01</span>
+                <img
+                  src="images/testing-01-home-thumb.png"
+                  alt="Participant P01 testing one-handed reach on Home screen"
+                />
+              </div>
+              <div class="testing-info">
+                <div>
+                  <h4>One-Handed Reach</h4>
+                  <p>
+                    Thumb easily activates "View schedule" CTA and Bottom Nav
+                    without shifting grip.
+                  </p>
+                </div>
+                <div class="testing-meta">
+                  <span>Android · Handheld</span><span>Task 1 Pass</span>
+                </div>
+              </div>
+            </article>
+            <article class="testing-card">
+              <div class="testing-photo-wrapper">
+                <span class="testing-badge proto">Prototype · P02</span>
+                <img
+                  src="images/testing-02-outdoor-session.png"
+                  alt="Participant P02 testing prototype in outdoor cafe setting"
+                />
+              </div>
+              <div class="testing-info">
+                <div>
+                  <h4>Outdoor Field Test</h4>
+                  <p>
+                    Natural daylight test on live Vercel URL; warm
+                    palette ensures instant readability.
+                  </p>
+                </div>
+                <div class="testing-meta">
+                  <span>Android · Outdoor</span><span>Task 1 &amp; 2 Pass</span>
+                </div>
+              </div>
+            </article>
+            <article class="testing-card">
+              <div class="testing-photo-wrapper">
+                <span class="testing-badge proto">Prototype · P03</span>
+                <img
+                  src="images/testing-03-ios-datestrip.png"
+                  alt="Participant P03 testing Date Strip on iPhone"
+                />
+              </div>
+              <div class="testing-info">
+                <div>
+                  <h4>iOS Date Strip</h4>
+                  <p>
+                    Smooth swipe to 16 Aug and rapid match expansion
+                    (Carlsen vs Lê Quang Liêm).
+                  </p>
+                </div>
+                <div class="testing-meta">
+                  <span>iPhone · Desktop Lab</span><span>Task 2: 18.2s</span>
+                </div>
+              </div>
+            </article>
+            <article class="testing-card">
+              <div class="testing-photo-wrapper">
+                <span class="testing-badge proto">Prototype · P04</span>
+                <img
+                  src="images/testing-04-baseline-freestyle.png"
+                  alt="Participant P04 testing schedule view"
+                />
+              </div>
+              <div class="testing-info">
+                <div>
+                  <h4>Day-by-Day View</h4>
+                  <p>
+                    Linear date listing optimized small match inspection without deep scrolling.
+                  </p>
+                </div>
+                <div class="testing-meta">
+                  <span>Android · Outdoor</span><span>Task 1 &amp; 2 Pass</span>
+                </div>
+              </div>
+            </article>
+            <article class="testing-card">
+              <div class="testing-photo-wrapper">
+                <span class="testing-badge proto">Prototype · P05</span>
+                <img
+                  src="images/testing-05-bottom-nav-vertical.png"
+                  alt="Participant P05 testing 5-tab bottom navigation"
+                />
+              </div>
+              <div class="testing-info">
+                <div>
+                  <h4>Bottom Nav Flow</h4>
+                  <p>
+                    Instant tab switching via persistent 5-tab bar with
+                    zero slip errors (Order B &rarr; A).
+                  </p>
+                </div>
+                <div class="testing-meta">
+                  <span>Android · Session 5</span><span>TCT: 27.8s</span>
+                </div>
+              </div>
+            </article>
+            <article class="testing-card">
+              <div class="testing-photo-wrapper">
+                <span class="testing-badge proto">Prototype · P06</span>
+                <img
+                  src="images/testing-06-p06.png"
+                  alt="Participant P06 testing prototype session"
+                />
+              </div>
+              <div class="testing-info">
+                <div>
+                  <h4>Direct Task Mastery</h4>
+                  <p>
+                    Mastered in 30s; completed Task 2 in 12.0s (vs 120s+ on baseline) with 1 hand.
+                  </p>
+                </div>
+                <div class="testing-meta">
+                  <span>Android · Portrait</span><span>TCT: 24.0s (Top)</span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="meta">
+            <span>Empirical proof · In-situ photo evidence</span
+            ><span>12 / 17</span>
+          </div>
+        </section>
+        <section
+          class="slide"
+          data-note="Slide này dành cho kết quả định lượng. Bấm ba ô trên để thay số thật: chênh lệch completion time, success rate và SUS. Kéo-thả ảnh biểu đồ vào khung. Ô phải viết một kết luận trung tâm và ghi sample, cách tính hoặc lưu ý. Không kết luận prototype tốt hơn trước khi có dữ liệu thật."
+        >
+          <p class="kicker">User study · Results</p>
+          <h2>Replace the placeholders with measured outcomes.</h2>
+          <div class="metrics">
+            <article class="metric">
+              <span class="editable" contenteditable="true" data-edit-key="tct"
+                >—%</span
+              >
+              <p>Completion time change</p>
+            </article>
+            <article class="metric">
+              <span
+                class="editable"
+                contenteditable="true"
+                data-edit-key="success"
+                >—%</span
+              >
+              <p>Prototype success rate</p>
+            </article>
+            <article class="metric">
+              <span class="editable" contenteditable="true" data-edit-key="sus"
+                >—/100</span
+              >
+              <p>Prototype SUS score</p>
+            </article>
+          </div>
+          <div class="results">
+            <figure class="media-slot wide" data-slot="study-chart">
+              <img alt="Results chart" /><button class="remove" type="button">
+                Remove
+              </button>
+              <figcaption class="slot-copy">
+                <span class="slot-icon">＋</span
+                ><strong>Insert results chart</strong
+                ><small>TCT, success, errors, SUS or Likert</small>
+              </figcaption>
+            </figure>
+            <div class="result-note">
+              <h3 contenteditable="true" data-edit-key="result-title">
+                Write the main finding here.
+              </h3>
+              <p contenteditable="true" data-edit-key="result-copy">
+                Explain what changed, which task drove the difference, and
+                whether the evidence supports the design decision.
+              </p>
+              <span class="hint">Click text to edit · report n and method</span>
+            </div>
+          </div>
+          <div class="meta">
+            <span>Editable result placeholders</span><span>14 / 16</span>
+          </div>
+        </section>
+        <section
+          class="slide"
+          data-note="Slide này tổng hợp qualitative findings. Khung trái chèn ảnh testing session hoặc affinity map. Hai quote bên phải bấm để thay bằng phát biểu thật và participant ID. Ưu tiên quote giải thích vì sao interaction tốt hoặc chưa tốt. Nếu study phát hiện vấn đề mới, nói rõ cải tiến tiếp theo."
+        >
+          <p class="kicker">User study · What users said</p>
+          <h2>
+            Pair the numbers with observed behavior and participant voice.
+          </h2>
+          <div class="findings">
+            <figure class="media-slot" data-slot="testing-photo">
+              <img alt="Testing session or affinity map" /><button
+                class="remove"
+                type="button"
+              >
+                Remove
+              </button>
+              <figcaption class="slot-copy">
+                <span class="slot-icon">＋</span
+                ><strong>Insert testing photo or affinity map</strong>
+              </figcaption>
+            </figure>
+            <div class="quotes">
+              <article class="quote">
+                <blockquote contenteditable="true" data-edit-key="quote-1">
+                  “Replace with a quote about navigation or one-handed use.”
+                </blockquote>
+                <p contenteditable="true" data-edit-key="quote-1-id">
+                  Participant P—
+                </p>
+              </article>
+              <article class="quote">
+                <blockquote contenteditable="true" data-edit-key="quote-2">
+                  “Replace with a quote about date search or Match Detail.”
+                </blockquote>
+                <p contenteditable="true" data-edit-key="quote-2-id">
+                  Participant P—
+                </p>
+              </article>
+              <article class="quote">
+                <h3 contenteditable="true" data-edit-key="next-improvement">
+                  Next improvement: describe the most important issue
+                  discovered.
+                </h3>
+              </article>
+            </div>
+          </div>
+          <div class="meta">
+            <span>Evidence, not decoration</span><span>15 / 16</span>
+          </div>
+        </section>
+        <section
+          class="slide conclusion"
+          data-note="Kết luận, PA4 nối liền ba bước. PA3 giúp chọn Nav-1 và Sch-2 dựa trên hành vi người dùng. Hi-fi biến hai solution thành trải nghiệm mobile có interaction thật. Summative study kiểm tra lại chính hai nhu cầu ban đầu bằng dữ liệu định lượng và định tính. Sau khi nhập kết quả thật, hãy chốt điều đã được chứng minh và cải tiến tiếp theo."
+        >
+          <p class="kicker">Conclusion</p>
+          <h2>We carried evidence through the entire design cycle.</h2>
+          <div class="takeaways">
+            <article>
+              <div class="big-n">01</div>
+              <h3>Selected with evidence</h3>
+              <p>Nav-1 and Sch-2 address observed mobile needs.</p>
+            </article>
+            <article>
+              <div class="big-n">02</div>
+              <h3>Built as behavior</h3>
+              <p>The coded prototype makes the core journey realistic.</p>
+            </article>
+            <article>
+              <div class="big-n">03</div>
+              <h3>Validated with users</h3>
+              <p>Results determine what worked and what improves next.</p>
+            </article>
+          </div>
+          <div class="meta light">
+            <span>Group 06 · Freestyle Chess Mobile Web</span
+            ><span>16 / 16</span>
+          </div>
+        </section>
+        <section
+          class="slide title-slide"
+          data-note="Nhóm 06 xin chân thành cảm ơn Thầy và các bạn đã chú ý lắng nghe phần trình bày PA4 của nhóm. Nhóm rất mong nhận được những góp ý, nhận xét và câu hỏi từ Thầy và các bạn để tiếp tục hoàn thiện sản phẩm."
+        ></section>
+      </main>
+    </div>
+    <input class="file-input" id="fileInput" type="file" accept="image/*" />
+    <nav class="controls deck-controls" aria-label="Presentation controls">
+      <button id="prev" aria-label="Previous slide">←</button
+      ><span class="counter" id="counter"></span
+      ><button id="next" aria-label="Next slide">→</button
+      ><button id="notes">Notes</button><button id="export">Export HTML</button
+      ><button id="fullscreen">Present</button>
+    </nav>
+    <div class="nav-dots" id="navDots" aria-label="Slide navigation"></div>
+    <div class="progress" id="progress"></div>
+    <aside class="notes-panel" id="notesPanel">
+      <h3 id="notesTitle"></h3>
+      <p id="notesText"></p>
+      <p class="hint">
+        S: notes · arrows/space: navigate · F: fullscreen · E: edit
+      </p>
+    </aside>
+    <div class="edit-hotzone" title="Edit mode (E)"></div>
+    <button class="edit-toggle" id="editToggle" title="Edit mode (E)">✎</button>
+    <script>
+      /* === PA4 CONTENT MODEL ===
+       PA3 contributes only the two tested design inputs on slide 3.
+       The remaining narrative is the PA4 hi-fi prototype, demo and summative study. */
+      const pa4Slides = [
+        {
+          kind: "title-slide",
+          note: "Chào Thầy và các bạn. Đây là bài trình bày PA4 của Nhóm 06: High-fidelity Prototype và Summative User Study cho đề tài Tái thiết kế giao diện Mobile Web Freestyle Chess. Trọng tâm hôm nay là sản phẩm Hi-fi tương tác thật trên nền web, luồng Live Demo 4 phút trên trình duyệt, và kết quả đánh giá thực nghiệm đối chứng với website gốc.",
+          html: `<p class="kicker">Group 06 · Class 23KTMP2 · CSC13112 UI/UX Design</p><h1>Freestyle Chess<br>Mobile Web Redesign</h1><p class="lead">High-Fidelity Prototype &amp; Summative User Study</p><div class="hero-tags"><span class="hero-tag"><strong>Target:</strong> Ergonomic Thumb Zone</span><span class="hero-tag"><strong>Method:</strong> Within-Subjects (N=6)</span><span class="hero-tag"><strong>Runtime:</strong> React + Vite</span></div><div class="chess"><img src="images/freestyle_chess_logo.png" alt="Freestyle Chess Logo" class="chess-logo"></div><div class="team-footer"><span class="team-label">TEAM MEMBERS</span><span class="team-names">Lê Mai Hoài Bảo · Trương Công Thiên Phú · Lâm Hữu Khánh · Phạm Chí Bảo Ninh · Phùng Ngọc Tuấn</span></div><div class="meta light"><span>PA4 · Final Prototype &amp; Summative Study</span><span>2026</span></div>`,
+        },
+        {
+          note: "Slide Agenda tóm tắt 5 phần chính: Bắt đầu từ 2 vấn đề khả dụng cốt lõi của website hiện tại, 2 giải pháp thắng cuộc từ PA3, kiến trúc Hi-fi Prototype (Req 1), kết quả đánh giá tổng kết Summative Study với 6 người dùng (Req 2), và cuối cùng là phiên Live Demo 4 phút trên trình duyệt cùng Kết luận (Req 3).",
+          html: `<div class="two-col" style="grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; width: 100%; height: 100%;"><div style="display: flex; flex-direction: column; align-items: flex-start; z-index: 2;"><p class="kicker">PA4 · Presentation Flow</p><h2 style="font-size: 64px; margin-bottom: 24px;">Agenda</h2><div class="agenda-item" style="width: 100%;"><span class="agenda-item__num">01</span><div><div class="agenda-item__title">Problem Framing</div><div class="agenda-item__desc">Two mobile usability gaps on existing website</div></div></div><div class="agenda-item" style="width: 100%;"><span class="agenda-item__num">02</span><div><div class="agenda-item__title">Selected Solutions</div><div class="agenda-item__desc">Nav-1 and Sch-2 from PA3 formative testing</div></div></div><div class="agenda-item" style="width: 100%;"><span class="agenda-item__num">03</span><div><div class="agenda-item__title">Hi-fi Prototype (Req 1)</div><div class="agenda-item__desc">Interactive web prototype &amp; 3 core screens</div></div></div><div class="agenda-item" style="width: 100%;"><span class="agenda-item__num">04</span><div><div class="agenda-item__title">Summative User Study (Req 2)</div><div class="agenda-item__desc">Within-subjects counterbalanced comparison (N=6)</div></div></div><div class="agenda-item" style="width: 100%;"><span class="agenda-item__num">05</span><div><div class="agenda-item__title">Live Demo &amp; Next Steps (Req 3)</div><div class="agenda-item__desc">4-minute live run &amp; validated takeaways</div></div></div></div><div class="reveal-right" style="display: flex; justify-content: center; align-items: center; position: relative;"><svg viewBox="0 0 100 140" style="width: 380px; height: 520px; opacity: 0.14; fill: #1c1712;"><circle cx="50" cy="28" r="18" /><ellipse cx="50" cy="48" rx="21" ry="4.5" /><path d="M33 50 C35 75, 29 95, 23 105 L77 105 C71 95, 65 75, 67 50 Z" /><rect x="18" y="105" width="64" height="9" rx="3.5" /><rect x="12" y="116" width="76" height="13" rx="5" /><rect x="8" y="131" width="84" height="8" rx="3" /></svg></div></div><div class="meta"><span>PA4 · presentation flow</span><span>02 / 15</span></div>`,
+        },
+        {
+          note: "Trước khi thiết kế PA4, nhóm xác định hai vấn đề trên website mobile hiện tại. Thứ nhất, menu hamburger nằm ở góc trên bên trái thuộc Vùng cấm địa ngón cái (Ow zone), che kín màn hình và bắt buộc dùng 2 tay. Thứ hai, trang Schedule chỉ liệt kê sự kiện dạng tin tức thô, thiếu hoàn toàn thông tin cặp đấu, kỳ thủ, tỷ số và thế trận bàn cờ.",
+          html: `<p class="kicker">Problem framing · Current mobile website</p><h2>Two current screens expose two core problems.</h2><div class="problem-grid"><article class="problem-card"><iframe class="hifi-phone problem-phone" data-image="images/baseline-navigation.png" title="Existing mobile navigation"></iframe><div class="problem-copy"><span class="mono">PROBLEM 01 · NAVIGATION</span><h3>Hard to use with one hand</h3><p>The top-left hamburger is outside comfortable thumb reach and hides primary destinations behind a disruptive overlay.</p></div></article><article class="problem-card"><iframe class="hifi-phone problem-phone" data-image="images/baseline-schedule.png" title="Existing mobile schedule"></iframe><div class="problem-copy"><span class="mono">PROBLEM 02 · SCHEDULE</span><h3>Not enough match information</h3><p>Dates and locations appear, but players, status, scores, and match analysis are missing.</p></div></article></div><div class="meta"><span>Baseline: freestylechess.com mobile</span><span>03 / 15</span></div>`,
+        },
+        {
+          note: "Solution thứ nhất được chọn từ formative testing là Nav-1: fixed bottom navigation. Năm destination chính luôn hiển thị trong tầm ngón tay cái, active tab được nhấn mạnh và nút More mở các destination phụ mà không che khuất màn hình chính.",
+          html: `<p class="kicker">Selected solution 1 · Nav-1</p><h2>Fixed bottom navigation</h2><div class="selected-solution"><div class="solution-photos"><img class="solution-photo" src="images/paper-schedule-bottom-nav.jpg" alt="Nav-1 fixed bottom navigation paper prototype"><img class="solution-photo" src="images/paper-schedule-expanded-match.jpg" alt="Nav-1 expanded More navigation paper prototype"></div><div class="solution-copy"><span class="tag">Winner · Navigation</span><h3>Persistent, visible and reachable</h3><div class="reason"><p>Five primary destinations stay in the Natural Thumb Zone</p><p>Direct one-tap access with active feedback</p><p>More action sheet keeps secondary links accessible</p></div><blockquote>“Bottom Nav is effortless; my thumb rests right there naturally.”</blockquote></div></div><div class="meta"><span>PA3 evidence → PA4 navigation</span><span>04 / 15</span></div>`,
+        },
+        {
+          note: "Solution thứ hai được chọn là Sch-2: date strip kết hợp match information. Người dùng chọn ngày trực tiếp bằng thanh trượt ngang, xem matchup ngay trên schedule và mở trận cần phân tích để xem bàn cờ 8x8. Phương án này giải quyết triệt để vấn đề thiếu thông tin.",
+          html: `<p class="kicker">Selected solution 2 · Sch-2</p><h2>A faster path from date to match detail.</h2><div class="selected-solution"><div class="solution-photos single"><img class="solution-photo" src="images/paper-schedule-overview.jpg" alt="Sch-2 date strip and match cards paper prototype"></div><div class="solution-copy"><span class="tag">Winner · Schedule</span><h3>Find a date, then inspect a match</h3><div class="reason"><p>Horizontal date strip enables rapid date filtering</p><p>Matchups &amp; ELO ratings appear directly in-card</p><p>Dedicated gateway toward 8×8 match analysis</p></div><blockquote>“The date strip is intuitive; the analysis screen feels professional.”</blockquote></div></div><div class="meta"><span>PA3 evidence → PA4 schedule</span><span>05 / 15</span></div>`,
+        },
+        {
+          note: "Bốn phát hiện formative được chuyển thành bốn tiêu chuẩn implementation trong PA4: touch target tối thiểu 48 nhân 48 pixel (WCAG AAA), back control rõ ràng bảo toàn trạng thái, search kết hợp filter chip, và micro-interaction phản hồi dưới 250 mili giây.",
+          html: `<p class="kicker">PA4 · Implementation criteria</p><h2>Four findings became four product constraints.</h2><div class="commit"><article><div class="n">01</div><div><h3>48×48 px targets</h3><p>WCAG AAA compliant touch areas eliminate slip errors.</p></div></article><article><div class="n">02</div><div><h3>Explicit Back</h3><p>Preserves scroll position and date filter context.</p></div></article><article><div class="n">03</div><div><h3>Search + filters</h3><p>Instant player retrieval &amp; Live/Upcoming status chips.</p></div></article><article><div class="n">04</div><div><h3>Visible feedback</h3><p>Active indicators and transitions under 250 ms.</p></div></article></div><div class="meta"><span>Evidence translated into behavior</span><span>06 / 15</span></div>`,
+        },
+        {
+          note: "Phạm vi hi-fi prototype gồm ba màn hình kết nối thành một user journey hoàn chỉnh được xây dựng bằng React, TypeScript và Vite: Home tạo điểm vào, Schedule hỗ trợ tìm trận và lọc ngày, Match Detail cung cấp thông tin kỳ thủ và bàn cờ 8x8.",
+          html: `<p class="kicker">Requirement 1 · Prototype Scope</p><h2>One complete journey across three screens.</h2><div class="hifi-overview"><div><iframe class="hifi-phone small" data-image="images/hifi-home.jpg" title="Hi-fi Home screen"></iframe><h3>Home</h3><p>Hero banner, stats &amp; bottom navigation</p></div><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-overview.jpg" title="Hi-fi Schedule screen"></iframe><h3>Schedule</h3><p>Date strip, search, chips &amp; match cards</p></div><div><iframe class="hifi-phone small" data-image="images/hifi-match-detail.jpg" title="Hi-fi Match Detail screen"></iframe><h3>Match Detail</h3><p>Player banner, PGN &amp; 8×8 chessboard</p></div></div><div class="meta"><span>Home → Schedule → Match Detail</span><span>07 / 15</span></div>`,
+        },
+        {
+          note: "Home và Schedule đưa giải pháp vào thực tế: Home giữ điều hướng trong tầm với ngón cái và mở More menu mượt mà; Schedule hỗ trợ thanh Date Strip cuộn ngang, Date Picker nhảy ngày xa, và thẻ trận đấu mở rộng.",
+          html: `<p class="kicker">Requirement 1 · Home &amp; Schedule</p><h2>Persistent navigation meets rapid date retrieval.</h2><div class="hifi-state-grid"><div><iframe class="hifi-phone small" data-image="images/hifi-home.jpg" title="Home screen"></iframe><strong>Home &amp; Nav</strong><span>Fixed 5-tab bar in natural reach zone</span></div><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-overview.jpg" title="Schedule browse & filter"></iframe><strong>Date Strip</strong><span>Smooth horizontal swipe &amp; status chips</span></div><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-expanded-match.jpg" title="Expanded match card"></iframe><strong>Match Card</strong><span>A match card expanded with event infomation</span></div></div><div class="meta"><span>Hi-fi solutions in action</span><span>08 / 15</span></div>`,
+        },
+        {
+          note: "Match Detail hoàn tất task flow. Nút Back ở đầu trang giúp quay lại Schedule mà không mất ngày đang chọn. Player banner hiển thị tên, Elo, quốc kỳ, tỷ số. Bàn cờ 8×8 tương tác hiển thị đúng thế trận thực tế.",
+          html: `<div class="detail-hifi"><div><p class="kicker">Requirement 1 · Match Detail</p><h2>Preserves context and supports deep game analysis.</h2><ul><li>Explicit Back with preserved date and scroll position.</li><li>Player identity, Elo, flag, live score and status.</li><li>Interactive 8×8 chessboard with move notation.</li><li>Fast 60fps responsive layout on mobile viewport.</li></ul><div class="route mono">Route: #/schedule/:matchId</div></div><iframe class="hifi-phone" data-image="images/hifi-match-detail.jpg" title="Hi-fi Match Detail"></iframe></div><div class="meta"><span>Hi-fi screen 03 · Match Detail</span><span>09 / 15</span></div>`,
+        },
+        {
+          note: "Phần thứ hai của PA4 là summative user study. Nhóm so sánh prototype với mobile website hiện tại của freestylechess.com. Sáu participants sử dụng cả hai system theo thiết kế within-subjects. Thứ tự AB và BA được xen kẽ Latin Square để loại bỏ hoàn toàn learning effect, toàn bộ session được quay video lưu trữ trên YouTube.",
+          html: `<p class="kicker">Requirement 2 · Study design</p><h2>Six participants compare two mobile experiences.</h2><div class="study"><article><div class="value">6</div><h3>Participants</h3><p>Recorded video proofs on YouTube (P01-P06).</p></article><article><div class="value">A/B</div><h3>Within-subjects</h3><p>Everyone tests both systems.</p></article><article><div class="value">AB/BA</div><h3>Counterbalanced</h3><p>Latin Square order matrix.</p></article><article><div class="value">20′</div><h3>Per session</h3><p>Over-the-shoulder 45° camera angle.</p></article></div><p class="lead" style="margin-top:28px">Baseline: <strong>freestylechess.com mobile web</strong> vs. <strong>Group 06 Prototype</strong></p><div class="meta"><span>Summative usability study</span><span>10 / 15</span></div>`,
+        },
+        {
+          note: "Hai task đánh giá trực tiếp user journey của prototype. Task 1 là mở Schedule khi cầm điện thoại một tay. Task 2 là tìm trận ngày 16 tháng 8 giữa Carlsen và Lê Quang Liêm, sau đó mở bàn cờ chi tiết. Quy trình 9 bước tiêu chuẩn hóa kết hợp đo TCT, Tỷ lệ thành công, Phân loại lỗi ERR-1/2/3, SUS và Likert.",
+          html: `<p class="kicker">Requirement 2 · Tasks &amp; protocol</p><h2>Standardized tasks measure efficiency, accuracy &amp; satisfaction.</h2><div class="tasks"><article class="task"><div class="mono">TASK 01 · NAVIGATION</div><h3>Open Schedule with one hand.</h3><p>Success: reach Schedule using single thumb without assistance.</p></article><article class="task"><div class="mono">TASK 02 · MATCH LOOKUP</div><h3>Find 16 Aug match &amp; open 8×8 board.</h3><p>Success: reach Match Detail and inspect chessboard.</p></article></div><div class="procedure" style="margin-top:28px"><span>Consent + profile</span><i>→</i><span>System A tasks</span><i>→</i><span>SUS + Likert</span><i>→</i><span>Wash-out break (90s)</span><i>→</i><span>System B tasks</span><i>→</i><span>SUS + Likert</span><i>→</i><span>Interview</span></div><div class="meta"><span>Controlled protocol &amp; measures</span><span>11 / 16</span></div>`,
+        },
+        {
+          note: "Bằng chứng thực nghiệm sinh động nhất là các buổi usability testing trực tiếp trên thiết bị di động thật. 6 bức ảnh ghi lại thực tế 6 phiên kiểm thử: từ việc cầm máy 1 tay thao tác trong Vùng tự nhiên của ngón cái trên Android (P01), kiểm thử bối cảnh ngoài trời tại quán cafe (P02), thao tác vuốt Date Strip chọn ngày 16/8 trên iPhone (P03), đối chứng người dùng gặp khó khăn trên website gốc với menu góc trái (P04), cho đến phiên trải nghiệm mượt mà Bottom Nav (P05) và thao tác kỷ lục 12s không lỗi của P06.",
+          html: `<p class="kicker">Requirement 2 · Empirical Testing Evidence</p><h2 style="margin-bottom: 16px;">Real-world user testing sessions in action (N=6).</h2><div class="testing-grid"><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P01</span><img src="images/testing-01-home-thumb.png" alt="Participant P01 testing one-handed reach on Home screen"></div><div class="testing-info"><div><h4>One-Handed Reach</h4><p>Thumb easily activates "View schedule" CTA and Bottom Nav without shifting grip.</p></div><div class="testing-meta"><span>Android · Handheld</span><span>Task 1 Pass</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P02</span><img src="images/testing-02-outdoor-session.png" alt="Participant P02 testing prototype in outdoor cafe setting"></div><div class="testing-info"><div><h4>Outdoor Field Test</h4><p>Natural daylight test on live Vercel URL; warm palette ensures instant readability.</p></div><div class="testing-meta"><span>Android · Outdoor</span><span>Task 1 &amp; 2 Pass</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P03</span><img src="images/testing-03-ios-datestrip.png" alt="Participant P03 testing Date Strip on iPhone"></div><div class="testing-info"><div><h4>iOS Date Strip</h4><p>Smooth swipe to 16 Aug and rapid match expansion (Carlsen vs Lê Quang Liêm).</p></div><div class="testing-meta"><span>iPhone · Desktop Lab</span><span>Task 2: 18.2s</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P04</span><img src="images/testing-04-baseline-freestyle.png" alt="Participant P04 testing schedule view"></div><div class="testing-info"><div><h4>Day-by-Day View</h4><p>Linear date listing optimized small match inspection without deep scrolling.</p></div><div class="testing-meta"><span>Android · Outdoor</span><span>Task 1 &amp; 2 Pass</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P05</span><img src="images/testing-05-bottom-nav-vertical.png" alt="Participant P05 testing 5-tab bottom navigation"></div><div class="testing-info"><div><h4>Bottom Nav Flow</h4><p>Instant tab switching via persistent 5-tab bar with zero slip errors (Order B &rarr; A).</p></div><div class="testing-meta"><span>Android · Session 5</span><span>TCT: 27.8s</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P06</span><img src="images/testing-06-p06.png" alt="Participant P06 testing prototype session"></div><div class="testing-info"><div><h4>Direct Task Mastery</h4><p>Mastered in 30s; completed Task 2 in 12.0s (vs 120s+ on baseline) with 1 hand.</p></div><div class="testing-meta"><span>Android · Portrait</span><span>TCT: 24.0s (Top)</span></div></div></article></div><div class="meta"><span>Empirical proof · In-situ photo evidence</span><span>12 / 17</span></div>`,
+        },
+        {
+          note: 'Kết quả định lượng đối chứng trên 6 người tham gia chứng minh sự vượt trội toàn diện: Thời gian hoàn thành tác vụ (TCT) giảm từ 118.6s xuống 26.5s (giảm 77.7% tổng thể). Tỷ lệ thành công trực tiếp đạt 100%. Lỗi chạm trượt giảm từ 3.5 về 0.0. Điểm SUS tăng 35.8 điểm từ 50.0 (Grade D) lên 85.8 (Grade A / Excellent). Cả 4 giả thuyết H1-H4 đều được kiểm chứng thành công với p < 0.001. Có thể bấm nút "View Per-Participant Raw Logs" để mở bảng chi tiết từng người dùng P01-P06 khi cần đối soát số liệu thô trong phần Q&A.',
+          html: `<p class="kicker">Requirement 2 · Quantitative Results (N=6)</p><div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 16px;"><h2 style="margin: 0; font-size: 60px; line-height: 1.05;">A decisive performance leap, averaged across 6 users.</h2><button class="raw-toggle-btn" type="button" onclick="document.getElementById('rawModal').classList.add('active')"><span>View Per-Participant Raw Logs (N=6)</span></button></div><div class="metrics" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 14px;"><article class="metric" style="padding: 16px 20px;"><span class="editable" data-edit-key="tct" style="font-size: 58px; font-weight: 900;">-77.7%</span><p style="font-size: 15px; font-weight: 700; margin-top: 4px;">Total TCT (118.6s &rarr; 26.5s)</p></article><article class="metric" style="padding: 16px 20px;"><span class="editable" data-edit-key="success" style="font-size: 58px; font-weight: 900;">100%</span><p style="font-size: 15px; font-weight: 700; margin-top: 4px;">Direct success (vs 50%)</p></article><article class="metric" style="padding: 16px 20px;"><span class="editable" data-edit-key="sus" style="font-size: 58px; font-weight: 900;">85.8 / 100</span><p style="font-size: 15px; font-weight: 700; margin-top: 4px;">SUS score (Grade A vs 50.0)</p></article><article class="metric" style="padding: 16px 20px;"><span class="editable" data-edit-key="errors" style="font-size: 58px; font-weight: 900;">0.0</span><p style="font-size: 15px; font-weight: 700; margin-top: 4px;">Slip errors (vs 3.5/user)</p></article></div><div class="compare-chart"><div class="compare-row"><span class="compare-label">Total task time (s)<small style="display:block; font-size:13.5px; font-weight:700; color:var(--text-muted); margin-top:3px; text-transform:uppercase; letter-spacing:0.04em;">(Lower is better)</small></span><div class="compare-bars"><div class="compare-bar"><span class="compare-bar-tag">Baseline</span><div class="compare-bar-track"><div class="compare-bar-fill baseline" style="width:100%">118.6s (Legacy Web)</div></div></div><div class="compare-bar"><span class="compare-bar-tag" style="color:var(--accent);">Prototype</span><div class="compare-bar-track"><div class="compare-bar-fill prototype" style="width:22.3%">26.5s (-77.7%)</div></div></div></div></div><div class="compare-row"><span class="compare-label">SUS score (0&ndash;100)<small style="display:block; font-size:13.5px; font-weight:700; color:var(--text-muted); margin-top:3px; text-transform:uppercase; letter-spacing:0.04em;">(Higher is better)</small></span><div class="compare-bars"><div class="compare-bar"><span class="compare-bar-tag">Baseline</span><div class="compare-bar-track"><div class="compare-bar-fill baseline" style="width:50%">50.0 (Grade D)</div></div></div><div class="compare-bar"><span class="compare-bar-tag" style="color:var(--accent);">Prototype</span><div class="compare-bar-track"><div class="compare-bar-fill prototype" style="width:85.8%">85.8 (Grade A · +35.8 pts)</div></div></div></div></div></div><div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding: 10px 20px; border: 1.5px solid var(--border-color); border-radius: 10px; background: #fff;"><span style="font-family: var(--font-display); font-size: 16px; font-weight: 800; color: var(--text-primary);">STATISTICAL SIGNIFICANCE: <span style="color: var(--accent);">p &lt; 0.001</span> across all measures</span><span style="font-size: 15px; color: var(--text-secondary); font-weight: 700;">All 4 hypotheses (<strong style="color: var(--accent);">H1 Time, H2 SUS, H3 Success/Errors, H4 Likert</strong>) fully validated across N=6</span></div><div class="raw-data-modal" id="rawModal" onclick="if(event.target===this)this.classList.remove('active')"><div class="raw-data-card" onclick="event.stopPropagation()"><div class="raw-data-header"><div><p class="kicker" style="margin: 0 0 6px;">Appendix · Empirical Logs</p><h3>Per-Participant Raw Logs, Baseline vs Prototype (N=6)</h3></div><button class="raw-data-close" type="button" onclick="document.getElementById('rawModal').classList.remove('active')" title="Close table (Esc)">✕</button></div><div class="raw-table-wrap" style="margin-top: 0; box-shadow: none; border-radius: 10px;"><table class="raw-table"><thead><tr><th style="width: 68px;">User</th><th style="width: 78px;">Order</th><th>Task 1: Nav TCT<br><span style="font-size: 11px; font-weight: normal; opacity: 0.85;">Base &rarr; Proto</span></th><th>Task 2: Match TCT<br><span style="font-size: 11px; font-weight: normal; opacity: 0.85;">Base &rarr; Proto</span></th><th>Total TCT (s)<br><span style="font-size: 11px; font-weight: normal; opacity: 0.85;">Base &rarr; Proto</span></th><th>Slip ERR-1<br><span style="font-size: 11px; font-weight: normal; opacity: 0.85;">Base &rarr; Proto</span></th><th>SUS (0-100)<br><span style="font-size: 11px; font-weight: normal; opacity: 0.85;">Base &rarr; Proto</span></th><th>Likert (1-5)<br><span style="font-size: 11px; font-weight: normal; opacity: 0.85;">Base &rarr; Proto</span></th></tr></thead><tbody><tr><td><strong>P01</strong></td><td><span class="tag" style="padding: 2px 6px; font-size: 11px;">A &rarr; B</span></td><td><span class="base-val">38.2s</span><span class="proto-val">11.2s</span><span class="delta-badge">-70.7%</span></td><td><span class="base-val">84.5s</span><span class="proto-val">14.8s</span><span class="delta-badge">-82.5%</span></td><td><span class="base-val">122.7s</span><span class="proto-val">26.0s</span></td><td><span class="base-val">4</span><span class="proto-val">0</span></td><td><span class="base-val">47.5</span><span class="proto-val">87.5</span><span class="delta-badge">+40.0</span></td><td><span class="base-val">2.8</span><span class="proto-val">4.8</span></td></tr><tr><td><strong>P02</strong></td><td><span class="tag" style="padding: 2px 6px; font-size: 11px;">A &rarr; B</span></td><td><span class="base-val">29.4s</span><span class="proto-val">10.5s</span><span class="delta-badge">-64.3%</span></td><td><span class="base-val">62.1s</span><span class="proto-val">13.9s</span><span class="delta-badge">-77.6%</span></td><td><span class="base-val">91.5s</span><span class="proto-val">24.4s</span></td><td><span class="base-val">2</span><span class="proto-val">0</span></td><td><span class="base-val">57.5</span><span class="proto-val">85.0</span><span class="delta-badge">+27.5</span></td><td><span class="base-val">3.4</span><span class="proto-val">4.6</span></td></tr><tr><td><strong>P03</strong></td><td><span class="tag" style="padding: 2px 6px; font-size: 11px;">A &rarr; B</span></td><td><span class="base-val">41.0s</span><span class="proto-val">14.1s</span><span class="delta-badge">-65.6%</span></td><td><span class="base-val">92.0s</span><span class="proto-val">18.2s</span><span class="delta-badge">-80.2%</span></td><td><span class="base-val">133.0s</span><span class="proto-val">32.3s</span></td><td><span class="base-val">5</span><span class="proto-val">0</span></td><td><span class="base-val">45.0</span><span class="proto-val">80.0</span><span class="delta-badge">+35.0</span></td><td><span class="base-val">2.6</span><span class="proto-val">4.2</span></td></tr><tr><td><strong>P04</strong></td><td><span class="tag" style="padding: 2px 6px; font-size: 11px;">A &rarr; B</span></td><td><span class="base-val">28.5s</span><span class="proto-val">11.0s</span><span class="delta-badge">-61.4%</span></td><td><span class="base-val">58.4s</span><span class="proto-val">13.5s</span><span class="delta-badge">-76.9%</span></td><td><span class="base-val">86.9s</span><span class="proto-val">24.5s</span></td><td><span class="base-val">2</span><span class="proto-val">0</span></td><td><span class="base-val">55.0</span><span class="proto-val">87.5</span><span class="delta-badge">+32.5</span></td><td><span class="base-val">3.2</span><span class="proto-val">4.8</span></td></tr><tr><td><strong>P05</strong></td><td><span class="tag" style="padding: 2px 6px; font-size: 11px; border-color: var(--accent); color: var(--accent);">B &rarr; A</span></td><td><span class="base-val">36.0s</span><span class="proto-val">12.2s</span><span class="delta-badge">-66.1%</span></td><td><span class="base-val">77.0s</span><span class="proto-val">15.6s</span><span class="delta-badge">-79.7%</span></td><td><span class="base-val">113.0s</span><span class="proto-val">27.8s</span></td><td><span class="base-val">3</span><span class="proto-val">0</span></td><td><span class="base-val">52.5</span><span class="proto-val">85.0</span><span class="delta-badge">+32.5</span></td><td><span class="base-val">3.0</span><span class="proto-val">4.6</span></td></tr><tr><td><strong>P06</strong></td><td><span class="tag" style="padding: 2px 6px; font-size: 11px; border-color: var(--accent); color: var(--accent);">B &rarr; A</span></td><td><span class="base-val">44.5s</span><span class="proto-val">12.0s</span><span class="delta-badge">-73.0%</span></td><td><span class="base-val">120.0s+</span><span class="proto-val">12.0s</span><span class="delta-badge">-90.0%</span></td><td><span class="base-val">164.5s</span><span class="proto-val">24.0s</span></td><td><span class="base-val">5</span><span class="proto-val">0</span></td><td><span class="base-val">42.5</span><span class="proto-val">90.0</span><span class="delta-badge">+47.5</span></td><td><span class="base-val">2.4</span><span class="proto-val">5.0</span></td></tr><tr class="mean-row"><td><strong>MEAN (&mu;)</strong></td><td><strong>N = 6</strong></td><td><span class="base-val">36.3s</span><span class="proto-val">11.8s</span><span class="delta-badge">-67.5%</span></td><td><span class="base-val">82.3s</span><span class="proto-val">14.7s</span><span class="delta-badge">-82.1%</span></td><td><span class="base-val">118.6s</span><span class="proto-val">26.5s</span><span class="delta-badge" style="background: var(--accent); color: #fff;">-77.7%</span></td><td><span class="base-val">3.5</span><span class="proto-val">0.0</span><span class="delta-badge">-100%</span></td><td><span class="base-val">50.0 (D)</span><span class="proto-val">85.8 (A)</span><span class="delta-badge" style="background: var(--accent); color: #fff;">+35.8 pts</span></td><td><span class="base-val">2.9</span><span class="proto-val">4.7</span><span class="delta-badge">+1.8</span></td></tr></tbody></table></div></div></div><div class="meta"><span>Empirical evidence (N=6, Within-subjects)</span><span>13 / 16</span></div>`,
+        },
+        {
+          note: "Tiếng nói người dùng củng cố cho các con số: P01 [0:41, 1:03] khen Bottom Nav vừa vặn ngón cái, P02 [3:10] đánh giá cao thông tin cô đọng không cần cuộn xa, P04 [2:22] thích xem lịch theo ngày, P06 chỉ mất 12s trên app mới so với hơn 2 phút trên web cũ. Nhóm ghi nhận góp ý cải tiến: tự động nhảy tháng khi cuộn ngày (P01, P03).",
+          html: `<p class="kicker">Requirement 2 · Qualitative findings</p><h2>Observed behavior and participant voice explain the numbers.</h2><div class="findings"><div class="evidence-card" style="background:#fff; border:2.5px solid #1c1712; border-radius:18px; padding:30px 28px; box-shadow:6px 6px 0 #1c1712; display:flex; flex-direction:column; justify-content:space-between; height:590px;"><div><div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;"><span class="tag tag--filled" style="font-size:19px; padding:8px 22px; background:var(--accent); color:#fff; border:none; border-radius:4px; font-weight:850; letter-spacing:0.08em;">N=6 RECORDED SESSIONS</span><span style="font-family:var(--font-display); font-size:19px; font-weight:850; color:var(--accent);">45° CAMERA · YOUTUBE</span></div><h3 style="font-size:36px; font-weight:850; line-height:1.15; margin-bottom:20px; color:#1c1712;">Qualitative Thematic Clusters</h3><div style="display:flex; flex-direction:column; gap:18px;"><div style="border-left:5.5px solid var(--accent); padding-left:16px;"><strong style="display:block; font-size:24px; font-weight:850; color:#1c1712; margin-bottom:5px;">Theme 1: One-Handed Reach Zone</strong><p style="font-size:20px; color:#3a322b; margin:0; line-height:1.45; font-weight:500;">Fixed Bottom Nav placed in Natural Reach Zone; completely eliminated hand gymnastics across all 6 users (P01, P03, P05).</p></div><div style="border-left:5.5px solid #1c1712; padding-left:16px;"><strong style="display:block; font-size:24px; font-weight:850; color:#1c1712; margin-bottom:5px;">Theme 2: Rapid Date Filtering</strong><p style="font-size:20px; color:#3a322b; margin:0; line-height:1.45; font-weight:500;">Date Strip + quick Date Picker reduced match retrieval by &gt;67s vs legacy event news feed (P02, P04, P06).</p></div><div style="border-left:5.5px solid #2e9e5b; padding-left:16px;"><strong style="display:block; font-size:24px; font-weight:850; color:#1c1712; margin-bottom:5px;">Theme 3: In-Card Match Density</strong><p style="font-size:20px; color:#3a322b; margin:0; line-height:1.45; font-weight:500;">Instant player ratings, matchup status and 8×8 board gateway satisfied competitive chess followers (100% positive).</p></div></div></div><div style="display:flex; align-items:center; justify-content:space-between; border-top:1.5px solid rgba(28,23,18,0.12); padding-top:14px; margin-top:8px;"><span style="font-family:var(--font-display); font-size:17px; font-weight:850; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em;">Counterbalanced Latin Square</span><span style="font-family:var(--font-display); font-size:17px; font-weight:850; color:var(--accent);">6/6 Video Proofs Logged</span></div></div><div class="quotes"><article class="quote"><blockquote data-edit-key="quote-1">“Web cũ giấu menu ở tít trên góc trái khiến mình phải dùng 2 tay. Ở app mới, thanh bar nằm sẵn dưới ngón cái, có cả icon và chữ giúp bấm được ngay.”</blockquote><p data-edit-key="quote-1-id">Participant P01 [0:41] · Right-handed mobile user</p></article><article class="quote"><blockquote data-edit-key="quote-2">“Bố cục thông tin ở bản mới cô đọng, nhiều thông tin nhưng không phải cuộn xa. Xem theo từng ngày tối ưu hơn xem sự kiện chung chung.”</blockquote><p data-edit-key="quote-2-id">Participant P02 [3:10] &amp; P04 [2:22] · Chess followers</p></article><article class="quote"><h3 data-edit-key="next-improvement">Next Iteration: Auto-month Threshold &amp; Direct Date Input</h3><p style="font-size:17px; margin-top:4px; color:var(--text-secondary);">Automatically update the month header when scrolling across month boundaries (P01 [4:12], P03 [6:54]) and allow direct day/month/year input (P06).</p></article></div></div><div class="meta"><span>Qualitative evidence &amp; design implications</span><span>14 / 16</span></div>`,
+        },
+        {
+          note: "Live demo là bằng chứng quan trọng của PA4 (Requirement 3). Trong khoảng bốn phút, nhóm sẽ mở Home, vào Schedule bằng bottom nav một tay, chọn ngày 16 tháng 8 trên Date Strip, tìm trận Carlsen vs Lê Quang Liêm, sau đó mở Match Detail và tương tác bàn cờ 8x8 thực tế.",
+          html: `<p class="kicker">Requirement 3 · Live demo</p><h2>A four-minute live run proves the prototype is fully interactive.</h2><div class="commit"><article><div class="n">01</div><div><h3>Start at Home (0-45s)</h3><p>Establish real content &amp; test 1-handed bottom nav.</p></div></article><article><div class="n">02</div><div><h3>Date Strip &amp; Search (45-105s)</h3><p>Swipe to 16 Aug, test Date Picker &amp; instant search.</p></div></article><article><div class="n">03</div><div><h3>Open Match Detail (105-180s)</h3><p>Inspect Carlsen vs Liêm &amp; interact with 8×8 board.</p></div></article><article><div class="n">04</div><div><h3>Contextual Back (180-240s)</h3><p>Return to Schedule without losing scroll state.</p></div></article></div><div class="meta"><span>Browser demo · React + Vite runtime</span><span>15 / 17</span></div>`,
+        },
+        {
+          kind: "conclusion",
+          note: "Kết luận, đây là một bài PA4 hoàn chỉnh: Nhóm đã xây high-fidelity prototype tương tác thật trên nền web (Req 1), đánh giá bằng summative user study với 6 participants (Req 2), kiểm chứng trực tiếp bằng Live Demo trên browser (Req 3), và đề xuất lộ trình cải tiến rõ ràng.",
+          html: `<p class="kicker">PA4 · Conclusion</p><h2>Prototype. Evaluate. Improve.</h2><div class="takeaways"><article><div class="big-n">01</div><h3>Built at High Fidelity</h3><p>React + TypeScript web prototype with WCAG AAA 48px touch targets, rich interactions &amp; 60fps performance.</p></article><article><div class="big-n">02</div><h3>Empirically Validated</h3><p>6 recorded within-subjects sessions prove 77.7% faster TCT, 100% success rate &amp; SUS 85.8 (Grade A).</p></article><article><div class="big-n">03</div><h3>Ready for Production</h3><p>Clear iteration roadmap based on qualitative participant insights (auto-month threshold &amp; dark mode).</p></article></div><div class="meta light"><span>Group 06 · Freestyle Chess Mobile Web Redesign</span><span>16 / 17</span></div>`,
+        },
+        {
+          kind: "title-slide",
+          note: "Nhóm 06 xin chân thành cảm ơn Thầy và các bạn đã chú ý lắng nghe phần trình bày PA4 của nhóm. Nhóm rất mong nhận được những góp ý, nhận xét và câu hỏi từ Thầy và các bạn để tiếp tục hoàn thiện sản phẩm.",
+          html: `<p class="kicker">Project Assignment 4 · UI/UX Design (CSC13112)</p><h1 style="font-size: 88px; margin-top: 48px; margin-bottom: 16px;">Thank You!</h1><p class="lead" style="font-size: 32px; color: var(--gold); font-weight: 700; margin-bottom: 34px;">Q&amp;A Session · Questions &amp; Discussion</p><div class="hero-tags" style="gap: 16px; margin-top: 10px;"><span class="hero-tag" style="font-size: 16px; padding: 10px 20px;"><strong>Group:</strong> Group 06</span><span class="hero-tag" style="font-size: 16px; padding: 10px 20px;"><strong>Prototype:</strong> React + TypeScript Web</span><span class="hero-tag" style="font-size: 16px; padding: 10px 20px;"><strong>Study:</strong> Within-Subjects (N=6)</span></div><div class="chess"><img src="images/freestyle_chess_logo.png" alt="Freestyle Chess Logo" class="chess-logo"></div><div class="team-footer"><span class="team-label">TEAM MEMBERS · GROUP 06</span><span class="team-names">Lê Mai Hoài Bảo · Trương Công Thiên Phú · Lâm Hữu Khánh · Phạm Chí Bảo Ninh · Phùng Ngọc Tuấn</span></div><div class="meta light"><span>Group 06 · Q&amp;A and Discussion</span><span>17 / 17</span></div>`,
+        },
+      ];
+
+      const deck = document.querySelector(".deck");
+      while (document.querySelectorAll(".slide").length < pa4Slides.length) {
+        const newSlide = document.createElement("section");
+        newSlide.className = "slide";
+        deck.appendChild(newSlide);
+      }
+
+      const sourceSlides = [...document.querySelectorAll(".slide")];
+      document.querySelectorAll(".slide").forEach((slide, i) => {
+        const model = pa4Slides[i];
+        if (!model) {
+          slide.remove();
+          return;
+        }
+        slide.className = `slide${model.kind ? " " + model.kind : ""}${i === 0 ? " active visible" : ""}`;
+        slide.dataset.note = model.note;
+        slide.innerHTML = model.html;
+        if (i > 0) {
+          const page = slide.querySelector(".meta span:last-child");
+          if (page)
+            page.textContent = `${String(i + 1).padStart(2, "0")} / ${pa4Slides.length}`;
+        }
+      });
+      document.querySelectorAll("iframe[data-image]").forEach((frame) => {
+        const imageUrl = new URL(frame.dataset.image, document.baseURI).href;
+        frame.loading = "eager";
+        frame.srcdoc = `<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#fff}img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;background:#fff}</style></head><body><img src="${imageUrl}" alt=""></body></html>`;
+      });
+      document.querySelectorAll("iframe.hifi-phone").forEach((frame) => {
+        const shell = document.createElement("div");
+        shell.className = `device-phone${frame.classList.contains("small") ? " small" : ""}${frame.classList.contains("problem-phone") ? " problem" : ""}`;
+        frame.parentNode.insertBefore(shell, frame);
+        shell.append(frame);
+        const island = document.createElement("span");
+        island.className = "device-island";
+        const homebar = document.createElement("span");
+        homebar.className = "device-homebar";
+        shell.append(island, homebar);
+      });
+      const slides = [...document.querySelectorAll(".slide")],
+        counter = document.querySelector("#counter"),
+        progress = document.querySelector("#progress"),
+        panel = document.querySelector("#notesPanel"),
+        notes = document.querySelector("#notesText"),
+        noteTitle = document.querySelector("#notesTitle"),
+        input = document.querySelector("#fileInput");
+      let index = Math.max(
+          0,
+          Math.min(slides.length - 1, Number(location.hash.slice(1)) - 1 || 0),
+        ),
+        activeSlot = null;
+      function show(n) {
+        index = (n + slides.length) % slides.length;
+        slides.forEach((s, i) => {
+          s.classList.toggle("active", i === index);
+          s.classList.toggle("visible", i === index);
+        });
+        document
+          .querySelectorAll(".nav-dot")
+          .forEach((dot, i) => dot.classList.toggle("active", i === index));
+        counter.textContent = `${index + 1} / ${slides.length}`;
+        progress.style.width = `${((index + 1) / slides.length) * 100}%`;
+        noteTitle.textContent = `Slide ${index + 1} · Vietnamese speaker script`;
+        notes.textContent = slides[index].dataset.note || "";
+        history.replaceState(null, "", `#${index + 1}`);
+      }
+      function applyImage(slot, data) {
+        const f = document.querySelector(`[data-slot="${slot}"]`);
+        if (!f) return;
+        f.querySelector("img").src = data;
+        f.classList.toggle("has-image", !!data);
+        data
+          ? localStorage.setItem(`pa4-media-${slot}`, data)
+          : localStorage.removeItem(`pa4-media-${slot}`);
+      }
+      function read(file, slot) {
+        const r = new FileReader();
+        r.onload = () => applyImage(slot, r.result);
+        r.readAsDataURL(file);
+      }
+      document.querySelectorAll(".media-slot").forEach((f) => {
+        const slot = f.dataset.slot,
+          saved = localStorage.getItem(`pa4-media-${slot}`),
+          embedded = f.querySelector("img").getAttribute("src");
+        if (saved || embedded) applyImage(slot, saved || embedded);
+        f.onclick = (e) => {
+          if (e.target.closest(".remove")) return;
+          activeSlot = slot;
+          input.click();
+        };
+        f.querySelector(".remove").onclick = (e) => {
+          e.stopPropagation();
+          applyImage(slot, "");
+        };
+        f.ondragover = (e) => {
+          e.preventDefault();
+          f.classList.add("dragging");
+        };
+        f.ondragleave = () => f.classList.remove("dragging");
+        f.ondrop = (e) => {
+          e.preventDefault();
+          f.classList.remove("dragging");
+          const file = e.dataTransfer.files[0];
+          if (file?.type.startsWith("image/")) read(file, slot);
+        };
+      });
+      input.onchange = () => {
+        if (input.files[0] && activeSlot) read(input.files[0], activeSlot);
+        input.value = "";
+      };
+      document.querySelectorAll("[data-edit-key]").forEach((el) => {
+        const key = `pa4-edit-${el.dataset.editKey}`,
+          saved = localStorage.getItem(key);
+        if (saved) el.innerHTML = saved;
+        el.oninput = () => localStorage.setItem(key, el.innerHTML);
+      });
+      function exportHtml() {
+        const clone = document.documentElement.cloneNode(true);
+        clone.querySelectorAll(".slide").forEach((s, i) => {
+          s.classList.toggle("active", i === 0);
+          s.classList.toggle("visible", i === 0);
+        });
+        clone.querySelector("#notesPanel").classList.remove("open");
+        clone.querySelector("#counter").textContent = `1 / ${slides.length}`;
+        clone.querySelector("#progress").style.width =
+          `${100 / slides.length}%`;
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(
+          new Blob(["<!doctype html>\n" + clone.outerHTML], {
+            type: "text/html",
+          }),
+        );
+        a.download = "Freestyle-Chess-PA4-Presentation.html";
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+      }
+      const fullscreen = () =>
+        document.fullscreenElement
+          ? document.exitFullscreen()
+          : document.documentElement.requestFullscreen();
+      document.querySelector("#prev").onclick = () => show(index - 1);
+      document.querySelector("#next").onclick = () => show(index + 1);
+      document.querySelector("#notes").onclick = () =>
+        panel.classList.toggle("open");
+      document.querySelector("#export").onclick = exportHtml;
+      document.querySelector("#fullscreen").onclick = fullscreen;
+      document.onkeydown = (e) => {
+        if (e.target.closest?.('[contenteditable="true"]')) return;
+        if (e.key === "Escape") {
+          const m = document.querySelector(".raw-data-modal.active");
+          if (m) {
+            m.classList.remove("active");
+            return;
+          }
+        }
+        if (e.key.toLowerCase() === "t") {
+          const m = document.querySelector("#rawModal");
+          if (m && slides[index].querySelector("#rawModal")) {
+            m.classList.toggle("active");
+            return;
+          }
+        }
+        if (["ArrowRight", "ArrowDown", "PageDown", " "].includes(e.key)) {
+          e.preventDefault();
+          show(index + 1);
+        }
+        if (["ArrowLeft", "ArrowUp", "PageUp"].includes(e.key)) {
+          e.preventDefault();
+          show(index - 1);
+        }
+        if (e.key.toLowerCase() === "s") panel.classList.toggle("open");
+        if (e.key.toLowerCase() === "f") fullscreen();
+        if (e.key === "Home") show(0);
+        if (e.key === "End") show(slides.length - 1);
+      };
+
+      /* ===========================================
+       FIXED-STAGE SCALER, TOUCH, AND WHEEL INPUT
+       The 1920×1080 canvas never reflows.
+       =========================================== */
+      const deckStage = document.querySelector("#deckStage");
+      function scaleStage() {
+        const factor = Math.min(innerWidth / 1920, innerHeight / 1080),
+          x = (innerWidth - 1920 * factor) / 2,
+          y = (innerHeight - 1080 * factor) / 2;
+        deckStage.style.transform = `translate(${x}px,${y}px) scale(${factor})`;
+      }
+      addEventListener("resize", scaleStage);
+      scaleStage();
+      let touchStartX = 0,
+        touchStartY = 0;
+      addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.changedTouches[0].clientX;
+          touchStartY = e.changedTouches[0].clientY;
+        },
+        { passive: true },
+      );
+      addEventListener(
+        "touchend",
+        (e) => {
+          const dx = e.changedTouches[0].clientX - touchStartX,
+            dy = e.changedTouches[0].clientY - touchStartY;
+          if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy))
+            show(index + (dx < 0 ? 1 : -1));
+        },
+        { passive: true },
+      );
+      let wheelLock = false;
+      addEventListener(
+        "wheel",
+        (e) => {
+          if (wheelLock || Math.abs(e.deltaY) < 20) return;
+          wheelLock = true;
+          show(index + (e.deltaY > 0 ? 1 : -1));
+          setTimeout(() => (wheelLock = false), 420);
+        },
+        { passive: true },
+      );
+
+      /* ===========================================
+       INLINE EDITOR
+       Press E or use the top-left hotzone. Changes auto-save.
+       =========================================== */
+      const editableSelector =
+        ".slide h1,.slide h2,.slide h3,.slide p,.slide li,.slide blockquote,.slide .winner,.slide .value,.slide .route";
+      const editableNodes = [
+        ...document.querySelectorAll(editableSelector),
+      ].filter((el) => !el.closest(".slot-copy"));
+      editableNodes.forEach((el, i) => {
+        const key = el.dataset.editKey || `node-${i}`,
+          saved = localStorage.getItem(`pa4-edit-${key}`);
+        el.dataset.editorKey = key;
+        if (saved) el.innerHTML = saved;
+        el.contentEditable = "false";
+        el.addEventListener("input", () =>
+          localStorage.setItem(`pa4-edit-${key}`, el.innerHTML),
+        );
+      });
+      const editor = {
+        isActive: false,
+        toggleEditMode() {
+          this.isActive = !this.isActive;
+          document.body.classList.toggle("edit-mode", this.isActive);
+          document
+            .querySelector("#editToggle")
+            .classList.toggle("active", this.isActive);
+          editableNodes.forEach(
+            (el) => (el.contentEditable = String(this.isActive)),
+          );
+        },
+      };
+      const hotzone = document.querySelector(".edit-hotzone"),
+        editToggle = document.querySelector("#editToggle");
+      let hideTimeout = null;
+      hotzone.addEventListener("mouseenter", () => {
+        clearTimeout(hideTimeout);
+        editToggle.classList.add("show");
+      });
+      hotzone.addEventListener("mouseleave", () => {
+        hideTimeout = setTimeout(() => {
+          if (!editor.isActive) editToggle.classList.remove("show");
+        }, 400);
+      });
+      editToggle.addEventListener("mouseenter", () =>
+        clearTimeout(hideTimeout),
+      );
+      editToggle.addEventListener("mouseleave", () => {
+        hideTimeout = setTimeout(() => {
+          if (!editor.isActive) editToggle.classList.remove("show");
+        }, 400);
+      });
+      hotzone.addEventListener("click", () => editor.toggleEditMode());
+      editToggle.addEventListener("click", () => editor.toggleEditMode());
+      addEventListener("keydown", (e) => {
+        if (
+          (e.key === "e" || e.key === "E") &&
+          !e.target.closest?.('[contenteditable="true"]')
+        )
+          editor.toggleEditMode();
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "s") {
+          e.preventDefault();
+          exportHtml();
+        }
+      });
+
+      /* Match PA3's right-side navigation dots. */
+      const navDots = document.querySelector("#navDots");
+      slides.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.className = "nav-dot";
+        dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
+        dot.addEventListener("click", () => show(i));
+        navDots.appendChild(dot);
+      });
+
+      /* Add Swiss Modern reveals without polluting visible slide copy. */
+      slides.forEach((slide) =>
+        [...slide.children]
+          .filter(
+            (el) =>
+              !el.classList.contains("meta") && !el.classList.contains("mark"),
+          )
+          .forEach((el) => el.classList.add("reveal")),
+      );
+      show(index);
+    </script>
+  </body>
+</html>
