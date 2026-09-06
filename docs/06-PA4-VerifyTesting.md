@@ -74,12 +74,12 @@ IV duy nhất cần cân bằng thứ tự: Hệ thống, 2 mức (Baseline, Pro
 Kế hoạch chọn cân bằng đầy đủ (fully counter balanced) dạng AB/BA cho IV chính: "IV chính luôn cần được counter balance."
 
 ### 3.3. Số người tham gia tối thiểu
-Với 2 mức, cân bằng đầy đủ dạng AB/BA cần số người tham gia là bội số của 2 để mỗi thứ tự có số người bằng nhau. Đối chiếu với bảng phân bổ thực tế trong kế hoạch:
-* Thứ tự A → B (Baseline trước): P1, P3, P5 (3 người)
-* Thứ tự B → A (Prototype trước): P2, P4 (2 người)
+Với 2 mức, cân bằng đầy đủ dạng AB/BA cần số người tham gia là bội số của 2 để mỗi thứ tự có số người bằng nhau. Đối chiếu với bảng phân bổ thực tế trong kế hoạch (N = 6, P01–P06):
+* Thứ tự A → B (Baseline trước): P01, P02, P03, P04 (4 người)
+* Thứ tự B → A (Prototype trước): P05, P06 (2 người)
 
-Với N = 5 (số lẻ), việc cân bằng 3 và 2 là không thể tránh khỏi nếu giữ nguyên 5 người, vì 5 không chia hết cho 2. Đây không phải là lỗi thiết kế mà là hệ quả tất yếu của cỡ mẫu lẻ.
-**Kết luận:** Cần nhóm xác nhận có chấp nhận độ lệch nhỏ này hay không.
+Với N = 6 (số chẵn), về lý thuyết nhóm có thể chia đều 3 và 3, nhưng bảng phân bổ thực tế lại chia lệch 4 và 2. Đây không phải là hệ quả tất yếu của cỡ mẫu (vì N chẵn hoàn toàn chia hết cho 2), mà là một lựa chọn phân bổ thứ tự chưa cân bằng.
+**Kết luận:** Cần nhóm xác nhận có chấp nhận độ lệch 4/2 này hay đây là điều cần rebalance lại trước khi báo cáo.
 
 ### 3.4. Sắp xếp tổng thể
 Bảng phân bổ người tham gia theo thứ tự A/B đã có sẵn và rõ ràng trong kế hoạch (bảng Counterbalancing Matrix).
@@ -126,7 +126,7 @@ Hiện kế hoạch chưa có bước làm quen ngắn (ví dụ vài giây thao
 1. **Định nghĩa Target Population (Bước 1.2):** Nhóm có muốn bổ sung một câu phát biểu tổng quát duy nhất về đối tượng mục tiêu của nghiên cứu (ví dụ nhóm tuổi, mức độ quen thuộc công nghệ, có bắt buộc biết chơi cờ hay không), thay vì chỉ liệt kê đặc điểm từng người tham gia riêng lẻ?
 2. **Chuẩn hóa thiết bị (Bước 2.3, Control Variable):** Tất cả 5 hoặc 6 người tham gia có dùng chung một mẫu điện thoại do nhóm cung cấp hay mỗi người dùng điện thoại cá nhân của họ? Nếu dùng điện thoại cá nhân, nhóm có ghi nhận kích thước màn hình của từng người để đối chiếu sau này không?
 3. **Practice Trial và kiểm soát độ quen thuộc với Baseline (Bước 2.5 và Bước 5.4):** Nhóm có dự định thêm một bước làm quen ngắn (không tính giờ) trên cả hai hệ thống trước khi bắt đầu đo TCT chính thức hay không? Nếu không thêm, nhóm có cách nào khác để xử lý việc một số người tham gia đã biết freestylechess.com trong khi không ai biết Prototype trước đó?
-4. **Cỡ mẫu và cân bằng thứ tự (Bước 3.3):** Với 5 người, tỉ lệ thứ tự A trước B và B trước A là 3 và 2, không cân bằng tuyệt đối. Nhóm có dự định tuyển thêm 1 người (thành N = 6) để đạt tỉ lệ 3 và 3 hay giữ nguyên N = 5 như hiện tại?
+4. **Cỡ mẫu và cân bằng thứ tự (Bước 3.3):** Với N = 6 người, tỉ lệ thứ tự A trước B và B trước A hiện là 4 và 2, không cân bằng tuyệt đối dù N là số chẵn. Nhóm có dự định phân bổ lại thứ tự của 1 người (đổi từ A→B sang B→A hoặc ngược lại) để đạt tỉ lệ 3 và 3, hay giữ nguyên tỉ lệ 4/2 như hiện tại?
 5. **Số lượng trial cho mỗi Task (Bước 4):** Việc mỗi Task chỉ thực hiện 1 lần cho mỗi hệ thống có phải là quyết định chủ đích của nhóm (do đặc thù usability test theo kịch bản một lần) hay nhóm muốn cân nhắc thêm lần lặp?
 6. **Nội dung Debriefing (Bước 5.7):** Ở Bước 9 (kết thúc buổi test), nhóm có kịch bản cụ thể để giải thích lại mục tiêu thật của nghiên cứu và trả lời thắc mắc của người tham gia hay chưa, hay hiện tại dự định chỉ dừng ở mức cảm ơn và tặng quà?
 
@@ -147,7 +147,7 @@ Hiện kế hoạch chưa có bước làm quen ngắn (ví dụ vài giây thao
 | 2.4 | Biến ngẫu nhiên | Đạt |
 | 2.5 | Rà soát confound | Cần xác nhận (prior experience) |
 | 3.1 - 3.2 | IV và chiến lược cân bằng | Đạt |
-| 3.3 | Số người tham gia tối thiểu | Cần xác nhận (lệch 3/2) |
+| 3.3 | Số người tham gia tối thiểu | Cần xác nhận (lệch 4/2) |
 | 3.4 - 3.5 | Sắp xếp tổng thể và chi tiết | Đạt |
 | 4 | Block và Trial | Từng phần (1 trial/điều kiện) |
 | 5.1 - 5.3 | Tuyển người, đồng thuận, hướng dẫn | Đạt |

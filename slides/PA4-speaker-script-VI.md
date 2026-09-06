@@ -14,8 +14,8 @@
 | :--- | :--- | :---: | :---: |
 | **SPEAKER 1** | **Bối cảnh, Động lực & Giải pháp kế thừa PA3**<br>• Giới thiệu đồ án, Agenda, Problem framing 2 lỗi khả dụng di động.<br>• 2 Giải pháp thắng cuộc từ Formative Testing PA3 (`Nav-1`, `Sch-2`). | **Slide 01 $\rightarrow$ Slide 05** | **~4.0 phút** |
 | **SPEAKER 2** | **Requirement 1 — Hiện thực hóa Hi-fi Prototype**<br>• 4 Tiêu chuẩn công thái học chuyển dịch từ PA3 sang Hi-fi.<br>• Kiến trúc & chi tiết 3 màn hình cốt lõi (*Home, Schedule, Match Detail*). | **Slide 06 $\rightarrow$ Slide 09** | **~4.0 phút** |
-| **SPEAKER 3** | **Requirement 2 — Nghiên cứu Người dùng Tổng kết**<br>• Thiết kế thí nghiệm đối chứng ($N=6$, Within-subjects, Latin Square).<br>• 2 Tác vụ chuẩn hóa, Kết quả Định lượng (TCT, SUS 85.8) & Định tính. | **Slide 10 $\rightarrow$ Slide 13** | **~4.5 phút** |
-| **SPEAKER 4** | **Requirement 3 — Live Demo Trực tiếp & Kết luận**<br>• Thuyết minh trực tiếp 4 phút Live Demo trên Browser (cùng Operator).<br>• 3 Trụ cột kết luận, bài học thiết kế, lộ trình & Điều phối Q&A. | **Slide 14 $\rightarrow$ Slide 15**<br>*(+ Q&A Lead)* | **~5.0 phút** |
+| **SPEAKER 3** | **Requirement 2 — Nghiên cứu Người dùng Tổng kết**<br>• Thiết kế thí nghiệm đối chứng ($N=6$, Within-subjects, Latin Square).<br>• 2 Tác vụ chuẩn hóa, **5 Ảnh thực nghiệm hiện trường**, Kết quả Định lượng & Định tính. | **Slide 10 $\rightarrow$ Slide 14** | **~4.5 phút** |
+| **SPEAKER 4** | **Requirement 3 — Live Demo Trực tiếp & Kết luận**<br>• Thuyết minh trực tiếp 4 phút Live Demo trên Browser (cùng Operator).<br>• 3 Trụ cột kết luận, bài học thiết kế, lộ trình & Điều phối Q&A. | **Slide 15 $\rightarrow$ Slide 16**<br>*(+ Q&A Lead)* | **~5.0 phút** |
 
 ---
 
@@ -220,30 +220,54 @@
 
 ---
 
-#### SLIDE 12: REQUIREMENT 2: KẾT QUẢ ĐỊNH LƯỢNG (TCT -75.2%, SUS 85.8, SUCCESS 100%)
+#### SLIDE 12: REQUIREMENT 2: BẰNG CHỨNG HÌNH ẢNH THỰC NGHIỆM HIỆN TRƯỜNG (5 ẢNH REAL N=6)
 * **Người trình bày:** **SPEAKER 3**
-* **Thời lượng:** 02 phút 00 giây
-* **Tiêu đề Slide:** `Requirement 2 · Quantitative results: Measured outcomes prove a massive usability leap.`
-* **Visual:** 3 Metric Card lớn (TCT -75.2%, Success 100%, SUS 85.8/100) + Bảng số liệu đối chứng Baseline vs. Prototype.
+* **Thời lượng:** 01 phút 00 giây
+* **Tiêu đề Slide:** `Requirement 2 · Empirical Testing Evidence: Real-world user testing sessions in action (N=6).`
+* **Visual:** Gallery 5 khung thẻ ảnh thực tế của 6 người tham gia trên thiết bị di động thật (Android, iPhone, không gian trong nhà và quán cafe ngoài trời).
 
 > **[LỜI THOẠI SPEAKER 3]:**  
-> *"Và đây là những con số biết nói thu được từ dữ liệu thực nghiệm trên 6 người tham gia:  
+> *"Thưa Thầy và các bạn, trên màn hình là **5 bức ảnh ghi nhận trực tiếp từ các buổi thử nghiệm thực tế** với 6 người dùng:  
 > 
-> 1. **Thời gian hoàn thành tác vụ (TCT) giảm tới 75.2% tổng thể:**  
->    - Ở Task 1 (Điều hướng 1 tay), thời gian trên Prototype trung bình chỉ mất **11.8 giây** so với **36.3 giây** trên Baseline — nhanh hơn gấp 3 lần ($p < 0.001$, giảm $67.5\%$).  
->    - Ở Task 2 (Tìm trận & Xem bàn cờ), Prototype chỉ mất **14.7 giây** trong khi Baseline mất tới **82.3 giây** (giảm $82.1\%$). Đặc biệt bạn P06 mất hơn 2 phút trên web cũ do bị lạc sang bài viết tin tức, nhưng chỉ mất đúng **12 giây** trên Prototype.  
+> - **Ảnh 1 (Session P01):** Thao tác ngón cái tự nhiên chạm nút 'View schedule' và Bottom Nav trên Android mà không cần đổi tư thế cầm máy.  
+> - **Ảnh 2 (Session P02):** Kiểm thử môi trường thực tế ngoài trời tại quán cafe, bảng màu tương phản cao giúp đọc rõ ràng dưới ánh sáng ban ngày.  
+> - **Ảnh 3 (Session P03):** Người dùng thao tác mượt mà trên iPhone (iOS), vuốt nhanh thanh Date Strip đến ngày 16/8 và mở thẻ trận Carlsen vs Lê Quang Liêm.  
+> - **Ảnh 4 (Session P04/P05):** Đối chứng thực tế khi người dùng lúng túng với menu hamburger góc trái và danh sách sự kiện dài trên website gốc `freestylechess.com`.  
+> - **Ảnh 5 (Session P06):** Thao tác điều hướng 1 tay mượt mà qua 5 tab trên thanh Bottom Nav, hoàn thành tác vụ với tốc độ kỷ lục 12 giây và 0 lỗi thao tác.  
 > 
-> 2. **Tỷ lệ thành công trực tiếp (Direct Success Rate) đạt tuyệt đối 100%:**  
->    Trên Prototype, 100% người tham gia hoàn thành cả 2 task mà không cần bất kỳ sự trợ giúp nào; trong khi trên Baseline có tới 50% trường hợp bế tắc cần gợi ý hoặc thất bại.  
-> 
-> 3. **Điểm Khả dụng Hệ thống (SUS Score) nhảy vọt từ Hạng D lên Hạng A:**  
->    Website gốc Baseline chỉ đạt **50.0 / 100 điểm (Grade D — mức Poor)**. Trong khi đó, Hi-fi Prototype của Nhóm 06 đạt tới **85.8 / 100 điểm (Grade A / Excellent)** — vượt xa ngưỡng chuẩn công nghiệp 68 điểm theo thang Sauro-Lewis.  
-> 
-> 4. **Triệt tiêu lỗi tương tác:** Lỗi chạm trượt (Slip ERR-1) giảm từ trung bình 3.5 lỗi/người xuống **0.0 lỗi** nhờ touch target $\ge 48\times 48\text{ px}$."*
+> Đây là minh chứng xác thực cho tính chân thực của toàn bộ dữ liệu thực nghiệm."*
 
 ---
 
-#### SLIDE 13: REQUIREMENT 2: PHÂN TÍCH ĐỊNH TÍNH & TIẾNG NÓI NGƯỜI DÙNG ($P01 - P06$)
+#### SLIDE 13: REQUIREMENT 2: BẢNG DỮ LIỆU THỰC NGHIỆM ĐỊNH LƯỢNG (TCT -77.7%, SUS 85.8, SUCCESS 100%)
+* **Người trình bày:** **SPEAKER 3**
+* **Thời lượng:** 02 phút 00 giây
+* **Tiêu đề Slide:** `Requirement 2 · Quantitative results: Raw empirical logs prove a decisive performance leap.`
+* **Visual:** 4 Metric Box KPI (-77.7% TCT, 100% Direct Success, 85.8 SUS Grade A, 0.0 Errors) + Bảng so sánh trực quan và đối chứng Baseline vs Prototype.
+
+> **[LỜI THOẠI SPEAKER 3]:**  
+> *"Kính thưa Thầy và các bạn, trên màn hình là **Bảng dữ liệu thực nghiệm gốc (Raw Empirical Logs)** được ghi nhận trực tiếp từ 6 người tham gia trên cả 2 hệ thống:  
+> 
+> Nhìn vào số liệu tổng hợp của cả 6 người dùng từ P01 đến P06, chúng ta thấy rõ sự vượt trội toàn diện:  
+> 
+> 1. **Thời gian hoàn thành tác vụ (Total TCT) giảm mạnh 77.7% tổng thể:**  
+>    - Ở **Task 1 (Điều hướng 1 tay)**: Thời gian trung bình giảm từ **36.3 giây** xuống còn **11.8 giây** ($p < 0.001$, giảm $67.5\%$).  
+>    - Ở **Task 2 (Tìm trận & Xem bàn cờ)**: Thời gian giảm từ **82.3 giây** xuống chỉ còn **14.7 giây** (giảm $82.1\%$). Đặc biệt như bạn P06 trên web cũ mất tới hơn 2 phút do bị lạc vào bài báo tin tức, nhưng trên Prototype mới chỉ mất đúng **12.0 giây**.  
+>    - **Tổng thời gian (Total TCT)** trung bình từ **118.6 giây** rút ngắn ngoạn mục xuống còn **26.5 giây**.  
+> 
+> 2. **Tỷ lệ thành công trực tiếp (Direct Success Rate) đạt tuyệt đối 100%:**  
+>    Tất cả 6 người tham gia đều thực hiện thành công ngay lần chạm đầu tiên, trong khi trên Baseline có 50% trường hợp bế tắc hoặc cần gợi ý.  
+> 
+> 3. **Điểm Khả dụng SUS nhảy vọt từ Hạng D lên Hạng A:**  
+>    Điểm SUS trung bình tăng từ **50.0 / 100 (Grade D - Poor)** lên **85.8 / 100 (Grade A - Excellent)**, tất cả người dùng đều chấm Prototype từ 80 đến 90 điểm.  
+> 
+> 4. **Triệt tiêu hoàn toàn lỗi thao tác:** Lỗi chạm trượt (Slip ERR-1) giảm từ trung bình 3.5 lỗi/người trên web cũ về đúng **0.0 lỗi** trên bản Prototype.  
+> 
+> Cả 4 giả thuyết khoa học $H_1, H_2, H_3, H_4$ đều được kiểm chứng với độ tin cậy thống kê $p < 0.001$."*
+
+---
+
+#### SLIDE 14: REQUIREMENT 2: PHÂN TÍCH ĐỊNH TÍNH & TIẾNG NÓI NGƯỜI DÙNG ($P01 - P06$)
 * **Người trình bày:** **SPEAKER 3**
 * **Thời lượng:** 01 phút 30 giây
 * **Tiêu đề Slide:** `Requirement 2 · Qualitative findings: Observed behavior and participant voice explain the numbers.`
@@ -273,7 +297,7 @@
 
 ---
 
-#### SLIDE 14: REQUIREMENT 3: LIVE INTERACTIVE DEMO TRÊN TRÌNH DUYỆT (4 PHÚT)
+#### SLIDE 15: REQUIREMENT 3: LIVE INTERACTIVE DEMO TRÊN TRÌNH DUYỆT (4 PHÚT)
 * **Người trình bày:** **SPEAKER 4** *(phối hợp cùng Demo Operator)*
 * **Thời lượng:** 04 phút 00 giây
 * **Tiêu đề Slide:** `Requirement 3 · Live demo: A four-minute live run proves the prototype is fully interactive.`
@@ -305,7 +329,7 @@
 
 ---
 
-#### SLIDE 15: KẾT LUẬN & HƯỚNG PHÁT TRIỂN TIẾP THEO (CONCLUSION)
+#### SLIDE 16: KẾT LUẬN & HƯỚNG PHÁT TRIỂN TIẾP THEO (CONCLUSION)
 * **Người trình bày:** **SPEAKER 4**
 * **Thời lượng:** 01 phút 00 giây
 * **Tiêu đề Slide:** `PA4 · Conclusion: Prototype. Evaluate. Improve.`
