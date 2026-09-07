@@ -2907,6 +2907,29 @@
         margin: 0 auto 22px;
       }
 
+      .hifi-showcase .device-phone {
+        width: 290px;
+        height: 623px;
+        padding: 9px;
+        border-radius: 46px;
+      }
+
+      .hifi-showcase .device-phone .hifi-phone {
+        border-radius: 37px;
+      }
+
+      .hifi-showcase .device-island {
+        top: 14px;
+        width: 82px;
+        height: 20px;
+      }
+
+      .hifi-showcase .device-homebar {
+        bottom: 13px;
+        width: 78px;
+        height: 4px;
+      }
+
       .hifi-nav-grid {
         display: grid;
         grid-template-columns: repeat(2, 270px);
@@ -3438,7 +3461,7 @@
         border-radius: 6px;
         font-family: var(--font-display);
         font-weight: 800;
-        font-size: 11px;
+        font-size: 13px;
         letter-spacing: 0.05em;
         text-transform: uppercase;
         z-index: 2;
@@ -3475,7 +3498,7 @@
       .testing-info h4 {
         margin: 0 0 4px;
         font-family: var(--font-display);
-        font-size: 16px;
+        font-size: 22px;
         font-weight: 800;
         color: #1c1712;
         line-height: 1.15;
@@ -3483,7 +3506,7 @@
 
       .testing-info p {
         margin: 0;
-        font-size: 12.5px;
+        font-size: 18px;
         color: var(--text-secondary);
         line-height: 1.3;
       }
@@ -3496,7 +3519,7 @@
         padding-top: 6px;
         border-top: 1px dashed var(--border-color);
         font-family: var(--font-mono);
-        font-size: 11px;
+        font-size: 14px;
         font-weight: 700;
         color: var(--text-muted);
       }
@@ -4135,7 +4158,7 @@
           data-note="Bằng chứng thực nghiệm sinh động nhất là các buổi usability testing trực tiếp trên thiết bị di động thật. 6 bức ảnh ghi lại thực tế 6 phiên kiểm thử: từ việc cầm máy 1 tay thao tác trong Vùng tự nhiên của ngón cái trên Android (P01), kiểm thử bối cảnh ngoài trời tại quán cafe (P02), thao tác vuốt Date Strip chọn ngày 16/8 trên iPhone (P03), đối chứng người dùng gặp khó khăn trên website gốc với menu góc trái (P04), cho đến phiên trải nghiệm mượt mà Bottom Nav (P05) và thao tác kỷ lục 12s không lỗi của P06."
         >
           <p class="kicker">Requirement 2 · Empirical Testing Evidence</p>
-          <h2>Real-world user testing sessions in action (N=6).</h2>
+          <h2>Real-world user testing sessions in action</h2>
           <div class="testing-grid">
             <article class="testing-card">
               <div class="testing-photo-wrapper">
@@ -4154,7 +4177,7 @@
                   </p>
                 </div>
                 <div class="testing-meta">
-                  <span>Android · Handheld</span><span>Task 1 Pass</span>
+                  <span>Android · Handheld</span>
                 </div>
               </div>
             </article>
@@ -4175,7 +4198,7 @@
                   </p>
                 </div>
                 <div class="testing-meta">
-                  <span>Android · Outdoor</span><span>Task 1 &amp; 2 Pass</span>
+                  <span>Android · Outdoor</span>
                 </div>
               </div>
             </article>
@@ -4196,7 +4219,7 @@
                   </p>
                 </div>
                 <div class="testing-meta">
-                  <span>iPhone · Desktop Lab</span><span>Task 2: 18.2s</span>
+                  <span>iPhone · Desktop Lab</span>
                 </div>
               </div>
             </article>
@@ -4216,7 +4239,7 @@
                   </p>
                 </div>
                 <div class="testing-meta">
-                  <span>Android · Outdoor</span><span>Task 1 &amp; 2 Pass</span>
+                  <span>Android · Outdoor</span>
                 </div>
               </div>
             </article>
@@ -4237,7 +4260,7 @@
                   </p>
                 </div>
                 <div class="testing-meta">
-                  <span>Android · Session 5</span><span>TCT: 27.8s</span>
+                  <span>Android · Session 5</span>
                 </div>
               </div>
             </article>
@@ -4257,7 +4280,7 @@
                   </p>
                 </div>
                 <div class="testing-meta">
-                  <span>Android · Portrait</span><span>TCT: 24.0s (Top)</span>
+                  <span>Android · Portrait</span>
                 </div>
               </div>
             </article>
@@ -4456,16 +4479,16 @@
           html: `<p class="kicker">PA4 · Implementation criteria</p><h2>Four findings became four product constraints.</h2><div class="commit"><article><div class="n">01</div><div><h3>48×48 px targets</h3><p>WCAG AAA compliant touch areas eliminate slip errors.</p></div></article><article><div class="n">02</div><div><h3>Explicit Back</h3><p>Preserves scroll position and date filter context.</p></div></article><article><div class="n">03</div><div><h3>Search + filters</h3><p>Instant player retrieval &amp; Live/Upcoming status chips.</p></div></article><article><div class="n">04</div><div><h3>Visible feedback</h3><p>Active indicators and transitions under 250 ms.</p></div></article></div><div class="meta"><span>Evidence translated into behavior</span><span>06 / 15</span></div>`,
         },
         {
-          note: "Phạm vi hi-fi prototype gồm ba màn hình kết nối thành một user journey hoàn chỉnh được xây dựng bằng React, TypeScript và Vite: Home tạo điểm vào, Schedule hỗ trợ tìm trận và lọc ngày, Match Detail cung cấp thông tin kỳ thủ và bàn cờ 8x8.",
-          html: `<p class="kicker">Requirement 1 · Prototype Scope</p><h2>One complete journey across three screens.</h2><div class="hifi-overview"><div><iframe class="hifi-phone small" data-image="images/hifi-home.jpg" title="Hi-fi Home screen"></iframe><h3>Home</h3><p>Hero banner, stats &amp; bottom navigation</p></div><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-overview.jpg" title="Hi-fi Schedule screen"></iframe><h3>Schedule</h3><p>Date strip, search, chips &amp; match cards</p></div><div><iframe class="hifi-phone small" data-image="images/hifi-match-detail.jpg" title="Hi-fi Match Detail screen"></iframe><h3>Match Detail</h3><p>Player banner, PGN &amp; 8×8 chessboard</p></div></div><div class="meta"><span>Home → Schedule → Match Detail</span><span>07 / 15</span></div>`,
+          note: "Thanh navigation cố định là cổng chính của prototype. Màn hình Home cho thấy năm destination luôn nằm trong vùng ngón cái; màn hình More menu thể hiện các destination phụ được mở như action sheet mà vẫn giữ nguyên ngữ cảnh trang hiện tại.",
+          html: `<p class="kicker">Requirement 1 · Navigation</p><h2>Navigation within thumb reach</h2><div class="hifi-state-grid hifi-showcase" style="grid-template-columns: repeat(2, 1fr); max-width: 880px; margin: 0 auto;"><div><iframe class="hifi-phone small" data-image="images/hifi-home.jpg" title="Hi-fi Home with fixed bottom navigation"></iframe><strong>Home</strong><span>Five primary destinations remain visible.</span></div><div><iframe class="hifi-phone small" data-image="images/hifi-home-more-menu.jpg" title="Hi-fi Home More menu"></iframe><strong>More menu</strong><span>Secondary actions open without losing context.</span></div></div><div class="meta"><span>Hi-fi navigation · Home and More menu</span><span>07 / 15</span></div>`,
         },
         {
-          note: "Home và Schedule đưa giải pháp vào thực tế: Home giữ điều hướng trong tầm với ngón cái và mở More menu mượt mà; Schedule hỗ trợ thanh Date Strip cuộn ngang, Date Picker nhảy ngày xa, và thẻ trận đấu mở rộng.",
-          html: `<p class="kicker">Requirement 1 · Home &amp; Schedule</p><h2>Persistent navigation meets rapid date retrieval.</h2><div class="hifi-state-grid"><div><iframe class="hifi-phone small" data-image="images/hifi-home.jpg" title="Home screen"></iframe><strong>Home &amp; Nav</strong><span>Fixed 5-tab bar in natural reach zone</span></div><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-overview.jpg" title="Schedule browse & filter"></iframe><strong>Date Strip</strong><span>Smooth horizontal swipe &amp; status chips</span></div><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-expanded-match.jpg" title="Expanded match card"></iframe><strong>Match Card</strong><span>A match card expanded with event infomation</span></div></div><div class="meta"><span>Hi-fi solutions in action</span><span>08 / 15</span></div>`,
+          note: "Schedule hỗ trợ toàn bộ hành trình tìm trận qua bốn trạng thái. Người dùng bắt đầu từ danh sách và Date Strip, cuộn để duyệt ngày, mở rộng Match Card để xem thông tin tại chỗ, hoặc dùng Date Picker để nhảy nhanh đến một ngày ở xa.",
+          html: `<p class="kicker">Requirement 1 · Schedule</p><h2>Detailed schedule screens</h2><div class="hifi-state-grid hifi-showcase" style="grid-template-columns: repeat(4, 1fr); gap: 18px;"><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-overview.jpg" title="Initial Schedule screen"></iframe><strong>Initial view</strong><span>Date strip, search, filters and match cards.</span></div><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-overview-2.jpg" title="Scrolled Schedule screen"></iframe><strong>Match list</strong><span>List of match card with players and scores </span></div><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-expanded-match.jpg" title="Expanded Schedule match card"></iframe><strong>Expand match</strong><span>Reveal matchup details in the current context.</span></div><div><iframe class="hifi-phone small" data-image="images/hifi-schedule-date-picker.jpg" title="Schedule date picker"></iframe><strong>Date picker</strong><span>Jump directly to a distant date.</span></div></div><div class="meta"><span>Hi-fi schedule · Browse, expand, and jump to a date</span><span>08 / 15</span></div>`,
         },
         {
-          note: "Match Detail hoàn tất task flow. Nút Back ở đầu trang giúp quay lại Schedule mà không mất ngày đang chọn. Player banner hiển thị tên, Elo, quốc kỳ, tỷ số. Bàn cờ 8×8 tương tác hiển thị đúng thế trận thực tế.",
-          html: `<div class="detail-hifi"><div><p class="kicker">Requirement 1 · Match Detail</p><h2>Preserves context and supports deep game analysis.</h2><ul><li>Explicit Back with preserved date and scroll position.</li><li>Player identity, Elo, flag, live score and status.</li><li>Interactive 8×8 chessboard with move notation.</li><li>Fast 60fps responsive layout on mobile viewport.</li></ul><div class="route mono">Route: #/schedule/:matchId</div></div><iframe class="hifi-phone" data-image="images/hifi-match-detail.jpg" title="Hi-fi Match Detail"></iframe></div><div class="meta"><span>Hi-fi screen 03 · Match Detail</span><span>09 / 15</span></div>`,
+          note: "Match Detail hoàn tất task flow với hai trạng thái trọng tâm. Màn hình chính giữ thông tin kỳ thủ, Elo, quốc kỳ, tỷ số và các game; khi chọn một game, người dùng chuyển sang bàn cờ 8×8 có thể tương tác để theo dõi nước đi thực tế.",
+          html: `<p class="kicker">Requirement 1 · Match Detail</p><h2>Match context and interactive game analysis</h2><div class="hifi-state-grid hifi-showcase" style="grid-template-columns: repeat(2, 1fr); max-width: 960px; margin: 0 auto; gap: 72px;"><div><iframe class="hifi-phone small" data-image="images/hifi-match-detail.jpg" title="Match Detail main screen"></iframe><strong>Match overview</strong><span>Players, score, games and contextual Back action.</span></div><div><iframe class="hifi-phone small" data-image="images/hifi-match-detail-2.jpg" title="Interactive chessboard for a selected game"></iframe><strong>Selected game</strong><span>Interactive 8×8 board with move notation.</span></div></div><div class="meta"><span>Hi-fi match detail · Overview and selected game board</span><span>09 / 15</span></div>`,
         },
         {
           note: "Phần thứ hai của PA4 là summative user study. Nhóm so sánh prototype với mobile website hiện tại của freestylechess.com. Sáu participants sử dụng cả hai system theo thiết kế within-subjects. Thứ tự AB và BA được xen kẽ Latin Square để loại bỏ hoàn toàn learning effect, toàn bộ session được quay video lưu trữ trên YouTube.",
@@ -4477,7 +4500,7 @@
         },
         {
           note: "Bằng chứng thực nghiệm sinh động nhất là các buổi usability testing trực tiếp trên thiết bị di động thật. 6 bức ảnh ghi lại thực tế 6 phiên kiểm thử: từ việc cầm máy 1 tay thao tác trong Vùng tự nhiên của ngón cái trên Android (P01), kiểm thử bối cảnh ngoài trời tại quán cafe (P02), thao tác vuốt Date Strip chọn ngày 16/8 trên iPhone (P03), đối chứng người dùng gặp khó khăn trên website gốc với menu góc trái (P04), cho đến phiên trải nghiệm mượt mà Bottom Nav (P05) và thao tác kỷ lục 12s không lỗi của P06.",
-          html: `<p class="kicker">Requirement 2 · Empirical Testing Evidence</p><h2 style="margin-bottom: 16px;">Real-world user testing sessions in action (N=6).</h2><div class="testing-grid"><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P01</span><img src="images/testing-01-home-thumb.png" alt="Participant P01 testing one-handed reach on Home screen"></div><div class="testing-info"><div><h4>One-Handed Reach</h4><p>Thumb easily activates "View schedule" CTA and Bottom Nav without shifting grip.</p></div><div class="testing-meta"><span>Android · Handheld</span><span>Task 1 Pass</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P02</span><img src="images/testing-02-outdoor-session.png" alt="Participant P02 testing prototype in outdoor cafe setting"></div><div class="testing-info"><div><h4>Outdoor Field Test</h4><p>Natural daylight test on live Vercel URL; warm palette ensures instant readability.</p></div><div class="testing-meta"><span>Android · Outdoor</span><span>Task 1 &amp; 2 Pass</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P03</span><img src="images/testing-03-ios-datestrip.png" alt="Participant P03 testing Date Strip on iPhone"></div><div class="testing-info"><div><h4>iOS Date Strip</h4><p>Smooth swipe to 16 Aug and rapid match expansion (Carlsen vs Lê Quang Liêm).</p></div><div class="testing-meta"><span>iPhone · Desktop Lab</span><span>Task 2: 18.2s</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P04</span><img src="images/testing-04-baseline-freestyle.png" alt="Participant P04 testing schedule view"></div><div class="testing-info"><div><h4>Day-by-Day View</h4><p>Linear date listing optimized small match inspection without deep scrolling.</p></div><div class="testing-meta"><span>Android · Outdoor</span><span>Task 1 &amp; 2 Pass</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P05</span><img src="images/testing-05-bottom-nav-vertical.png" alt="Participant P05 testing 5-tab bottom navigation"></div><div class="testing-info"><div><h4>Bottom Nav Flow</h4><p>Instant tab switching via persistent 5-tab bar with zero slip errors (Order B &rarr; A).</p></div><div class="testing-meta"><span>Android · Session 5</span><span>TCT: 27.8s</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P06</span><img src="images/testing-06-p06.png" alt="Participant P06 testing prototype session"></div><div class="testing-info"><div><h4>Direct Task Mastery</h4><p>Mastered in 30s; completed Task 2 in 12.0s (vs 120s+ on baseline) with 1 hand.</p></div><div class="testing-meta"><span>Android · Portrait</span><span>TCT: 24.0s (Top)</span></div></div></article></div><div class="meta"><span>Empirical proof · In-situ photo evidence</span><span>12 / 17</span></div>`,
+          html: `<p class="kicker">Requirement 2 · Empirical Testing Evidence</p><h2 style="margin-bottom: 16px;">Real-world user testing sessions in action (N=6).</h2><div class="testing-grid"><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P01</span><img src="images/testing-01-home-thumb.png" alt="Participant P01 testing one-handed reach on Home screen"></div><div class="testing-info"><div><h4>One-Handed Reach</h4><p>Thumb easily activates "View schedule" CTA and Bottom Nav without shifting grip.</p></div><div class="testing-meta"><span>Android · Handheld</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P02</span><img src="images/testing-02-outdoor-session.png" alt="Participant P02 testing prototype in outdoor cafe setting"></div><div class="testing-info"><div><h4>Outdoor Field Test</h4><p>Natural daylight test on live Vercel URL; warm palette ensures instant readability.</p></div><div class="testing-meta"><span>Android · Outdoor</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P03</span><img src="images/testing-03-ios-datestrip.png" alt="Participant P03 testing Date Strip on iPhone"></div><div class="testing-info"><div><h4>iOS Date Strip</h4><p>Smooth swipe to 16 Aug and rapid match expansion (Carlsen vs Lê Quang Liêm).</p></div><div class="testing-meta"><span>iPhone · Desktop Lab</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P04</span><img src="images/testing-04-baseline-freestyle.png" alt="Participant P04 testing schedule view"></div><div class="testing-info"><div><h4>Day-by-Day View</h4><p>Linear date listing optimized small match inspection without deep scrolling.</p></div><div class="testing-meta"><span>Android · Outdoor</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P05</span><img src="images/testing-05-bottom-nav-vertical.png" alt="Participant P05 testing 5-tab bottom navigation"></div><div class="testing-info"><div><h4>Bottom Nav Flow</h4><p>Instant tab switching via persistent 5-tab bar with zero slip errors (Order B &rarr; A).</p></div><div class="testing-meta"><span>Android · Session 5</span></div></div></article><article class="testing-card"><div class="testing-photo-wrapper"><span class="testing-badge proto">Prototype · P06</span><img src="images/testing-06-p06.png" alt="Participant P06 testing prototype session"></div><div class="testing-info"><div><h4>Direct Task Mastery</h4><p>Mastered in 30s; completed Task 2 in 12.0s (vs 120s+ on baseline) with 1 hand.</p></div><div class="testing-meta"><span>Android · Portrait</span></div></div></article></div><div class="meta"><span>Empirical proof · In-situ photo evidence</span><span>12 / 17</span></div>`,
         },
         {
           note: 'Kết quả định lượng đối chứng trên 6 người tham gia chứng minh sự vượt trội toàn diện: Thời gian hoàn thành tác vụ (TCT) giảm từ 118.6s xuống 26.5s (giảm 77.7% tổng thể). Tỷ lệ thành công trực tiếp đạt 100%. Lỗi chạm trượt giảm từ 3.5 về 0.0. Điểm SUS tăng 35.8 điểm từ 50.0 (Grade D) lên 85.8 (Grade A / Excellent). Cả 4 giả thuyết H1-H4 đều được kiểm chứng thành công với p < 0.001. Có thể bấm nút "View Per-Participant Raw Logs" để mở bảng chi tiết từng người dùng P01-P06 khi cần đối soát số liệu thô trong phần Q&A.',
@@ -4486,10 +4509,6 @@
         {
           note: "Tiếng nói người dùng củng cố cho các con số: P01 [0:41, 1:03] khen Bottom Nav vừa vặn ngón cái, P02 [3:10] đánh giá cao thông tin cô đọng không cần cuộn xa, P04 [2:22] thích xem lịch theo ngày, P06 chỉ mất 12s trên app mới so với hơn 2 phút trên web cũ. Nhóm ghi nhận góp ý cải tiến: tự động nhảy tháng khi cuộn ngày (P01, P03).",
           html: `<p class="kicker">Requirement 2 · Qualitative findings</p><h2>Observed behavior and participant voice explain the numbers.</h2><div class="findings"><div class="evidence-card" style="background:#fff; border:2.5px solid #1c1712; border-radius:18px; padding:30px 28px; box-shadow:6px 6px 0 #1c1712; display:flex; flex-direction:column; justify-content:space-between; height:590px;"><div><div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;"><span class="tag tag--filled" style="font-size:19px; padding:8px 22px; background:var(--accent); color:#fff; border:none; border-radius:4px; font-weight:850; letter-spacing:0.08em;">N=6 RECORDED SESSIONS</span><span style="font-family:var(--font-display); font-size:19px; font-weight:850; color:var(--accent);">45° CAMERA · YOUTUBE</span></div><h3 style="font-size:36px; font-weight:850; line-height:1.15; margin-bottom:20px; color:#1c1712;">Qualitative Thematic Clusters</h3><div style="display:flex; flex-direction:column; gap:18px;"><div style="border-left:5.5px solid var(--accent); padding-left:16px;"><strong style="display:block; font-size:24px; font-weight:850; color:#1c1712; margin-bottom:5px;">Theme 1: One-Handed Reach Zone</strong><p style="font-size:20px; color:#3a322b; margin:0; line-height:1.45; font-weight:500;">Fixed Bottom Nav placed in Natural Reach Zone; completely eliminated hand gymnastics across all 6 users (P01, P03, P05).</p></div><div style="border-left:5.5px solid #1c1712; padding-left:16px;"><strong style="display:block; font-size:24px; font-weight:850; color:#1c1712; margin-bottom:5px;">Theme 2: Rapid Date Filtering</strong><p style="font-size:20px; color:#3a322b; margin:0; line-height:1.45; font-weight:500;">Date Strip + quick Date Picker reduced match retrieval by &gt;67s vs legacy event news feed (P02, P04, P06).</p></div><div style="border-left:5.5px solid #2e9e5b; padding-left:16px;"><strong style="display:block; font-size:24px; font-weight:850; color:#1c1712; margin-bottom:5px;">Theme 3: In-Card Match Density</strong><p style="font-size:20px; color:#3a322b; margin:0; line-height:1.45; font-weight:500;">Instant player ratings, matchup status and 8×8 board gateway satisfied competitive chess followers (100% positive).</p></div></div></div><div style="display:flex; align-items:center; justify-content:space-between; border-top:1.5px solid rgba(28,23,18,0.12); padding-top:14px; margin-top:8px;"><span style="font-family:var(--font-display); font-size:17px; font-weight:850; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em;">Counterbalanced Latin Square</span><span style="font-family:var(--font-display); font-size:17px; font-weight:850; color:var(--accent);">6/6 Video Proofs Logged</span></div></div><div class="quotes"><article class="quote"><blockquote data-edit-key="quote-1">“Web cũ giấu menu ở tít trên góc trái khiến mình phải dùng 2 tay. Ở app mới, thanh bar nằm sẵn dưới ngón cái, có cả icon và chữ giúp bấm được ngay.”</blockquote><p data-edit-key="quote-1-id">Participant P01 [0:41] · Right-handed mobile user</p></article><article class="quote"><blockquote data-edit-key="quote-2">“Bố cục thông tin ở bản mới cô đọng, nhiều thông tin nhưng không phải cuộn xa. Xem theo từng ngày tối ưu hơn xem sự kiện chung chung.”</blockquote><p data-edit-key="quote-2-id">Participant P02 [3:10] &amp; P04 [2:22] · Chess followers</p></article><article class="quote"><h3 data-edit-key="next-improvement">Next Iteration: Auto-month Threshold &amp; Direct Date Input</h3><p style="font-size:17px; margin-top:4px; color:var(--text-secondary);">Automatically update the month header when scrolling across month boundaries (P01 [4:12], P03 [6:54]) and allow direct day/month/year input (P06).</p></article></div></div><div class="meta"><span>Qualitative evidence &amp; design implications</span><span>14 / 16</span></div>`,
-        },
-        {
-          note: "Live demo là bằng chứng quan trọng của PA4 (Requirement 3). Trong khoảng bốn phút, nhóm sẽ mở Home, vào Schedule bằng bottom nav một tay, chọn ngày 16 tháng 8 trên Date Strip, tìm trận Carlsen vs Lê Quang Liêm, sau đó mở Match Detail và tương tác bàn cờ 8x8 thực tế.",
-          html: `<p class="kicker">Requirement 3 · Live demo</p><h2>A four-minute live run proves the prototype is fully interactive.</h2><div class="commit"><article><div class="n">01</div><div><h3>Start at Home (0-45s)</h3><p>Establish real content &amp; test 1-handed bottom nav.</p></div></article><article><div class="n">02</div><div><h3>Date Strip &amp; Search (45-105s)</h3><p>Swipe to 16 Aug, test Date Picker &amp; instant search.</p></div></article><article><div class="n">03</div><div><h3>Open Match Detail (105-180s)</h3><p>Inspect Carlsen vs Liêm &amp; interact with 8×8 board.</p></div></article><article><div class="n">04</div><div><h3>Contextual Back (180-240s)</h3><p>Return to Schedule without losing scroll state.</p></div></article></div><div class="meta"><span>Browser demo · React + Vite runtime</span><span>15 / 17</span></div>`,
         },
         {
           kind: "conclusion",
